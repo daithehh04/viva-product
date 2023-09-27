@@ -35,7 +35,9 @@ query ($language: LanguageCodeEnum!) {
   page(id: "cG9zdDoxMTIx") {
     translation(language:$language){
       checkvisa {
+      button
       banner {
+        button
         heading
         nationalchoice
         countrychoice
@@ -50,6 +52,7 @@ query ($language: LanguageCodeEnum!) {
         }
       }
       bestseller {
+        title
         bestsellertour {
           ... on Tours {
             translation(language:$language){
@@ -76,6 +79,8 @@ query ($language: LanguageCodeEnum!) {
         }
       }
       infodetail {
+        button
+        buttonapply
         contactus
         whyapply
         backgroundpc{

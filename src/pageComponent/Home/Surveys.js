@@ -47,13 +47,12 @@ function Surveys({ data }) {
       <div className='flex content pt-[6.38vw] max-md:flex-col max-md:pt-[14.93vw]'>
         <div className='w-[43vw] max-md:w-full'>
           <h2 className='heading-1'>{data?.title}</h2>
-          <p className='mt-[1.5vw] text-[1.125vw] max-md:text-[3.73vw]'>{data?.text}</p>
+          <p className='mt-[1.5vw] text-[1.125vw] text-textColor opacity-70 leading-[150%] max-md:text-[3.73vw]'>
+            {data?.text}
+          </p>
           <ul className='grid grid-cols-3 gap-x-[3.75vw] gap-y-[2vw] mt-[2vw] max-md:mt-[6.93vw] max-md:gap-x-[15.75vw] max-md:gap-y-[3.2vw]'>
             {arrImg?.map((item, index) => (
-              <li
-                key={index}
-                className='flex flex-col items-center'
-              >
+              <li key={index} className='flex flex-col items-center'>
                 <Image
                   src={item?.img}
                   width={100}
@@ -61,7 +60,9 @@ function Surveys({ data }) {
                   alt='img'
                   className='w-[4.375vw] h-[4.375vw] object-cover max-md:w-[14.99vw] max-md:h-[14.99vw]'
                 />
-                <span className='text-[1vw] capitalize mt-[0.62vw] max-md:text-[3.2vw]'>{item?.title}</span>
+                <span className='text-[1vw] capitalize mt-[0.62vw] font-[500] text-textColor leading-normal max-md:text-[3.2vw]'>
+                  {item?.title}
+                </span>
               </li>
             ))}
           </ul>

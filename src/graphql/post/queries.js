@@ -113,35 +113,38 @@ const GET_ALL_POST_FILTER = gql`
 `
 
 const GET_ALL_TOURS_BESTSELLER = `
-query ( $language: LanguageCodeEnum!) {
+query ($language: LanguageCodeEnum!) {
   page(id: "cG9zdDo1NjY") {
-    ourblog {
+    translation(language: $language){
+      ourblog {
       heading1
       heading2
       bestseller {
         ... on Tours {
           translation(language: $language) {
-              id
-              slug
-              tourDetail {
-                banner {
-                  title
-                  rate
-                  price {
-                    highestPrice
-                    lowestPrice
-                  }
-                  location
-                  gallery {
-                    altText
-                    sourceUrl
-                  }
-                  icons
+            id
+            slug
+            tourDetail {
+              banner {
+                title
+                rate
+                price {
+                  highestPrice
+                  lowestPrice
                 }
+                location
+                gallery {
+                  altText
+                  sourceUrl
+                }
+                icons
               }
             }
+          }
         }
       }
+      button
+    }
     }
   }
 }

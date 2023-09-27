@@ -8,15 +8,14 @@ import { usePathname } from 'next/navigation'
 import { iconsTour } from '@/lib/Icons'
 
 function TourItem({ data, menu }) {
-  const tourData = data?.translation?.tourDetail?.banner
-  console.log(tourData)
+  const tourData = data?.translation?.tourDetail?.banner || data?.tourDetail?.banner
   let icons = null
   if (tourData?.rate) icons = new Array(Math.round(tourData?.rate)).fill(0)
   const pathName = usePathname()
   const isPromotion = pathName.includes('hot-deals')
   return (
     <Link
-      href={`/${isPromotion ? 'hot-deals' : `/${encodeURIComponent(data?.translation?.slug)}`}`}
+      href={`/${isPromotion ? 'hot-deals' : `${encodeURIComponent(data?.translation?.slug)}`}`}
       className={`${
         menu ? 'md:h-[14.5vw]' : 'md:h-[24.5vw]'
       } flex w-full h-[67.23vw] md:rounded-[1vw] rounded-[2.75vw] relative max-md:flex-shrink-0 max-md:w-[52.5vw] tour-item cursor-pointer`}
