@@ -17,6 +17,7 @@ import { ACCOM_REF, BRIEF_REF, OVERVIEW_REF, ROLE_REF, TOUR_DETAIL_REF } from '.
 
 export default function AboutTour(props) {
   const { type, data, headerData = {}, relatedTours = [] } = props
+  console.log(data)
   const { contentHeader, relatedTourHeader, bannerHeaders } = headerData
   const { reviews, banner, content = {} } = data || []
   const { accommodation, brief, inclusionAndExclusion, overview, tourDetailed } = content
@@ -36,11 +37,21 @@ export default function AboutTour(props) {
               d='M16.3368 46.0617H6.28388C6.03972 46.0617 5.80556 46.1612 5.63292 46.3382C5.46027 46.5152 5.36328 46.7553 5.36328 47.0056C5.36328 47.256 5.46027 47.4961 5.63292 47.6731C5.80556 47.8501 6.03972 47.9495 6.28388 47.9495H16.3368C16.581 47.9495 16.8151 47.8501 16.9878 47.6731C17.1604 47.4961 17.2574 47.256 17.2574 47.0056C17.2574 46.7553 17.1604 46.5152 16.9878 46.3382C16.8151 46.1612 16.581 46.0617 16.3368 46.0617ZM6.28388 29.0715H20.0192C20.2633 29.0715 20.4975 28.972 20.6701 28.795C20.8428 28.618 20.9398 28.3779 20.9398 28.1276C20.9398 27.8772 20.8428 27.6371 20.6701 27.4601C20.4975 27.2831 20.2633 27.1837 20.0192 27.1837H6.28388C6.03972 27.1837 5.80556 27.2831 5.63292 27.4601C5.46027 27.6371 5.36328 27.8772 5.36328 28.1276C5.36328 28.3779 5.46027 28.618 5.63292 28.795C5.80556 28.972 6.03972 29.0715 6.28388 29.0715ZM6.28388 19.6324H31.0663C31.3105 19.6324 31.5447 19.533 31.7173 19.356C31.8899 19.179 31.9869 18.9389 31.9869 18.6885C31.9869 18.4382 31.8899 18.1981 31.7173 18.0211C31.5447 17.8441 31.3105 17.7446 31.0663 17.7446H6.28388C6.03972 17.7446 5.80556 17.8441 5.63292 18.0211C5.46027 18.1981 5.36328 18.4382 5.36328 18.6885C5.36328 18.9389 5.46027 19.179 5.63292 19.356C5.80556 19.533 6.03972 19.6324 6.28388 19.6324Z'
               fill='currentColor'
             />
-            <circle cx='51.9683' cy='21.1451' r='10.5191' fill='#FFD220' />
+            <circle
+              cx='51.9683'
+              cy='21.1451'
+              r='10.5191'
+              fill='#FFD220'
+            />
           </g>
           <defs>
             <clipPath id='clip0_1564_18827'>
-              <rect width='63.1148' height='63.1148' fill='white' transform='translate(0.425781 0.106445)' />
+              <rect
+                width='63.1148'
+                height='63.1148'
+                fill='white'
+                transform='translate(0.425781 0.106445)'
+              />
             </clipPath>
           </defs>
         </>
@@ -63,7 +74,12 @@ export default function AboutTour(props) {
             stroke='white'
             strokeWidth='0.3'
           />
-          <circle cx='49.1168' cy='49.9019' r='10.5191' fill='#FFD220' />
+          <circle
+            cx='49.1168'
+            cy='49.9019'
+            r='10.5191'
+            fill='#FFD220'
+          />
         </>
       ),
       key: 'briefRef'
@@ -85,11 +101,21 @@ export default function AboutTour(props) {
               d='M14.1042 53.6457C14.1759 53.7415 14.2689 53.8193 14.3759 53.8729C14.4829 53.9265 14.6009 53.9544 14.7206 53.9544C14.8402 53.9544 14.9583 53.9265 15.0653 53.8729C15.1722 53.8193 15.2653 53.7415 15.3369 53.6457L20.7048 46.4709C21.8412 44.9835 22.4065 43.138 22.2979 41.2693C22.1759 39.3581 21.3656 37.5559 20.0169 36.1962C17.1064 33.2715 12.376 33.26 9.45132 36.1705L9.42554 36.1962C8.07707 37.5555 7.26673 39.3573 7.14451 41.2681C7.0256 43.0511 7.58925 44.8961 8.73707 46.4701L14.1042 53.6457ZM8.67986 41.3695C8.77776 39.8298 9.43026 38.3776 10.5165 37.282C12.8276 34.9602 16.5832 34.9514 18.905 37.2623L18.9246 37.282C20.0112 38.3783 20.6638 39.8312 20.7614 41.3717C20.8453 42.8734 20.3878 44.3553 19.4721 45.5484L14.7206 51.9006L9.97431 45.556C9.04442 44.2804 8.58494 42.7941 8.67986 41.3695Z'
               fill='currentColor'
             />
-            <circle cx='27.1168' cy='17.0352' r='10.5191' fill='#FFD220' />
+            <circle
+              cx='27.1168'
+              cy='17.0352'
+              r='10.5191'
+              fill='#FFD220'
+            />
           </g>
           <defs>
             <clipPath id='clip0_1564_18841'>
-              <rect width='63.1148' height='63.1148' fill='currentColor' transform='translate(0.818359 0.20459)' />
+              <rect
+                width='63.1148'
+                height='63.1148'
+                fill='currentColor'
+                transform='translate(0.818359 0.20459)'
+              />
             </clipPath>
           </defs>
         </>
@@ -118,7 +144,12 @@ export default function AboutTour(props) {
             stroke='white'
             strokeWidth='0.5'
           />
-          <circle cx='51.5191' cy='11.2515' r='10.5191' fill='#FFD220' />
+          <circle
+            cx='51.5191'
+            cy='11.2515'
+            r='10.5191'
+            fill='#FFD220'
+          />
         </>
       ),
       key: 'roleRef'
@@ -142,11 +173,21 @@ export default function AboutTour(props) {
               strokeWidth='0.338115'
               strokeMiterlimit={10}
             />
-            <circle cx='52.4625' cy='17.3307' r='10.5191' fill='#FFD220' />
+            <circle
+              cx='52.4625'
+              cy='17.3307'
+              r='10.5191'
+              fill='#FFD220'
+            />
           </g>
           <defs>
             <clipPath id='clip0_1564_18863'>
-              <rect width='63.1148' height='63.1148' fill='white' transform='translate(0.917969 0.5)' />
+              <rect
+                width='63.1148'
+                height='63.1148'
+                fill='white'
+                transform='translate(0.917969 0.5)'
+              />
             </clipPath>
           </defs>
         </>
@@ -227,7 +268,10 @@ export default function AboutTour(props) {
     <section className='overflow-hidden tour-detail-main'>
       <div className=''>
         <div className='relative flex flex-col-reverse content md:flex-row'>
-          <div className='md:w-[55vw] w-full md:pr-[2.5vw]' ref={aboutTourRef}>
+          <div
+            className='md:w-[55vw] w-full md:pr-[2.5vw]'
+            ref={aboutTourRef}
+          >
             {type !== 'promo' && (
               <>
                 <h2 className='md:text-[3vw] text-[5.87vw] font-optima text-textColor font-semibold md:leading-[110%] leading-[120%] capitalize'>
@@ -325,15 +369,27 @@ export default function AboutTour(props) {
             </div>
 
             {/* Brief */}
-            <div className='mb-[4vw] mt-[3vw]' ref={briefRef}>
+            <div
+              className='mb-[4vw] mt-[3vw]'
+              ref={briefRef}
+            >
               <h4 className='tour-detail-header'>02 - {contentHeader?.sectionHeader?.briefHeader}</h4>
-              <TableData data={brief?.row} header={contentHeader?.briefTableHeader} />
+              <TableData
+                data={brief?.row}
+                header={contentHeader?.briefTableHeader}
+              />
             </div>
 
             {/* Tour Detail */}
-            <div className=' text-textColor mb-[5.5vw]' ref={tourDetailRef}>
+            <div
+              className=' text-textColor mb-[5.5vw]'
+              ref={tourDetailRef}
+            >
               <h4 className='tour-detail-header'>03 - {contentHeader?.sectionHeader?.tourDetailedHeader}</h4>
-              <TourDetailStep data={tourDetailed?.content} />
+              <TourDetailStep
+                data={tourDetailed?.content}
+                icons={banner?.icons}
+              />
             </div>
 
             {/* inclusion & exclusion */}
@@ -402,8 +458,14 @@ export default function AboutTour(props) {
                 </div>
               </div>
             </div>
-            <div ref={accomRef} className='mb-[4.5vw]'>
-              <TableData data={accommodation?.row} header={contentHeader?.accommodationTableHeader} />
+            <div
+              ref={accomRef}
+              className='mb-[4.5vw]'
+            >
+              <TableData
+                data={accommodation?.row}
+                header={contentHeader?.accommodationTableHeader}
+              />
             </div>
           </div>
 
@@ -432,7 +494,10 @@ export default function AboutTour(props) {
           </div>
         </div>
         {/* review */}
-        <div className=' hidden-scroll overflow-auto md:overflow-hidden overflow-y-hidden mb-[5vw]' ref={reviewRef}>
+        <div
+          className=' hidden-scroll overflow-auto md:overflow-hidden overflow-y-hidden mb-[5vw]'
+          ref={reviewRef}
+        >
           <div className='md:w-[62.1875vw] md:h-[35.75vw] md:ml-[8.125vw] md:grid flex w-fit h-[121.33vw] grid-cols-2 grid-rows-2 md:gap-[2vw] gap-[4.44vw]'>
             {reviews?.map((item, index) => {
               return (
@@ -442,8 +507,14 @@ export default function AboutTour(props) {
                     index === reviews.length - 1 && ' max-md:mr-[4.27vw]'
                   }`}
                 >
-                  <ReviewItem className='our-tours-item md:flex hidden' data={item?.translation} />
-                  <ReviewItem data={item?.translation} className='md:hidden block our-tours-item-mobile w-[74.66vw]' />
+                  <ReviewItem
+                    className='our-tours-item md:flex hidden'
+                    data={item?.translation}
+                  />
+                  <ReviewItem
+                    data={item?.translation}
+                    className='md:hidden block our-tours-item-mobile w-[74.66vw]'
+                  />
                 </div>
               )
             })}
@@ -454,7 +525,10 @@ export default function AboutTour(props) {
       {/* Tour Slide */}
       <div className='mb-[14.93vw] md:mb-[8.69vw] md:px-[6.38vw]'>
         <h4 className='heading-1 content max-md:mb-[2.5vw]'>{relatedTourHeader?.heading}</h4>
-        <SlideTour data={relatedTours} slug={type === 'promo' && 'hot-deals'} />
+        <SlideTour
+          data={relatedTours}
+          slug={type === 'promo' && 'hot-deals'}
+        />
         <button className='w-[29.6vw] h-[10.4vw] md:w-[10.1875vw] md:h-[3.875vw] flex items-center justify-center mx-auto mt-[9.83vw] md:mt-[3.5vw] border-[0.5px] md:border border-solid border-[rgba(46, 46, 46, 0.60)] rounded-[8px] text-[3.2vw] md:text-[1vw] font-medium text-textColor cursor-pointer'>
           {relatedTourHeader?.buttonContent}
         </button>

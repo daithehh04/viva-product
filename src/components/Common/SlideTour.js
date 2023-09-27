@@ -6,6 +6,7 @@ import Link from 'next/link'
 import TourItem from './TourItem'
 
 function SlideTour({ data, slug }) {
+  console.log(data)
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()
   const handleNextSlide = () => {
