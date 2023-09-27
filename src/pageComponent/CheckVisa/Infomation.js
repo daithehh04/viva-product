@@ -8,7 +8,6 @@ import ExemptVisa from './ExemptVisa'
 import { createTheme, useMediaQuery } from '@mui/material'
 
 function Infomation({ data }) {
-  console.log(data)
   const dataInfo = data?.checkvisa?.infodetail
   const theme = createTheme({
     breakpoints: {
@@ -34,12 +33,7 @@ function Infomation({ data }) {
     <div className='w-full relative'>
       <div className='w-full md:mt-[6.13vw] mt-[11.47vw] md:px-[8.13vw] px-[4.27vw] '>
         {exempts?.map((exempt, index) => (
-          <ExemptVisa
-            key={index}
-            title={exempt.title}
-            desc={exempt.desc}
-            image={exempt.image}
-          />
+          <ExemptVisa key={index} title={exempt.title} desc={exempt.desc} image={exempt.image} />
         ))}
         <div className='flex md:gap-[2.5vw] md:flex-row flex-col '>
           <Image
@@ -60,23 +54,9 @@ function Infomation({ data }) {
               </h3>
 
               {dataInfo?.listreason?.map((item, index) => (
-                <div
-                  key={index}
-                  className='flex items-center md:gap-[0.5vw] gap-[2.13vw] md:mb-[1vw] mb-[3.73vw]'
-                >
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='14'
-                    height='15'
-                    viewBox='0 0 14 15'
-                    fill='none'
-                  >
-                    <circle
-                      cx='7'
-                      cy='7.5'
-                      r='7'
-                      fill='#138140'
-                    />
+                <div key={index} className='flex items-center md:gap-[0.5vw] gap-[2.13vw] md:mb-[1vw] mb-[3.73vw]'>
+                  <svg xmlns='http://www.w3.org/2000/svg' width='14' height='15' viewBox='0 0 14 15' fill='none'>
+                    <circle cx='7' cy='7.5' r='7' fill='#138140' />
                     <path
                       d='M4.9996 7.62958C4.7644 7.42784 4.4116 7.42784 4.1764 7.62958C3.9412 7.83132 3.9412 8.13392 4.1764 8.33566L5.9404 9.8487C6.058 9.94957 6.1756 10 6.352 10C6.5284 10 6.64601 9.94957 6.76361 9.8487L10.8796 5.81393C11.056 5.56176 11.056 5.25915 10.762 5.10785C10.5268 4.95655 10.174 4.95655 9.99761 5.15829L6.352 8.73914L4.9996 7.62958Z'
                       fill='white'
@@ -105,10 +85,7 @@ function Infomation({ data }) {
                     fill='#138140'
                   />
                 </svg>
-                <p
-                  className='phoneContact'
-                  dangerouslySetInnerHTML={{ __html: `${dataInfo?.listcontact?.phone}` }}
-                ></p>
+                <p className='phoneContact' dangerouslySetInnerHTML={{ __html: `${dataInfo?.listcontact?.phone}` }}></p>
               </div>
               <div className='flex  md:gap-[0.5vw] gap-[2.13vw] md:mb-[1vw] mb-[3.73vw]'>
                 <svg
@@ -161,8 +138,8 @@ function Infomation({ data }) {
             </p>
 
             <div className='md:mt-[3.75vw] mt-[6.4vw] flex md:gap-[1.88vw] gap-[2.67vw]'>
-              <Button className='btn-primary w-fit'>Apply with us</Button>
-              <Button className='btn-secondary w-fit'>See our tour</Button>
+              <Button className='btn-primary w-fit'>{dataInfo?.buttonapply}</Button>
+              <Button className='btn-secondary w-fit'>{dataInfo?.button}</Button>
             </div>
           </div>
 
