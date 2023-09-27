@@ -9,7 +9,6 @@ import TourDetailVideo from '../TourDetail/TourDetailVideo'
 const Banner = ({ data = {} }) => {
   const [isPlay, setIsPlay] = useState(false)
   const [openModal, setOpenModal] = useState(false)
-  const galleries = [...data?.gallery, ...data?.gallery, ...data?.gallery]
   const video = data?.video
 
   return (
@@ -27,17 +26,17 @@ const Banner = ({ data = {} }) => {
       ) : (
         // eslint-disable-next-line jsx-a11y/alt-text
         <Image
-          src={galleries?.length > 0 && galleries[0]?.sourceUrl}
-          alt={galleries?.length > 0 && galleries[0]?.altText}
+          src={data?.gallery?.length > 0 && data?.gallery[0]?.sourceUrl}
+          alt={data?.gallery?.length > 0 && data?.gallery[0]?.altText}
           width={1000}
           height={1000}
           className={`w-full h-full col-span-2 row-span-2 min-w-[19.02625vw] min-h-[16.5vw] object-cover cursor-pointer rounded-lg`}
         />
       )}
 
-      {galleries?.map((img, index) => {
+      {data?.gallery?.map((img, index) => {
         if (index >= 5 || index === 0) return
-        if (index === 4 && galleries?.length > 5) {
+        if (index === 4 && data?.gallery?.length > 5) {
           return (
             <div
               className='w-full h-full relative cursor-pointer'
@@ -66,7 +65,7 @@ const Banner = ({ data = {} }) => {
                       className='w-[1.25vw]'
                     />
                   </span>
-                  <span>{video ? galleries?.length - 4 : galleries?.length - 5}</span>
+                  <span>{video ? data?.gallery?.length - 4 : data?.gallery?.length - 5}</span>
                 </p>
                 <p className='text-[1.5vw] font-normal leading-[50%] underline'>Other photos</p>
               </div>
@@ -90,7 +89,7 @@ const Banner = ({ data = {} }) => {
         setOpenModal={setOpenModal}
         className='w-[80vw] h-[80vh]'
       >
-        <ListImg data={galleries} />
+        <ListImg data={data?.gallery} />
       </ModalCustom>
     </div>
   )

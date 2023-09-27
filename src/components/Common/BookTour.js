@@ -9,7 +9,25 @@ import SelectField from '../FormBookTour/SelectField'
 import { Input } from '@mui/material'
 import Button from './Button'
 import DatePickerCustom from '../FormBookTour/DatePickerCustom'
+import { gql, useMutation } from '@apollo/client'
+
+// queries form
+const SUBMIT_FORM = gql`
+  mutation ($input: SubmitGfFormInput!) {
+    submitGfForm(input: $input) {
+      entry {
+        id
+      }
+      errors {
+        message
+      }
+    }
+  }
+`
+
 function BookTour({ data, onClose }) {
+  const [mutate] = useMutation(SUBMIT_FORM)
+  // init value
   const INITAL_FORM_STATE = {
     nationality: '',
     fullName: '',
@@ -17,7 +35,7 @@ function BookTour({ data, onClose }) {
     email: '',
     confirmEmail: '',
     ageAdult: '',
-    ageChildrent: '',
+    ageChildren: '',
     date: null,
     destination: [],
     accommodation: '',
@@ -27,14 +45,18 @@ function BookTour({ data, onClose }) {
     confirm: false
   }
 
+  //validate
   const FORM_VALIDATION = Yup.object().shape({
     nationality: Yup.string(),
     fullName: Yup.string(),
-    telephone: Yup.number().integer().typeError('Enter a valid phone number'),
+    telephone: Yup.string()
+      .matches(/^[0-9]+$/, 'Enter a valid number')
+      .min(9, 'Phải có ít nhất 9 số')
+      .required('Required'),
     email: Yup.string().email('Invalid email.'),
     confirmEmail: Yup.string().oneOf([Yup.ref('email'), null], 'Email must match'),
     ageAdult: Yup.number().min(12),
-    ageChildrent: Yup.number().max(12),
+    ageChildren: Yup.number().max(12),
     date: Yup.date().required('Required'),
     destination: Yup.array().required('Required'),
     accommodation: Yup.string().required('Required'),
@@ -48,6 +70,39 @@ function BookTour({ data, onClose }) {
   const dataBooktourContact = data?.data?.page?.booktour?.contactdetail
   const dataBooktourAge = data?.data?.page?.booktour?.participantage
   const dataParticipant = data?.data?.page?.booktour?.participants
+
+  const handleForm = (values, resetForm) => {
+    mutate({
+      variables: {
+        input: {
+          id: 3,
+          fieldValues: [
+            { id: 1, value: values.nationality },
+            { id: 3, value: values.fullName },
+            { id: 17, value: values.telephone },
+            { id: 6, value: values.email },
+            { id: 19, value: values.ageChildren },
+            { id: 20, value: values.ageAdult },
+            { id: 21, value: values.date },
+            { id: 24, value: values.destination.join(', ') },
+            { id: 22, value: values.accommodation },
+            { id: 23, value: values.typeOfTrip },
+            { id: 14, value: values.message },
+            { id: 15, value: values.budget },
+            { id: 16, value: values.confirm }
+          ]
+        }
+      }
+    }).then((res) => {
+      console.log(res)
+      if (res?.data?.submitGfForm?.errors?.length > 0) {
+        // Have Error
+      } else {
+        resetForm()
+        // Successful
+      }
+    })
+  }
   return (
     <div className='md:w-[82.6875vw] md:h-[95.5vw] w-full h-full overflow-auto relative booktour'>
       <Image
@@ -87,9 +142,7 @@ function BookTour({ data, onClose }) {
         <Formik
           initialValues={{ ...INITAL_FORM_STATE }}
           validationSchema={FORM_VALIDATION}
-          onSubmit={(values) => {
-            console.log(values)
-          }}
+          onSubmit={(values, { resetForm }) => handleForm(values, resetForm)}
         >
           {(formik) => {
             return (
@@ -183,37 +236,13 @@ function BookTour({ data, onClose }) {
                         <span className='md:text-white text-[#DFDFDF] md:text-[0.9375vw] text-[3.73333vw] md:font-[500] font-[400] leading-[150%]'>
                           {dataBooktourAge?.adult?.labeladult}
                         </span>
-                        <Input
-                          type='number'
-                          inputprops={{ inputprops: { min: 12 } }}
-                          name='ageAdult'
-                          {...formik.getFieldProps('ageAdult')}
-                          style={{ border: '1px solid #000000' }}
-                        />
-                        <ErrorMessage
-                          name='ageAdult'
-                          component='div'
-                          className='md:text-[0.8vw] text-[3.2vw] text-[red]'
-                        />
-                        {/* {formik.touched.ageAdult && formik.errors.ageAdult ? <div>{formik.errors.ageAdult}</div> : null} */}
+                        <TextFiledWrapper name='ageAdult' />
                       </div>
                       <div className='flex flex-col md:gap-[0.5vw] gap-[2.13vw]'>
                         <span className='md:text-white text-[#DFDFDF] md:text-[0.9375vw] text-[3.73333vw] md:font-[500] font-[400] leading-[150%]'>
                           {dataBooktourAge?.children?.labelchild}
                         </span>
-
-                        <Input
-                          type='number'
-                          inputprops={{ inputprops: { min: 0 } }}
-                          name='ageChildrent'
-                          {...formik.getFieldProps('ageChildrent')}
-                          style={{ border: '1px solid #000000' }}
-                        />
-                        <ErrorMessage
-                          name='ageChildrent'
-                          component='div'
-                          className='md:text-[0.8vw] text-[3.2vw] text-[red]'
-                        />
+                        <TextFiledWrapper name='ageChildren' />
                       </div>
                     </div>
                   </div>

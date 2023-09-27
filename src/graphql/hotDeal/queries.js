@@ -60,10 +60,7 @@ export const GET_HOT_DEAL_DATA = `query ($language: LanguageCodeEnum!) {
                     altText
                     sourceUrl
                   }
-                  icons {
-                    altText
-                    sourceUrl
-                  }
+                  icons
                 }
               }
             }
@@ -121,10 +118,7 @@ export const GET_LIST_PROMOTION_TOUR = `query ($language: LanguageCodeEnum!) {
                       altText
                       sourceUrl
                     }
-                    icons {
-                      altText
-                      sourceUrl
-                    }
+                    icons
                   }
                 }
               }

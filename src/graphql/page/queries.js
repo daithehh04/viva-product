@@ -67,10 +67,7 @@ query ($language: LanguageCodeEnum!) {
                   highestPrice
                   lowestPrice
                 }
-                icons{
-                  altText
-                  sourceUrl
-                }
+                icons
               }
             }
 }
