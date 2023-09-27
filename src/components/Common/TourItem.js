@@ -5,9 +5,11 @@ import imgStar from '@/assets/images/star-rate.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { iconsTour } from '@/lib/Icons'
 
 function TourItem({ data, menu }) {
   const tourData = data?.translation?.tourDetail?.banner
+  console.log(tourData)
   let icons = null
   if (tourData?.rate) icons = new Array(Math.round(tourData?.rate)).fill(0)
   const pathName = usePathname()
@@ -57,8 +59,8 @@ function TourItem({ data, menu }) {
                 className='w-[4.8vw] h-[4.8vw] rounded-[6px] bg-[#FFF8DE] flex items-center justify-center'
               >
                 <Image
-                  src={icon?.sourceUrl}
-                  alt={icon?.altText}
+                  src={iconsTour[icon]}
+                  alt={icon}
                   className='w-[2.613vw] h-[2.613vw]'
                   width={20}
                   height={20}

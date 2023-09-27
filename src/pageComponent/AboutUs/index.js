@@ -2,12 +2,8 @@ import BookingProcessSteps from '@/components/Common/BookingProcessSteps'
 import Banner from './Banner/Banner'
 import Image from 'next/image'
 import SubBanner from '@/components/Common/SubBanner'
-
-import dynamic from 'next/dynamic'
-
-const Reviews = dynamic(() => import('./reviews/Reviews'), {
-  ssr: false
-})
+import stepBg from '@/assets/images/about/stepBg.png'
+import Reviews from './reviews/Reviews'
 
 export default function IndexAboutUs({ res, lang }) {
   const bannerData = res?.data?.page?.translation?.aboutUsReviews?.banner
@@ -24,11 +20,13 @@ export default function IndexAboutUs({ res, lang }) {
         />
         <div className='relative md:pb-[6.875vw] pb-[16.458vw] pt-[10.66vw] md:pt-0  bg-white'>
           <BookingProcessSteps data={bookingStep} />
-          {/* <Image
+          <Image
             src={stepBg}
             alt='step bg'
+            width={1000}
+            height={1000}
             className='md:block hidden absolute bottom-0 left-0 md:w-full w-[200vw] h-[80vw] z-0'
-          /> */}
+          />
         </div>
         <SubBanner data={subBannerStep} />
       </div>
