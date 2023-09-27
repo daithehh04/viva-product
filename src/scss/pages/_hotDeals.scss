@@ -1,0 +1,56 @@
+.count-down {
+  .triangle {
+    width: 0;
+    height: 0;
+    border-left: 0.375vw solid transparent; /* Điểm này cũng có cùng chiều rộng để tạo thành một tam giác đều */
+    border-top: 0.5vw solid #ff0000;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .triangle {
+    width: 0;
+    height: 0;
+    border-left: 1.6vw solid transparent; /* Điểm này cũng có cùng chiều rộng để tạo thành một tam giác đều */
+    border-top: 2.13vw solid #ff0000;
+  }
+}
+
+@include mobile {
+  .promo-voucher-item {
+    border-radius: 8px;
+    .voucher-discount-info {
+      padding: 9vw 6.13vw 10.66vw;
+      span {
+        &:nth-child(1) {
+          font-size: 8vw;
+        }
+
+        &:nth-child(2) {
+          font-size: 2.66vw;
+        }
+
+        &:nth-child(3) {
+          font-size: 3.733vw;
+        }
+      }
+    }
+
+    .voucher-expire-info {
+      width: 54.13vw;
+      padding: 5.333vw;
+      h4 {
+        width: 100%;
+        font-size: 3.2vw;
+        text-transform: uppercase;
+        line-height: 1.3;
+      }
+
+      a {
+        font-size: 3.2vw;
+        font-weight: 500;
+        padding: 3.2vw 7.73vw;
+      }
+    }
+  }
+}

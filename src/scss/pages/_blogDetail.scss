@@ -1,0 +1,135 @@
+@media screen and (max-width: 768px) {
+  .articles {
+    .article-webkit::-webkit-scrollbar {
+      display: none;
+    }
+    .articleMb {
+      padding-left: 4.27vw;
+      display: flex;
+      flex-shrink: 0;
+      .image {
+        img {
+          height: 52.26667vw;
+          width: 52.26667vw;
+        }
+      }
+      .info {
+        width: 52.26667vw;
+        & ~ h4 {
+          width: 52.26667vw;
+        }
+        & ~ p {
+          width: 52.26667vw;
+          opacity: 0.8;
+        }
+      }
+      &:last-child {
+        padding-right: 4.27vw;
+      }
+    }
+
+    .articleNews {
+      padding-left: 4.27vw;
+      display: flex;
+      flex-shrink: 0;
+      .image {
+        img {
+          width: 100%;
+        }
+      }
+
+      &:last-child {
+        margin-right: 4.27vw;
+      }
+    }
+  }
+}
+
+.content-container {
+  & > .wp-block-image.size-large {
+    margin-bottom: 1vw;
+    width: 100%;
+    @media screen and (max-width: 769px) {
+      margin-bottom: 4.29vw;
+    }
+    img {
+      width: 67.5625vw;
+      height: 35.4375vw;
+      border-radius: 1vw;
+      @media screen and (max-width: 769px) {
+        width: 100%;
+        height: 47.97547vw;
+        border-radius: 1.06667vw;
+      }
+    }
+  }
+  p {
+    color: #171717;
+    text-align: justify;
+    font-size: 1.125vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin-bottom: 0.5vw;
+    @media screen and (max-width: 769px) {
+      font-size: 3.73333vw;
+      margin-bottom: 3.2vw;
+    }
+  }
+  h5 {
+    color: #171717;
+    text-align: justify;
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 137.5%;
+    margin-top: 1vw;
+    margin-bottom: 0.5vw;
+    @media screen and (max-width: 769px) {
+      font-size: 4.26667vw;
+      margin-top: 6.4vw;
+      margin-bottom: 2.13vw;
+    }
+  }
+  .wp-block-group {
+    display: flex;
+    gap: 2.04vw;
+    margin-bottom: 1vw;
+    @media screen and (max-width: 768px) {
+      gap: 4.39vw;
+      margin-bottom: 6.75vw;
+      margin-top: 6.4vw;
+    }
+    img {
+      width: 32.5vw !important;
+      height: 17.6875vw !important;
+      border-radius: 1vw;
+      @media screen and (max-width: 768px) {
+        width: 43.60907vw !important;
+        height: 23.73333vw !important;
+      }
+    }
+  }
+
+  & > .wp-block-image.size-full {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.81vw;
+    margin-bottom: 1.4vw;
+    @media screen and (max-width: 768px) {
+      margin-bottom: 4.5vw;
+      margin-top: 4.27vw;
+    }
+
+    img {
+      width: 59.12856vw;
+      height: 31.2205vw;
+      border-radius: 1vw;
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        height: 48.2952vw;
+        border-radius: 1.06667vw;
+      }
+    }
+  }
+}

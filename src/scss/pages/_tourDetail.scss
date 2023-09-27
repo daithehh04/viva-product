@@ -1,0 +1,175 @@
+.tour-detail-header {
+  color: #171717;
+  font-size: 1.25vw;
+  font-weight: 700;
+  line-height: 150%; /* 30px */
+  margin-bottom: 1vw;
+}
+
+.tour-banner-wrapper {
+  .tour-banner {
+    position: absolute;
+    bottom: 3vw;
+    right: 1vw;
+    z-index: 10;
+    width: 32vw;
+    .tour-banner-slider {
+      height: 0.09375vw;
+      .mui-1f76o1g-MuiSlider-thumb {
+        box-shadow: none !important;
+        width: 0.5625vw;
+        height: 0.5625vw;
+        &:hover {
+          box-shadow: none !important;
+        }
+      }
+    }
+    .sub-banner-slide {
+      .swiper-slide {
+        cursor: pointer;
+        &:not(.swiper-slide-thumb-active) {
+          filter: grayscale(100%);
+        }
+
+        &:hover {
+          filter: unset;
+        }
+      }
+    }
+  }
+
+  .tour-detail-scroll {
+    img {
+      animation: scroll 2s ease-out infinite;
+    }
+  }
+
+  video {
+    height: 100vh;
+  }
+}
+
+.tour-detail-scroll-up {
+  &:hover {
+    animation: wave 0.8s ease;
+  }
+}
+
+.our-tours-item {
+  .review-item-img {
+    width: 12.95705vw;
+    height: 14.6875vw;
+  }
+
+  .review-item-content {
+    a {
+      font-size: 0.875vw;
+    }
+
+    p {
+      opacity: 0.7;
+    }
+
+    .review-item-user {
+      h4 {
+        font-size: 0.75vw;
+      }
+
+      span {
+        font-size: 0.75vw;
+      }
+
+      .user-avatar {
+        width: 2.1vw;
+        height: 2.1vw;
+      }
+    }
+  }
+}
+.tour-detail-main {
+  .sticky {
+    position: fixed;
+    right: 0;
+    top: 0;
+    right: 9.725vw;
+    z-index: 0;
+  }
+
+  .step-icon {
+    &:hover {
+      svg,
+      span {
+        color: #138140 !important;
+      }
+    }
+  }
+}
+@include mobile {
+  .tour-detail-header {
+    font-size: 4.27vw;
+    margin-bottom: 3vw;
+  }
+
+  .our-tours-item-mobile {
+    padding: 0;
+    .review-item-img {
+      width: 74.667vw !important;
+      height: 74.667vw !important;
+    }
+
+    .review-item-content {
+      p {
+        opacity: 0.6;
+        font-size: 2.933vw;
+      }
+
+      .review-item-user {
+        h4 {
+          font-size: 3.2vw;
+        }
+
+        .user-avatar {
+          width: 9.1648vw;
+          height: 9.1648vw;
+        }
+      }
+    }
+
+    .review-icon-comma {
+      display: none;
+    }
+  }
+
+  .tour-detail-main {
+    .sticky {
+      position: unset;
+    }
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(50%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+}
+
+@keyframes wave {
+  0% {
+    box-shadow: 0 0 0 0vw rgba(255, 210, 32, 0.8);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0.7vw rgba(255, 210, 32, 0);
+  }
+}

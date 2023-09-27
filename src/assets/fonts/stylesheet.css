@@ -1,0 +1,435 @@
+/*? ============= Viva travel ============= */
+@font-face {
+  font-family: 'Viva Travel';
+  src: url('vivatravel/AsiaVivaTravel-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/*? ============= Helvetica ============= */
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-Medium.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue.woff2') format('woff2'), url('helvetica/HelveticaNeue.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-Italic.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-Bold.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-Light.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-BoldItalic.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-LightItalic.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-CondensedBlack.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-CondensedBlack.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-CondensedBold.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-CondensedBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-BoldItalic.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-Italic.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-CondensedBold.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-CondensedBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-Bold.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-UltraLightItalic.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-UltraLightItalic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-UltraLight.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-UltraLight.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-LightItalic.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-Medium.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-Light.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-CondensedBlack.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-CondensedBlack.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue.woff2') format('woff2'), url('helvetica/HelveticaNeue.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-Light.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-Medium.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-CondensedBlack.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-CondensedBlack.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-CondensedBold.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-CondensedBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-Bold.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue.woff2') format('woff2'), url('helvetica/HelveticaNeue.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-Italic.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('helvetica/HelveticaNeue-BoldItalic.woff2') format('woff2'),
+    url('helvetica/HelveticaNeue-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+/*? ================== Manrope ================ */
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Bold.woff2') format('woff2'), url('manrope/Manrope-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Bold.woff2') format('woff2'), url('manrope/Manrope-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Semibold.woff2') format('woff2'), url('manrope/Manrope-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Light.woff2') format('woff2'), url('manrope/Manrope-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Thin.woff2') format('woff2'), url('manrope/Manrope-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Medium.woff2') format('woff2'), url('manrope/Manrope-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Thin.woff2') format('woff2'), url('manrope/Manrope-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Regular.woff2') format('woff2'), url('manrope/Manrope-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Regular.woff2') format('woff2'), url('manrope/Manrope-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Light.woff2') format('woff2'), url('manrope/Manrope-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Thin.woff2') format('woff2'), url('manrope/Manrope-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Bold.woff2') format('woff2'), url('manrope/Manrope-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Semibold.woff2') format('woff2'), url('manrope/Manrope-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Light.woff2') format('woff2'), url('manrope/Manrope-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Medium.woff2') format('woff2'), url('manrope/Manrope-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Medium.woff2') format('woff2'), url('manrope/Manrope-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Regular.woff2') format('woff2'), url('manrope/Manrope-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('manrope/Manrope-Semibold.woff2') format('woff2'), url('manrope/Manrope-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ?================== Optima ================= */
+@font-face {
+  font-family: 'Optima';
+  src: url('optima/Optima-Medium.woff2') format('woff2'), url('optima/Optima-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Optima';
+  src: url('optima/Optima.woff2') format('woff2'), url('optima/Optima.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Optima';
+  src: url('optima/Optima-Bold.woff2') format('woff2'), url('optima/Optima-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Optima';
+  src: url('optima/Optima-Italic.woff2') format('woff2'), url('optima/Optima-Italic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}

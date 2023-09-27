@@ -1,0 +1,30 @@
+.explore {
+  .arrow-down {
+    position: relative;
+    animation: infinitiveDown 0.7s infinite alternate;
+  }
+  @keyframes infinitiveDown {
+    0% {
+      bottom: 0;
+    }
+
+    100% {
+      bottom: 10px;
+    }
+  }
+}
+
+.bg-filterTour {
+  @media screen and (min-width: 769px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 61.25vw;
+    height: 6vw;
+    flex-shrink: 0;
+    border-radius: 1.125vw;
+    opacity: 0.8;
+    background: var(--trng-tinh-khi, #fff);
+    box-shadow: 6px 0px 30px 0px rgba(0, 0, 0, 0.05);
+  }
+}

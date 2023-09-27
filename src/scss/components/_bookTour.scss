@@ -1,0 +1,227 @@
+.booktour {
+  .mui-hpg9aa-MuiInputBase-root-MuiInput-root:after {
+    border: none;
+  }
+  .mui-11duh67-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border: none;
+  }
+  input {
+    height: 100%;
+  }
+  h4 {
+    color: #fff;
+    font-size: 1.125vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    @media screen and (max-width: 768px) {
+      font-size: 3.73333vw;
+      color: #dfdfdf;
+    }
+    span {
+      color: #e51c1c;
+    }
+  }
+  #checkbox-group {
+    width: 22vw;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+    label {
+      display: flex;
+      align-items: center;
+      gap: 0.69vw;
+    }
+  }
+
+  .inputField {
+    .mui-1b6a61o-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root,
+    .MuiInputBase-input {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 0.5vw;
+      color: #fff;
+      @media screen and (max-width: 768px) {
+        border-radius: 2.13333vw;
+      }
+    }
+    .MuiInputBase-root {
+      height: 3.125vw;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      color: #fff;
+      font-size: 1.125vw;
+      @media screen and (max-width: 768px) {
+        height: 12.8vw;
+        border-radius: 2.13333vw;
+        font-size: 3.73333vw;
+      }
+      .MuiSelect-select {
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+  .agePicker {
+    .MuiInputBase-root {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 0.5vw;
+      padding: 0 20px;
+      color: #fff;
+      height: 3.125vw;
+      border: 1px solid rgba(255, 255, 255, 0.8) !important;
+      @media screen and (max-width: 768px) {
+        height: 12.8vw;
+        border-radius: 2.13333vw;
+      }
+      .MuiSelect-select {
+        height: 100%;
+      }
+    }
+    .mui-hpg9aa-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before {
+      border-bottom: none;
+    }
+    .mui-hpg9aa-MuiInputBase-root-MuiInput-root:before {
+      border-bottom: none;
+    }
+  }
+
+  .participant2 {
+    .MuiFormControl-root {
+      background: rgba(255, 255, 255, 0.2);
+      height: 3.125vw;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0.5vw;
+      border: 1px solid rgba(255, 255, 255, 0.8) !important;
+      color: #fff;
+      @media screen and (max-width: 768px) {
+        height: 12.8vw;
+        border-radius: 2.13333vw;
+      }
+      .mui-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+        color: #fff;
+      }
+      .mui-i4bv87-MuiSvgIcon-root {
+        color: #fff;
+      }
+      .MuiOutlinedInput-root {
+        width: 100%;
+        height: 100%;
+        color: #fff;
+      }
+    }
+  }
+  .radio-group {
+    display: flex;
+    align-items: center;
+    gap: 1.88vw;
+    color: #fff;
+    @media screen and (max-width: 768px) {
+      gap: 6.4vw;
+    }
+    label {
+      display: flex;
+      gap: 0.69vw;
+      font-size: 0.875vw;
+      font-weight: 500;
+      line-height: 150%;
+      @media screen and (max-width: 768px) {
+        gap: 2.67vw;
+        font-size: 3.73333vw;
+      }
+    }
+  }
+
+  .trip {
+    .typeOfTrip {
+      color: #fff;
+      font-size: 0.875vw;
+      font-weight: 500;
+      line-height: 150%;
+      @media screen and (max-width: 768px) {
+        font-size: 3.73333vw;
+      }
+      label {
+        display: flex;
+        align-items: center;
+        gap: 0.69vw;
+        @media screen and (max-width: 768px) {
+          gap: 2.67vw;
+        }
+      }
+    }
+    .message {
+      .MuiFormControl-root {
+        height: 8.25vw;
+        border-radius: 0.5vw;
+        @media screen and (max-width: 768px) {
+          height: 12.8vw;
+          border-radius: 2.13333vw;
+        }
+        .MuiInputBase-root {
+          height: 100%;
+          border: 1px solid rgba(255, 255, 255, 0.8);
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 0.5vw;
+          overflow: hidden;
+          color: #fff;
+          font-size: 1.125vw;
+          @media screen and (max-width: 768px) {
+            border-radius: 2.13333vw;
+            font-size: 3.73333vw;
+          }
+          input {
+            height: 100%;
+          }
+        }
+      }
+    }
+    .MuiInputBase-root {
+      height: 3.125vw;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.2);
+      @media screen and (max-width: 768px) {
+        height: 12.8vw;
+      }
+      .MuiSelect-select {
+        height: 100%;
+      }
+    }
+  }
+  .confirm {
+    font-size: 0.875vw;
+    font-weight: 500;
+    line-height: 150%;
+    color: #fff;
+    display: flex;
+    gap: 1.88vw;
+    @media screen and (max-width: 768px) {
+      font-size: 3.73333vw;
+      gap: 8vw;
+    }
+    label {
+      display: flex;
+      gap: 0.69vw;
+      align-items: center;
+    }
+  }
+
+  .budgetTour {
+    .MuiInputBase-root {
+      border-radius: 0.5vw;
+      overflow: hidden;
+      color: #fff;
+      font-size: 1.125vw;
+      @media screen and (max-width: 768px) {
+        border-radius: 2.13333vw;
+        font-size: 3.73333vw;
+      }
+      .MuiSelect-select {
+        height: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,332 @@
+.bg-home34 {
+  background-image: url(../../assets/images/bg-beach.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  width: 100%;
+  height: auto;
+}
+.search-mb::placeholder {
+  font-size: 3.2vw;
+}
+
+.banner {
+  .wrapper-banner {
+    padding-top: 5.375vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .heading-banner {
+    background: linear-gradient(180deg, #fff 22.78%, rgba(255, 255, 255, 1) 83.54%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.28125rem;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .overlay-banner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(0deg, #fff 0%, rgba(255, 255, 255, 0.49) 63.88%, rgba(255, 255, 255, 0) 100%);
+    width: 100%;
+    height: 12vw;
+  }
+
+  @keyframes bounce {
+    0% {
+      bottom: 0;
+    }
+    100% {
+      bottom: 10px;
+    }
+  }
+  .arrow-down {
+    position: relative;
+    animation: bounce 0.7s infinite alternate;
+  }
+}
+
+// Inspection Trip
+.inspection-trip {
+  overflow: hidden;
+  background-image: url(../../assets/images/bg-ins-trip.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  .swiper {
+    width: 86%;
+    overflow: visible;
+  }
+}
+
+// Surveys
+.surveys {
+  background-image: url(../../assets/images/bg-surveys.png);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+// Travel style
+.travel-style {
+  cursor: pointer;
+  &:hover {
+    .info {
+      .desc {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    .overlay-travel {
+      opacity: 1;
+      visibility: visible;
+    }
+    .btn {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .info {
+    .desc {
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease-out;
+      b {
+        color: $colorPrimary;
+      }
+    }
+  }
+  .overlay-travel {
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-out;
+  }
+  .btn {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-out;
+  }
+}
+
+.style-mb {
+  background-image: url(../../assets/images/bg-styleMb.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  width: 100%;
+  height: auto;
+}
+
+// ================== Tourist Representative ==================
+.tourist-representative {
+  background-image: url(../../assets/images/bg-represent.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+
+  .slide-represent {
+    .swiper-3d .swiper-slide-shadow-left,
+    .swiper-3d .swiper-slide-shadow-right {
+      background: none;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .tourist-representative {
+    .presentative-item {
+      overflow: hidden;
+      .presentative-img {
+        transition: all 0.3s ease;
+      }
+      &:hover {
+        .presentative-img {
+          scale: 1.1;
+        }
+      }
+    }
+    .slide-represent {
+      .swiper-wrapper {
+        align-items: center;
+        user-select: none;
+      }
+      .swiper-slide {
+        transition: all 0.4s linear !important;
+        opacity: 0;
+        transform: translate3d(0px, 0px, -1000.263px) rotateX(0deg) rotateY(0deg) scale(1) !important;
+        .contact {
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.4s linear;
+        }
+        &.swiper-slide-visible {
+          transform: translate3d(-12.5vw, 0px, -500.263px) rotateX(0deg) rotateY(0deg) scale(1) !important;
+          opacity: 0.6;
+        }
+
+        &.swiper-slide-prev {
+          transform: translate3d(-4.25vw, 0px, -250px) rotateX(0deg) rotateY(0deg) scale(1) !important;
+          opacity: 0.8;
+        }
+        &.swiper-slide-next {
+          transform: translate3d(4.25vw, 0px, -250px) rotateX(0deg) rotateY(0deg) scale(1) !important;
+          & + .swiper-slide-visible {
+            transform: translate3d(12.5vw, 0px, -500.263px) rotateX(0deg) rotateY(0deg) scale(1) !important;
+          }
+          opacity: 0.8;
+        }
+        &.swiper-slide-active {
+          margin-right: 0 !important;
+          transform: translate3d(0px, 0px, -0.262743px) rotateX(0deg) rotateY(0deg) scale(1) !important;
+          opacity: 1;
+          .contact {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+  .inspection-trip {
+    .swiper-slide {
+      opacity: 0.6;
+      transition: all 0.4s ease;
+    }
+    .swiper-slide.swiper-slide-active {
+      opacity: 1;
+    }
+    .swiper-slide.swiper-slide-next {
+      opacity: 1;
+    }
+  }
+}
+
+// Review
+.custom-review {
+  background-image: url(../../assets/images/bg-rev.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+  background-position: top;
+  .overlayReview-top {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.38) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+  .overlayReview-bottom {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 57.83%,
+      rgba(0, 0, 0, 0.36) 66.82%,
+      rgba(0, 0, 0, 0.59) 78.57%,
+      rgba(0, 0, 0, 0.72) 93.31%,
+      rgba(0, 0, 0, 0.72) 100%
+    );
+  }
+  .customer-review__item {
+    overflow: hidden;
+    .customer-review__img {
+      transition: all 0.3s ease;
+    }
+    .desc {
+      display: inline;
+      position: relative;
+      transition: background-size 350ms;
+      background: linear-gradient(0deg, $colorPrimary, $colorPrimary) no-repeat right bottom/0 1px;
+    }
+    &:hover {
+      .customer-review__img {
+        scale: 1.1;
+      }
+      .desc {
+        color: $colorPrimary;
+        background-size: 100% 1px;
+        background-position-x: left;
+      }
+    }
+  }
+  .slide-review {
+    .btn-review {
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    &:hover {
+      .btn-review {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+// Blog
+.bg-home67 {
+  background-image: url(../../assets/images/bg-blog.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+  background-position: top;
+}
+
+//
+.body-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+// Responsive
+@include mobile {
+  .body-wrapper {
+    .bg-home34 {
+      order: -4;
+      -webkit-order: -4;
+    }
+    .style-mb {
+      order: -5;
+      -webkit-order: -5;
+    }
+    .trip-wrapper {
+      order: -2;
+      -webkit-order: -2;
+    }
+    .survey-wrapper {
+      order: -3;
+      -webkit-order: -3;
+    }
+    .review-wrapper {
+      order: -1;
+      -webkit-order: -1;
+    }
+  }
+  .banner {
+    .explore {
+      svg path {
+        stroke: #fff;
+      }
+    }
+  }
+  .inspection-trip {
+    .swiper {
+      width: 100%;
+    }
+  }
+  .best-tours {
+    .MuiOutlinedInput-root {
+      height: 10vw;
+    }
+  }
+}

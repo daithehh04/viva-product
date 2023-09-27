@@ -1,0 +1,105 @@
+@import '../utilities/mixin';
+.visaBanner {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
+    lightgray -174px -249.16px / 111.854% 123.499% no-repeat;
+  // filter: blur(2px);
+
+  @include mobile {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
+      lightgray -179.48px -5px / 278.962% 92.241% no-repeat;
+  }
+  .MuiSelect-outlined {
+    border: 1px solid #fff;
+    background: rgba(225, 225, 225, 0.2);
+    @media screen and (min-width: 769px) {
+      backdrop-filter: blur(3px);
+    }
+  }
+
+  .mui-hfutr2-MuiSvgIcon-root-MuiSelect-icon {
+    color: #fff;
+  }
+
+  .MuiSelect-select {
+    span {
+      color: #fff;
+    }
+  }
+}
+
+.exempt-visa {
+  background: linear-gradient(180deg, #fff8dc -48.73%, #ffd220 77.66%);
+  opacity: 0.3;
+}
+
+.bestSellerCheckVisa::-webkit-scrollbar {
+  display: none;
+}
+
+.checkVisa-info {
+  h2 {
+    width: 44.625vw;
+    color: #171717;
+    font-size: 2.875vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%;
+    text-transform: capitalize;
+    font-family: 'Optima';
+    @media screen and (max-width: 768px) {
+      font-size: 5.86667vw;
+      line-height: 120%;
+      width: 100%;
+    }
+  }
+  h5 {
+    color: #171717;
+    font-size: 1.5vw;
+    font-weight: 500;
+    line-height: 110%;
+    text-transform: capitalize;
+    margin-top: 3.13vw;
+    margin-bottom: 1.5vw;
+    @media screen and (max-width: 768px) {
+      font-size: 3.73333vw;
+    }
+  }
+  p,
+  ul {
+    color: #171717;
+    font-size: 1vw;
+    line-height: 150%;
+    opacity: 0.8;
+    @media screen and (max-width: 768px) {
+      font-size: 3.73333vw;
+    }
+  }
+  ul {
+    padding-left: 2vw;
+    li {
+      list-style-type: disc;
+    }
+  }
+}
+
+.phoneContact,
+.emailContact,
+.addressContact {
+  p {
+    color: #171717;
+    font-size: 0.875vw;
+    line-height: 1.3125vw;
+    @media screen and (max-width: 768px) {
+      font-size: 3.73333vw;
+      line-height: 5.6vw;
+    }
+    strong {
+      opacity: 1;
+      font-weight: 700;
+    }
+    em {
+      opacity: 0.8;
+      font-weight: 400;
+    }
+  }
+}

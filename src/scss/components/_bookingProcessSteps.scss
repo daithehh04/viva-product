@@ -1,0 +1,81 @@
+/* custom MUI*/
+
+.about-step-container {
+  .about-step-icon {
+    display: none !important;
+  }
+
+  .about-step-above {
+    margin: auto;
+    width: 28vw;
+
+    .MuiStepLabel-label {
+      display: flex;
+      gap: 4.08vw;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: $textColorPrimary;
+      text-align: center;
+      font-weight: 500;
+      line-height: 150%;
+      font-size: 2.67vw !important;
+
+      img {
+        width: 12.5592vw;
+        height: 12.5592vw;
+      }
+    }
+  }
+  .MuiStep-root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .about-step-below {
+    width: fit-content;
+    cursor: pointer;
+
+    .MuiStepLabel-label {
+      font-weight: 600;
+      line-height: 110%; /* 92.4px */
+      text-transform: capitalize;
+      font-family: $font-optima;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke-width: 1px;
+      color: $colorPrimary;
+      font-size: 13.187vw;
+
+      &:hover {
+        -webkit-text-fill-color: unset !important;
+      }
+    }
+  }
+
+  .MuiStepConnector-line {
+    background-image: url('../../assets/images/about/connector.svg');
+    border: none;
+  }
+}
+@media (min-width: 768px) {
+  .about-step-container {
+    .about-step-above {
+      width: 11.3125vw;
+      .MuiStepLabel-label {
+        gap: 1.4375vw;
+        font-size: 1.125vw !important;
+        img {
+          width: 5vw;
+          height: 5vw;
+        }
+      }
+    }
+
+    .about-step-below {
+      .MuiStepLabel-label {
+        font-size: 5.25vw !important;
+      }
+    }
+  }
+}

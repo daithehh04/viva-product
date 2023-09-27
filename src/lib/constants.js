@@ -1,0 +1,5 @@
+export const OVERVIEW_REF = 'overviewRef'
+export const BRIEF_REF = 'briefRef'
+export const TOUR_DETAIL_REF = 'tourDetailRef'
+export const ROLE_REF = 'roleRef'
+export const ACCOM_REF = 'accomRef'

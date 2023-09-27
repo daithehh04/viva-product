@@ -1,0 +1,35 @@
+.bigger {
+  height: 100%;
+  .relative {
+    height: 100%;
+    .image {
+      height: 100%;
+      img {
+        height: 100%;
+      }
+    }
+    .info {
+      display: flex;
+      flex-direction: column-reverse;
+      .title {
+        font-size: 2vw;
+        margin-bottom: 0.78vw;
+      }
+    }
+  }
+}
+.item-blog_2 {
+  .title {
+    display: inline;
+    position: relative;
+    transition: background-size 350ms;
+    background: linear-gradient(0deg, $colorPrimary, $colorPrimary) no-repeat right bottom/0 1px;
+  }
+  &:hover {
+    .title {
+      color: $colorPrimary;
+      background-size: 100% 1px;
+      background-position-x: left;
+    }
+  }
+}

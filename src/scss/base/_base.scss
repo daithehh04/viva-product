@@ -1,0 +1,57 @@
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  box-sizing: border-box;
+  font-family: $font-helvetica !important;
+  color: $textColorPrimary !important;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.content {
+  width: 83.75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//  css for scroll to transparent
+
+@include mobile {
+  .content {
+    width: 100%;
+    padding-left: 4.27vw;
+    padding-right: 4.27vw;
+  }
+
+  .hidden-scroll {
+    &::-webkit-scrollbar,
+    &::-webkit-scrollbar-track,
+    &::-webkit-scrollbar-thumb {
+      width: 0px !important;
+      background-color: transparent !important;
+    }
+    /* Track */
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

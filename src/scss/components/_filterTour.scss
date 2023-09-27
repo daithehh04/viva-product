@@ -1,0 +1,34 @@
+.select {
+  position: relative;
+  &:not(:nth-child(1)):before {
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 2.43vw;
+    background: #ccc;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+.bgFilterMobile {
+  @media screen and (max-width: 768px) {
+    position: absolute;
+    inset: 0;
+    background: #171717;
+    opacity: 0.04;
+    border-radius: 1.06667vw;
+  }
+}
+.select-mobile {
+  @media screen and (max-width: 768px) {
+    padding: 0 4.27vw;
+  }
+  .MuiFormControl-root {
+    flex: 1;
+  }
+}

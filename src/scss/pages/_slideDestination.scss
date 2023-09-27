@@ -1,0 +1,96 @@
+@import '../utilities/mixin';
+
+.slideDestination {
+  background: linear-gradient(
+      180deg,
+      #fff 0%,
+      rgba(255, 255, 255, 0.86) 8.95%,
+      rgba(255, 255, 255, 0.74) 13.79%,
+      rgba(255, 255, 255, 0) 47.85%,
+      rgba(255, 255, 255, 0.84) 80.21%,
+      #fff 100%
+    ),
+    url(../../assets/images/outour_Banner_Slide.png);
+  opacity: 0.12;
+  background-size: cover;
+}
+
+.bannerOurtour {
+  overflow-x: hidden;
+  .arrow-down {
+    position: relative;
+    animation: arrowDown 0.7s infinite alternate;
+  }
+  @keyframes arrowDown {
+    0% {
+      bottom: 0;
+    }
+
+    100% {
+      bottom: 10px;
+    }
+  }
+}
+#btn-search-animation {
+  transform: translateX(300%);
+  transition: all 0.3s linear;
+  z-index: 100000;
+  &:hover ~ #filterTourBlock {
+    transform: translateX(0%) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+#filterTourBlock {
+  transform: translateX(20%);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+  span {
+    white-space: nowrap;
+  }
+}
+
+.filterPopUp {
+  opacity: 0;
+  transition: all 0.3s;
+  visibility: hidden;
+  transform: translateX(100%);
+  .select {
+    &:nth-child(3)::before {
+      display: none;
+    }
+    &::before {
+      left: -20%;
+    }
+    &:nth-child(3)::after {
+      content: '';
+      display: inline-block;
+      width: 1px;
+      height: 2.43vw;
+      background: #ccc;
+      position: absolute;
+      right: -21%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.lastItem {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.32) 100%),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 54.17%,
+      rgba(0, 0, 0, 0.22) 68.75%,
+      rgba(0, 0, 0, 0.37) 79.69%,
+      rgba(0, 0, 0, 0.45) 100%
+    ),
+    url(../../assets/images/tour.png), lightgray 50% / cover no-repeat;
+}

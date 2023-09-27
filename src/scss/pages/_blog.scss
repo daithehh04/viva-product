@@ -1,0 +1,71 @@
+.blog-container {
+  background-image: url(../../assets//images/bg-blog.png);
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  .category-link {
+    cursor: pointer;
+    position: relative;
+    &:hover {
+      color: #138140;
+      span {
+        color: #138140;
+      }
+    }
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 0%;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      background: #138140;
+      transition: width 0.3s ease;
+    }
+    &:hover::after {
+      width: calc(100% + 3vw);
+    }
+  }
+}
+.bgFilterMobile {
+  @media screen and (max-width: 768px) {
+    position: absolute;
+    inset: 0;
+    background: #171717;
+    opacity: 0.04;
+    border-radius: 1.06667vw;
+  }
+}
+.select-mobile {
+  @media screen and (max-width: 768px) {
+    padding: 0 4.27vw;
+  }
+  .MuiFormControl-root {
+    flex: 1;
+  }
+}
+
+.ourBlog {
+  @media screen and (min-width: 768px) {
+    width: 49.125vw;
+    height: 6vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .background {
+      position: absolute;
+      inset: 0;
+      border-radius: 0.75rem;
+      opacity: 0.8;
+      background: #fff;
+      box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.08);
+    }
+
+    div:nth-child(2)::before {
+      display: none;
+    }
+  }
+}

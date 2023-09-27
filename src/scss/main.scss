@@ -1,0 +1,34 @@
+// utilities
+@import "./utilities/variable";
+@import "./utilities/mixin";
+
+// Base
+@import "./base/reset";
+@import "./base/base";
+@import "./base/typography";
+
+// Components
+@import "./components/buttons";
+@import "./components/tourItem";
+@import "./components/voucher";
+@import "./components/filterTour";
+@import "./components/blogItem";
+@import "./components/blogItem2";
+@import "./components/navbar";
+@import "./components/bookingProcessSteps";
+@import "./components/bookTour";
+@import "./components/reviewItem";
+@import "./components/filterTourTravel";
+// Layout
+@import "./layout/header";
+@import "./layout/footer";
+
+// Pages
+@import "./pages/home";
+@import "./pages/blog";
+@import "./pages/about";
+@import "./pages/tourDetail";
+@import "./pages/travel-style";
+@import "./pages/checkVisa";
+@import "./pages/blogDetail";
+@import "./pages/hotDeals";
