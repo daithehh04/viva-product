@@ -32,9 +32,9 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
   })
 
   const [activePage, setActivePage] = useState(0)
-  const [destination, setDestination] = useState(arrayDesInit)
-  const [topic, setTopic] = useState(arrayTopicInit)
-  const [category, setCategory] = useState(slug)
+  const [destination, setDestination] = useState(arrayDesInit || '')
+  const [topic, setTopic] = useState(arrayTopicInit || '')
+  const [category, setCategory] = useState(slug || '')
   const language = lang?.toUpperCase() || 'EN'
 
   const { data, refetch } = useQuery(GET_ALL_POST_FILTER, {
@@ -42,9 +42,9 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
       language,
       offset: 0,
       size: 2,
-      topicSlug: topic,
-      categorySlug: category === undefined ? arrayCateInit : category,
-      destinationSlug: destination
+      topicSlug: topic === '' ? arrayTopicInit : topic,
+      categorySlug: category === '' ? arrayCateInit : category,
+      destinationSlug: destination === '' ? arrayDesInit : destination
     }
   })
 
@@ -71,7 +71,7 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
     <div>
       <div className='content'>
         <h2 className='heading-1 md:pt-[9.755vw] pt-[23.53vw] md:mb-0 mb-[4.27vw]'>
-          {data1?.data?.page?.ourblog?.heading1}
+          {data1?.data?.page?.translation?.ourblog?.heading1}
         </h2>
         <FilterBlog
           handleDes={(data) => setDestination(data)}
@@ -84,18 +84,10 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
       </div>
 
       <div className='relative'>
-        <Image
-          alt='banner'
-          src={background}
-          fill
-          quality={100}
-        />
+        <Image alt='banner' src={background} fill quality={100} />
         <div className='grid md:grid-cols-4 md:px-[8.06vw] px-[4.27vw] grid-cols-2 md:gap-x-[2.5vw] md:gap-y-[3vw] gap-x-[4.27vw] gap-y-[6.4vw] md:mt-[4vw] mt-[7.73vw]'>
           {allBlogData?.map((item, index) => (
-            <Link
-              key={index}
-              href={`/${item?.translation?.slug}`}
-            >
+            <Link key={index} href={`/${item?.translation?.slug}`}>
               <BlogItem data={item?.translation} />
             </Link>
           ))}
@@ -116,12 +108,15 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
         </div>
 
         <h2 className='heading-1 md:mt-[5.25vw] mt-[12.8vw] md:pl-[8.06vw] pl-[4.27vw] mb-[3.5vw]'>
-          {data1?.data?.page?.ourblog?.heading2}
+          {data1?.data?.page?.translation?.ourblog?.heading2}
         </h2>
         <div className='md:px-[8.06vw]'>
-          <SlideTour data={data1?.data?.page?.ourblog?.bestseller} />
+          <SlideTour data={data1?.data?.page?.translation?.ourblog?.bestseller} />
         </div>
-        <Button className='btn-secondary  m-auto md:mt-[3.5vw] mt-[10.01vw]'>See more</Button>
+        <Button className='btn-secondary  m-auto md:mt-[3.5vw] mt-[10.01vw]'>
+          {' '}
+          {data1?.data?.page?.translation?.ourblog?.button}
+        </Button>
       </div>
     </div>
   )

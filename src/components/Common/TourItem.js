@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 function TourItem({ data, menu }) {
-  const tourData = data?.translation?.tourDetail?.banner
+  const tourData = data?.translation?.tourDetail?.banner || data?.tourDetail?.banner
   let icons = null
   if (tourData?.rate) icons = new Array(Math.round(tourData?.rate)).fill(0)
   const pathName = usePathname()

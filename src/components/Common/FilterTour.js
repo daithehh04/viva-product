@@ -1,6 +1,8 @@
 'use client'
 import locationIcon from '@/assets/images/route-square-gr.svg'
 import styleIcon from '@/assets/images/style-travel.svg'
+import calendar from '@/assets/images/calendarFilter.svg'
+import wallet from '@/assets/images/wallet.svg'
 import Image from 'next/image'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
@@ -74,10 +76,7 @@ function FilterTour({ onSelectDes, dataFilter, onSelectStyle, onSelectBudget, on
                 </span>
               </MenuItem>
               {dataFilter?.countries?.map((item, index) => (
-                <MenuItem
-                  value={item?.slug}
-                  key={index}
-                >
+                <MenuItem value={item?.slug} key={index}>
                   <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                     {item?.name}
                   </span>
@@ -131,10 +130,7 @@ function FilterTour({ onSelectDes, dataFilter, onSelectStyle, onSelectBudget, on
                 </span>
               </MenuItem>
               {dataFilter?.style?.map((item, index) => (
-                <MenuItem
-                  value={item?.slug}
-                  key={index}
-                >
+                <MenuItem value={item?.slug} key={index}>
                   <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                     {item?.name}
                   </span>
@@ -149,7 +145,7 @@ function FilterTour({ onSelectDes, dataFilter, onSelectStyle, onSelectBudget, on
         <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Duration</span>
         <div className='flex items-center select-mobile'>
           <Image
-            src={styleIcon}
+            src={calendar}
             width={100}
             height={100}
             alt='style'
@@ -188,10 +184,7 @@ function FilterTour({ onSelectDes, dataFilter, onSelectStyle, onSelectBudget, on
                 </span>
               </MenuItem>
               {dataFilter?.duration?.map((item, index) => (
-                <MenuItem
-                  value={item?.name}
-                  key={index}
-                >
+                <MenuItem value={item?.name} key={index}>
                   <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                     {item?.name} day
                   </span>
@@ -206,7 +199,7 @@ function FilterTour({ onSelectDes, dataFilter, onSelectStyle, onSelectBudget, on
         <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Budget</span>
         <div className='flex items-center select-mobile'>
           <Image
-            src={styleIcon}
+            src={wallet}
             width={100}
             height={100}
             alt='style'
@@ -245,10 +238,7 @@ function FilterTour({ onSelectDes, dataFilter, onSelectStyle, onSelectBudget, on
                 </span>
               </MenuItem>
               {dataFilter?.budget?.map((item, index) => (
-                <MenuItem
-                  value={item?.name}
-                  key={index}
-                >
+                <MenuItem value={item?.name} key={index}>
                   <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                     {item?.name}$
                   </span>
