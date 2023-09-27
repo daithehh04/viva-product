@@ -87,7 +87,7 @@ export default function Statistics({ data }) {
         {data?.statistics?.map((item, index) => {
           return (
             <CountDown
-              key={item.index}
+              key={index}
               data={item}
               time={2000}
             />

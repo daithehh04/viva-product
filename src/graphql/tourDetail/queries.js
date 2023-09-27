@@ -24,6 +24,7 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
             altText
             sourceUrl
           }
+          icons
         }
         content {
           overview {
@@ -43,10 +44,7 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
             content {
               heading
               desc
-              icons {
-                altText
-                sourceUrl
-              }
+              
               place {
                 placeName
                 image {
@@ -195,10 +193,7 @@ export const GET_RELATED_TOUR = `query($language: LanguageCodeEnum!, $taxonomyVa
               highestPrice
               lowestPrice
             }
-            icons{
-              sourceUrl
-              altText
-            }
+            icons
             }
           }
         }

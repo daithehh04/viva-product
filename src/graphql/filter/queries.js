@@ -77,10 +77,7 @@ const DATA_BEST_TOUR = gql`
                 highestPrice
               }
               rate
-              icons {
-                altText
-                sourceUrl
-              }
+              icons
             }
           }
         }

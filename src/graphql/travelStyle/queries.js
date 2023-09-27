@@ -40,10 +40,7 @@ const GET_INFO_PAGE_TRAVEL_STYLE = `query getInfoPageTravelStyle($taxonomyValue:
                     rate
                     title
                     location
-                    icons{
-                      sourceUrl
-                      altText
-                    }
+                    icons
                   }
                 }
               }

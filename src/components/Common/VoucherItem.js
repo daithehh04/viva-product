@@ -48,6 +48,7 @@ function VoucherItem({ className, headerData = {}, data = {} }) {
             <DetailVocher
               headerData={headerData}
               data={voucherData}
+              setOpenModal={setOpenModal}
             />
           </div>
         </ModalCustom>

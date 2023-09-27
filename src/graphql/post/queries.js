@@ -136,10 +136,7 @@ query ( $language: LanguageCodeEnum!) {
                     altText
                     sourceUrl
                   }
-                  icons {
-                    altText
-                    sourceUrl
-                  }
+                  icons
                 }
               }
             }
