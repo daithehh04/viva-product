@@ -25,7 +25,6 @@ export default async function page({ params: { lang } }) {
   const dataTaxonomiesStyleTour = await getDataPost(lang, DATA_TAXONOMIES_TOUR_STYLE)
   const dataTaxonomiesBudget = await getDataPost(lang, DATA_TAXONOMIES_BUDGET)
   const dataTaxonomiesDuration = await getDataPost(lang, DATA_TAXONOMIES_DURATION)
-
   return (
     <main>
       <Home

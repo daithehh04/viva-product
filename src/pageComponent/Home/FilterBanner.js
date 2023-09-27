@@ -26,11 +26,16 @@ function FilterBanner({ lang, dataFilter }) {
   const handleChangeBudget = (event) => {
     setBudget(event.target.value)
   }
-  console.log('destination',destination);
-  console.log('travelStyle',travelStyle);
-  console.log('duration',duration);
-  console.log('budget',budget);
-
+  
+  function handleSearch(e) {
+    if(destination || travelStyle || duration || budget) {
+      e.preventDefault()
+    }
+    console.log('destination',destination);
+    console.log('travelStyle',travelStyle);
+    console.log('duration',duration);
+    console.log('budget',budget);
+  }
   return (
     <div className='flex gap-x-[1.75vw]'>
       <div className='flex max-md:grid max-md:grid-cols-2 max-md:gap-[2.67vw] md:gap-x-[1.87vw] gap-y-[3.2vw] gap-x-[2.67vw] md:flex-nowrap flex-wrap md:justify-normal justify-between'>
@@ -263,6 +268,7 @@ function FilterBanner({ lang, dataFilter }) {
         </div>
       </div>
       <Link
+        onClick={handleSearch}
         href={`/${lang}/search`}
         className='btn-primary'
       >
