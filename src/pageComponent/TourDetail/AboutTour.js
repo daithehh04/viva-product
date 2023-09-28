@@ -17,7 +17,7 @@ import { ACCOM_REF, BRIEF_REF, OVERVIEW_REF, ROLE_REF, TOUR_DETAIL_REF } from '.
 
 export default function AboutTour(props) {
   const { type, data, headerData = {}, relatedTours = [] } = props
-  console.log(data)
+  console.log(relatedTours)
   const { contentHeader, relatedTourHeader, bannerHeaders } = headerData
   const { reviews, banner, content = {} } = data || []
   const { accommodation, brief, inclusionAndExclusion, overview, tourDetailed } = content
@@ -524,7 +524,7 @@ export default function AboutTour(props) {
 
       {/* Tour Slide */}
       <div className='mb-[14.93vw] md:mb-[8.69vw] md:px-[6.38vw]'>
-        <h4 className='heading-1 content max-md:mb-[2.5vw]'>{relatedTourHeader?.heading}</h4>
+        <h4 className='heading-1 max-md:mb-[2.5vw] max-md:mx-[4.27vw]'>{relatedTourHeader?.heading}</h4>
         <SlideTour
           data={relatedTours}
           slug={type === 'promo' && 'hot-deals'}

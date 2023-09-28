@@ -1,6 +1,7 @@
 export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: LanguageCodeEnum!) {
   tours(id: $slug, idType: URI) {
     translation(language: $language) {
+      id
       slug
       tourDetail {
         banner {
@@ -179,6 +180,7 @@ export const GET_RELATED_TOUR = `query($language: LanguageCodeEnum!, $taxonomyVa
   ) {
     nodes {
       translation(language: $language) {
+        id
         slug
           tourDetail {
             banner {
@@ -197,6 +199,32 @@ export const GET_RELATED_TOUR = `query($language: LanguageCodeEnum!, $taxonomyVa
             }
           }
         }
+    }
+  }
+}`
+
+export const GET_RANDOM_TOUR = `query ($language: LanguageCodeEnum!) {
+  allTours(first: 4) {
+    nodes {
+      translation(language: $language) {
+        slug
+        tourDetail {  
+          banner {
+            gallery {
+              altText
+              sourceUrl
+            }
+            icons
+            location
+            price {
+              highestPrice
+              lowestPrice
+            }
+            rate
+            title
+          }
+        }
+      }
     }
   }
 }`
