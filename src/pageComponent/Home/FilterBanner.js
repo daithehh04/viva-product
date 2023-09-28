@@ -8,13 +8,16 @@ import Image from 'next/image'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
-import { useState } from 'react'
-import Link from 'next/link'
+import { useRef, useState } from 'react'
+import Button from '@/components/Common/Button'
+import { useRouter } from 'next/navigation'
 function FilterBanner({ lang, dataFilter }) {
+  const refLink = useRef()
   const [destination, setDestination] = useState('')
   const [travelStyle, setTravelStyle] = useState('')
   const [duration, setDuration] = useState('')
   const [budget, setBudget] = useState('')
+  const router = useRouter()
 
   const handleChangeDestination = (event) => {
     setDestination(event.target.value)
@@ -30,13 +33,32 @@ function FilterBanner({ lang, dataFilter }) {
   }
 
   function handleSearch(e) {
-    if (destination || travelStyle || duration || budget) {
-      e.preventDefault()
+    const arrParams = []
+    if(destination || travelStyle || duration || budget) {
+      if(destination) {
+        arrParams.push({'country': destination})
+      }
+      if(travelStyle) {
+        arrParams.push({'style':travelStyle})
+      }
+      if(duration) {
+        arrParams.push({'duration':duration})
+      }
+      if(budget) {
+        arrParams.push({'budget':budget})
+      }
+      const resultObject = {};
+      arrParams.forEach(obj => {
+        for (const key in obj) {
+          if (obj.hasOwnProperty(key)) {
+            resultObject[key] = obj[key];
+          }
+        }
+      });
+      const queryString = new URLSearchParams(resultObject).toString();
+      const link = `/search?&${queryString}`
+      router.push(link)
     }
-    console.log('destination', destination)
-    console.log('travelStyle', travelStyle)
-    console.log('duration', duration)
-    console.log('budget', budget)
   }
   return (
     <div className='flex gap-x-[1.75vw]'>
@@ -257,10 +279,20 @@ function FilterBanner({ lang, dataFilter }) {
           </div>
         </div>
       </div>
-      <Link onClick={handleSearch} href={`/${lang}/search`} className='btn-primary'>
-        <Image src={searchIcon} width={50} height={50} alt='search' className='w-[1.25vw] h-[1.25vw]' />
+      <Button
+        ref={refLink}
+        onClick={handleSearch}
+        className='btn-primary'
+      >
+        <Image
+          src={searchIcon}
+          width={50}
+          height={50}
+          alt='search'
+          className='w-[1.25vw] h-[1.25vw]'
+        />
         Search
-      </Link>
+      </Button>
     </div>
   )
 }

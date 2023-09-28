@@ -50,16 +50,17 @@ export default function OptionCustomer({ icon, list, defaultValue, onSelect }) {
             },
             width: '100%'
           }}
+          displayEmpty
           value={personName}
           onChange={handleChange}
-          renderValue={(selected) => {
-            return (
-              <Placeholder
-                icon={icon}
-                item={selected}
-              />
-            )
-          }}
+          // renderValue={(selected) => {
+          //   return (
+          //     <Placeholder
+          //       icon={icon}
+          //       item={selected}
+          //     />
+          //   )
+          // }}
         >
           <MenuItem value=''>
             <div className='flex gap-[1vw] items-center'>
@@ -67,8 +68,7 @@ export default function OptionCustomer({ icon, list, defaultValue, onSelect }) {
                 src={icon}
                 alt='Money Image'
               />
-              <div className='px-2 py-[0.5vw] text-[0.875vw] font-normal'>Destination</div>
-
+              <span className='px-2 py-[0.25vw] text-[0.875vw] font-normal'>Destination</span>
             </div>
           </MenuItem>
 
@@ -82,7 +82,7 @@ export default function OptionCustomer({ icon, list, defaultValue, onSelect }) {
                   src={icon}
                   alt='Money Image'
                 />
-                <div className='px-2 py-[0.5vw] text-[0.875vw] font-normal'>{item?.name}</div>
+                <span className='px-2 py-[0.25vw] text-[0.875vw] font-normal'>{item?.name}</span>
               </div>
             </MenuItem>
           ))}
