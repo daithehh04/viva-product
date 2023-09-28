@@ -30,16 +30,12 @@ query PostBySlug($slug: String!, $language: LanguageCodeEnum!) {
 
 const DATA_BLOG_DETAIL = `query ($slug: String!, $language: LanguageCodeEnum!) {
   postBy(slug: $slug) {
-    id
-    databaseId
-    content
-    title
-    slug
     translation(language: $language) {
       id
       slug
       content
       title
+      excerpt
       featuredImage {
         node {
           sourceUrl
@@ -49,8 +45,7 @@ const DATA_BLOG_DETAIL = `query ($slug: String!, $language: LanguageCodeEnum!) {
         locale
         slug
       }
-    }
-    blogdetail {
+      blogdetail {
       subtitle1
       subtitle2
       time
@@ -77,8 +72,7 @@ const DATA_BLOG_DETAIL = `query ($slug: String!, $language: LanguageCodeEnum!) {
         }
       }
     }
-     
-    excerpt
+    }
   }
 }`
 

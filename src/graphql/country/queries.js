@@ -29,6 +29,14 @@ query getInfoCountry($taxonomyValue: ID!,$language: LanguageCodeEnum!) {
       name
       slug
       description
+      ourTour{
+        subtitle
+        btn
+        titleBlogs
+        titleReviews
+        titleTours
+        titleTrips
+      }
       country {
         flag {
           sourceUrl
@@ -72,6 +80,16 @@ query getInfoCountry($taxonomyValue: ID!,$language: LanguageCodeEnum!) {
         blogs {
           ... on Post {
             title
+            slug
+            featuredImage{
+              node{
+                sourceUrl
+              }
+            }
+            blogdetail{
+              subtitle1
+            }
+            dateGmt
           }
         }
       }
@@ -111,6 +129,7 @@ query getTourStyle($language: LanguageCodeEnum!, $taxonomyValue: String, $taxono
                 highestPrice
                 lowestPrice
               }
+              icons
             }
           }
         }

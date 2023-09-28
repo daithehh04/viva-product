@@ -40,9 +40,10 @@ async function index({ lang, slug }) {
       <SlideDestination
         data={dataOtherTrip?.data?.allTours?.nodes}
         dataOtherType={dataOtherTypeTrip?.data?.allTours?.nodes}
+        dataTitle={data}
       />
-      <CustomerReview data={data?.country?.customerReviews} />
-      <OurBlog />
+      <CustomerReview data={data?.country?.customerReviews} dataInfo={data?.ourTour} />
+      <OurBlog data={data} lang={lang} />
     </div>
   )
 }

@@ -4,8 +4,11 @@ import Image from 'next/image'
 import FilterTour from '@/components/Common/FilterTour'
 import Button from '@/components/Common/Button'
 import searchIcon from '@/assets/images/search-normal.svg'
+import { useRef } from 'react'
+import scrollDown from '@/helpers/scrollDown'
 
 function Banner({ data }) {
+  const scrollRef = useRef()
   return (
     <Box
       sx={{
@@ -31,33 +34,22 @@ function Banner({ data }) {
           <div className='filter-tour hidden md:flex gap-x-[1.75vw] ml-auto mr-auto mt-[1.94vw] bg-white w-max py-[1.5vw] pl-[2.87vw] pr-[2vw] rounded-[1.125vw]'>
             <FilterTour />
             <Button className='btn-primary'>
-              <Image
-                src={searchIcon}
-                width={50}
-                height={50}
-                alt='search'
-                className='w-[1.25vw] h-[1.25vw]'
-              />
+              <Image src={searchIcon} width={50} height={50} alt='search' className='w-[1.25vw] h-[1.25vw]' />
               Search
             </Button>
           </div>
-          <div className='flex flex-col gap-[0.94vw] text-center items-center justify-center md:mt-[2.19vw] mt-[4.8vw]'>
+          <div
+            onClick={() => scrollDown(scrollRef, 'start')}
+            className='flex flex-col gap-[0.94vw] text-center items-center justify-center md:mt-[2.19vw] mt-[4.8vw]'
+          >
             <svg
               xmlns='http://www.w3.org/2000/svg'
               className='arrow-down md:w-[1.375vw] md:h-[1.35vw] w-[3.2vw] h-[3.2vw]'
               viewBox='0 0 24 25'
               fill='none'
             >
-              <path
-                d='M1 1L12 12L23 1'
-                stroke='white'
-                strokeWidth='2'
-              />
-              <path
-                d='M1 12L12 23L23 12'
-                stroke='white'
-                strokeWidth='2'
-              />
+              <path d='M1 1L12 12L23 1' stroke='white' strokeWidth='2' />
+              <path d='M1 12L12 23L23 12' stroke='white' strokeWidth='2' />
             </svg>
             <span className='md:block hidden text-center font-manrope text-[0.875vw] not-italic font-semibold tracking-[0.04375vw] uppercase text-[#fff] '>
               Explore now
@@ -110,6 +102,7 @@ function Banner({ data }) {
         </div>
       */}
       </div>
+      <div ref={scrollRef}></div>
     </Box>
   )
 }

@@ -1,4 +1,7 @@
 .booktour {
+  .MuiSvgIcon-root {
+    color: #fff;
+  }
   .mui-hpg9aa-MuiInputBase-root-MuiInput-root:after {
     border: none;
   }
@@ -18,7 +21,7 @@
       font-size: 3.73333vw;
       color: #dfdfdf;
     }
-    span {
+    strong {
       color: #e51c1c;
     }
   }
@@ -49,10 +52,11 @@
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.8);
       color: #fff;
+      border-radius: 0.5vw !important;
       font-size: 1.125vw;
       @media screen and (max-width: 768px) {
         height: 12.8vw;
-        border-radius: 2.13333vw;
+        border-radius: 2.13333vw !important;
         font-size: 3.73333vw;
       }
       .MuiSelect-select {
@@ -124,6 +128,7 @@
     }
     label {
       display: flex;
+      align-items: center;
       gap: 0.69vw;
       font-size: 0.875vw;
       font-weight: 500;
