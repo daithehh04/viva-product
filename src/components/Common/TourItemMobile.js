@@ -5,6 +5,7 @@ import Image from 'next/image'
 import imgStar from '@/assets/images/star_yellow.svg'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { iconsTour } from '@/lib/Icons'
 
 function TourItemMobile({ data }) {
   const tourData = data?.translation?.tourDetail?.banner
@@ -81,8 +82,8 @@ function TourItemMobile({ data }) {
               className='w-[5.86667vw] h-[5.86667vw] bg-[#FFF8DE] justify-center flex items-center rounded-[0.72vw] object-contain'
             >
               <Image
-                alt={icon.altText}
-                src={icon.sourceUrl}
+                alt={icon}
+                src={iconsTour[icon]}
                 width={20}
                 height={20}
                 className='w-[3.2vw] h-[3.2vw]'

@@ -6,7 +6,9 @@ import detailVocherImg from '@/assets/images/des-menu.png'
 import Image from 'next/image'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
+import { gql, useMutation } from '@apollo/client'
 
+// css for label + placeholder + error msg
 const labelStyle =
   'text-[0.9375vw] font-medium leading-[1.5vw] mb-[0.5vw] max-md:mb-[2.13vw] max-md:text-[14px] leading-[21px] '
 const labelInputStyle =
@@ -14,7 +16,7 @@ const labelInputStyle =
 const placeholderStyle =
   'absolute pointer-events-none pl-[1.5vw] top-[50%] translate-y-[-50%] left-0 opacity-0.5 font-normal text-[1vw] text-[#838383] max-md:text-[3.73vw] max-md:pl-[5.3vw] max-md:leading-normal'
 const errorStyle = 'text-red-300 text-[1vw] max-md:text-[3.73vw] mb-[0.62vw] max-md:mb-[3.2vw]'
-
+//validate
 const schema = Yup.object().shape({
   fullname: Yup.string().required('Tên là trường bắt buộc'),
   email: Yup.string().email('Email không hợp lệ').required('Email là trường bắt buộc'),
@@ -27,20 +29,76 @@ const schema = Yup.object().shape({
     .required('Số  người tham gia là trường bắt buộc')
 })
 
-const DetailVocher = ({ headerData = {}, data }) => {
+// queries form
+const SUBMIT_FORM = gql`
+  mutation ($input: SubmitGfFormInput!) {
+    submitGfForm(input: $input) {
+      entry {
+        id
+      }
+      errors {
+        message
+      }
+    }
+  }
+`
+
+const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors }
   } = useForm({
     mode: 'onChange',
     resolver: yupResolver(schema)
   })
-
+  const [mutate] = useMutation(SUBMIT_FORM)
   const onSubmit = (data) => {
-    // Data sau khi nhập song
-    // console.log(data)
+    mutate({
+      variables: {
+        input: {
+          id: 2,
+          fieldValues: [
+            {
+              id: 1,
+              value: data.fullname
+            },
+            {
+              id: 3,
+              value: data.phone
+            },
+            {
+              id: 4,
+              value: data.email
+            },
+            {
+              id: 5,
+              value: data.participantsNumber
+            },
+            {
+              id: 6,
+              value: data.date
+            }
+          ]
+        }
+      }
+    }).then((res) => {
+      if (res?.data?.submitGfForm?.errors?.length > 0) {
+        // Have Error
+      } else {
+        setOpenModal(false)
+        // Successful
+      }
+      reset({
+        fullname: '',
+        phone: '',
+        email: '',
+        participantsNumber: '',
+        date: ''
+      })
+    })
   }
 
   return (
@@ -82,19 +140,30 @@ const DetailVocher = ({ headerData = {}, data }) => {
           </div>
         </div>
         <div>
-          <TimeDown headerData={headerData} data={data?.content?.expireDate} />
+          <TimeDown
+            headerData={headerData}
+            data={data?.content?.expireDate}
+          />
         </div>
       </div>
       <div className='w-full h-[0.0625vw] mt-[3vw] mb-[2.5vw] bg-[#171717] opacity-10 max-md:my-[6.4vw]'></div>
       <div className='flex gap-[3.31vw] max-md:flex-col'>
-        <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col'>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className='flex flex-col'
+        >
           <h2 className='text-[2rem] font-bold leading-[2.6vw] mb-[2.2vw] max-md:mb-[5.33vw] max-md:text-[5.3vw] max-md:leading-normal'>
             {headerData?.form?.heading}
           </h2>
 
           <label className={labelStyle}>{headerData?.form?.name?.header}</label>
           <div className='relative '>
-            <input className={labelInputStyle} id='fullname' name='fullname' {...register('fullname')} />
+            <input
+              className={labelInputStyle}
+              id='fullname'
+              name='fullname'
+              {...register('fullname')}
+            />
             {!watch('fullname') && (
               <label className={placeholderStyle}>
                 {headerData?.form?.name?.placeholder} <span className='text-[#F04040]'>*</span>
@@ -105,7 +174,12 @@ const DetailVocher = ({ headerData = {}, data }) => {
 
           <label className={labelStyle}>{headerData?.form?.phone?.header}</label>
           <div className='relative '>
-            <input className={labelInputStyle} id='phone' name='phone' {...register('phone')} />
+            <input
+              className={labelInputStyle}
+              id='phone'
+              name='phone'
+              {...register('phone')}
+            />
             {!watch('phone')?.length && (
               <label className={placeholderStyle}>
                 {headerData?.form?.phone?.placeholder} <span className='text-[#F04040]'>*</span>
@@ -116,7 +190,12 @@ const DetailVocher = ({ headerData = {}, data }) => {
 
           <label className={labelStyle}>{headerData?.form?.email?.header}</label>
           <div className='relative '>
-            <input className={labelInputStyle} id='email' name='email' {...register('email')} />
+            <input
+              className={labelInputStyle}
+              id='email'
+              name='email'
+              {...register('email')}
+            />
             {!watch('email') && (
               <label className={placeholderStyle}>
                 {headerData?.form?.email?.placeholder} <span className='text-[#F04040]'>*</span>
@@ -143,7 +222,12 @@ const DetailVocher = ({ headerData = {}, data }) => {
 
           <label className={labelStyle}>{headerData?.form?.date?.header}</label>
           <div className='relative mb-[0.62vw] max-md:mb-[3.2vw]'>
-            <input className={labelInputStyle} id='date' name='date' {...register('date')} />
+            <input
+              className={labelInputStyle}
+              id='date'
+              name='date'
+              {...register('date')}
+            />
             {!watch('date') && <label className={placeholderStyle}>{headerData?.form?.date?.placeholder}</label>}
           </div>
 
@@ -155,7 +239,11 @@ const DetailVocher = ({ headerData = {}, data }) => {
             {headerData?.form?.button}
           </button>
         </form>
-        <Image src={detailVocherImg} alt='Detail voucher' className='w-[29.1875vw] h-[33.5vw] max-md:hidden' />
+        <Image
+          src={detailVocherImg}
+          alt='Detail voucher'
+          className='w-[29.1875vw] h-[33.5vw] max-md:hidden'
+        />
       </div>
     </div>
   )

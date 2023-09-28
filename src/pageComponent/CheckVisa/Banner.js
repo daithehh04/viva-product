@@ -67,12 +67,7 @@ function Banner({ data }) {
             }
           }}
         >
-          <Select
-            value={nationality}
-            onChange={handleChangeNation}
-            className='text-white'
-            displayEmpty
-          >
+          <Select value={nationality} onChange={handleChangeNation} className='text-white' displayEmpty>
             <MenuItem value=''>
               <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>VietNam-VN</span>
             </MenuItem>
@@ -102,12 +97,7 @@ function Banner({ data }) {
             }
           }}
         >
-          <Select
-            onChange={handleChangeCountry}
-            value={country}
-            className='text-white'
-            displayEmpty
-          >
+          <Select onChange={handleChangeCountry} value={country} className='text-white' displayEmpty>
             <MenuItem value=''>
               <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>VietNam-VN</span>
             </MenuItem>
@@ -124,7 +114,7 @@ function Banner({ data }) {
         </FormControl>
 
         <Button className='bg-primaryColor md:rounded-[0.75vw] rounded-[2.13333vw] w-fit md:mt-[3.13vw] mt-[8.53vw] px-[7.73vw] py-[3.2vw] md:px-[2.88vw] md:py-[1.25vw]'>
-          <span className='md:text-[1vw] text-[3.2vw] font-medium text-textColor '>Check Visa Now</span>
+          <span className='md:text-[1vw] text-[3.2vw] font-medium text-textColor '>{dataBanner?.button}</span>
         </Button>
       </div>
     </div>
