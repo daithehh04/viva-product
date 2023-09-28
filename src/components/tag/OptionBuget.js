@@ -51,16 +51,17 @@ export default function OptionBudget({ icon, list, defaultValue, onSelect }) {
             },
             width: '100%'
           }}
+          displayEmpty
           value={personName}
           onChange={handleChange}
-          renderValue={(selected) => {
-            return (
-              <Placeholder
-                icon={icon}
-                item={selected}
-              />
-            )
-          }}
+          // renderValue={(selected) => {
+          //   return (
+          //     <Placeholder
+          //       icon={icon}
+          //       item={selected}
+          //     />
+          //   )
+          // }}
           MenuProps={MenuProps}
         >
           <MenuItem value=''>
@@ -69,7 +70,7 @@ export default function OptionBudget({ icon, list, defaultValue, onSelect }) {
                 src={icon}
                 alt='Money Image'
               />
-              <div className='px-2 py-[0.5vw] text-[0.875vw] font-normal'>Budget</div>
+              <div className='px-2 py-[0.25vw] text-[0.875vw] font-normal'>Budget</div>
             </div>
           </MenuItem>
           {list?.map((item) => (
@@ -82,7 +83,7 @@ export default function OptionBudget({ icon, list, defaultValue, onSelect }) {
                   src={icon}
                   alt='Money Image'
                 />
-                <div className='px-2 py-[0.5vw] text-[0.875vw] font-normal'>{item?.name}</div>
+                <div className='px-2 py-[0.25vw] text-[0.875vw] font-normal'>{item?.name}</div>
               </div>
             </MenuItem>
           ))}

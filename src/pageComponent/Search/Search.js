@@ -1,13 +1,22 @@
 'use client'
 import { DATA_BEST_TOUR } from '@/graphql/filter/queries'
 import { useQuery } from '@apollo/client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ListTour from './ListTour'
 import Sidebar from './Sidebar'
 import OtherTours from './OtherTours'
 import NewRelease from './NewRelease'
 
 const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget, listBlog }) => {
+  if (typeof window !== "undefined") {
+    const currentUrl = window?.location.href;
+    var urlParams = new URLSearchParams(currentUrl);
+    var durationParams = urlParams.get('duration');
+    var budgetParams = urlParams.get('budget');
+    var styleParams = urlParams.get('style');
+    var destinationParams = urlParams.get('country');
+  }
+  
   function handleTaxonomiesSlug(data) {
     const newArrDataTaxonomies = []
     data?.map((item) => {
@@ -17,11 +26,11 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
   }
   const newArrDataTaxonomiesCountry = handleTaxonomiesSlug(dataMenuCountry?.data?.allCountries?.nodes)
   const newArrDataTaxonomiesStyleTravel = handleTaxonomiesSlug(travelStylesList?.data?.allTourStyle?.nodes)
-  const [destination, setDestination] = useState(newArrDataTaxonomiesCountry)
+  const [destination, setDestination] = useState(destinationParams || newArrDataTaxonomiesCountry)
   const [initTravelStyle, setInitTravelStyle] = useState(newArrDataTaxonomiesStyleTravel)
-  const [travelStyle, setTravelStyle] = useState([])
-  const [day, setDay] = useState(null)
-  const [budget, setBudget] = useState(null)
+  const [travelStyle, setTravelStyle] = useState(styleParams || [])
+  const [day, setDay] = useState(durationParams)
+  const [budget, setBudget] = useState(budgetParams)
   const dataAllTours = useQuery(DATA_BEST_TOUR, {
     variables: {
       language: lang?.toUpperCase(),

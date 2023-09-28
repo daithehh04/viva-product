@@ -49,7 +49,7 @@ export default function TourDetailStep({ data: tourDetailData, icons }) {
                           key={index}
                           width={40}
                           height={40}
-                          className='md:w-[2.375vw] w-[8vw] md:h-[2.375vw] h-[8vw] md:p-[0.375vw] p-[1.267vw] bg-[#FFF2BD] rounded-[12px]'
+                          className='md:w-[2.375vw] w-[8vw] md:h-[2.375vw] h-[8vw] md:p-[0.375vw] p-[1.267vw] bg-[#FFF2BD] md:rounded-[12px] rounded-[4px]'
                         />
                       )
                     })}
