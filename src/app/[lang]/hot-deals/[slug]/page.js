@@ -10,7 +10,9 @@ export default async function page({ params: { lang, slug } }) {
   const res = await getListPromotionTour(lang)
   const promotionList = res?.data?.page?.hotDeals?.promotionList
 
-  const otherPromotionTours = promotionList?.filter((item) => item.translation.slug != slug)
+  const otherPromotionTours = promotionList?.filter(
+    (item) => item.translation.id != result?.data?.tours?.translation?.id
+  )
   return (
     <Promotion
       data={result?.data?.tours?.translation?.tourDetail || {}}
