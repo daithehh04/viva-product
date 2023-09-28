@@ -10,6 +10,9 @@ import { Input } from '@mui/material'
 import Button from './Button'
 import DatePickerCustom from '../FormBookTour/DatePickerCustom'
 import { gql, useMutation } from '@apollo/client'
+import { useRef, useState } from 'react'
+import Notification from './Notification'
+import { useClickOutside } from '@/helpers/customHooks'
 
 // queries form
 const SUBMIT_FORM = gql`
@@ -25,8 +28,14 @@ const SUBMIT_FORM = gql`
   }
 `
 
-function BookTour({ data, onClose }) {
-  const [mutate] = useMutation(SUBMIT_FORM)
+function BookTour({ data, onClose, refFormPopup }) {
+  const [mutate, { loading }] = useMutation(SUBMIT_FORM)
+  const [openNoti, setOpenNoti] = useState(false)
+  const [msg, setMsg] = useState('')
+  const [isSuccess, setIsSuccess] = useState(false)
+  const [isError, setIsError] = useState(false)
+  const [isConfirm, setIsConfirm] = useState(false)
+  const formRef = useRef()
   // init value
   const INITAL_FORM_STATE = {
     nationality: '',
@@ -94,17 +103,32 @@ function BookTour({ data, onClose }) {
         }
       }
     }).then((res) => {
-      console.log(res)
       if (res?.data?.submitGfForm?.errors?.length > 0) {
         // Have Error
+        setIsError(true)
+        setOpenNoti(true)
+        setMsg('Failed')
       } else {
-        resetForm()
         // Successful
+        setIsSuccess(true)
+        setOpenNoti(true)
+        setMsg('Successfull')
+        resetForm()
       }
     })
   }
+
+  useClickOutside(formRef, () => {
+    if (refFormPopup.current.classList.contains('active')) {
+      setOpenNoti(true)
+      setIsConfirm(true)
+    }
+  })
   return (
-    <div className='md:w-[82.6875vw] md:h-[95.5vw] w-full h-full overflow-auto relative booktour'>
+    <div
+      ref={formRef}
+      className='md:w-[82.6875vw] md:h-[95.5vw] w-full h-full overflow-auto relative booktour'
+    >
       <Image
         alt='background'
         src={background}
@@ -120,7 +144,10 @@ function BookTour({ data, onClose }) {
           height='57'
           viewBox='0 0 57 57'
           fill='none'
-          onClick={onClose}
+          onClick={() => {
+            setOpenNoti(true)
+            setIsConfirm(true)
+          }}
         >
           <line
             x1='46.3438'
@@ -408,14 +435,33 @@ function BookTour({ data, onClose }) {
                     />
                   </div>
                 </div>
-                <Button className='justify-center btn-primary max-md:w-full max-md:flex'>
-                  {data?.data?.page?.booktour?.buttontext}
+                <Button
+                  disabled={loading}
+                  className='justify-center btn-primary max-md:w-full max-md:flex'
+                >
+                  {data?.data?.page?.booktour?.buttontext} {loading && '...'}
                 </Button>
               </Form>
             )
           }}
         </Formik>
       </div>
+      <Notification
+        openNoti={openNoti}
+        setOpenNoti={setOpenNoti}
+        msg={msg}
+        isSuccess={isSuccess}
+        isError={isError}
+        isConfirm={isConfirm}
+        handleSuccess={() => {
+          setIsSuccess(false)
+          onClose()
+        }}
+        handleError={() => {
+          setIsError(false)
+        }}
+        handleConfirm={() => onClose()}
+      />
     </div>
   )
 }

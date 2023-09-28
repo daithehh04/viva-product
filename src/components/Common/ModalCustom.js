@@ -2,8 +2,9 @@
 import { Modal } from '@mui/material'
 import closeImg from '@/assets/images/close.svg'
 import Image from 'next/image'
+import Notification from './Notification'
 
-const ModalCustom = ({ children, openModal, setOpenModal, className }) => {
+const ModalCustom = ({ children, openModal, setOpenModal, className, handleBeforeClose }) => {
   //className prop requires width and height properties
 
   return (

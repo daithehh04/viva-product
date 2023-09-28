@@ -1,13 +1,22 @@
 'use client'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import ModalCustom from './ModalCustom'
 import DetailVocher from '@/pageComponent/HotDeal/DetailVoucher'
 import Link from 'next/link'
+import Notification from './Notification'
+import { useClickOutside } from '@/helpers/customHooks'
 
 function VoucherItem({ className, headerData = {}, data = {} }) {
+  const itemRef = useRef()
   const [openModal, setOpenModal] = useState(false)
   const voucherData = data?.voucher || {}
+  const [openNoti, setOpenNoti] = useState(false)
+  const [isConfirm, setIsConfirm] = useState(false)
 
+  useClickOutside(itemRef, () => {
+    setOpenNoti(true)
+    setIsConfirm(true)
+  })
   return (
     <>
       <div
@@ -39,19 +48,31 @@ function VoucherItem({ className, headerData = {}, data = {} }) {
         </div>
       </div>
       {openModal && (
-        <ModalCustom
-          openModal={openModal}
-          setOpenModal={setOpenModal}
-          className='w-[91.46vw] md:w-[82.93vw] md:h-[90vh] h-[80vh] '
-        >
-          <div className='w-full h-full bg-white overflow-y-auto md:rounded-[16px] md:py-[5vw] py-[11.46vw] overflow-x-hidden'>
-            <DetailVocher
-              headerData={headerData}
-              data={voucherData}
-              setOpenModal={setOpenModal}
-            />
-          </div>
-        </ModalCustom>
+        <>
+          <ModalCustom
+            openModal={openModal}
+            setOpenModal={setOpenModal}
+            className='w-[91.46vw] md:w-[82.93vw] md:h-[90vh] h-[80vh]'
+          >
+            <div
+              ref={itemRef}
+              className='w-full h-full bg-white overflow-y-auto md:rounded-[16px] md:py-[5vw] py-[11.46vw] overflow-x-hidden'
+            >
+              <DetailVocher
+                headerData={headerData}
+                data={voucherData}
+                setOpenModal={setOpenModal}
+              />
+            </div>
+          </ModalCustom>
+
+          <Notification
+            openNoti={openNoti}
+            setOpenNoti={setOpenNoti}
+            isConfirm={isConfirm}
+            handleConfirm={() => setOpenModal(false)}
+          />
+        </>
       )}
     </>
   )
