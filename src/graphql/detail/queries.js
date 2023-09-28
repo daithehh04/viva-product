@@ -49,6 +49,11 @@ const DATA_BLOG_DETAIL = `query ($slug: String!, $language: LanguageCodeEnum!) {
       subtitle1
       subtitle2
       time
+      transtitle{
+        button
+        heading
+        share
+      }
       username
       heading
       otherarticle {

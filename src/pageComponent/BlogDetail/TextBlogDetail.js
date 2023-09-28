@@ -18,11 +18,14 @@ function TextBlogDetail({ data }) {
           </span>
         </div>
       </div>
-      <div className='content-container' dangerouslySetInnerHTML={{ __html: `${data?.data?.postBy?.content}` }}></div>
+      <div
+        className='content-container'
+        dangerouslySetInnerHTML={{ __html: `${data?.data?.postBy?.translation?.content}` }}
+      ></div>
       <div className='w-full md:mt-[1.31vw] mt-[5.067vw] md:mb-[1.62vw] mb-[3.73vw] h-[1px] bg-[#44444424]'></div>
       <div className='flex justify-end items-center'>
         <span className='text-textColor  md:text-[0.875vw] text-[3.73vw] font-bold md:leading-[1.25] leading-[1.42] uppercase md:mr-[0.81vw] mr-[3.47vw]'>
-          share on it:
+          {blogdetail?.transtitle?.share}
         </span>
         <svg
           className='md:w-[1.5vw] md:h-[1.5vw] md:mr-[0.5vw] w-[6.4vw] h-[6.4vw] mr-[2.13vw] '
