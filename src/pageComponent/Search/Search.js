@@ -1,19 +1,22 @@
 'use client'
 import { DATA_BEST_TOUR } from '@/graphql/filter/queries'
 import { useQuery } from '@apollo/client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ListTour from './ListTour'
 import Sidebar from './Sidebar'
 import OtherTours from './OtherTours'
 import NewRelease from './NewRelease'
 
 const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget, listBlog }) => {
-  const currentUrl = window.location.href;
-  const urlParams = new URLSearchParams(currentUrl);
-  const durationParams = urlParams.get('duration');
-  const budgetParams = urlParams.get('budget');
-  const styleParams = urlParams.get('style');
-  const destinationParams = urlParams.get('country');
+  if (typeof window !== "undefined") {
+    const currentUrl = window?.location.href;
+    var urlParams = new URLSearchParams(currentUrl);
+    var durationParams = urlParams.get('duration');
+    var budgetParams = urlParams.get('budget');
+    var styleParams = urlParams.get('style');
+    var destinationParams = urlParams.get('country');
+  }
+  
   function handleTaxonomiesSlug(data) {
     const newArrDataTaxonomies = []
     data?.map((item) => {
