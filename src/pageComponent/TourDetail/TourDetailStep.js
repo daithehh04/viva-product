@@ -1,6 +1,9 @@
+'use client'
+
+import { iconsTour } from '@/lib/Icons'
 import Image from 'next/image'
 
-export default function TourDetailStep({ data: tourDetailData }) {
+export default function TourDetailStep({ data: tourDetailData, icons }) {
   return (
     <>
       <div>
@@ -36,18 +39,20 @@ export default function TourDetailStep({ data: tourDetailData }) {
                 </div>
                 {/* icon */}
                 <div className='flex md:gap-[0.625vw] gap-[2.13vw]'>
-                  {tour?.icons?.map((icon, index) => {
-                    return (
-                      <Image
-                        alt={icon?.altText}
-                        src={icon?.sourceUrl}
-                        key={index}
-                        width={40}
-                        height={40}
-                        className='md:w-[2.375vw] w-[8vw] md:h-[2.375vw] h-[8vw] md:p-[0.375vw] p-[1.267vw] border border-solid border-textColor rounded-[5px]'
-                      />
-                    )
-                  })}
+                  {icons &&
+                    icons?.length > 0 &&
+                    icons?.map((icon, index) => {
+                      return (
+                        <Image
+                          alt={icon}
+                          src={iconsTour[icon]}
+                          key={index}
+                          width={40}
+                          height={40}
+                          className='md:w-[2.375vw] w-[8vw] md:h-[2.375vw] h-[8vw] md:p-[0.375vw] p-[1.267vw] bg-[#FFF2BD] md:rounded-[12px] rounded-[4px]'
+                        />
+                      )
+                    })}
                 </div>
 
                 <div className='flex flex-col md:gap-[1vw] gap-[2.67vw]'>

@@ -36,7 +36,7 @@ export default function TourDetailBanner({ data = {}, headerData }) {
     <section className='tour-banner-wrapper relative overflow-hidden md:block hidden'>
       <Swiper
         spaceBetween={0}
-        thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
+        thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Thumbs, Autoplay]}
         loop={true}
         className='mySwiper2'

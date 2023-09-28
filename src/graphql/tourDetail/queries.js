@@ -1,6 +1,7 @@
 export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: LanguageCodeEnum!) {
   tours(id: $slug, idType: URI) {
     translation(language: $language) {
+      id
       slug
       tourDetail {
         banner {
@@ -24,6 +25,7 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
             altText
             sourceUrl
           }
+          icons
         }
         content {
           overview {
@@ -43,10 +45,7 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
             content {
               heading
               desc
-              icons {
-                altText
-                sourceUrl
-              }
+              
               place {
                 placeName
                 image {
@@ -181,6 +180,7 @@ export const GET_RELATED_TOUR = `query($language: LanguageCodeEnum!, $taxonomyVa
   ) {
     nodes {
       translation(language: $language) {
+        id
         slug
           tourDetail {
             banner {
@@ -195,13 +195,36 @@ export const GET_RELATED_TOUR = `query($language: LanguageCodeEnum!, $taxonomyVa
               highestPrice
               lowestPrice
             }
-            icons{
-              sourceUrl
-              altText
-            }
+            icons
             }
           }
         }
+    }
+  }
+}`
+
+export const GET_RANDOM_TOUR = `query ($language: LanguageCodeEnum!) {
+  allTours(first: 4) {
+    nodes {
+      translation(language: $language) {
+        slug
+        tourDetail {  
+          banner {
+            gallery {
+              altText
+              sourceUrl
+            }
+            icons
+            location
+            price {
+              highestPrice
+              lowestPrice
+            }
+            rate
+            title
+          }
+        }
+      }
     }
   }
 }`

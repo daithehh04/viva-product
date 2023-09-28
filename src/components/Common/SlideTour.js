@@ -6,6 +6,7 @@ import Link from 'next/link'
 import TourItem from './TourItem'
 
 function SlideTour({ data, slug }) {
+  console.log(data)
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()
   const handleNextSlide = () => {
@@ -43,7 +44,7 @@ function SlideTour({ data, slug }) {
           return (
             <SwiperSlide key={index}>
               {({ isActive }) => (
-                <div className='max-md:pl-[2.13vw] block box-border'>
+                <div className='max-md:ml-[4.27vw] block box-border'>
                   <TourItem data={item} />
                 </div>
               )}
