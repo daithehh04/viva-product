@@ -18,7 +18,7 @@ function TourItem({ data, menu }) {
       href={`/${isPromotion ? 'hot-deals' : `${encodeURIComponent(data?.translation?.slug)}`}`}
       className={`${
         menu ? 'md:h-[14.5vw]' : 'md:h-[24.5vw]'
-      } flex w-full h-[67.23vw] md:rounded-[1vw] rounded-[2.75vw] relative max-md:flex-shrink-0 max-md:w-[52.5vw] tour-item cursor-pointer`}
+      } flex w-full h-[67.23vw] md:rounded-[1vw] rounded-[2.75vw] relative max-md:flex-shrink-0  tour-item cursor-pointer`}
     >
       <Image
         src={
@@ -50,20 +50,14 @@ function TourItem({ data, menu }) {
           {tourData?.title}
         </Link>
         {/* icons*/}
-        <div className='flex md:hidden gap-[1vw] mt-[1.33vw]'>
+        <div className='flex md:hidden gap-[1vw] md:mt-[1.33vw]'>
           {tourData?.icons?.map((icon, index) => {
             return (
               <div
                 key={index}
                 className='w-[4.8vw] h-[4.8vw] rounded-[6px] bg-[#FFF8DE] flex items-center justify-center'
               >
-                <Image
-                  src={iconsTour[icon]}
-                  alt={icon}
-                  className='w-[2.613vw] h-[2.613vw]'
-                  width={20}
-                  height={20}
-                />
+                <Image src={iconsTour[icon]} alt={icon} className='w-[2.613vw] h-[2.613vw]' width={20} height={20} />
               </div>
             )
           })}

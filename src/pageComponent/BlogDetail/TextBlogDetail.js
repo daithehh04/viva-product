@@ -2,7 +2,7 @@ import banner from '@/assets/images/blogDetail_Banner.png'
 import Image from 'next/image'
 
 function TextBlogDetail({ data }) {
-  const blogdetail = data?.data?.postBy?.blogdetail
+  const blogdetail = data?.data?.postBy?.translation?.blogdetail
 
   return (
     <div className='md:mt-[1.56vw] mt-[4.2vw] w-full md:px-[16.25vw] px-[4.27vw] md:mb-[7vw] mb-[15.47vw]'>
@@ -18,10 +18,7 @@ function TextBlogDetail({ data }) {
           </span>
         </div>
       </div>
-      <div
-        className='content-container'
-        dangerouslySetInnerHTML={{ __html: `${data?.data?.postBy?.content}` }}
-      ></div>
+      <div className='content-container' dangerouslySetInnerHTML={{ __html: `${data?.data?.postBy?.content}` }}></div>
       <div className='w-full md:mt-[1.31vw] mt-[5.067vw] md:mb-[1.62vw] mb-[3.73vw] h-[1px] bg-[#44444424]'></div>
       <div className='flex justify-end items-center'>
         <span className='text-textColor  md:text-[0.875vw] text-[3.73vw] font-bold md:leading-[1.25] leading-[1.42] uppercase md:mr-[0.81vw] mr-[3.47vw]'>

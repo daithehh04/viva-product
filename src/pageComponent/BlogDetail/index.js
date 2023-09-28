@@ -33,10 +33,7 @@ async function index({ lang, slug }) {
     <div>
       <HeaderBlog data={data} />
       <TextBlogDetail data={data} />
-      <OtherArticle
-        data={dataBlog}
-        dataNews={dataNews}
-      />
+      <OtherArticle data={dataBlog} dataNews={dataNews} lang={lang} />
     </div>
   )
 }
