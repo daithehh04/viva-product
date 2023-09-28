@@ -7,6 +7,8 @@ import Image from 'next/image'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import { gql, useMutation } from '@apollo/client'
+import Notification from '@/components/Common/Notification'
+import { useState } from 'react'
 
 // css for label + placeholder + error msg
 const labelStyle =
@@ -44,6 +46,11 @@ const SUBMIT_FORM = gql`
 `
 
 const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
+  const [openNoti, setOpenNoti] = useState(false)
+  const [msg, setMsg] = useState('')
+  const [isSuccess, setIsSuccess] = useState(false)
+  const [isError, setIsError] = useState(false)
+
   const {
     register,
     handleSubmit,
@@ -54,7 +61,7 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
     mode: 'onChange',
     resolver: yupResolver(schema)
   })
-  const [mutate] = useMutation(SUBMIT_FORM)
+  const [mutate, { loading }] = useMutation(SUBMIT_FORM)
   const onSubmit = (data) => {
     mutate({
       variables: {
@@ -87,20 +94,26 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
     }).then((res) => {
       if (res?.data?.submitGfForm?.errors?.length > 0) {
         // Have Error
+        setIsError(true)
+        setOpenNoti(true)
+        setMsg('Failed')
       } else {
-        setOpenModal(false)
         // Successful
+        setIsSuccess(true)
+        setOpenNoti(true)
+        setMsg('Successfull')
+        // setOpenModal(false)
+        reset({
+          fullname: '',
+          phone: '',
+          email: '',
+          participantsNumber: '',
+          date: ''
+        })
       }
-      reset({
-        fullname: '',
-        phone: '',
-        email: '',
-        participantsNumber: '',
-        date: ''
-      })
     })
   }
-
+  // console.log(loading)
   return (
     <div className='content'>
       <h1 className='w-[44.625vw] font-optima text-[2.875vw] font-semibold leading-[3.1625vw] mb-[2vw] capitalize max-md:text-[5.87vw] max-md:mb-[0.4116vw] max-md:leading-[7.04vw] max-md:w-full'>
@@ -235,8 +248,9 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
             type='submit'
             className='mt-[1.26vw] w-[14vw] h-[3.125vw] text-[#171717] flex items-center justify-center rounded-[0.75vw] 
                 text-[1vw] font-manrope font-semibold bg-primaryColor max-md:mt-[8px] max-md:w-full max-md:h-[48px] max-md:text-[14px] max-md:leading-[15.19px]'
+            disabled={loading}
           >
-            {headerData?.form?.button}
+            {headerData?.form?.button} {loading && '...'}
           </button>
         </form>
         <Image
@@ -245,6 +259,21 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
           className='w-[29.1875vw] h-[33.5vw] max-md:hidden'
         />
       </div>
+
+      <Notification
+        openNoti={openNoti}
+        setOpenNoti={setOpenNoti}
+        msg={msg}
+        isSuccess={isSuccess}
+        isError={isError}
+        handleSuccess={() => {
+          setIsSuccess(false)
+          setOpenModal(false)
+        }}
+        handleError={() => {
+          setIsError(false)
+        }}
+      />
     </div>
   )
 }

@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import logo from '@/assets/images/logo.svg'
 import Button from '@mui/material/Button'
 import star from '@/assets/images/star.svg'
@@ -235,6 +235,7 @@ export default function Navbar({
         <BookTour
           data={dataBookTour}
           onClose={handleClosePopup}
+          refFormPopup={refFormPopup}
         />
       </div>
     </div>
