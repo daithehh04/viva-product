@@ -8,6 +8,12 @@ import OtherTours from './OtherTours'
 import NewRelease from './NewRelease'
 
 const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget, listBlog }) => {
+  const currentUrl = window.location.href;
+  const urlParams = new URLSearchParams(currentUrl);
+  const durationParams = urlParams.get('duration');
+  const budgetParams = urlParams.get('budget');
+  const styleParams = urlParams.get('style');
+  const destinationParams = urlParams.get('country');
   function handleTaxonomiesSlug(data) {
     const newArrDataTaxonomies = []
     data?.map((item) => {
@@ -17,11 +23,11 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
   }
   const newArrDataTaxonomiesCountry = handleTaxonomiesSlug(dataMenuCountry?.data?.allCountries?.nodes)
   const newArrDataTaxonomiesStyleTravel = handleTaxonomiesSlug(travelStylesList?.data?.allTourStyle?.nodes)
-  const [destination, setDestination] = useState(newArrDataTaxonomiesCountry)
+  const [destination, setDestination] = useState(destinationParams || newArrDataTaxonomiesCountry)
   const [initTravelStyle, setInitTravelStyle] = useState(newArrDataTaxonomiesStyleTravel)
-  const [travelStyle, setTravelStyle] = useState([])
-  const [day, setDay] = useState(null)
-  const [budget, setBudget] = useState(null)
+  const [travelStyle, setTravelStyle] = useState(styleParams || [])
+  const [day, setDay] = useState(durationParams)
+  const [budget, setBudget] = useState(budgetParams)
   const dataAllTours = useQuery(DATA_BEST_TOUR, {
     variables: {
       language: lang?.toUpperCase(),
