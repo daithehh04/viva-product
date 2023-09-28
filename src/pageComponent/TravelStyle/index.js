@@ -40,6 +40,7 @@ async function index({ lang, slug }) {
       <HotTour
         hotTour={getPageInfo?.data?.tourStyle?.translation?.banner?.hotTour}
         reason={getPageInfo?.data?.tourStyle?.translation?.banner?.travelReason}
+        data={getPageInfo?.data?.tourStyle?.translation?.banner?.button}
       />
     </div>
   )

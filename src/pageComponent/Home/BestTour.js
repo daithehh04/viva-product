@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDuration, allTours,lang }) {
+function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDuration, allTours, lang, button }) {
   const [destination, setDestination] = useState('')
   const [travelStyle, setTravelStyle] = useState('')
   const [budget, setBudget] = useState('')
@@ -20,7 +20,7 @@ function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDurati
   }, [onDestination, onTravelStyle, destination, travelStyle, budget, duration, onBudget, onDuration])
   return (
     <div className='best-tours pt-[8.13vw]'>
-      <div className='max-md:pl-[4.27vw] pl-[8.125vw] '>
+      <div className='max-md:pl-[4.27vw] pl-[8.125vw] max-md:pr-[4.27vw] '>
         <h2 className='heading-1'>Best Seller Tours</h2>
         <div className='bg-white mt-[1vw] w-max rounded-[1.125vw] px-[2.38vw] py-[1.19vw] max-md:mt-[4.27vw] max-md:p-0 max-md:bg-transparent max-md:w-full'>
           <FilterTour
@@ -32,7 +32,7 @@ function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDurati
           />
         </div>
       </div>
-      <div className='grid grid-cols-4 gap-[2.5vw] mt-[1.88vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'>
+      <div className='grid grid-cols-4 gap-[2.5vw] md:mt-[1.88vw] mt-[7.73vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'>
         {allTours?.slice(0, 7).map((tour, index) => (
           <div key={index}>
             <div className='max-md:hidden'>
@@ -45,12 +45,7 @@ function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDurati
         ))}
         {allTours?.length > 7 ? (
           <div className='h-[24.5vw] rounded-[1vw] relative hidden md:flex  justify-center items-center lastItem'>
-            <Image
-              src={imgTour}
-              alt='img-tour'
-              fill
-              className='object-cover h-full'
-            />
+            <Image src={imgTour} alt='img-tour' fill className='object-cover h-full' />
             <div className='absolute flex flex-col items-center justify-center'>
               <div className='inline-flex gap-[0.3125vw] justify-center items-center'>
                 <span className='text-justify font-optima text-[2vw] font-normal leading-[130%] text-white'>+</span>
@@ -60,7 +55,9 @@ function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDurati
                 Other tours
               </span>
               <div className='flex justify-center mt-[1.25vw]'>
-                <Link href={`/${lang}/search`} className='btn-secondary'>See More</Link>
+                <Link href={`/${lang}/search`} className='btn-secondary'>
+                  {button?.buttonseemore}
+                </Link>
               </div>
             </div>
           </div>

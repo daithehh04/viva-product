@@ -37,7 +37,7 @@ const arrImg = [
     title: 'Staff'
   }
 ]
-function Surveys({ data }) {
+function Surveys({ data, button }) {
   useEffect(() => {
     AOS.init()
     AOS.refresh()
@@ -67,8 +67,8 @@ function Surveys({ data }) {
             ))}
           </ul>
           <div className='flex gap-x-[1vw] mt-[3.25vw] max-md:gap-x-[2.67vw] max-md:mt-[8.53vw]'>
-            <Button className='btn-primary'>Book tour</Button>
-            <Button className='btn-secondary'>See more</Button>
+            <Button className='btn-primary'>{button?.buttonbooktour}</Button>
+            <Button className='btn-secondary'>{button?.buttonseemore}</Button>
           </div>
         </div>
         <div className='relative flex flex-col-reverse flex-1 max-md:mt-[31.08vw]'>

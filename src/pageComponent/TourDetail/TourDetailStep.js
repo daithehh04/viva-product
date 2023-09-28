@@ -9,10 +9,7 @@ export default function TourDetailStep({ data: tourDetailData, icons }) {
       <div>
         {tourDetailData?.map((tour, index) => {
           return (
-            <div
-              className='mb-[2.13vw] md:mb-[0]'
-              key={index}
-            >
+            <div className='mb-[2.13vw] md:mb-[0]' key={index}>
               <div className='flex font-medium leading-normal md:h-[2.375vw] h-[11.2vw] md:items-center md:gap-[1.625vw] gap-[2.67vw]'>
                 <div className='bg-primaryColor md:h-[2.375vw] h-[5.86vw] md:w-[2.375vw] w-[10vw] md:text-[1vw] text-[2.66vw] rounded-full flex items-center justify-center mt-[1vw] md:mt-0'>
                   {index + 1}
@@ -32,7 +29,7 @@ export default function TourDetailStep({ data: tourDetailData, icons }) {
                         key={index}
                         width={500}
                         height={500}
-                        className='max-w-[100%] md:max-h-[26.25vw] max-h-[40vh] object-cover mb-[1vw]'
+                        className=' md:max-h-[26.25vw] md:w-[50.0625vw] max-h-[40vw] object-cover mb-[1vw] rounded-[1.06667vw] md:rounded-[0.625vw]'
                       />
                     )
                   })}
@@ -58,10 +55,7 @@ export default function TourDetailStep({ data: tourDetailData, icons }) {
                 <div className='flex flex-col md:gap-[1vw] gap-[2.67vw]'>
                   {tour?.places?.map((place, index) => {
                     return (
-                      <div
-                        key={index}
-                        className='flex md:gap-[0.625vw] gap-[2.13vw] items-center'
-                      >
+                      <div key={index} className='flex md:gap-[0.625vw] gap-[2.13vw] items-center'>
                         <Image
                           src={place?.image?.sourceUrl}
                           alt={place?.image?.altText}

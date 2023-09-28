@@ -18,7 +18,11 @@ query homePage($id:ID!){
 
 const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
   page(id: $id) {
-          home {
+      home {
+        groupbutton{
+        buttonbooktour
+        buttonseemore
+        }
         banner {
           fieldGroupName
           text
@@ -303,4 +307,3 @@ const GET_FOOTER = `query getHomePageData {
 }
 `
 export { DATA_HEADER, GET_HOME_PAGE, GET_NEXT_STEP, GET_FOOTER }
-

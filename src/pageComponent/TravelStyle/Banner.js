@@ -13,15 +13,15 @@ function Banner({ data }) {
     <Box
       sx={{
         height: {
-          xs: '74.67vh',
-          sm: '74.67vh',
+          xs: '74.67vw',
+          sm: '74.67vw',
           md: '100vh'
         }
       }}
     >
       <div className='relative h-[100%] flex justify-center items-center'>
         <Image alt='imageSrc' src={imageSrc} quality={100} fill className='w-[100%] h-screen object-cover z-[-1]' />
-        <div className='flex flex-col justify-center text-center items-center absolute z-[10] '>
+        <div className='flex flex-col justify-center text-center items-center absolute z-[10] max-md:pt-[22vw] '>
           <span className='text-center md:text-[1.94vw] text-[3.2vw] md:font-bold font-medium leading-normal text-[#fff] md:mb-[0.62vw] mb-[1.07vw] font-sans '>
             {data?.title}
           </span>

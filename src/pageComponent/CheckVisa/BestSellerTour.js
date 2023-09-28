@@ -14,9 +14,9 @@ function BestSellerTour({ data }) {
         {dataTour?.slice(0, 4)?.map((tour, index) => (
           <div
             key={index}
-            className={`${index === 0 && 'max-md:ml-[4.27vw]'} ${
-              index === dataTour?.length - 1 && 'max-md:mr-[4.27vw]'
-            }`}
+            className={`max-md:w-[52.50533vw] max-md:h-[67.23253vw] max-md:flex max-md:flex-shrink-0 ${
+              index === 0 && 'max-md:ml-[4.27vw]'
+            } ${index === dataTour?.length - 1 && 'max-md:mr-[4.27vw]'}`}
           >
             <TourItem data={tour} />
           </div>
