@@ -1,13 +1,11 @@
 'use client'
 import Box from '@mui/material/Box'
 import Image from 'next/image'
-import FilterTour from '@/components/Common/FilterTour'
-import Button from '@/components/Common/Button'
-import searchIcon from '@/assets/images/search-normal.svg'
 import { useRef } from 'react'
 import scrollDown from '@/helpers/scrollDown'
+import FilterBanner from './FilterBanner'
 
-function Banner({ data }) {
+function Banner({ data,dataFilter }) {
   const scrollRef = useRef()
   return (
     <Box
@@ -32,11 +30,7 @@ function Banner({ data }) {
           </span>
 
           <div className='filter-tour hidden md:flex gap-x-[1.75vw] ml-auto mr-auto mt-[1.94vw] bg-white w-max py-[1.5vw] pl-[2.87vw] pr-[2vw] rounded-[1.125vw]'>
-            <FilterTour />
-            <Button className='btn-primary'>
-              <Image src={searchIcon} width={50} height={50} alt='search' className='w-[1.25vw] h-[1.25vw]' />
-              Search
-            </Button>
+            <FilterBanner dataFilter={dataFilter}/>
           </div>
           <div
             onClick={() => scrollDown(scrollRef, 'start')}
