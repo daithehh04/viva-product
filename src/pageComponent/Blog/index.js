@@ -87,9 +87,12 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
         <Image alt='banner' src={background} fill quality={100} />
         <div className='grid md:grid-cols-4 md:px-[8.06vw] px-[4.27vw] grid-cols-2 md:gap-x-[2.5vw] md:gap-y-[3vw] gap-x-[4.27vw] gap-y-[6.4vw] md:mt-[4vw] mt-[7.73vw]'>
           {allBlogData?.map((item, index) => (
-            <Link key={index} href={`/${item?.translation?.slug}`}>
-              <BlogItem data={item?.translation} />
-            </Link>
+            <BlogItem
+              lang={lang}
+              key={index}
+              data={item?.translation}
+              className={'max-md:w-[43.73333vw] max-md:h-[43.73333vw] !ml-0'}
+            />
           ))}
         </div>
 

@@ -4,9 +4,9 @@ function ServiceItem({ data, lang }) {
   return (
     <Link href={`/${lang}/blog/${data?.slug}`}>
       <div className='relative h-[13.6875vw] max-md:h-[36vw] max-md:w-[52.53vw] max-md:flex-shrink-0'>
-        {data?.ourblog?.recommendservice?.image && (
+        {data?.recommendservice?.recommendservice?.image && (
           <Image
-            src={data?.ourblog?.recommendservice?.image?.sourceUrl}
+            src={data?.recommendservice?.recommendservice?.image?.sourceUrl}
             width={500}
             height={500}
             alt='img'
@@ -19,7 +19,7 @@ function ServiceItem({ data, lang }) {
             {data?.name}
           </h3>
           <span className='mt-[0.5vw] text-[0.75vw] font-[500] text-primaryColor max-md:text-[2.66vw] block'>
-            {data?.posts?.pageInfo?.offsetPagination?.total}+ {data?.ourblog?.recommendservice?.related}
+            {data?.posts?.pageInfo?.offsetPagination?.total}+ {data?.recommendservice?.recommendservice?.related}
           </span>
         </div>
         <div className='absolute inset-0 bg-menuOverlaySty rounded-[1vw]'></div>

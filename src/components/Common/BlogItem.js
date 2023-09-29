@@ -6,7 +6,7 @@ function BlogItem({ className, data, lang }) {
   return (
     <Link
       href={`/${lang}/${data?.translation?.slug || data?.slug}`}
-      className={`md:w-[19.0625vw] w-[52.26667vw] max-md:flex flex-shrink-0 max-md:ml-[4.27vw] ${className}`}
+      className={`md:!w-[19.0625vw] !h-auto w-[52.26667vw] max-md:flex flex-shrink-0 max-md:ml-[4.27vw] ${className}`}
     >
       <div className={`w-full`}>
         <div className='relative image'>
@@ -15,7 +15,7 @@ function BlogItem({ className, data, lang }) {
             width={1000}
             height={1000}
             alt='img'
-            className='md:h-[16.3125vw] h-[52.26667vw]  object-cover md:rounded-[0.5vw] rounded-[2.13333vw]'
+            className={`md:!h-[16.3125vw] h-[52.26667vw] object-cover md:rounded-[0.5vw] rounded-[2.13333vw] ${className}`}
           />
           <span className='absolute md:top-[1.62vw] top-[3.69vw] md:left-[-0.375vw] left-[-1.67vw] md:px-[1vw] md:py-[0.25vw] px-[4.27vw] py-[1.07vw] bg-primaryColor md:text-[0.75vw] text-[2.66667vw] font-[500] rounded-r-[0.25vw] tip-review'>
             {data?.blogdetail?.subtitle1}

@@ -4,10 +4,10 @@ const GET_SERVICE_BY_CATEGORY = `
     nodes {
       name
       slug
-      ourblog {
-        recommendservice {
+     	recommendservice{
+        recommendservice{
           related
-			image{
+          image{
             sourceUrl
           }
         }
