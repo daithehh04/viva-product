@@ -27,7 +27,7 @@ export default function Home({
   const arrDataTaxonomiesDuration = dataTaxonomiesDuration?.data?.allDuration?.nodes
   const arrDataTaxonomiesCountry = dataTaxonomiesCountry?.data?.allCountries?.nodes
   const arrDataTaxonomiesStyleTour = dataTaxonomiesStyleTour?.data?.allTourStyle?.nodes
-  const arrSlugTaxonomiesCountry = handleTaxonomiesSlug(arrDataTaxonomiesCountry)
+  const arrSlugTaxonomiesCountry = handleTaxonomiesName(arrDataTaxonomiesCountry)
   const arrSlugTaxonomiesStyleTravel = handleTaxonomiesSlug(arrDataTaxonomiesStyleTour)
   const [destination, setDestination] = useState(arrSlugTaxonomiesCountry)
   const [travelStyle, setTravelStyle] = useState(arrSlugTaxonomiesStyleTravel)
@@ -37,8 +37,8 @@ export default function Home({
   const dataBestTours = useQuery(DATA_BEST_TOUR, {
     variables: {
       language: lng,
-      countrySlug: destination === '' ? arrSlugTaxonomiesCountry : destination,
-      styleTourSlug: travelStyle === '' ? arrSlugTaxonomiesStyleTravel : travelStyle
+      countrySlug: !destination ? arrSlugTaxonomiesCountry : destination,
+      styleTourSlug: !travelStyle || travelStyle.length === 0 ? arrSlugTaxonomiesStyleTravel : travelStyle
     }
   })
   var allTours = dataBestTours?.data?.allTours?.nodes
@@ -62,6 +62,9 @@ export default function Home({
       return numTour >= +minDay && numTour <= +maxDay
     })
   }
+  console.log('arrSlugTaxonomiesCountry',arrSlugTaxonomiesCountry);
+  console.log('arrSlugTaxonomiesStyleTravel',arrSlugTaxonomiesStyleTravel);
+  console.log('allTours',allTours);
 
   if (!data) {
     return <p>Loading....</p>
@@ -91,6 +94,13 @@ export default function Home({
     const newArrDataTaxonomies = []
     data?.map((item) => {
       newArrDataTaxonomies.push(item?.slug)
+    })
+    return newArrDataTaxonomies
+  }
+  function handleTaxonomiesName(data) {
+    const newArrDataTaxonomies = []
+    data?.map((item) => {
+      newArrDataTaxonomies.push(item?.name)
     })
     return newArrDataTaxonomies
   }
