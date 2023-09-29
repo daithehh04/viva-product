@@ -22,6 +22,7 @@ function SlidePartners({ data, reverse }) {
         spaceBetween={50}
         loop={true}
         centeredSlides={true}
+        allowTouchMove={false}
         autoplay={{
           delay: 1500,
           disableOnInteraction: false,
@@ -37,10 +38,7 @@ function SlidePartners({ data, reverse }) {
         {data?.map((item, index) => {
           return (
             <div key={(index + 1) * 100}>
-              <SwiperSlide
-                className='w-[20%] partner-item pointer-events-none'
-                key={index + 1}
-              >
+              <SwiperSlide className='w-[20%] partner-item pointer-events-none' key={index + 1}>
                 <Image
                   src={item?.sourceUrl}
                   width={500}
@@ -51,10 +49,7 @@ function SlidePartners({ data, reverse }) {
                   }`}
                 />
               </SwiperSlide>
-              <SwiperSlide
-                className='w-[20%] partner-item pointer-events-none'
-                key={(index + 1) * -1}
-              >
+              <SwiperSlide className='w-[20%] partner-item pointer-events-none' key={(index + 1) * -1}>
                 <Image
                   src={item?.sourceUrl}
                   width={500}

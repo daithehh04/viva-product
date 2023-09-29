@@ -162,12 +162,12 @@ query ($language: LanguageCodeEnum!, $lang: LanguageCodeFilterEnum!) {
         }
       }
       translation(language: $language) {
-        ourblog {
-          recommendservice {
-            related
+        recommendservice{
+          recommendservice{
             image{
               sourceUrl
             }
+            related
           }
         }
         slug
