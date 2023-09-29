@@ -28,23 +28,28 @@ const TimeDown = ({ headerData = {}, data }) => {
   }, [exprire])
 
   useEffect(() => {
-    idInterval = setInterval(() => {
-      if (second > 0) {
-        setSecond((pre) => pre - 1)
-      } else {
-        setSecond(59)
-        if (minute > 0) {
-          setMinute((pre) => pre - 1)
+    if (!exprire) {
+      idInterval = setInterval(() => {
+        if (second > 0) {
+          setSecond((pre) => pre - 1)
         } else {
-          setMinute(59)
-          if (hour > 0) {
-            setHour((pre) => pre - 1)
+          setSecond(59)
+          if (minute > 0) {
+            setMinute((pre) => pre - 1)
           } else {
-            setExprire((pre) => !pre)
+            setMinute(59)
+            if (hour > 0) {
+              setHour((pre) => pre - 1)
+            } else {
+              setHour(0)
+              setMinute(0)
+              setSecond(0)
+              setExprire((pre) => !pre)
+            }
           }
         }
-      }
-    }, [1000])
+      }, [1000])
+    }
 
     return () => {
       clearInterval(idInterval)

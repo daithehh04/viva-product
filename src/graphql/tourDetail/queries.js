@@ -29,9 +29,7 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
         }
         content {
           overview {
-            content {
               text
-            }
           }
           brief {
             row {

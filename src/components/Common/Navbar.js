@@ -18,6 +18,7 @@ import planeF from '@/assets/images/planeF.svg'
 import starF from '@/assets/images/starF.svg'
 import HotDeal from './HotDeal'
 import BookTour from './BookTour'
+import ModalCustom from './ModalCustom'
 
 export default function Navbar({
   params,
@@ -32,7 +33,9 @@ export default function Navbar({
 }) {
   const refMb = useRef()
   const refBtnBookTour = useRef()
-  const refFormPopup = useRef()
+  // const refFormPopup = useRef()
+  const [openModal, setOpenModal] = useState(false)
+
   useEffect(() => {
     const nav = document.querySelector('.navbar')
 
@@ -65,12 +68,12 @@ export default function Navbar({
     refMb.current.classList.remove('active')
   }
 
-  const handleOpenPopup = () => {
-    refFormPopup.current.classList.add('active')
-  }
-  const handleClosePopup = () => {
-    refFormPopup.current.classList.remove('active')
-  }
+  // const handleOpenPopup = () => {
+  //   refFormPopup.current.classList.add('active')
+  // }
+  // const handleClosePopup = () => {
+  //   refFormPopup.current.classList.remove('active')
+  // }
 
   return (
     <div className=''>
@@ -155,7 +158,8 @@ export default function Navbar({
           <div
             className='flex ml-auto max-lg:hidden'
             ref={refBtnBookTour}
-            onClick={handleOpenPopup}
+            // onClick={handleOpenPopup}
+            onClick={() => setOpenModal(true)}
           >
             <Button
               variant='contained'
@@ -228,7 +232,7 @@ export default function Navbar({
           <span className='text-[3.46vw] font-[500]'>Book tour</span>
         </Link>
       </div>
-      <div
+      {/* <div
         className='absolute top-0 z-[999] w-full flex justify-center form-popup h-[100vh] overflow-auto'
         ref={refFormPopup}
       >
@@ -237,7 +241,22 @@ export default function Navbar({
           onClose={handleClosePopup}
           refFormPopup={refFormPopup}
         />
-      </div>
+      </div> */}
+
+      {openModal && (
+        <ModalCustom
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          className='w-[91.46vw] md:w-[82.93vw] md:h-[90vh] h-[80vh]'
+        >
+          <div className='w-full h-full overflow-y-auto md:rounded-[16px] overflow-x-hidden'>
+            <BookTour
+              data={dataBookTour}
+              setOpenModal={setOpenModal}
+            />
+          </div>
+        </ModalCustom>
+      )}
     </div>
   )
 }

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import line from '@/assets/images/tourDetail/line.png'
 import inclusion from '@/assets/images/tourDetail/inclusion.svg'
 import exclusion from '@/assets/images/tourDetail/exclusion.svg'
+import viva from '@/assets/images/tourDetail/viva.svg'
 
 import TableData from './TableData'
 import ReviewItem from '@/components/Common/ReviewItem'
@@ -12,16 +13,25 @@ import { useEffect, useRef, useState } from 'react'
 import TourDetailStep from './TourDetailStep'
 import scrollDown from '@/helpers/scrollDown'
 import Price from './Price'
-import ScrollToTop from './ScrollToTop'
 import { ACCOM_REF, BRIEF_REF, OVERVIEW_REF, ROLE_REF, TOUR_DETAIL_REF } from '../../lib/constants'
+import { createTheme, useMediaQuery } from '@mui/material'
 
 export default function AboutTour(props) {
   const { type, data, headerData = {}, relatedTours = [] } = props
-  console.log(relatedTours)
+
   const { contentHeader, relatedTourHeader, bannerHeaders } = headerData
   const { reviews, banner, content = {} } = data || []
   const { accommodation, brief, inclusionAndExclusion, overview, tourDetailed } = content
   const [activeIcon, setActiveIcon] = useState(0)
+  //check mobile
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        sm: 768
+      }
+    }
+  })
+  const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
   // data
   const stepData = [
     {
@@ -354,6 +364,41 @@ export default function AboutTour(props) {
                     })}
                   </div>
                 </div>
+
+                {/* {onlySmallScreen && (
+                  <div className='fixed bottom-[20vh] right-[2vw] w-[15vw] h-[15vw] rounded-full z-[1000]'>
+                    <Image
+                      src={viva}
+                      alt=''
+                      className='absolute top-0 right-0 w-[15vw] h-[15vw]'
+                    />
+                    <div className='flex absolute top-0 right-[15vw] text-[4vw] bg-amber-100 w-fit max-w-[70vw] h-[15vw] px-[4vw] py-[2vw] items-center justify-center rounded-2xl gap-[2vw] shadow-lg shadow-amber-500/50'>
+                      {stepData.map((step, index) => {
+                        return (
+                          <div
+                            className='step-icon flex md:gap-[0.5vw] gap-[1vw] cursor-pointer'
+                            key={index}
+                            onClick={() => scrollDown(sectionRefs[step.key])}
+                          >
+                            <div className='flex flex-col items-center justify-start'>
+                              <svg
+                                xmlns='http://www.w3.org/2000/svg'
+                                width={64}
+                                height={64}
+                                viewBox='0 0 64 64'
+                                fill='#000'
+                                style={{ color: `${index === activeIcon ? '#138140' : '#000'}` }}
+                                className='justify-self-end md:w-[3.9375vw] w-[9.6vw] md:h-[3.9375vw] h-[9.6vw]'
+                              >
+                                {step.img}
+                              </svg>
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+                )} */}
               </>
             )}
 
@@ -362,8 +407,13 @@ export default function AboutTour(props) {
               <h4 className='tour-detail-header '>01 - {contentHeader?.sectionHeader?.overviewHeader}</h4>
 
               <div className='text-textColor md:text-[1vw] text-[3.73vw] text-justify leading-normal opacity-80 flex flex-col md:gap-[0.5vw] gap-[4.27vw]'>
-                {overview?.content?.map((item, index) => {
-                  return <p key={index}>{item.text}</p>
+                {overview?.map((item, index) => {
+                  return (
+                    <p
+                      key={index}
+                      dangerouslySetInnerHTML={{ __html: item.text }}
+                    ></p>
+                  )
                 })}
               </div>
             </div>
@@ -533,7 +583,6 @@ export default function AboutTour(props) {
           {relatedTourHeader?.buttonContent}
         </button>
       </div>
-      {isBottom && <ScrollToTop ref={aboutTourRef} />}
     </section>
   )
 }

@@ -8,7 +8,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import { gql, useMutation } from '@apollo/client'
 import Notification from '@/components/Common/Notification'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { useClickOutside } from '@/helpers/customHooks'
 
 // css for label + placeholder + error msg
 const labelStyle =
@@ -46,10 +47,20 @@ const SUBMIT_FORM = gql`
 `
 
 const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
+  const itemRef = useRef()
   const [openNoti, setOpenNoti] = useState(false)
   const [msg, setMsg] = useState('')
   const [isSuccess, setIsSuccess] = useState(false)
   const [isError, setIsError] = useState(false)
+  const [isConfirm, setIsConfirm] = useState(false)
+  const [isDone, setIsDone] = useState(false) // check when successful noti or error noti appeared
+
+  useClickOutside(itemRef, () => {
+    if (!isDone) {
+      setOpenNoti(true)
+      setIsConfirm(true)
+    }
+  })
 
   const {
     register,
@@ -63,6 +74,7 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
   })
   const [mutate, { loading }] = useMutation(SUBMIT_FORM)
   const onSubmit = (data) => {
+    setIsDone(false)
     mutate({
       variables: {
         input: {
@@ -97,12 +109,13 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
         setIsError(true)
         setOpenNoti(true)
         setMsg('Failed')
+        setIsDone(true)
       } else {
         // Successful
         setIsSuccess(true)
         setOpenNoti(true)
         setMsg('Successfull')
-        // setOpenModal(false)
+        setIsDone(true)
         reset({
           fullname: '',
           phone: '',
@@ -115,7 +128,10 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
   }
   // console.log(loading)
   return (
-    <div className='content'>
+    <div
+      className='content'
+      ref={itemRef}
+    >
       <h1 className='w-[44.625vw] font-optima text-[2.875vw] font-semibold leading-[3.1625vw] mb-[2vw] capitalize max-md:text-[5.87vw] max-md:mb-[0.4116vw] max-md:leading-[7.04vw] max-md:w-full'>
         {headerData?.header}
       </h1>
@@ -266,6 +282,7 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
         msg={msg}
         isSuccess={isSuccess}
         isError={isError}
+        isConfirm={isConfirm}
         handleSuccess={() => {
           setIsSuccess(false)
           setOpenModal(false)
@@ -273,6 +290,7 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
         handleError={() => {
           setIsError(false)
         }}
+        handleConfirm={() => setOpenModal(false)}
       />
     </div>
   )

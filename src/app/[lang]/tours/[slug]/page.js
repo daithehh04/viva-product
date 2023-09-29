@@ -1,9 +1,20 @@
+import { getMeta } from '@/data/metaData/getMeta'
+import getMetaDataTour from '@/data/metaData/getMetaData'
 import getRandomTour from '@/data/tourDetail/getRandomTour'
 import getRelatedTour from '@/data/tourDetail/getRelatedTour'
 import getTourDetail from '@/data/tourDetail/getTourDetail'
 import getTourDetailHeader from '@/data/tourDetail/getTourDetailHeader'
+import { GET_TOUR_META_DATA } from '@/graphql/metaData/queries'
 import { GET_RANDOM_TOUR, GET_TOUR_DETAIL } from '@/graphql/tourDetail/queries'
 import TourDetail from '@/pageComponent/TourDetail'
+
+export async function generateMetadata({ params: { slug, lang } }) {
+  const res = await getMetaDataTour(GET_TOUR_META_DATA, lang, slug)
+
+  const { excerpt, featuredImage, tourDetail } = res?.data?.tours?.translation
+  const title = tourDetail?.meta?.title
+  return getMeta(title, excerpt, featuredImage)
+}
 
 export default async function page({ params: { lang, slug } }) {
   //get header data
@@ -24,7 +35,6 @@ export default async function page({ params: { lang, slug } }) {
     const res = await getRandomTour(GET_RANDOM_TOUR, lang)
     let resRmDup = res?.data?.allTours?.nodes.filter((item, index) => item.translation.id !== tourId)
     relatedTours = Array.from(new Set(resRmDup))
-    // console.log(relatedTours)
   }
   return (
     <TourDetail

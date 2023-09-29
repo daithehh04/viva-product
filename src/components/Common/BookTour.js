@@ -28,13 +28,15 @@ const SUBMIT_FORM = gql`
   }
 `
 
-function BookTour({ data, onClose, refFormPopup }) {
+function BookTour({ data, setOpenModal }) {
   const [mutate, { loading }] = useMutation(SUBMIT_FORM)
   const [openNoti, setOpenNoti] = useState(false)
   const [msg, setMsg] = useState('')
   const [isSuccess, setIsSuccess] = useState(false)
   const [isError, setIsError] = useState(false)
   const [isConfirm, setIsConfirm] = useState(false)
+  const [isDone, setIsDone] = useState(false) // check when successful noti or error noti appeared
+
   const formRef = useRef()
   // init value
   const INITAL_FORM_STATE = {
@@ -108,18 +110,19 @@ function BookTour({ data, onClose, refFormPopup }) {
         setIsError(true)
         setOpenNoti(true)
         setMsg('Failed')
+        setIsDone(true)
       } else {
         // Successful
         setIsSuccess(true)
         setOpenNoti(true)
         setMsg('Successfull')
+        setIsDone(true)
         resetForm()
       }
     })
   }
-
   useClickOutside(formRef, () => {
-    if (refFormPopup.current.classList.contains('active')) {
+    if (!isDone) {
       setOpenNoti(true)
       setIsConfirm(true)
     }
@@ -455,12 +458,12 @@ function BookTour({ data, onClose, refFormPopup }) {
         isConfirm={isConfirm}
         handleSuccess={() => {
           setIsSuccess(false)
-          onClose()
+          setOpenModal(false)
         }}
         handleError={() => {
           setIsError(false)
         }}
-        handleConfirm={() => onClose()}
+        handleConfirm={() => setOpenModal(false)}
       />
     </div>
   )
