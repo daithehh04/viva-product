@@ -7,9 +7,15 @@ function getValue(value) {
   return value
 }
 
-const minDistance = 2
-export default function RangeCustom({ onDay }) {
-  const [value, setValue] = React.useState([1, 50])
+const minDistance = 1
+export default function RangeCustom({ onDay,day }) {
+  const [value, setValue] = React.useState([1,50])
+  React.useEffect(() => {
+    if(day) {
+      var rangeArray = day?.split('-').map(Number);
+      setValue(rangeArray)
+    }
+  },[day])
   const handleChange = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
       return

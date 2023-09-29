@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const ITEM_HEIGHT = 48
 const ITEM_PADDING_TOP = 8
@@ -27,8 +27,12 @@ const Placeholder = ({ item, icon }) => (
 )
 
 export default function OptionBudget({ icon, list, defaultValue, onSelect }) {
-  const [personName, setPersonName] = useState(defaultValue)
-
+  const [personName, setPersonName] = useState('Budget')
+  useEffect(() => {
+    if(defaultValue) {
+      setPersonName(defaultValue)
+    }
+  },[defaultValue])
   const handleChange = (event) => {
     const {
       target: { value }
@@ -54,25 +58,25 @@ export default function OptionBudget({ icon, list, defaultValue, onSelect }) {
           displayEmpty
           value={personName}
           onChange={handleChange}
-          // renderValue={(selected) => {
-          //   return (
-          //     <Placeholder
-          //       icon={icon}
-          //       item={selected}
-          //     />
-          //   )
-          // }}
-          MenuProps={MenuProps}
+          inputProps={{ 'aria-label': 'Without label' }}
+          renderValue={(selected) => {
+            return (
+              <Placeholder
+                icon={icon}
+                item={selected}
+              />
+            )
+          }}
         >
-          <MenuItem value=''>
+          {/* <MenuItem value=''>
             <div className='flex gap-[1vw] items-center'>
               <Image
                 src={icon}
                 alt='Money Image'
               />
-              <div className='px-2 py-[0.25vw] text-[0.875vw] font-normal'>Budget</div>
+              <span className='px-2 py-[0.25vw] text-[0.875vw] font-normal'>Budget</span>
             </div>
-          </MenuItem>
+          </MenuItem> */}
           {list?.map((item) => (
             <MenuItem
               key={item?.name}

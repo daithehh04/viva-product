@@ -5,9 +5,10 @@ import { Checkbox } from '@mui/material'
 import RangeCustom from '@/components/tag/RangeCustom'
 import OptionCustomer from '@/components/tag/OptionCustomer'
 import OptionBudget from '@/components/tag/OptionBuget'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Sidebar({
+  params,
   travelStylesList,
   dataMenuCountry,
   dataTaxonomiesBudget,
@@ -17,6 +18,7 @@ export default function Sidebar({
   onBudget
 }) {
   const [travelStyle, setTravelStyle] = useState([])
+  const refStyle = useRef()
   function handleCheck(e) {
     const value = e.target.value
     if (e.target.checked) {
@@ -28,6 +30,16 @@ export default function Sidebar({
       onTravelStyle(rs)
     }
   }
+  useEffect(() => {
+    const list = refStyle?.current?.children;
+    Array.from(list).forEach((item) => {
+      const value = item.querySelector('label').getAttribute('for')
+      if(value === params.style) {
+        setTravelStyle([value])
+      }
+    })
+  },[params.style])
+
   return (
     <div className='w-[20vw] flex flex-col'>
       <h2 className='text-[1.375vw] leading-[1.5125vw] font-medium mb-[1vw]'>Select your destination:</h2>
@@ -46,14 +58,16 @@ export default function Sidebar({
             <span className='font-normal'>50 days</span>
           </p>
         </div>
-        <RangeCustom onDay={(data) => onDay(data)} />
+        <RangeCustom day={params.day} onDay={(data) => onDay(data)} />
       </div>
       <div
         className='search-option px-[1.8vw] mb-[1.88vw] w-full border pb-[2vw] pt-[1.5vw]'
         style={{ boxShadow: '0px 0px 30px 0px rgba(0, 0, 0, 0.08)' }}
       >
         <h3 className='mb-[1.32vw] text-[1.25vw] font-bold'>Travel styles</h3>
-        <div className='flex flex-col justify-center gap-[0.75vw]'>
+        <div className='flex flex-col justify-center gap-[0.75vw]'
+          ref={refStyle}
+        >
           {travelStylesList?.data?.allTourStyle?.nodes?.map((item) => (
             <div
               className='flex items-center justify-between'
@@ -61,10 +75,14 @@ export default function Sidebar({
             >
               <div className='flex gap-[0.4375vw] items-center cursor-pointer'>
                 <Checkbox
+                  checked={travelStyle.includes(item?.slug)}
                   value={item?.slug}
                   color='info'
                   id={item?.slug}
-                  sx={{ color: '#C7D0D9', '& .MuiSvgIcon-root': { fontSize: '1.25vw' } }}
+                  sx={{ color: '#C7D0D9', '& .MuiSvgIcon-root': { fontSize: '1.25vw' },
+                  '&.Mui-checked': {
+                    color: '#228B22',
+                  }, }}
                   className='w-[1.25vw] h-[1.25vw]'
                   onChange={handleCheck}
                 />
@@ -90,14 +108,14 @@ export default function Sidebar({
             onSelect={(data) => onDestination(data)}
             icon={locationIcon}
             list={dataMenuCountry?.data?.allCountries?.nodes}
-            defaultValue={'Countries'}
+            defaultValue={params?.country}
           />
         </div>
         <div className='mb-[0.94vw]'>
           <OptionBudget
             onSelect={(data) => onBudget(data)}
             icon={moneyIcon}
-            defaultValue={'Budget'}
+            defaultValue={params?.budget}
             list={dataTaxonomiesBudget?.data?.allBudget?.nodes}
           />
         </div>

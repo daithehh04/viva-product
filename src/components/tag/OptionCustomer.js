@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 const ITEM_HEIGHT = 48
 const ITEM_PADDING_TOP = 8
 const MenuProps = {
@@ -24,10 +24,14 @@ const Placeholder = ({ item, icon }) => (
 )
 
 export default function OptionCustomer({ icon, list, defaultValue, onSelect }) {
-  const [personName, setPersonName] = useState(defaultValue)
-
-  const [isSelectorOpen, setIsSelectorOpen] = useState(false)
-
+  const [personName, setPersonName] = useState('Destination')
+  useEffect(() => {
+    if(defaultValue) {
+      var nameV = list?.filter(item => item.slug === defaultValue)
+      var nameDef = nameV[0]?.name
+      setPersonName(nameDef)
+    }
+  },[list,defaultValue])
   const handleChange = (event) => {
     const {
       target: { value }
@@ -53,16 +57,17 @@ export default function OptionCustomer({ icon, list, defaultValue, onSelect }) {
           displayEmpty
           value={personName}
           onChange={handleChange}
-          // renderValue={(selected) => {
-          //   return (
-          //     <Placeholder
-          //       icon={icon}
-          //       item={selected}
-          //     />
-          //   )
-          // }}
+          inputProps={{ 'aria-label': 'Without label' }}
+          renderValue={(selected) => {
+            return (
+              <Placeholder
+                icon={icon}
+                item={selected}
+              />
+            )
+          }}
         >
-          <MenuItem value=''>
+          {/* <MenuItem value=''>
             <div className='flex gap-[1vw] items-center'>
               <Image
                 src={icon}
@@ -70,12 +75,11 @@ export default function OptionCustomer({ icon, list, defaultValue, onSelect }) {
               />
               <span className='px-2 py-[0.25vw] text-[0.875vw] font-normal'>Destination</span>
             </div>
-          </MenuItem>
-
+          </MenuItem> */}
           {list?.map((item) => (
             <MenuItem
               key={item?.name}
-              value={item?.slug}
+              value={item?.name}
             >
               <div className='flex gap-[1vw] items-center'>
                 <Image

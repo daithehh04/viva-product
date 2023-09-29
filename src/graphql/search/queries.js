@@ -51,10 +51,6 @@ const DATA_ALL_TOUR = gql`
                 highestPrice
               }
               rate
-              icons {
-                altText
-                sourceUrl
-              }
             }
           }
         }

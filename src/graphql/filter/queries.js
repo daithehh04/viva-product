@@ -45,7 +45,7 @@ const DATA_BEST_TOUR = gql`
       where: {
         taxQuery: {
           taxArray: [
-            { taxonomy: COUNTRIES, operator: IN, terms: $countrySlug, field: SLUG }
+            { taxonomy: COUNTRIES, operator: IN, terms: $countrySlug, field: NAME }
             { taxonomy: TOURSTYLE, operator: IN, terms: $styleTourSlug, field: SLUG }
           ]
         }
