@@ -16,7 +16,13 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
     var styleParams = urlParams.get('style');
     var destinationParams = urlParams.get('country');
   }
-  
+  const params = {
+    'day':durationParams,
+    'budget':budgetParams,
+    'style':styleParams,
+    'country':destinationParams
+  }
+
   function handleTaxonomiesSlug(data) {
     const newArrDataTaxonomies = []
     data?.map((item) => {
@@ -24,18 +30,45 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
     })
     return newArrDataTaxonomies
   }
-  const newArrDataTaxonomiesCountry = handleTaxonomiesSlug(dataMenuCountry?.data?.allCountries?.nodes)
+  function handleTaxonomiesName(data) {
+    const newArrDataTaxonomies = []
+    data?.map((item) => {
+      newArrDataTaxonomies.push(item?.name)
+    })
+    return newArrDataTaxonomies
+  }
+  const newArrDataTaxonomiesCountry = handleTaxonomiesName(dataMenuCountry?.data?.allCountries?.nodes)
   const newArrDataTaxonomiesStyleTravel = handleTaxonomiesSlug(travelStylesList?.data?.allTourStyle?.nodes)
-  const [destination, setDestination] = useState(destinationParams || newArrDataTaxonomiesCountry)
-  const [initTravelStyle, setInitTravelStyle] = useState(newArrDataTaxonomiesStyleTravel)
-  const [travelStyle, setTravelStyle] = useState(styleParams || [])
-  const [day, setDay] = useState(durationParams)
-  const [budget, setBudget] = useState(budgetParams)
+  const [destination, setDestination] = useState(null)
+  const [travelStyle, setTravelStyle] = useState(null)
+  const [day, setDay] = useState(null)
+  const [budget, setBudget] = useState(null)
+
+  useEffect(() => {
+    const nameV = dataMenuCountry?.data?.allCountries?.nodes.filter(item => item.slug === destinationParams)
+    if(nameV) {
+      var nameDef = nameV[0]?.name
+      setDestination(nameDef)
+    }
+    if(durationParams) {
+      var rangeArray = durationParams?.split('-').map(Number);
+      setDay(rangeArray)
+    }
+    if(budgetParams) {
+      setBudget(budgetParams)
+    }
+  },[budgetParams,durationParams,dataMenuCountry,destinationParams])
+  
+  useEffect(() => {
+    if(styleParams) {
+      setTravelStyle(styleParams)
+    }
+  },[styleParams])
   const dataAllTours = useQuery(DATA_BEST_TOUR, {
     variables: {
       language: lang?.toUpperCase(),
-      countrySlug: destination[0] === '' ? newArrDataTaxonomiesCountry : destination,
-      styleTourSlug: travelStyle.length === 0 ? initTravelStyle : travelStyle
+      countrySlug: !destination ? newArrDataTaxonomiesCountry : destination,
+      styleTourSlug: !travelStyle || travelStyle.length === 0 ? newArrDataTaxonomiesStyleTravel : travelStyle
     }
   })
   var allTours = dataAllTours?.data?.allTours?.nodes
@@ -49,6 +82,7 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
       return priceTour >= +minBudget && priceTour <= +maxBudget
     })
   }
+
   if (day) {
     allTours = allTours?.filter((tour) => {
       let numTour = tour?.translation?.tourDetail?.numberDay
@@ -64,6 +98,7 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
       <h1 className='text-[4vw] font-optima leading-[4.4vw] capitalize font-semibold mb-[3.44vw]'>our packages</h1>
       <div className='search flex gap-[3.56vw]'>
         <Sidebar
+          params={params}
           lang={lang}
           travelStylesList={travelStylesList}
           dataMenuCountry={dataMenuCountry}

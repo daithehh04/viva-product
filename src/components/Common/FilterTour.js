@@ -7,7 +7,7 @@ import Image from 'next/image'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 function FilterTour({ onSelectDes, dataFilter, onSelectStyle, onSelectBudget, onSelectDuration, travelStyleSlug }) {
   const [destination, setDestination] = useState('')
   const [travelStyle, setTravelStyle] = useState(travelStyleSlug || '')
