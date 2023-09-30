@@ -127,3 +127,22 @@ export const GET_LIST_PROMOTION_TOUR = `query ($language: LanguageCodeEnum!) {
         }
     }
   }`
+
+export const GET_META_DATA = `query ($language: LanguageCodeEnum!) {
+    page(id: "cG9zdDoxMTAy") {
+      translation(language: $language) {
+        hotDeals {
+          meta {
+            title
+            description
+          }
+        }
+        featuredImage {
+          node {
+            altText
+            sourceUrl
+          }
+        }
+      }
+    }
+  }`

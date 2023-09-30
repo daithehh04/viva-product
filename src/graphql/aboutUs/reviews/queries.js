@@ -48,3 +48,22 @@ export const GET_DATA_MENU_RV = `query($language: LanguageCodeEnum!) {
       }
     }
   }`
+
+export const GET_META_DATA = `query ($language: LanguageCodeEnum!) {
+  page(id: "cG9zdDoxMzI5") {
+    translation(language: $language) {
+      aboutUsReviews {
+        meta {
+          title
+          description
+        }
+      }
+      featuredImage {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+    }
+  }
+}`

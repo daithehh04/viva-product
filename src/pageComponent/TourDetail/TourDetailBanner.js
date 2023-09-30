@@ -86,6 +86,7 @@ export default function TourDetailBanner({ data = {}, headerData }) {
             alt='locationIcon'
             width={100}
             height={100}
+            priority
             className='w-[1.5vw] h-[1.5vw]'
           />
           <span className='text-[1.5vw] leading-normal text-primaryColor'>{location}</span>
@@ -170,6 +171,7 @@ export default function TourDetailBanner({ data = {}, headerData }) {
                 alt={video?.overlayImage.altText || ''}
                 width={200}
                 height={200}
+                priority
                 className='w-[7.1875vw] h-[4.9375vw] object-cover rounded-lg'
               />
               <Image

@@ -45,3 +45,22 @@ export const GET_DATA_MENU_RT = `query($language: LanguageCodeEnum!) {
       }
     }
   }`
+
+export const GET_META_DATA = `query ($language: LanguageCodeEnum!) {
+    page(id: "cG9zdDoxMjg1") {
+      translation(language: $language) {
+        responsibleTravel {
+          meta {
+            title
+            description
+          }
+        }
+        featuredImage {
+          node {
+            altText
+            sourceUrl
+          }
+        }
+      }
+    }
+  }`
