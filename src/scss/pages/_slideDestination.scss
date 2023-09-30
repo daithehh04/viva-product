@@ -34,7 +34,7 @@
 #btn-search-animation {
   transform: translateX(300%);
   transition: all 0.3s linear;
-  z-index: 100000;
+  z-index: 10;
   &:hover ~ #filterTourBlock {
     transform: translateX(0%) !important;
     visibility: visible !important;
@@ -62,7 +62,7 @@
       display: none;
     }
     &::before {
-      left: -20%;
+      left: 0;
     }
     &:nth-child(3)::after {
       content: '';
