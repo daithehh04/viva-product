@@ -240,10 +240,8 @@ export default function AboutTour(props) {
       if (stepIconRef.current) {
         if (aboutTourRef.current.getBoundingClientRect().top < 0) {
           stepIconRef.current.style.display = 'flex'
-          stepIconMbRef.current.style.display = 'flex'
         } else {
           stepIconRef.current.style.display = 'none'
-          stepIconMbRef.current.style.display = 'none'
         }
 
         if (window?.innerWidth <= 768) {
@@ -251,8 +249,17 @@ export default function AboutTour(props) {
         }
       }
 
+      if (stepIconMbRef.current) {
+        if (aboutTourRef.current.getBoundingClientRect().top < 0) {
+          stepIconMbRef.current.style.display = 'flex'
+        } else {
+          stepIconMbRef.current.style.display = 'none'
+        }
+      }
+
       // in Pc, when review section appears, map&price section + stepIcon section will be hidden  and  button scroll to top will be appeared
-      if (window?.innerWidth > 768) {
+
+      if (!onlySmallScreen) {
         if (reviewRect.top < innerHeight) {
           mapRef.current.style.display = 'none'
           setIsBottom(true)
@@ -276,10 +283,11 @@ export default function AboutTour(props) {
         setActiveIcon(4)
       }
     }
+
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [activeIcon, accomRef, briefRef, overviewRef, roleRef, tourDetailRef])
-
+  // console.log(isBottom)
   return (
     <section className='overflow-hidden tour-detail-main'>
       <div className=''>

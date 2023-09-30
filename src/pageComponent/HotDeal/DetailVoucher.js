@@ -55,7 +55,8 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
   const [isConfirm, setIsConfirm] = useState(false)
   const [isDone, setIsDone] = useState(false) // check when successful noti or error noti appeared
 
-  useClickOutside(itemRef, () => {
+  useClickOutside(itemRef, (e) => {
+    e.preventDefault()
     if (!isDone) {
       setOpenNoti(true)
       setIsConfirm(true)
@@ -129,7 +130,7 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
   // console.log(loading)
   return (
     <div
-      className='content'
+      className='w-full md:py-[5vw] py-[11.46vw] md:px-[8.12vw] px-[4.26vw]'
       ref={itemRef}
     >
       <h1 className='w-[44.625vw] font-optima text-[2.875vw] font-semibold leading-[3.1625vw] mb-[2vw] capitalize max-md:text-[5.87vw] max-md:mb-[0.4116vw] max-md:leading-[7.04vw] max-md:w-full'>
@@ -290,7 +291,9 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
         handleError={() => {
           setIsError(false)
         }}
-        handleConfirm={() => setOpenModal(false)}
+        handleConfirm={() => {
+          setOpenModal(false)
+        }}
       />
     </div>
   )

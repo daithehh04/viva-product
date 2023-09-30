@@ -8,7 +8,7 @@ export default function HotDeal({ hotDeals, listVoucher, menu }) {
     <div className={`${menu ? 'pt-[3vw]' : 'md:pt-[9.75vw] pt-[23.46vw]'} mb-[9.19vw] max-md:bg-[#f3f6fb]`}>
       <div className='content'>
         <h2
-          className={`heading-1 md:mb-[2.5vw] mb-[4.267vw] text-textColor`}
+          className={`heading-1 ${menu ? 'md:mb-[2vw]' : 'md:mb-[2.5vw]'}  mb-[4.267vw] text-textColor`}
           style={menu && { fontSize: '2.5vw' }}
         >
           {hotDeals?.voucherHeader?.listHeader}
@@ -18,7 +18,7 @@ export default function HotDeal({ hotDeals, listVoucher, menu }) {
           listVoucher={listVoucher}
         />
       </div>
-      <div className='mt-[7.06vw]'>
+      <div className={menu ? 'mt-[3.12vw]' : 'mt-[7.06vw]'}>
         <h2
           className={`${menu ? 'mb-[2vw]' : 'mb-[3.12vw]'} heading-1 content text-textColor`}
           style={menu && { fontSize: '2.5vw' }}

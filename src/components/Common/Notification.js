@@ -13,7 +13,8 @@ const btnClass = 'absolute bg-[#fcfcfc] w-1/2 h-[15%] text-[0.8vw] rounded-[20px
 
 export default function Notification(props) {
   const { openNoti, setOpenNoti, msg, isSuccess, isError, isConfirm, handleConfirm, handleSuccess, handleError } = props
-  const handleClose = () => {
+  const handleClose = (e) => {
+    e.preventDefault()
     handleSuccess && isSuccess && handleSuccess()
     handleError && isError && handleError()
     handleConfirm && isConfirm && handleConfirm()
@@ -91,7 +92,10 @@ export default function Notification(props) {
 
         <div className='absolute bottom-[2vw] right-[2vw] flex gap-[1vw]'>
           <button
-            onClick={() => setOpenNoti(false)}
+            onClick={(e) => {
+              e.preventDefault()
+              setOpenNoti(false)
+            }}
             className='w-[4vw] h-[2vw] border-[2px] border-solid border-[#ef8d9c] rounded-lg'
           >
             Cancel

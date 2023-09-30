@@ -33,9 +33,9 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
           }
           brief {
             row {
-              accompaniement
               day
               itinerary
+              accompaniement
               mealsIncluded
             }
           }
