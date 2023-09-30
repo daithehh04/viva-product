@@ -10,13 +10,17 @@ import Select from '@mui/material/Select'
 import { useRef, useState } from 'react'
 import Button from '@/components/Common/Button'
 import { useRouter } from 'next/navigation'
-function FilterPopup({ lang, dataFilter }) {
+function FilterPopup({ lang, dataFilter,slug }) {
   const refLink = useRef()
   const [travelStyle, setTravelStyle] = useState('')
   const [duration, setDuration] = useState('')
   const [budget, setBudget] = useState('')
   const router = useRouter()
 
+  const nameCountry = dataFilter?.country?.filter(item => item.slug === slug)
+    if(nameCountry) {
+      var nameDef = nameCountry[0]?.name
+    }
   const handleChangeTravelStyle = (event) => {
     setTravelStyle(event.target.value)
   }
@@ -49,7 +53,7 @@ function FilterPopup({ lang, dataFilter }) {
         }
       });
       const queryString = new URLSearchParams(resultObject).toString();
-      const link = `/search?&${queryString}`
+      const link = `/search?&country=${nameDef}?&${queryString}`
       router.push(link)
     } else {
       router.push(`/${lang}/search`)

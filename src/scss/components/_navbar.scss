@@ -25,6 +25,7 @@
         right: auto;
       }
       .menu-item {
+        transform: scale(1);
         opacity: 1;
         visibility: visible;
         overflow: auto;
@@ -51,7 +52,10 @@
       top: 0;
     }
     .menu-item {
-      opacity: 0;
+      // transform-origin: 30% top;
+      transition: all .5s;
+      transform: scale(0);
+      // opacity: 0;
       visibility: hidden;
       display: grid;
       position: fixed;

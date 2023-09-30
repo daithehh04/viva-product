@@ -62,9 +62,6 @@ export default function Home({
       return numTour >= +minDay && numTour <= +maxDay
     })
   }
-  console.log('arrSlugTaxonomiesCountry',arrSlugTaxonomiesCountry);
-  console.log('arrSlugTaxonomiesStyleTravel',arrSlugTaxonomiesStyleTravel);
-  console.log('allTours',allTours);
 
   if (!data) {
     return <p>Loading....</p>

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import logo from '@/assets/images/logo.svg'
-import Button from '@mui/material/Button'
+// import Button from '@mui/material/Button'
 import star from '@/assets/images/star.svg'
 import SelectLang from '../Language/SelectLang'
 import MenuDestinations from '@/components/Menu/Destinations'
@@ -19,6 +19,7 @@ import starF from '@/assets/images/starF.svg'
 import HotDeal from './HotDeal'
 import BookTour from './BookTour'
 import ModalCustom from './ModalCustom'
+import Button from './Button'
 
 export default function Navbar({
   params,
@@ -58,6 +59,13 @@ export default function Navbar({
       }
       lastScrolledPos = window.scrollY
     }
+
+    const menuItems = document.querySelectorAll('.menu-item')
+    const menuNavs = document.querySelectorAll('.nav-link:has(.menu-item)')
+    menuItems.forEach((item,index) => {
+      var distance = menuNavs[index].getBoundingClientRect().left + menuNavs[index].clientWidth/2
+      item.style.transformOrigin= `${distance}px top`
+    })
   }, [])
 
   const handleClickBars = () => {
@@ -161,10 +169,8 @@ export default function Navbar({
             // onClick={handleOpenPopup}
             onClick={() => setOpenModal(true)}
           >
-            <Button
-              variant='contained'
-              sx={{ fontSize: '1vw', marginRight: '3.25vw', lineHeight: '1' }}
-              className='flex-shrink-0 btn-primary'
+             <Button
+              className='flex-shrink-0 btn-primary mr-[3.25vw]'
             >
               <Image
                 src={star}

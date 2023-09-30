@@ -1,6 +1,5 @@
 'use client'
 import searchIcon from '@/assets/images/search-normal.svg'
-import locationIcon from '@/assets/images/route-square-gr.svg'
 import calendar from '@/assets/images/calendarFilter.svg'
 import wallet from '@/assets/images/wallet.svg'
 import styleIcon from '@/assets/images/style-travel.svg'
@@ -11,7 +10,7 @@ import Select from '@mui/material/Select'
 import { useRef, useState } from 'react'
 import Button from '@/components/Common/Button'
 import { useRouter } from 'next/navigation'
-function FilterBanner({ lang, dataFilter }) {
+function FilterBanner({ lang, dataFilter,slug }) {
   const refLink = useRef()
   const [travelStyle, setTravelStyle] = useState('')
   const [duration, setDuration] = useState('')
@@ -50,7 +49,7 @@ function FilterBanner({ lang, dataFilter }) {
         }
       });
       const queryString = new URLSearchParams(resultObject).toString();
-      const link = `/search?&${queryString}`
+      const link = `/${lang}/search?&country=${slug}&${queryString}`
       router.push(link)
     } else {
       router.push(`/${lang}/search`)

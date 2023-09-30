@@ -43,9 +43,11 @@ async function index({ lang, slug }) {
   const dataTaxonomiesStyleTour = await getDataPost(lang, DATA_TAXONOMIES_TOUR_STYLE)
   const dataTaxonomiesBudget = await getDataPost(lang, DATA_TAXONOMIES_BUDGET)
   const dataTaxonomiesDuration = await getDataPost(lang, DATA_TAXONOMIES_DURATION)
+  const dataTaxonomiesCountry = await getDataPost(lang, DATA_TAXONOMIES_COUNTRY)
   const arrDataTaxonomiesBudget = dataTaxonomiesBudget?.data?.allBudget?.nodes
   const arrDataTaxonomiesDuration = dataTaxonomiesDuration?.data?.allDuration?.nodes
   const arrDataTaxonomiesStyleTour = dataTaxonomiesStyleTour?.data?.allTourStyle?.nodes
+  const arrDataTaxonomiesCountry = dataTaxonomiesCountry?.data?.allCountries?.nodes
   function handleTaxonomies(data) {
     const newArrDataTaxonomies = []
     data?.map((item) => {
@@ -56,16 +58,18 @@ async function index({ lang, slug }) {
   const newArrDataTaxonomiesStyleTravel = handleTaxonomies(arrDataTaxonomiesStyleTour)
   const newArrDataTaxonomiesBudget = handleTaxonomies(arrDataTaxonomiesBudget)
   const newArrDataTaxonomiesDuration = handleTaxonomies(arrDataTaxonomiesDuration)
+  const newArrDataTaxonomiesCountry = handleTaxonomies(arrDataTaxonomiesCountry)
 
   const dataFilter = {
     style: newArrDataTaxonomiesStyleTravel,
     budget: newArrDataTaxonomiesBudget,
-    duration: newArrDataTaxonomiesDuration
+    duration: newArrDataTaxonomiesDuration,
+    country: newArrDataTaxonomiesCountry
   }
   return (
     <div>
-      <Banner data={data?.country?.banner} dataFilter={dataFilter}/>
-      <FilterPopup dataFilter={dataFilter}/>
+      <Banner data={data?.country?.banner} slug={slug} dataFilter={dataFilter}/>
+      <FilterPopup dataFilter={dataFilter} slug={slug}/>
       <SectionActions />
       <SlideDestination
         data={dataOtherTrip?.data?.allTours?.nodes}
