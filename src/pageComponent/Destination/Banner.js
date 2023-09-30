@@ -5,14 +5,14 @@ import { useRef } from 'react'
 import scrollDown from '@/helpers/scrollDown'
 import FilterBanner from './FilterBanner'
 
-function Banner({ data,dataFilter,slug }) {
+function Banner({ data, dataFilter, slug }) {
   const scrollRef = useRef()
   return (
     <Box
       sx={{
         height: {
-          xs: '74.4vh', // For extra-small (mobile) screens
-          sm: '74.4vh', // For small screens
+          xs: '74.4vw', // For extra-small (mobile) screens
+          sm: '74.4vw', // For small screens
           md: '100vh' // For medium screens
         }
       }}
@@ -30,7 +30,7 @@ function Banner({ data,dataFilter,slug }) {
           </span>
 
           <div className='filter-tour hidden md:flex gap-x-[1.75vw] ml-auto mr-auto mt-[1.94vw] bg-white w-max py-[1.5vw] pl-[2.87vw] pr-[2vw] rounded-[1.125vw]'>
-            <FilterBanner dataFilter={dataFilter} slug={slug}/>
+            <FilterBanner dataFilter={dataFilter} slug={slug} />
           </div>
           <div
             onClick={() => scrollDown(scrollRef, 'start')}
@@ -63,38 +63,6 @@ function Banner({ data,dataFilter,slug }) {
           id='explore'
           className='absolute bottom-0 h-[12.4vw] w-full hidden md:flex flex-shrink-0 items-center  bg-overlayBanner2 py-[4vw] pr-[3.31vw] '
         ></div>
-        {/* <div className='fixed bottom-[8vw] z-[1000] right-0 md:flex items-center h-12vw hidden'>
-          <div
-            id='filterTourBlock'
-            className=' py-[0.75vw] absolute  right-[5vw] h-fit px-[1.19vw] bg-[#FFD220] inline-flex justify-center items-center gap-[0.625vw] rounded-tl-[3.0625vw] rounded-bl-[3.0625vw] '
-          >
-            <span className='text-[1vw] text-[#171717] font-normal leading-[130%]'>Filter tour</span>
-            <div className='flex w-[1.375vw] h-[1.375vw] justify-center items-center'></div>
-          </div>
-          <div
-            onMouseOver={handleShow}
-            id='btn-search-animation'
-            className='w-[4.5vw] h-[4.5vw] rounded-[50%] absolute right-[3.31vw] bg-[#FFD220] flex justify-center items-center flex-shrink-0'
-          >
-            <svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22' fill='none'>
-              <path
-                d='M10.5413 19.2502C15.3508 19.2502 19.2497 15.3513 19.2497 10.5418C19.2497 5.73235 15.3508 1.8335 10.5413 1.8335C5.73186 1.8335 1.83301 5.73235 1.83301 10.5418C1.83301 15.3513 5.73186 19.2502 10.5413 19.2502Z'
-                stroke='#171717'
-                strokeWidth='1.5'
-                stroke-linecap='round'
-                stroke-linejoin='round'
-              />
-              <path
-                d='M20.1663 20.1668L18.333 18.3335'
-                stroke='#171717'
-                strokeWidth='1.5'
-                stroke-linecap='round'
-                stroke-linejoin='round'
-              />
-            </svg>
-          </div>
-        </div>
-      */}
       </div>
       <div ref={scrollRef}></div>
     </Box>
