@@ -21,13 +21,10 @@ function TourItem({ data, menu }) {
       } flex w-full h-[67.23vw] md:rounded-[1vw] rounded-[2.75vw] relative max-md:flex-shrink-0  tour-item cursor-pointer`}
     >
       <Image
-        src={
-          tourData?.gallery
-            ? tourData?.gallery[0]?.sourceUrl
-            : 'https://viva-cms.okhub.tech/wp-content/uploads/2023/09/Rectangle-34624620.png'
-        }
+        src={tourData?.gallery ? tourData?.gallery[0]?.sourceUrl : imgTour}
         width={1000}
         height={1000}
+        priority
         alt='img tour'
         className='h-full object-cover w-full md:rounded-[1vw] rounded-[2.75vw] img-tour'
       />
@@ -57,7 +54,13 @@ function TourItem({ data, menu }) {
                 key={index}
                 className='w-[4.8vw] h-[4.8vw] rounded-[6px] bg-[#FFF8DE] flex items-center justify-center'
               >
-                <Image src={iconsTour[icon]} alt={icon} className='w-[2.613vw] h-[2.613vw]' width={20} height={20} />
+                <Image
+                  src={iconsTour[icon]}
+                  alt={icon}
+                  className='w-[2.613vw] h-[2.613vw]'
+                  width={20}
+                  height={20}
+                />
               </div>
             )
           })}

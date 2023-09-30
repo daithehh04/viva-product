@@ -35,7 +35,7 @@ function TourSlide({
   const arrDataTaxonomiesDuration = dataTaxonomiesDuration?.data?.allDuration?.nodes
   const arrDataTaxonomiesCountry = dataTaxonomiesCountry?.data?.allCountries?.nodes
   const arrDataTaxonomiesStyleTour = dataTaxonomiesStyleTour?.data?.allTourStyle?.nodes
-  const arrSlugTaxonomiesCountry = handleTaxonomiesSlug(arrDataTaxonomiesCountry)
+  const arrSlugTaxonomiesCountry = handleTaxonomiesName(arrDataTaxonomiesCountry)
   const arrSlugTaxonomiesStyleTravel = handleTaxonomiesSlug(arrDataTaxonomiesStyleTour)
   const [destination, setDestination] = useState(arrSlugTaxonomiesCountry)
   const [travelStyle, setTravelStyle] = useState(slug || '')
@@ -46,11 +46,11 @@ function TourSlide({
   const dataBestTours = useQuery(DATA_BEST_TOUR, {
     variables: {
       language: lng,
-      countrySlug: destination === '' ? arrSlugTaxonomiesCountry : destination,
-      styleTourSlug: travelStyle === '' ? arrSlugTaxonomiesStyleTravel : travelStyle
+      countrySlug: !destination ? arrSlugTaxonomiesCountry : destination,
+      styleTourSlug: !travelStyle || travelStyle.length === 0 ? arrSlugTaxonomiesStyleTravel : travelStyle
     }
   })
-  var allTours = dataBestTours?.data?.allTours?.nodes
+  let allTours = dataBestTours?.data?.allTours?.nodes
   if (budget) {
     allTours = allTours?.filter((tour) => {
       let priceTour = tour?.translation?.tourDetail?.priceTour
@@ -83,6 +83,14 @@ function TourSlide({
     const newArrDataTaxonomies = []
     data?.map((item) => {
       newArrDataTaxonomies.push(item?.slug)
+    })
+    return newArrDataTaxonomies
+  }
+
+  function handleTaxonomiesName(data) {
+    const newArrDataTaxonomies = []
+    data?.map((item) => {
+      newArrDataTaxonomies.push(item?.name)
     })
     return newArrDataTaxonomies
   }
