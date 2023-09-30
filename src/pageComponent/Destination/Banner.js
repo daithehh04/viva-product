@@ -5,7 +5,7 @@ import { useRef } from 'react'
 import scrollDown from '@/helpers/scrollDown'
 import FilterBanner from './FilterBanner'
 
-function Banner({ data, dataFilter, slug }) {
+function Banner({ data, dataFilter, slug,lang }) {
   const scrollRef = useRef()
   return (
     <Box
@@ -30,7 +30,7 @@ function Banner({ data, dataFilter, slug }) {
           </span>
 
           <div className='filter-tour hidden md:flex gap-x-[1.75vw] ml-auto mr-auto mt-[1.94vw] bg-white w-max py-[1.5vw] pl-[2.87vw] pr-[2vw] rounded-[1.125vw]'>
-            <FilterBanner dataFilter={dataFilter} slug={slug} />
+            <FilterBanner dataFilter={dataFilter} slug={slug} lang={lang}/>
           </div>
           <div
             onClick={() => scrollDown(scrollRef, 'start')}
