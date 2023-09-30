@@ -17,10 +17,11 @@ import { ACCOM_REF, BRIEF_REF, OVERVIEW_REF, ROLE_REF, TOUR_DETAIL_REF } from '.
 import { createTheme, useMediaQuery } from '@mui/material'
 
 export default function AboutTour(props) {
-  const { type, data, headerData = {}, relatedTours = [] } = props
+  const { type, data, headerData = {}, relatedTours = [], defaultListReViews } = props
 
   const { contentHeader, relatedTourHeader, bannerHeaders } = headerData
   const { reviews, banner, content = {} } = data || []
+  const listReviews = reviews || defaultListReViews
   const { accommodation, brief, inclusionAndExclusion, overview, tourDetailed } = content
   const [activeIcon, setActiveIcon] = useState(0)
   //check mobile
@@ -287,7 +288,6 @@ export default function AboutTour(props) {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [activeIcon, accomRef, briefRef, overviewRef, roleRef, tourDetailRef])
-  // console.log(isBottom)
   return (
     <section className='overflow-hidden tour-detail-main'>
       <div className=''>
@@ -559,12 +559,12 @@ export default function AboutTour(props) {
           ref={reviewRef}
         >
           <div className='md:w-[62.1875vw] md:h-[35.75vw] md:ml-[8.125vw] md:grid flex w-fit h-[121.33vw] grid-cols-2 grid-rows-2 md:gap-[2vw] gap-[4.44vw]'>
-            {reviews?.map((item, index) => {
+            {listReviews?.map((item, index) => {
               return (
                 <div
                   key={index}
                   className={`${index === 0 && ' max-md:ml-[4.27vw]'} ${
-                    index === reviews.length - 1 && ' max-md:mr-[4.27vw]'
+                    index === listReviews?.length - 1 && ' max-md:mr-[4.27vw]'
                   }`}
                 >
                   <ReviewItem
@@ -584,7 +584,7 @@ export default function AboutTour(props) {
 
       {/* Tour Slide */}
       <div className='mb-[14.93vw] md:mb-[8.69vw] md:px-[6.38vw]'>
-        <h4 className='heading-1 max-md:mb-[2.5vw] max-md:mx-[4.27vw]'>{relatedTourHeader?.heading}</h4>
+        <h4 className='heading-1 md:mb-[3.5vw] mb-[6.4vw] max-md:mx-[4.27vw]'>{relatedTourHeader?.heading}</h4>
         <SlideTour
           data={relatedTours}
           slug={type === 'promo' && 'hot-deals'}

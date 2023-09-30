@@ -4,8 +4,9 @@ import { Pagination, FreeMode } from 'swiper/modules'
 import { useRef, useState } from 'react'
 import Link from 'next/link'
 import TourItem from './TourItem'
+import vw from '@/helpers/convertToVw'
 
-function SlideTour({ data, slug }) {
+function SlideTour({ data, slug, isLoading }) {
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()
   const handleNextSlide = () => {
@@ -25,7 +26,7 @@ function SlideTour({ data, slug }) {
       <Swiper
         breakpoints={{
           768: {
-            spaceBetween: 40,
+            spaceBetween: vw(2.5),
             slidesPerView: 4
           }
         }}
@@ -43,7 +44,7 @@ function SlideTour({ data, slug }) {
           return (
             <SwiperSlide key={index}>
               {({ isActive }) => (
-                <div className='md:w-[19.0625vw] md:h-[24.5vw] max-md:pl-[4.27vw] block box-border'>
+                <div className='md:w-full md:h-[24.5vw] max-md:pl-[4.27vw] block box-border'>
                   <TourItem data={item} />
                 </div>
               )}

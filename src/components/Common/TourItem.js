@@ -15,7 +15,7 @@ function TourItem({ data, menu }) {
   const isPromotion = pathName.includes('hot-deals')
   return (
     <Link
-      href={`/${isPromotion ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
+      href={`/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
       className={`${
         menu ? 'md:h-[14.5vw]' : 'md:h-[24.5vw]'
       } flex w-full h-[67.23vw] md:rounded-[1vw] rounded-[2.75vw] relative max-md:flex-shrink-0  tour-item cursor-pointer`}
@@ -41,7 +41,7 @@ function TourItem({ data, menu }) {
           <span className='text-[2.66vw] md:text-[0.875vw] leading-normal text-primaryColor'>{tourData?.location}</span>
         </div>
         <Link
-          href={`/${isPromotion ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
+          href={`/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
           className='text-white inline line-clamp-2 title-tour md:text-[1.125vw] text-[2.93vw] font-bold tracking-tight leading-[1.2] mt-[0.25vw]'
         >
           {tourData?.title}

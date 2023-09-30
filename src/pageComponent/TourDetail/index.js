@@ -7,7 +7,7 @@ import TourDetailBannerMobile from '@/pageComponent/TourDetail/TourDetailBannerM
 import Image from 'next/image'
 import tour from '@/assets/images/tourDetail/tourBg.png'
 
-export default function TourDetail({ data = {}, headerData = {}, relatedTours }) {
+export default function TourDetail({ data = {}, headerData = {}, relatedTours, defaultListReViews = [] }) {
   const { banner, content, map, reviews } = data
   const { bannerHeaders, content: contentHeader, relatedTour: relatedTourHeader, subBanner } = headerData
 
@@ -41,6 +41,7 @@ export default function TourDetail({ data = {}, headerData = {}, relatedTours })
             data={{ content, map, banner, reviews }}
             headerData={{ contentHeader, relatedTourHeader, bannerHeaders }}
             relatedTours={relatedTours}
+            defaultListReViews={defaultListReViews}
           />
           <SubBanner
             data={subBanner}

@@ -37,3 +37,29 @@ export const GET_All_CUSTOMERS_REVIEW = gql`
     }
   }
 `
+export const GET_REVIEWS = `query ($language: LanguageCodeEnum!) {
+  allCustomerReview(first: 4) {
+    nodes {
+      translation(language: $language) {
+        customerReview {
+          authorInformation {
+            country
+            name
+            thumbnail {
+              altText
+              sourceUrl
+            }
+          }
+          content
+          image {
+            altText
+            sourceUrl
+          }
+          location
+          time
+          title
+        }
+      }
+    }
+  }
+}`

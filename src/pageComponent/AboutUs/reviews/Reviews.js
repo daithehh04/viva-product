@@ -2,27 +2,38 @@
 import ReviewItem from '@/components/Common/ReviewItem'
 import { GET_All_CUSTOMERS_REVIEW } from '@/graphql/customersReview/queries'
 import { useQuery } from '@apollo/client'
+import { Skeleton, createTheme, useMediaQuery } from '@mui/material'
 import { useRef, useState } from 'react'
-
+const theme = createTheme({
+  breakpoints: {
+    values: {
+      sm: 768
+    }
+  }
+})
 const Reviews = ({ lang, data }) => {
+  const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
   let totalPage = useRef(0)
   const [activePage, setActivePage] = useState(1)
   // get review list
-  const { data: reviewList, refetch } = useQuery(GET_All_CUSTOMERS_REVIEW, {
+  const {
+    data: reviewList,
+    refetch,
+    loading
+  } = useQuery(GET_All_CUSTOMERS_REVIEW, {
     variables: {
       offset: activePage,
       size: 7,
       language: lang?.toUpperCase()
     }
   })
+
   // calculate total page of reviews
   if (reviewList) {
     totalPage.current = Math.ceil(reviewList?.allCustomerReview?.pageInfo?.offsetPagination?.total / 7)
   }
   const paginations = new Array(totalPage.current).fill(0)
-
   const reviewData = reviewList?.allCustomerReview?.nodes?.filter((item) => item.translation !== null)
-  // console.log(reviewData)
   return (
     <section className='content py-[10vw] relative z-10'>
       <div className='md:w-[33.4375vw] w-full text-textColor md:mb-[2vw] mb-[13.07vw]'>
@@ -33,32 +44,16 @@ const Reviews = ({ lang, data }) => {
       </div>
 
       {/* reviews */}
-      <div className='md:grid md:grid-cols-2 w-full md:gap-[2.5vw] gap-[4.8vw] flex flex-col '>
+      <div className='md:grid md:grid-cols-2 w-full md:h-[98.0375vw] md:gap-[2.5vw] gap-[4.8vw] flex flex-col '>
         {reviewData?.map((item, index) => {
-          if (index === 0) {
-            return (
-              <div
-                key={index}
-                className='md:col-span-2'
-              >
-                <ReviewItem
-                  data={item?.translation}
-                  className='md:flex hidden big-item md:p-[1.87vw] md:gap-[2.5vw]'
-                />
-                <ReviewItem
-                  data={item?.translation}
-                  className='block md:hidden'
-                />
-              </div>
-            )
-          } else {
-            return (
-              <ReviewItem
-                key={index}
-                data={item?.translation}
-              />
-            )
-          }
+          return (
+            <div
+              key={index}
+              className={`${index === 0 && !onlySmallScreen && 'md:col-span-2 big-item md:p-[1.87vw] md:gap-[2.5vw]'}`}
+            >
+              <ReviewItem data={item?.translation} />
+            </div>
+          )
         })}
       </div>
 
