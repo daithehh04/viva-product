@@ -34,6 +34,7 @@ const DATA_BLOG_DETAIL = `query ($slug: String!, $language: LanguageCodeEnum!) {
       id
       slug
       content
+      link
       title
       excerpt
       featuredImage {
