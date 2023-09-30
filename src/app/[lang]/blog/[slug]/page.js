@@ -68,6 +68,7 @@ const GET_SLUG_RCM = `
     }
   }
 }`
+
 async function Page({ params: { lang, slug } }) {
   const data = await getDataPost(lang?.toUpperCase(), GET_ALL_TOURS_BESTSELLER)
 
