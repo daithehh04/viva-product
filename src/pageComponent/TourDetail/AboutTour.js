@@ -218,6 +218,7 @@ export default function AboutTour(props) {
     [ROLE_REF]: useRef(),
     [ACCOM_REF]: useRef()
   }
+  const stepIconMbRef = useRef()
   const { overviewRef, briefRef, tourDetailRef, roleRef, accomRef } = sectionRefs
 
   // handle Scroll event => add new class when scroll to section
@@ -237,8 +238,13 @@ export default function AboutTour(props) {
 
       //show icons when scroll over "Overview" section's position
       if (stepIconRef.current) {
-        if (aboutTourRef.current.getBoundingClientRect().top < 0) stepIconRef.current.style.display = 'flex'
-        else stepIconRef.current.style.display = 'none'
+        if (aboutTourRef.current.getBoundingClientRect().top < 0) {
+          stepIconRef.current.style.display = 'flex'
+          stepIconMbRef.current.style.display = 'flex'
+        } else {
+          stepIconRef.current.style.display = 'none'
+          stepIconMbRef.current.style.display = 'none'
+        }
 
         if (window?.innerWidth <= 768) {
           stepIconRef.current.style.display = 'none'
@@ -365,40 +371,36 @@ export default function AboutTour(props) {
                   </div>
                 </div>
 
-                {/* {onlySmallScreen && (
-                  <div className='fixed bottom-[20vh] right-[2vw] w-[15vw] h-[15vw] rounded-full z-[1000]'>
-                    <Image
-                      src={viva}
-                      alt=''
-                      className='absolute top-0 right-0 w-[15vw] h-[15vw]'
-                    />
-                    <div className='flex absolute top-0 right-[15vw] text-[4vw] bg-amber-100 w-fit max-w-[70vw] h-[15vw] px-[4vw] py-[2vw] items-center justify-center rounded-2xl gap-[2vw] shadow-lg shadow-amber-500/50'>
-                      {stepData.map((step, index) => {
-                        return (
-                          <div
-                            className='step-icon flex md:gap-[0.5vw] gap-[1vw] cursor-pointer'
-                            key={index}
-                            onClick={() => scrollDown(sectionRefs[step.key])}
-                          >
-                            <div className='flex flex-col items-center justify-start'>
-                              <svg
-                                xmlns='http://www.w3.org/2000/svg'
-                                width={64}
-                                height={64}
-                                viewBox='0 0 64 64'
-                                fill='#000'
-                                style={{ color: `${index === activeIcon ? '#138140' : '#000'}` }}
-                                className='justify-self-end md:w-[3.9375vw] w-[9.6vw] md:h-[3.9375vw] h-[9.6vw]'
-                              >
-                                {step.img}
-                              </svg>
-                            </div>
+                {onlySmallScreen && (
+                  <div
+                    ref={stepIconMbRef}
+                    className='fixed top-[14.375vw] right-0 w-full h-[15vw] px-[5vw] text-[4vw] bg-amber-100 flex items-center justify-between gap-[2vw] shadow-lg shadow-amber-500/50 z-50'
+                  >
+                    {stepData.map((step, index) => {
+                      return (
+                        <div
+                          className='step-icon flex md:gap-[0.5vw] gap-[1vw] cursor-pointer'
+                          key={index}
+                          onClick={() => scrollDown(sectionRefs[step.key])}
+                        >
+                          <div className='flex flex-col items-center justify-start'>
+                            <svg
+                              xmlns='http://www.w3.org/2000/svg'
+                              width={64}
+                              height={64}
+                              viewBox='0 0 64 64'
+                              fill='#000'
+                              style={{ color: `${index === activeIcon ? '#138140' : '#000'}` }}
+                              className='justify-self-end md:w-[3.9375vw] w-[9.6vw] md:h-[3.9375vw] h-[9.6vw]'
+                            >
+                              {step.img}
+                            </svg>
                           </div>
-                        )
-                      })}
-                    </div>
+                        </div>
+                      )
+                    })}
                   </div>
-                )} */}
+                )}
               </>
             )}
 

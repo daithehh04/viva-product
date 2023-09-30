@@ -4,6 +4,7 @@ import TourSlides from '@/components/Common/SlideTour'
 import Reason from './Reason'
 import Button from '@/components/Common/Button'
 function HotTour({ hotTour, reason, data }) {
+  console.log(data)
   return (
     <div className='w-[87.5%] ml-auto mr-auto max-md:w-full'>
       <div className='md:mt-[3.12vw] mt-[14.67vw]'>
@@ -22,7 +23,14 @@ function HotTour({ hotTour, reason, data }) {
         </span>
         <div className='grid md:grid-cols-4 md:grid-rows-1 md:gap-[2vw] gap-[4.27vw] grid-cols-2 grid-rows-2'>
           {reason?.reason?.map((choose, index) => {
-            return <Reason key={index} icon={choose.image.sourceUrl} title={choose.title} desc={choose.content} />
+            return (
+              <Reason
+                key={index}
+                icon={choose.image.sourceUrl}
+                title={choose.title}
+                desc={choose.content}
+              />
+            )
           })}
         </div>
       </div>

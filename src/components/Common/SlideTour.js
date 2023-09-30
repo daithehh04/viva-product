@@ -43,7 +43,7 @@ function SlideTour({ data, slug }) {
           return (
             <SwiperSlide key={index}>
               {({ isActive }) => (
-                <div className='max-md:pl-[4.27vw] block box-border'>
+                <div className='md:w-[19.0625vw] md:h-[24.5vw] max-md:pl-[4.27vw] block box-border'>
                   <TourItem data={item} />
                 </div>
               )}
@@ -64,7 +64,10 @@ function SlideTour({ data, slug }) {
             xmlns='http://www.w3.org/2000/svg'
             className='w-[1.5vw] h-[1.5vw]'
           >
-            <path d='M3.15303 12.0969L19.457 0.960938L12.873 12.0969L19.457 23.2409L3.15303 12.0969Z' fill='#001258' />
+            <path
+              d='M3.15303 12.0969L19.457 0.960938L12.873 12.0969L19.457 23.2409L3.15303 12.0969Z'
+              fill='#001258'
+            />
           </svg>
         </button>
         <button
@@ -79,7 +82,10 @@ function SlideTour({ data, slug }) {
             xmlns='http://www.w3.org/2000/svg'
             className='w-[1.5vw] h-[1.5vw]'
           >
-            <path d='M20.847 12.0969L4.54297 0.960938L11.127 12.0969L4.54297 23.2409L20.847 12.0969Z' fill='#001258' />
+            <path
+              d='M20.847 12.0969L4.54297 0.960938L11.127 12.0969L4.54297 23.2409L20.847 12.0969Z'
+              fill='#001258'
+            />
           </svg>
         </button>
       </div>
