@@ -1,13 +1,15 @@
 'use client'
 import Button from '@/components/Common/Button'
 import Image from 'next/image'
-
-import checkVisa_imgInfomation from '@/assets/images/checkVisa_imgInfomation.png'
 import plane from '@/assets/images/checkVisa_Plane.png'
 import ExemptVisa from './ExemptVisa'
 import { createTheme, useMediaQuery } from '@mui/material'
+import { useData } from './DataContext'
 
 function Infomation({ data }) {
+  const { dataB } = useData();
+  console.log('dataB: ',dataB);
+  const isFreeVisa = dataB?.isFreeVisa
   const dataInfo = data?.checkvisa?.infodetail
   const theme = createTheme({
     breakpoints: {
@@ -17,25 +19,15 @@ function Infomation({ data }) {
     }
   })
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
-  const exempts = [
-    {
-      title: 'You are exempt from a visa.',
-      desc: 'Visa exemption is the entry of a foreign national into a country that does not have to apply for a visa or visa because his / her country has signed visa exemption agreements / agreements with each other, or bilateral.',
-      image: plane
-    },
-    {
-      title: 'You are exempt from a visa for 15 days, if you exceed it you still need to apply for a visa ',
-      desc: 'Visa exemption is the entry of a foreign national into a country that does not have to apply for a visa or visa because his / her country has signed visa exemption agreements / agreements with each other, or bilateral..',
-      image: plane
-    }
-  ]
+  
   return (
-    <div className='w-full relative'>
+    <div className='relative w-full'>
       <div className='w-full md:mt-[6.13vw] mt-[11.47vw] md:px-[8.13vw] px-[4.27vw] '>
-        {exempts?.map((exempt, index) => (
-          <ExemptVisa key={index} title={exempt.title} desc={exempt.desc} image={exempt.image} />
-        ))}
-        <div className='flex md:gap-[2.5vw] md:flex-row flex-col '>
+        {isFreeVisa === undefined ? <h2 className='text-[#bf4242] font-optima md:text-[2.5vw] text-[5.86667vw] font-semibold leading-[110%] md:mb-[1.5vw] mb-[2.13vw]'>Choose country !!!</h2> : ''}
+        {isFreeVisa === 'yes' ?<ExemptVisa title={dataB?.titleVisa} desc={dataB?.descVisa} image={plane} />
+         : ''}
+        {/*  */}
+        {isFreeVisa === 'no' ? <div className='flex md:gap-[2.5vw] md:flex-row flex-col '>
           <Image
             alt='background'
             src={onlySmallScreen ? dataInfo?.backgroundmb?.sourceUrl : dataInfo?.backgroundpc?.sourceUrl}
@@ -44,7 +36,7 @@ function Infomation({ data }) {
           />
           <div
             className='flex flex-col md:w-[62.1875vw] md:mt-[6.13vw] checkVisa-info'
-            dangerouslySetInnerHTML={{ __html: `${data?.content}` }}
+            dangerouslySetInnerHTML={{ __html: `${dataB?.contentVisa}` }}
           ></div>
 
           <div className='flex flex-col md:gap-[1.87vw] gap-[6.4vw] md:mb-0 mb-[13.07vw] md:mt-[6.13vw] mt-[7.47vw] '>
@@ -127,7 +119,8 @@ function Infomation({ data }) {
               </div>
             </div>
           </div>
-        </div>
+        </div> : ''}
+        
         <div className='md:mt-[1vw] flex md:flex-row flex-col md:gap-[5.6vw] items-center'>
           <div className='flex flex-col'>
             <h2 className='heading-1 md:mb-[1.5vw] mb-[2.1333vw] md:w-[44.625vw] w-[74.66667vw] font-semibold'>

@@ -6,9 +6,13 @@ import bannerMobile from '@/assets/images/checkVisa_Banner_mobile.png'
 import useBanner from '@/assets/images/checkVisa_UserBanner.png'
 import { createTheme, FormControl, MenuItem, Select, useMediaQuery } from '@mui/material'
 import { Button } from '@mui/base'
-function Banner({ data }) {
+import { CHECK_VISA } from '@/graphql/checkVisa/queries'
+import { useQuery } from '@apollo/client'
+import { useData } from './DataContext'
+function Banner({ data,dataFilter,lang }) {
   const [nationality, setNationality] = useState('')
   const [country, setCountry] = useState('')
+  const { dataB, setDataB } = useData(null);
 
   const theme = createTheme({
     breakpoints: {
@@ -23,6 +27,37 @@ function Banner({ data }) {
   }
   const handleChangeCountry = (e) => {
     setCountry(e.target.value)
+  }
+
+  const dataVisa = useQuery(CHECK_VISA, {
+    variables: {
+      language: lang?.toUpperCase(),
+      countryFrom: nationality,
+      countryTo: country
+    }
+  })
+  if(dataVisa) {
+    var dataCheckVisa = dataVisa?.data?.allVisa?.nodes
+  }
+
+  const handleCheck = function() {
+    if(dataCheckVisa) {
+      const isFreeVisa = dataCheckVisa[0]?.checkVisa?.freeVisa
+      if(isFreeVisa?.toLowerCase() === 'no') {
+        var contentVisa = dataCheckVisa[0]?.checkVisa?.content
+      }
+      if(isFreeVisa?.toLowerCase() === 'yes') {
+        var descVisa = dataCheckVisa[0]?.checkVisa?.desc
+        var titleVisa = dataCheckVisa[0]?.checkVisa?.title
+      }
+      const data = {
+        isFreeVisa,
+        contentVisa,
+        descVisa,
+        titleVisa
+      }
+      setDataB(data)
+    }
   }
 
   const dataBanner = data?.checkvisa?.banner
@@ -69,17 +104,13 @@ function Banner({ data }) {
         >
           <Select value={nationality} onChange={handleChangeNation} className='text-white' displayEmpty>
             <MenuItem value=''>
-              <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>VietNam-VN</span>
+              <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>Country</span>
             </MenuItem>
-            <MenuItem value='ThaiLand - TL'>
-              <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>ThaiLand-TL</span>
+            {dataFilter?.countryFrom?.map((item,index) => (
+              <MenuItem value={item?.slug} key={index}>
+              <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>{item?.name}</span>
             </MenuItem>
-            <MenuItem value='Myanmar-MY'>
-              <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>Myanmar-MY</span>
-            </MenuItem>
-            <MenuItem value='Indonesia-ID'>
-              <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>Indonesia-ID</span>
-            </MenuItem>
+            ))}
           </Select>
         </FormControl>
         <p className='text-white md:text-[1vw] text-[3.73333vw] leading-[1.5] md:mb-[1vw] md:mt-[1.5vw] mb-[2.13333vw] mt-[6.4vw]'>
@@ -99,21 +130,17 @@ function Banner({ data }) {
         >
           <Select onChange={handleChangeCountry} value={country} className='text-white' displayEmpty>
             <MenuItem value=''>
-              <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>VietNam-VN</span>
+              <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>Country</span>
             </MenuItem>
-            <MenuItem value='ThaiLand'>
-              <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>ThaiLand-TL</span>
+            {dataFilter?.countryTo?.map((item,index) => (
+              <MenuItem value={item?.slug} key={index}>
+              <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>{item?.name}</span>
             </MenuItem>
-            <MenuItem value='Indo'>
-              <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>Indonesia-ID</span>
-            </MenuItem>
-            <MenuItem value='Sing'>
-              <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>Singapor-SP</span>
-            </MenuItem>
+            ))}
           </Select>
         </FormControl>
 
-        <Button className='bg-primaryColor md:rounded-[0.75vw] rounded-[2.13333vw] w-fit md:mt-[3.13vw] mt-[8.53vw] px-[7.73vw] py-[3.2vw] md:px-[2.88vw] md:py-[1.25vw]'>
+        <Button className='bg-primaryColor md:rounded-[0.75vw] rounded-[2.13333vw] w-fit md:mt-[3.13vw] mt-[8.53vw] px-[7.73vw] py-[3.2vw] md:px-[2.88vw] md:py-[1.25vw]' onClick={handleCheck}>
           <span className='md:text-[1vw] text-[3.2vw] font-medium text-textColor '>{dataBanner?.button}</span>
         </Button>
       </div>
