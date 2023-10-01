@@ -41,4 +41,16 @@
       }
     }
   }
+
+  .fb,
+  .linked,
+  .instar,
+  .ytb {
+    &:hover {
+      background: #000;
+      path {
+        fill: #fff;
+      }
+    }
+  }
 }

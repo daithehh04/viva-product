@@ -1,5 +1,6 @@
 .tour-item {
   overflow: hidden;
+
   .img-tour {
     transition: all 0.3s ease;
   }
@@ -18,5 +19,19 @@
       background-size: 100% 1px;
       background-position-x: left;
     }
+  }
+
+  .overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: 1vw;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 54.17%,
+      rgba(0, 0, 0, 0.3) 60.64%,
+      rgba(0, 0, 0, 0.49) 68.17%,
+      rgba(0, 0, 0, 0.6) 79.86%
+    );
   }
 }

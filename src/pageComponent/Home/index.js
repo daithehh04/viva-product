@@ -69,7 +69,7 @@ export default function Home({
   const finalData = data?.data?.page?.home
 
   const header = finalData?.header
-  const banner = finalData?.Banner
+  const banner = finalData?.banner
   const survey = finalData?.survey
   const inspection = finalData?.inspectionTrip
   const representative = finalData?.representative
