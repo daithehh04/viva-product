@@ -33,6 +33,7 @@ export default function Navbar({
   dataBookTour
 }) {
   const refMb = useRef()
+  const refMenu = useRef()
   const refBtnBookTour = useRef()
   // const refFormPopup = useRef()
   const [openModal, setOpenModal] = useState(false)
@@ -59,23 +60,38 @@ export default function Navbar({
       }
       lastScrolledPos = window.scrollY
     }
-
-    const menuItems = document.querySelectorAll('.menu-item')
-    const menuNavs = document.querySelectorAll('.nav-link:has(.menu-item)')
-    menuItems.forEach((item,index) => {
+    const menuItems = refMenu?.current?.querySelectorAll('.menu-item')
+    const menuNavs = refMenu?.current?.querySelectorAll('.nav-link:has(.menu-item)')
+    menuItems?.forEach((item,index) => {
       var distance = menuNavs[index].getBoundingClientRect().left + menuNavs[index].clientWidth/2
       item.style.transformOrigin= `${distance}px top`
     })
+    menuNavs?.forEach((item,index) => {
+      item.addEventListener('mouseover',function() {
+        item.classList.add('show')
+        menuItems[index].style.transition = 'all 0.5s'
+      })
+      item.addEventListener('mouseout',function() {
+        item.classList.remove('show')
+        // menuItems[index].style.display = 'none'
+      })
+    })
   }, [])
 
+  const handleCloseMenu = () => {
+    const menuLink = refMenu?.current?.querySelector('.nav-link.show')
+    const menuItem = refMenu?.current?.querySelector('.nav-link.show .menu-item')
+    if(menuItem && menuLink) {
+      menuLink.classList.remove('show')
+      menuItem.style.transition = 'none'
+    }
+  }
   const handleClickBars = () => {
     refMb.current.classList.add('active')
   }
-
   const handleClickClose = () => {
     refMb.current.classList.remove('active')
   }
-
   // const handleOpenPopup = () => {
   //   refFormPopup.current.classList.add('active')
   // }
@@ -97,7 +113,8 @@ export default function Navbar({
                 className='w-[3.5625vw] object-cover max-lg:w-[10.4vw]'
               />
             </Link>
-            <div className='max-lg:hidden flex items-center gap-x-[2vw] mr-[6vw]'>
+            <div className='max-lg:hidden flex items-center gap-x-[2vw] mr-[6vw]'
+            ref={refMenu}>
               <div className='relative flex-shrink-0'>
                 <div className='capitalize text-[1vw] nav-link'>
                   {dataHome?.nav1}
@@ -105,6 +122,7 @@ export default function Navbar({
                     <MenuDestinations
                       data={dataMenuCountry}
                       lang={params}
+                      onCloseMenu = {handleCloseMenu}
                     />
                   </div>
                 </div>
@@ -118,6 +136,7 @@ export default function Navbar({
                   <MenuStyle
                     travelStylesList={travelStylesList}
                     lang={params}
+                    onCloseMenu = {handleCloseMenu}
                   />
                 </div>
               </div>
@@ -143,7 +162,7 @@ export default function Navbar({
               <div className='capitalize text-[1vw] nav-link'>
                 {dataHome?.nav5}
                 <div className='menu-item'>
-                  <MenuAbout dataAboutUs={dataAboutUs} />
+                  <MenuAbout dataAboutUs={dataAboutUs} onCloseMenu = {handleCloseMenu}/>
                 </div>
               </div>
               <div className='capitalize text-[1vw] nav-link'>
@@ -152,6 +171,7 @@ export default function Navbar({
                   <MenuRcmService
                     rcmServicesList={rcmServicesList}
                     lang={params}
+                    onCloseMenu = {handleCloseMenu}
                   />
                 </div>
               </div>

@@ -1,11 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-function DestinationItem({ tour, lang }) {
+function DestinationItem({ tour, lang,onCloseMenu }) {
   return (
     <Link
       href={`/${lang}/our-tours/${encodeURIComponent(tour?.slug)}`}
-      className='h-[19vw] relative '
+      className='h-[19vw] relative'
+      onClick={onCloseMenu}
     >
       {tour?.country?.thumb?.sourceUrl ? (
         <Image

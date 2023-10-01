@@ -2,11 +2,12 @@ import Image from 'next/image'
 import img from '@/assets/images/des-menu.png'
 import icon from '@/assets/images/icon-style.svg'
 import Link from 'next/link'
-function AboutItem({ data, slug }) {
+function AboutItem({ data, slug,onCloseMenu }) {
   return (
     <Link
       href={slug}
       className='relative h-max'
+      onClick={onCloseMenu}
     >
       <Image
         src={data?.backgroundImage?.sourceUrl}

@@ -20,11 +20,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
   const [duration, setDuration] = useState('')
   const [budget, setBudget] = useState('')
   const router = useRouter()
-
-  const nameCountry = dataFilter?.country?.filter((item) => item.slug === slug)
-  if (nameCountry) {
-    var nameDef = nameCountry[0]?.name
-  }
+  
   const handleChangeTravelStyle = (event) => {
     setTravelStyle(event.target.value)
   }
@@ -56,7 +52,10 @@ function FilterPopup({ lang, dataFilter, slug }) {
         }
       })
       const queryString = new URLSearchParams(resultObject).toString()
-      const link = `/search?&country=${nameDef}?&${queryString}`
+      var link = `/search?&country=${slug}&${queryString}`
+      if(lang !== 'en') {
+        link = `/${lang}/search?&country=${slug}&${queryString}`
+      }
       router.push(link)
     } else {
       router.push(`/${lang}/search`)

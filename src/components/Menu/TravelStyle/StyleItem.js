@@ -3,11 +3,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-function StyleItem({id, title, image, lang}) {
+function StyleItem({id, title, image, lang,onCloseMenu}) {
   return (
     <Link
       href={`/${lang}/travel-style/${id}`}
       className='flex items-center gap-x-[1.32vw]'
+      onClick={onCloseMenu}
     >
       <Image
         src={image?.sourceUrl}
