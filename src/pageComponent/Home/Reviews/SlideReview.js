@@ -5,7 +5,7 @@ import { useRef, useState } from 'react'
 import Link from 'next/link'
 import ReviewItem from './ReviewItem'
 
-function SlideReview({data}) {
+function SlideReview({ data }) {
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()
   const handleNextSlide = () => {
@@ -44,7 +44,7 @@ function SlideReview({data}) {
             <SwiperSlide key={index}>
               {({ isActive }) => (
                 <div>
-                  <ReviewItem data={item}/>
+                  <ReviewItem data={item} />
                 </div>
               )}
             </SwiperSlide>
@@ -54,7 +54,7 @@ function SlideReview({data}) {
       <div className='flex absolute top-[50%] -translate-y-2/4 z-10 w-full justify-between max-md:hidden btn-review'>
         <button
           onClick={handlePrevSlide}
-          className='w-[3.625vw] h-[3.625vw] rounded-full flex justify-center items-center bg-primaryColor absolute left-[4.75vw] top-[50%] -translate-y-2/4'
+          className='w-[3.625vw] h-[3.625vw] rounded-full flex justify-center items-center bg-primaryColor absolute left-[-2.66%] top-[50%] -translate-y-2/4'
         >
           <svg
             width='24'
@@ -64,10 +64,7 @@ function SlideReview({data}) {
             xmlns='http://www.w3.org/2000/svg'
             className='w-[1.5vw] h-[1.5vw]'
           >
-            <path
-              d='M3.15303 12.0969L19.457 0.960938L12.873 12.0969L19.457 23.2409L3.15303 12.0969Z'
-              fill='#001258'
-            />
+            <path d='M3.15303 12.0969L19.457 0.960938L12.873 12.0969L19.457 23.2409L3.15303 12.0969Z' fill='#001258' />
           </svg>
         </button>
         <button
@@ -82,10 +79,7 @@ function SlideReview({data}) {
             xmlns='http://www.w3.org/2000/svg'
             className='w-[1.5vw] h-[1.5vw]'
           >
-            <path
-              d='M20.847 12.0969L4.54297 0.960938L11.127 12.0969L4.54297 23.2409L20.847 12.0969Z'
-              fill='#001258'
-            />
+            <path d='M20.847 12.0969L4.54297 0.960938L11.127 12.0969L4.54297 23.2409L20.847 12.0969Z' fill='#001258' />
           </svg>
         </button>
       </div>

@@ -2,7 +2,6 @@
   background-image: url(../../assets/images/bg-beach.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom;
   width: 100%;
   height: auto;
 }
@@ -88,6 +87,7 @@
     .overlay-travel {
       opacity: 1;
       visibility: visible;
+      background: rgba(0, 0, 0, 0.5);
     }
     .btn {
       opacity: 1;
@@ -107,10 +107,8 @@
   .overlay-travel {
     position: absolute;
     inset: 0;
-    border-radius: 1rem;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
+    border-radius: 1vw;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 10.22%, rgba(0, 0, 0, 0) 35.5%);
     transition: all 0.3s ease-out;
   }
   .btn {

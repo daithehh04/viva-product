@@ -19,7 +19,9 @@ module.exports = {
           'linear-gradient(270deg, #FFF 0%, rgba(255, 255, 255, 0.49) 63.88%, rgba(255, 255, 255, 0.00) 100%)',
         overlayBanner2: 'linear-gradient(0, #FFF 0%, rgba(255, 255, 255, 0.49) 63.88%, rgba(255, 255, 255, 0.00) 100%)',
         overlayTrip:
-          'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 54.17%, rgba(0, 0, 0, 0.30) 67.61%, rgba(0, 0, 0, 0.49) 78.08%, rgba(0, 0, 0, 0.60) 100%);'
+          'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 54.17%, rgba(0, 0, 0, 0.30) 67.61%, rgba(0, 0, 0, 0.49) 78.08%, rgba(0, 0, 0, 0.60) 100%);',
+        overlayTourItem:
+          'linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.86) 12.5%, rgba(255, 255, 255, 0.74) 23.44%, rgba(255, 255, 255, 0.00) 47.85%, rgba(255, 255, 255, 0.84) 80.21%, #FFF 100%) lightgray 0px 41.028px / 100% 204.845% '
       },
       colors: {
         primaryColor: '#FFD220',

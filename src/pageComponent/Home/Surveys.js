@@ -50,7 +50,7 @@ function Surveys({ data, button }) {
           <p className='mt-[1.5vw] text-[1.125vw] text-textColor opacity-70 leading-[150%] max-md:text-[3.73vw]'>
             {data?.text}
           </p>
-          <ul className='grid grid-cols-3 gap-x-[3.75vw] gap-y-[2vw] mt-[2vw] max-md:mt-[6.93vw] max-md:gap-x-[15.75vw] max-md:gap-y-[3.2vw]'>
+          <ul className='grid grid-cols-3 md:pr-[11.69vw] gap-x-[3.75vw] justify-items-start gap-y-[2vw] mt-[2vw] max-md:mt-[6.93vw] max-md:gap-x-[15.75vw] max-md:gap-y-[3.2vw]'>
             {arrImg?.map((item, index) => (
               <li key={index} className='flex flex-col items-center'>
                 <Image
@@ -58,7 +58,7 @@ function Surveys({ data, button }) {
                   width={100}
                   height={100}
                   alt='img'
-                  className='w-[4.375vw] h-[4.375vw] object-cover max-md:w-[14.99vw] max-md:h-[14.99vw]'
+                  className='w-[4.375vw] h-[4.375vw] object-contain max-md:w-[14.99vw] max-md:h-[14.99vw]'
                 />
                 <span className='text-[1vw] capitalize mt-[0.62vw] font-[500] text-textColor leading-normal max-md:text-[3.2vw]'>
                   {item?.title}
@@ -77,7 +77,7 @@ function Surveys({ data, button }) {
             width={500}
             height={500}
             alt='img'
-            className='relative z-20 w-[47vw] h-[34vw] object-contain max-md:w-full max-md:h-[70.9vw]'
+            className='relative z-20 w-[47vw] h-[34vw] object-contain max-md:w-full max-md:h-[70.9vw] md:right-[-7%]'
           />
           <div
             className='circle w-[33.54285vw] h-[33.54285vw] max-md:w-[69.828vw] max-md:h-[69.828vw] rounded-full bg-bgCircle opacity-60 absolute bottom-[9.73vw] left-[20%]'
