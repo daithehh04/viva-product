@@ -55,7 +55,7 @@
     }
     .menu-item {
       // transform-origin: 30% top;
-      transition: all .5s;
+      transition: all 0.5s;
       transform: scale(0);
       opacity: 0;
       visibility: hidden;
@@ -163,4 +163,8 @@
       padding-left: 10px;
     }
   }
+}
+
+.menu-mb_item::-webkit-scrollbar {
+  height: 2px;
 }
