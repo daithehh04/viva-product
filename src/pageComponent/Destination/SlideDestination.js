@@ -37,7 +37,7 @@ function SlideDestination({ data, dataOtherType, dataTitle }) {
                 <div className='absolute flex flex-col items-center justify-center'>
                   <div className='inline-flex gap-[0.3125vw] justify-center items-center'>
                     <span className='text-justify font-optima text-[2vw] font-normal leading-[130%] text-white'>+</span>
-                    <span className='text-white heading-1'>90</span>
+                    <span className='text-white heading-1'>{data?.length - 7}</span>
                   </div>
                   <span className='text-white text-justify font-optima text-[1.5vw] block font-medium leading-[150%]'>
                     {dataTitle?.ourTour?.subtitle}
