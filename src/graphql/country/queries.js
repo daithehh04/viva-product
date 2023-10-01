@@ -176,4 +176,17 @@ query getTourStyle($language: LanguageCodeEnum!, $taxonomyValue: String, $taxono
 }
 `
 
-export { DATA_MENU_COUNTRY, DATA_COUNTRY, DATA_SLIDE_TOUR, DATA_SLIDE_OTHER_TOUR }
+const GET_META_DATA = `query ($slug: ID!, $language: LanguageCodeEnum!) {
+  countries(id: $slug, idType: SLUG) {
+    translation(language: $language) {
+      country{
+        meta{
+          title
+          description
+        }
+      }
+    }
+  }
+}`
+
+export { DATA_MENU_COUNTRY, DATA_COUNTRY, DATA_SLIDE_TOUR, DATA_SLIDE_OTHER_TOUR, GET_META_DATA }
