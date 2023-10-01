@@ -7,8 +7,10 @@ import img3 from '@/assets/images/fo3.png'
 import img4 from '@/assets/images/fo4.png'
 import img5 from '@/assets/images/fo5.png'
 import Image from 'next/image'
+import { useState } from 'react'
 
 function SlidePartners({ data, reverse }) {
+  
   return (
     <div className='content'>
       <Swiper
@@ -24,7 +26,7 @@ function SlidePartners({ data, reverse }) {
         centeredSlides={true}
         allowTouchMove={false}
         autoplay={{
-          delay: 1500,
+          delay: 400,
           disableOnInteraction: false,
           pauseOnMouseEnter: false,
           stopOnLastSlide: false,
@@ -35,11 +37,10 @@ function SlidePartners({ data, reverse }) {
         modules={[Autoplay, FreeMode]}
         className='w-full mySwiper slide-partners'
       >
-        {data?.map((item, index) => {
+        {[...data, ...data, ...data]?.map((item, index) => {
           return (
-            <div key={(index + 1) * 100}>
-              <SwiperSlide className='w-[20%] partner-item pointer-events-none' key={index + 1}>
-                <Image
+              <SwiperSlide className='w-[20%] partner-item' key={index*Math.random()}>
+                <Image 
                   src={item?.sourceUrl}
                   width={500}
                   height={500}
@@ -49,18 +50,6 @@ function SlidePartners({ data, reverse }) {
                   }`}
                 />
               </SwiperSlide>
-              <SwiperSlide className='w-[20%] partner-item pointer-events-none' key={(index + 1) * -1}>
-                <Image
-                  src={item?.sourceUrl}
-                  width={500}
-                  height={500}
-                  alt='partners'
-                  className={`object-contain w-[13vw] max-md:w-[26.33vw] max-md:h-[8.69vw] ${
-                    reverse ? '-scale-90' : ''
-                  }`}
-                />
-              </SwiperSlide>
-            </div>
           )
         })}
       </Swiper>
