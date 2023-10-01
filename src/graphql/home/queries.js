@@ -306,4 +306,23 @@ const GET_FOOTER = `query getHomePageData {
   }
 }
 `
-export { DATA_HEADER, GET_HOME_PAGE, GET_NEXT_STEP, GET_FOOTER }
+
+const GET_META_DATA = `query ($language: LanguageCodeEnum!) {
+  page(id: "cG9zdDoxOQ==") {
+    translation(language: $language) {
+      home {
+        meta {
+          title
+          description
+        }
+      }
+      featuredImage {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+    }
+  }
+}`
+export { DATA_HEADER, GET_HOME_PAGE, GET_NEXT_STEP, GET_FOOTER, GET_META_DATA }

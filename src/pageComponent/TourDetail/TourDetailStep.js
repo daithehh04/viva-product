@@ -4,12 +4,16 @@ import { iconsTour } from '@/lib/Icons'
 import Image from 'next/image'
 
 export default function TourDetailStep({ data: tourDetailData, icons }) {
+  console.log(tourDetailData)
   return (
     <>
       <div>
         {tourDetailData?.map((tour, index) => {
           return (
-            <div className='mb-[2.13vw] md:mb-[0]' key={index}>
+            <div
+              className='mb-[2.13vw] md:mb-[0]'
+              key={index}
+            >
               <div className='flex font-medium leading-normal md:h-[2.375vw] h-[11.2vw] md:items-center md:gap-[1.625vw] gap-[2.67vw]'>
                 <div className='bg-primaryColor md:h-[2.375vw] h-[5.86vw] md:w-[2.375vw] w-[10vw] md:text-[1vw] text-[2.66vw] rounded-full flex items-center justify-center mt-[1vw] md:mt-0'>
                   {index + 1}
@@ -46,24 +50,27 @@ export default function TourDetailStep({ data: tourDetailData, icons }) {
                           key={index}
                           width={40}
                           height={40}
-                          className='md:w-[2.375vw] w-[8vw] md:h-[2.375vw] h-[8vw] md:p-[0.375vw] p-[1.267vw] bg-[#FFF2BD] md:rounded-[12px] rounded-[4px]'
+                          className='md:w-[2.375vw] w-[8vw] md:h-[2.375vw] h-[8vw] md:p-[0.55vw] p-[1.8vw] bg-[#FFF2BD] md:rounded-[5px] rounded-[4px]'
                         />
                       )
                     })}
                 </div>
 
                 <div className='flex flex-col md:gap-[1vw] gap-[2.67vw]'>
-                  {tour?.places?.map((place, index) => {
+                  {tour?.place?.map((item, index) => {
                     return (
-                      <div key={index} className='flex md:gap-[0.625vw] gap-[2.13vw] items-center'>
+                      <div
+                        key={index}
+                        className='flex md:gap-[0.625vw] gap-[2.13vw] items-center'
+                      >
                         <Image
-                          src={place?.image?.sourceUrl}
-                          alt={place?.image?.altText}
+                          src={item?.image?.sourceUrl}
+                          alt={item?.image?.altText}
                           width={40}
                           height={40}
                           className='md:w-[3vw] w-[10.67vw] md:h-[3vw] h-[10.67vw] object-cover'
                         />
-                        <span>{place?.placeName}</span>
+                        <span>{item?.placeName}</span>
                       </div>
                     )
                   })}

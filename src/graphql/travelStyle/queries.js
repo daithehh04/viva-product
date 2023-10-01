@@ -134,4 +134,17 @@ const GET_LIST_TOUR_TRAVEL_STYLE_CLIENT = gql`
   }
 `
 
-export { GET_INFO_PAGE_TRAVEL_STYLE, GET_LIST_TRAVEL_STYLE_NAME, GET_LIST_TOUR_TRAVEL_STYLE_CLIENT }
+const GET_META_DATA = `query ($slug: ID!, $language: LanguageCodeEnum!) {
+  tourStyle(id: $slug, idType: SLUG) {
+    translation(language: $language) {
+      banner {
+        meta {
+          title
+          description
+        }
+      }
+    }
+  }
+}`
+
+export { GET_INFO_PAGE_TRAVEL_STYLE, GET_LIST_TRAVEL_STYLE_NAME, GET_LIST_TOUR_TRAVEL_STYLE_CLIENT, GET_META_DATA }

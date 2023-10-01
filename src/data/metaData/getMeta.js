@@ -10,8 +10,8 @@ export const getMeta = (title, excerpt, featuredImage) => {
       siteName: process.env.SITE_NAME,
       images: [
         {
-          url: featuredImage?.node?.sourceUrl,
-          alt: featuredImage?.node?.altText || featuredImage?.node?.title
+          url: featuredImage?.node?.sourceUrl || '',
+          alt: featuredImage?.node?.altText || featuredImage?.node?.title || ''
         }
       ],
       locale: 'en_US',
@@ -24,8 +24,8 @@ export const getMeta = (title, excerpt, featuredImage) => {
       creator: process.env.SITE_NAME,
       images: [
         {
-          url: featuredImage?.node?.sourceUrl,
-          alt: featuredImage?.node?.altText || featuredImage?.node?.title
+          url: featuredImage?.node?.sourceUrl || '',
+          alt: featuredImage?.node?.altText || featuredImage?.node?.title || ''
         }
       ]
     },

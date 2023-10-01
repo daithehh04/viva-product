@@ -27,13 +27,18 @@ export async function generateMetadata({ params: { lang, slug } }) {
   const res = await getMetaDataTour(GET_META_DATA_BLOG_DETAIL, lang, slug)
   console.log(res?.data?.postBy?.translation)
   if (!res) return
-  const { excerpt, featuredImage, blogdetail } = res?.data?.postBy?.translation
+  const { excerpt, featuredImage, blogdetail } = res?.data?.postBy?.translation || ''
   const title = blogdetail?.meta?.title
   return getMeta(title, excerpt, featuredImage)
 }
 
 function page({ params: { lang, slug } }) {
-  return <BlogDetail lang={lang} slug={slug} />
+  return (
+    <BlogDetail
+      lang={lang}
+      slug={slug}
+    />
+  )
 }
 
 export default page

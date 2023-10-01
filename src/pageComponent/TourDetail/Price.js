@@ -7,7 +7,9 @@ export default function Price({ type, className, data }) {
   return (
     <div>
       <div
-        className={`${className} relative hidden md:block w-full px-[5.5vw] py-[1.75vw] shadow-[0_2px_50px_0_rgba(0,0,0,0.03)] bg-white rounded-lg`}
+        className={`${
+          className || ''
+        } relative hidden md:block w-full px-[5.5vw] py-[1.75vw] shadow-[0_2px_50px_0_rgba(0,0,0,0.03)] bg-white rounded-lg`}
       >
         <div className='flex mb-[1vw] gap-[0.62vw] font-bold leading-normal items-center'>
           <span className='text-[1vw]'>{data?.price?.header}:</span>

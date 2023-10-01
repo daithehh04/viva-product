@@ -58,4 +58,23 @@ const DATA_ALL_TOUR = gql`
     }
   }
 `
-export { GET_TOUR_FILTER, DATA_ALL_TOUR }
+
+const GET_META_DATA = `query ($language: LanguageCodeEnum!) {
+  page(id: "cG9zdDoxMzQz") {
+    translation(language: $language) {
+      search {
+        meta {
+          title
+          description
+        }
+      }
+      featuredImage {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+    }
+  }
+}`
+export { GET_TOUR_FILTER, DATA_ALL_TOUR, GET_META_DATA }

@@ -10,6 +10,7 @@ import Select from '@mui/material/Select'
 import { useEffect, useRef, useState } from 'react'
 import Button from '@/components/Common/Button'
 import { useRouter } from 'next/navigation'
+import { useClickOutside } from '@/helpers/customHooks'
 function FilterPopup({ lang, dataFilter, slug }) {
   const refLink = useRef()
   const searchRef = useRef()
@@ -19,8 +20,9 @@ function FilterPopup({ lang, dataFilter, slug }) {
   const [travelStyle, setTravelStyle] = useState('')
   const [duration, setDuration] = useState('')
   const [budget, setBudget] = useState('')
+  const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
-  
+
   const handleChangeTravelStyle = (event) => {
     setTravelStyle(event.target.value)
   }
@@ -53,7 +55,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
       })
       const queryString = new URLSearchParams(resultObject).toString()
       var link = `/search?&country=${slug}&${queryString}`
-      if(lang !== 'en') {
+      if (lang !== 'en') {
         link = `/${lang}/search?&country=${slug}&${queryString}`
       }
       router.push(link)
@@ -86,12 +88,18 @@ function FilterPopup({ lang, dataFilter, slug }) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const handleShow = () => {
+  const handleShow = (e) => {
+    e.stopPropagation()
     if (popUp.current.classList && typeof popUp.current.classList.toggle === 'function') {
       popUp.current.classList.toggle('active')
     }
   }
 
+  useClickOutside(popUp, (e) => {
+    if (popUp.current && popUp.current.classList.contains('active') && !searchRef.current.contains(e.target)) {
+      popUp.current.classList.remove('active')
+    }
+  })
   return (
     <div className=''>
       <div className='fixed bottom-[6.44vw] z-[10] right-0 md:flex items-center h-12vw hidden'>
@@ -99,9 +107,15 @@ function FilterPopup({ lang, dataFilter, slug }) {
           onClick={handleShow}
           id='btn-search-animation'
           ref={searchRef}
-          className='w-[4.5vw] h-[4.5vw] rounded-[50%] absolute right-[3.31vw] bg-[#FFD220] flex justify-center items-center flex-shrink-0'
+          className='w-[4.5vw] h-[4.5vw] rounded-[50%] absolute right-[3.31vw] bg-[#FFD220] flex justify-center items-center flex-shrink-0 z-20'
         >
-          <svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22' fill='none'>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='22'
+            height='22'
+            viewBox='0 0 22 22'
+            fill='none'
+          >
             <path
               d='M10.5413 19.2502C15.3508 19.2502 19.2497 15.3513 19.2497 10.5418C19.2497 5.73235 15.3508 1.8335 10.5413 1.8335C5.73186 1.8335 1.83301 5.73235 1.83301 10.5418C1.83301 15.3513 5.73186 19.2502 10.5413 19.2502Z'
               stroke='#171717'
@@ -174,7 +188,10 @@ function FilterPopup({ lang, dataFilter, slug }) {
                   </span>
                 </MenuItem>
                 {dataFilter?.style?.map((item, index) => (
-                  <MenuItem value={item?.slug} key={index}>
+                  <MenuItem
+                    value={item?.slug}
+                    key={index}
+                  >
                     <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                       {item?.name}
                     </span>
@@ -228,7 +245,10 @@ function FilterPopup({ lang, dataFilter, slug }) {
                   </span>
                 </MenuItem>
                 {dataFilter?.duration?.map((item, index) => (
-                  <MenuItem value={item?.name} key={index}>
+                  <MenuItem
+                    value={item?.name}
+                    key={index}
+                  >
                     <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                       {item?.name} day
                     </span>
@@ -282,7 +302,10 @@ function FilterPopup({ lang, dataFilter, slug }) {
                   </span>
                 </MenuItem>
                 {dataFilter?.budget?.map((item, index) => (
-                  <MenuItem value={item?.name} key={index}>
+                  <MenuItem
+                    value={item?.name}
+                    key={index}
+                  >
                     <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                       {item?.name}$
                     </span>
@@ -292,8 +315,18 @@ function FilterPopup({ lang, dataFilter, slug }) {
             </FormControl>
           </div>
         </div>
-        <Button ref={refLink} onClick={handleSearch} className='btn-primary w-fit '>
-          <Image src={searchIcon} width={50} height={50} alt='search' className='w-[1.25vw] h-[1.25vw]' />
+        <Button
+          ref={refLink}
+          onClick={handleSearch}
+          className='btn-primary w-fit '
+        >
+          <Image
+            src={searchIcon}
+            width={50}
+            height={50}
+            alt='search'
+            className='w-[1.25vw] h-[1.25vw]'
+          />
           Search
         </Button>
       </div>

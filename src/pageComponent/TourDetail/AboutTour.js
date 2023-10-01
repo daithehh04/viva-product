@@ -15,6 +15,7 @@ import scrollDown from '@/helpers/scrollDown'
 import Price from './Price'
 import { ACCOM_REF, BRIEF_REF, OVERVIEW_REF, ROLE_REF, TOUR_DETAIL_REF } from '../../lib/constants'
 import { createTheme, useMediaQuery } from '@mui/material'
+import Button from '@/components/Common/Button'
 
 export default function AboutTour(props) {
   const { type, data, headerData = {}, relatedTours = [], defaultListReViews } = props
@@ -549,7 +550,7 @@ export default function AboutTour(props) {
               alt={data?.map?.image?.altText}
               width={1000}
               height={1000}
-              className='w-full md:h-[37.375vw] h-[130vw] object-cover rounded shadow-[0_2px_50px_0_rgba(0,0,0,0.04)'
+              className='w-full md:h-[30vw] h-[130vw] object-cover rounded shadow-[0_2px_50px_0_rgba(0,0,0,0.04)'
             />
           </div>
         </div>
@@ -589,9 +590,7 @@ export default function AboutTour(props) {
           data={relatedTours}
           slug={type === 'promo' && 'hot-deals'}
         />
-        <button className='w-[29.6vw] h-[10.4vw] md:w-[10.1875vw] md:h-[3.875vw] flex items-center justify-center mx-auto mt-[9.83vw] md:mt-[3.5vw] border-[0.5px] md:border border-solid border-[rgba(46, 46, 46, 0.60)] rounded-[8px] text-[3.2vw] md:text-[1vw] font-medium text-textColor cursor-pointer'>
-          {relatedTourHeader?.buttonContent}
-        </button>
+        <Button className='btn-secondary mx-auto mt-[9.83vw] md:mt-[3.5vw]'>{relatedTourHeader?.buttonContent}</Button>
       </div>
     </section>
   )

@@ -48,8 +48,8 @@ function ReviewItem({ className, data }) {
                 alt='location'
                 className='md:w-[1vw] w-[3.2vw] md:h-[1vw] h-[3.2vw] object-cover'
               />
-              <span className=' leading-normal ml-[0.25vw]'>
-                Location: {data?.authorInformation?.country || data?.customerReview?.authorInformation?.country}
+              <span className='leading-normal ml-[0.25vw]'>
+                {data?.authorInformation?.country || data?.customerReview?.authorInformation?.country}
               </span>
             </div>
             <div className='md:ml-[1.75vw] ml-[4.26vw] flex items-center'>
@@ -104,7 +104,9 @@ function ReviewItem({ className, data }) {
                 alt='location'
                 className='md:w-[1vw] w-[3.2vw] md:h-[1vw] h-[3.2vw] object-cover'
               />
-              <span className=' leading-normal ml-[0.25vw]'>{data?.customerReview?.location}</span>
+              <span className=' leading-normal ml-[0.25vw] text-textColor opacity-70'>
+                {data?.customerReview?.location}
+              </span>
             </div>
             <div className='ml-[1.75vw] flex items-center'>
               <Image

@@ -9,19 +9,21 @@ import { GET_REVIEWS } from '@/graphql/customersReview/queries'
 import { GET_TOUR_META_DATA } from '@/graphql/metaData/queries'
 import { GET_RANDOM_TOUR, GET_TOUR_DETAIL } from '@/graphql/tourDetail/queries'
 import TourDetail from '@/pageComponent/TourDetail'
+import Loading from '../../loading'
 
 export async function generateMetadata({ params: { slug, lang } }) {
   const res = await getMetaDataTour(GET_TOUR_META_DATA, lang, slug)
 
-  const { excerpt, featuredImage, tourDetail } = res?.data?.tours?.translation
+  const { featuredImage, tourDetail } = res?.data?.tours?.translation
   const title = tourDetail?.meta?.title
+  const excerpt = tourDetail?.meta?.description
   return getMeta(title, excerpt, featuredImage)
 }
 
 export default async function page({ params: { lang, slug } }) {
   //get header data
   const headerData = await getTourDetailHeader(lang)
-  // get detail of tour
+  // // get detail of tour
   const result = await getTourDetail(GET_TOUR_DETAIL, slug, lang)
   const tourDetailData = result?.data?.tours?.translation?.tourDetail || {}
   const tourId = result?.data?.tours?.translation?.id

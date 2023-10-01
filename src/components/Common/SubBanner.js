@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import subBannerBg from '@/assets/images/about/subBannerBg.png'
 import subBannerBg2 from '@/assets/images/about/subBannerBg2.png'
+import Button from './Button'
 
 export default function SubBanner({ data = {}, className }) {
   return (
@@ -19,12 +20,12 @@ export default function SubBanner({ data = {}, className }) {
         >
           {data?.header}
         </h3>
-        <p className='text-justify md:text-[1.125vw] text-[3.733vw] md:mt-[1vw] mt-[2.13vw] md:mb-[2vw] mb-[16.8vw] md:font-manrope font-medium leading-[150%] text-textColor opacity-80'>
+        <p className='text-justify md:text-[1.125vw] text-[3.733vw] md:mt-[1vw] mt-[2.13vw] md:mb-[2vw] mb-[8.8vw] md:font-manrope font-medium leading-[150%] text-textColor opacity-80'>
           {data?.paragraph}
         </p>
-        <button className='md:min-w-[14.3125vw] min-w-[29.6vw] md:h-[3.875vw] h-[10.4vw] md:text-[1vw] text-[3.2vw] md:px-[2.875vw] px-[7.73vw] md:py-[1.25vw] py-[3.2vw] relative z-20 bg-primaryColor md:rounded-xl rounded-lg md:font-semibold font-medium md:font-manrope text-textColor'>
+        <Button className='btn-primary md:min-w-[14.3125vw] min-w-[29.6vw] md:h-[3.875vw] h-[10.4vw] flex justify-center items-center'>
           {data?.button}
-        </button>
+        </Button>
       </div>
 
       <Image
