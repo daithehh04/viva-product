@@ -1,7 +1,7 @@
 'use client'
 import StyleItem from './StyleItem'
 
-export default function TravelStyle({ travelStylesList, lang }) {
+export default function TravelStyle({ travelStylesList, lang,onCloseMenu }) {
   let travelStyleList = null
   if (travelStylesList?.data?.allTourStyle?.nodes) {
     travelStyleList = travelStylesList?.data?.allTourStyle?.nodes
@@ -16,6 +16,7 @@ export default function TravelStyle({ travelStylesList, lang }) {
             lang={lang}
             id={item?.slug}
             title={item?.banner?.travelStyleInfo?.travelStyleName}
+            onCloseMenu={onCloseMenu}
           />
         ))}
       </div>

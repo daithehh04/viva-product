@@ -17,18 +17,20 @@
     flex-shrink: 0;
     position: relative;
     display: inline-block;
+    &.show {
+      .menu-item {
+        transform: scale(1);
+        opacity: 1;
+        visibility: visible;
+        overflow: auto;
+      }
+    }
     &:hover {
       color: #138140;
       &::after {
         width: 100%;
         left: 0;
         right: auto;
-      }
-      .menu-item {
-        transform: scale(1);
-        opacity: 1;
-        visibility: visible;
-        overflow: auto;
       }
     }
     &::after {
@@ -55,7 +57,7 @@
       // transform-origin: 30% top;
       transition: all .5s;
       transform: scale(0);
-      // opacity: 0;
+      opacity: 0;
       visibility: hidden;
       display: grid;
       position: fixed;

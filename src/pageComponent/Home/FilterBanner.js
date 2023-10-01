@@ -56,7 +56,10 @@ function FilterBanner({ lang, dataFilter }) {
         }
       });
       const queryString = new URLSearchParams(resultObject).toString();
-      const link = `/${lang}/search?&${queryString}`
+      var link = `/search?&${queryString}`
+      if(lang !== 'en') {
+        link = `/${lang}/search?&${queryString}`
+      }
       router.push(link)
     } else {
       router.push(`/${lang}/search`)
