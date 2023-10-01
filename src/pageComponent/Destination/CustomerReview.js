@@ -21,8 +21,7 @@ function CustomerReview({ data, dataInfo }) {
       <Image
         alt='bannerReview'
         src={bannerReview}
-        fill
-        className='z-[-1] object-cover object-left-bottom hidden md:block'
+        className='z-[-1] object-cover top-[-40%] absolute hidden md:block'
       />
       <div className={`flex flex-col md:mt-[7.06vw] mt-[14.93vw] ${onlySmallScreen ? 'w-full' : 'content'}`}>
         <span className='heading-1 md:mb-[3vw] mb-[5.33vw] md:pl-0 pl-[4.27vw]'>{dataInfo?.titleReviews}</span>
