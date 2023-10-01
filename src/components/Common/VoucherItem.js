@@ -6,7 +6,8 @@ import Link from 'next/link'
 
 function VoucherItem({ className, headerData = {}, data = {} }) {
   const [openModal, setOpenModal] = useState(false)
-  const voucherData = data?.voucher || {}
+  const voucherData = data?.translation?.voucher || {}
+  const expireDate = voucherData?.content?.expireDate.slice(0, voucherData?.content?.expireDate?.indexOf(' '))
 
   return (
     <>
@@ -32,7 +33,7 @@ function VoucherItem({ className, headerData = {}, data = {} }) {
             {voucherData?.content?.title}
           </h4>
           <span className='text-[0.75vw] leading-[1.16] mt-[0.5vw] text-textColor max-md:text-[2.66vw] max-md:mt-[2.13vw]'>
-            Date: {voucherData?.content?.expireDate}
+            Date: {expireDate}
           </span>
           <Link
             href='/'

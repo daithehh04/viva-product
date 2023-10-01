@@ -62,16 +62,16 @@ export default function Navbar({
     }
     const menuItems = refMenu?.current?.querySelectorAll('.menu-item')
     const menuNavs = refMenu?.current?.querySelectorAll('.nav-link:has(.menu-item)')
-    menuItems?.forEach((item,index) => {
-      var distance = menuNavs[index].getBoundingClientRect().left + menuNavs[index].clientWidth/2
-      item.style.transformOrigin= `${distance}px top`
+    menuItems?.forEach((item, index) => {
+      var distance = menuNavs[index].getBoundingClientRect().left + menuNavs[index].clientWidth / 2
+      item.style.transformOrigin = `${distance}px top`
     })
-    menuNavs?.forEach((item,index) => {
-      item.addEventListener('mouseover',function() {
+    menuNavs?.forEach((item, index) => {
+      item.addEventListener('mouseover', function () {
         item.classList.add('show')
         menuItems[index].style.transition = 'all 0.5s'
       })
-      item.addEventListener('mouseout',function() {
+      item.addEventListener('mouseout', function () {
         item.classList.remove('show')
         // menuItems[index].style.display = 'none'
       })
@@ -81,7 +81,7 @@ export default function Navbar({
   const handleCloseMenu = () => {
     const menuLink = refMenu?.current?.querySelector('.nav-link.show')
     const menuItem = refMenu?.current?.querySelector('.nav-link.show .menu-item')
-    if(menuItem && menuLink) {
+    if (menuItem && menuLink) {
       menuLink.classList.remove('show')
       menuItem.style.transition = 'none'
     }
@@ -113,8 +113,10 @@ export default function Navbar({
                 className='w-[3.5625vw] object-cover max-lg:w-[10.4vw]'
               />
             </Link>
-            <div className='max-lg:hidden flex items-center gap-x-[2vw] mr-[6vw]'
-            ref={refMenu}>
+            <div
+              className='max-lg:hidden flex items-center gap-x-[2vw] mr-[6vw]'
+              ref={refMenu}
+            >
               <div className='relative flex-shrink-0'>
                 <div className='capitalize text-[1vw] nav-link'>
                   {dataHome?.nav1}
@@ -122,7 +124,7 @@ export default function Navbar({
                     <MenuDestinations
                       data={dataMenuCountry}
                       lang={params}
-                      onCloseMenu = {handleCloseMenu}
+                      onCloseMenu={handleCloseMenu}
                     />
                   </div>
                 </div>
@@ -136,7 +138,7 @@ export default function Navbar({
                   <MenuStyle
                     travelStylesList={travelStylesList}
                     lang={params}
-                    onCloseMenu = {handleCloseMenu}
+                    onCloseMenu={handleCloseMenu}
                   />
                 </div>
               </div>
@@ -148,7 +150,6 @@ export default function Navbar({
                 <div className='hidden menu-item'>
                   <HotDeal
                     hotDeals={hotDeals}
-                    listVoucher={listVoucher}
                     menu
                   />
                 </div>
@@ -162,7 +163,10 @@ export default function Navbar({
               <div className='capitalize text-[1vw] nav-link'>
                 {dataHome?.nav5}
                 <div className='menu-item'>
-                  <MenuAbout dataAboutUs={dataAboutUs} onCloseMenu = {handleCloseMenu}/>
+                  <MenuAbout
+                    dataAboutUs={dataAboutUs}
+                    onCloseMenu={handleCloseMenu}
+                  />
                 </div>
               </div>
               <div className='capitalize text-[1vw] nav-link'>
@@ -171,7 +175,7 @@ export default function Navbar({
                   <MenuRcmService
                     rcmServicesList={rcmServicesList}
                     lang={params}
-                    onCloseMenu = {handleCloseMenu}
+                    onCloseMenu={handleCloseMenu}
                   />
                 </div>
               </div>
@@ -189,9 +193,7 @@ export default function Navbar({
             // onClick={handleOpenPopup}
             onClick={() => setOpenModal(true)}
           >
-             <Button
-              className='flex-shrink-0 btn-primary mr-[3.25vw]'
-            >
+            <Button className='flex-shrink-0 btn-primary mr-[3.25vw]'>
               <Image
                 src={star}
                 width={50}

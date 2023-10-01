@@ -24,7 +24,6 @@ import { GET_LIST_TRAVEL_STYLE_NAME } from '@/graphql/travelStyle/queries'
 import getDataWithTaxonomy from '@/data/getDataWithTaxonomy'
 import ApolloClientProvider from '../apolloProvider'
 import getHotDealHeader from '@/data/hotDeal'
-import getListVoucher from '@/data/hotDeal/getListVoucher'
 import { DATA_HEADER } from '@/graphql/home/queries'
 import GET_SERVICE_BY_CATEGORY from '@/data/getDataRcmServices'
 import getDataFormBookTour from '@/data/formBookTour/getDataFormBookTour'
@@ -71,9 +70,6 @@ export default async function RootLayout({ children, params }) {
   //get header of hotDeal
   const result = await getHotDealHeader(params.lang)
   const hotDeals = result?.data?.page?.translation?.hotDeals
-  // get main data of HotDeals
-  const res = await getListVoucher(params.lang)
-  const listVoucher = res?.data?.allVouchers?.nodes || []
 
   // get data of menu - about-us
   const wwrRes = await getAboutUsData(GET_DATA_MENU_WWR, params.lang)
@@ -92,7 +88,6 @@ export default async function RootLayout({ children, params }) {
                 dataHome={dataHome?.header}
                 dataMenuCountry={dataMenuCountry?.data?.allCountries?.nodes}
                 hotDeals={hotDeals}
-                listVoucher={listVoucher}
                 rcmServicesList={recommendserviceList}
                 dataBookTour={dataBookTour}
                 dataAboutUs={{
