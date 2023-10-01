@@ -88,7 +88,7 @@ const TimeDown = ({ headerData = {}, data }) => {
         {headerData?.timeRemaining}
       </div>
       <div
-        class='absolute top-[1.6875vw] -left-[0.375vw] triangle 
+        className='absolute top-[1.6875vw] -left-[0.375vw] triangle 
        max-md:top-[13.9vw] max-md:-left-2'
       ></div>
     </div>

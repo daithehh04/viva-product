@@ -127,7 +127,8 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
       }
     })
   }
-  // console.log(loading)
+  const expireDate = data?.content?.expireDate.slice(0, data?.content?.expireDate?.indexOf(' '))
+
   return (
     <div
       className='w-full md:py-[5vw] py-[11.46vw] md:px-[8.12vw] px-[4.26vw]'
@@ -149,7 +150,7 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
               {headerData?.expiryDateHeader}:
             </h4>
             <ul className='ml-[1.2vw] max-md:text-[3.73vw] max-md:ml-[5vw]'>
-              <li className='list-disc leading-normal'>{data?.content?.expireDate}</li>
+              <li className='list-disc leading-normal'>{expireDate}</li>
             </ul>
           </div>
           <div className='text-[1vw]'>
