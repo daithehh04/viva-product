@@ -24,7 +24,6 @@ function MenuMb({
   hotDeals,
   lang,
   listVoucher,
-  menu,
   dataMenuCountry,
   travelStylesList,
   rcmServicesList
@@ -95,6 +94,7 @@ function MenuMb({
                   href={`/${lang}/our-tours/${tour?.slug}`}
                   key={index}
                   className='flex flex-col items-center justify-center flex-shrink-0'
+                  onClick={onCloseMenu}
                 >
                   <Image
                     src={tour?.country?.flag?.sourceUrl}
@@ -132,7 +132,7 @@ function MenuMb({
           >
             {travelStylesList?.data?.allTourStyle?.nodes?.map((item, index) => (
               <div key={index}>
-                <Link href={`/${lang}/travel-style/${item?.slug}`} className='flex flex-col items-center'>
+                <Link href={`/${lang}/travel-style/${item?.slug}`} className='flex flex-col items-center' onClick={onCloseMenu}>
                   <div className='w-[17.3vw] h-[17.3vw] rounded-full border border-solid border-primaryColor flex items-center justify-center bg-[#FFFBE9]'>
                     <Image
                       src={item?.banner?.travelStyleInfo?.travelStyleImage?.sourceUrl}
@@ -185,7 +185,7 @@ function MenuMb({
             </div>
 
             <div className='flex items-center justify-center mt-[6.4vw]'>
-              <Button className='btn-secondary'>See all</Button>
+              <Link href={`${lang}/hot-deals`} onClick={onCloseMenu} className='btn-secondary' >See all</Link>
             </div>
           </div>
         </div>
@@ -211,13 +211,13 @@ function MenuMb({
             }
           >
             {rcmServicesList?.data?.categories?.nodes?.map((item, index) => (
-              <ServiceItem key={index} data={item} lang={lang} />
+              <ServiceItem key={index} data={item} lang={lang} onCloseMenu={onCloseMenu}/>
             ))}
           </div>
         </div>
         {/* Item 5 */}
         <div className='flex items-center justify-between'>
-          <Link href={`/${lang}/check-visa`} className='text-[4.267vw] opacity-60 capitalize leading-[1.2]'>
+          <Link href={`/${lang}/check-visa`} className='text-[4.267vw] opacity-60 capitalize leading-[1.2]' onClick={onCloseMenu}>
             Check visa
           </Link>
           <SelectLang />
@@ -243,20 +243,20 @@ function MenuMb({
                 : { height: '0px', overflow: 'hidden' }
             }
           >
-            <Link href='/about-us/who-we-are' className='text-[3.2vw] capitalize'>
+            <Link href='/about-us/who-we-are' className='text-[3.2vw] capitalize' onClick={onCloseMenu}>
               Who we are
             </Link>
-            <Link href='/about-us/responsible-travel' className='text-[3.2vw] capitalize'>
+            <Link href='/about-us/responsible-travel' className='text-[3.2vw] capitalize' onClick={onCloseMenu}>
               responsible travel
             </Link>
-            <Link href='/about-us/reviews' className='text-[3.2vw] capitalize'>
+            <Link href='/about-us/reviews' className='text-[3.2vw] capitalize' onClick={onCloseMenu}>
               Reviews
             </Link>
           </div>
         </div>
         {/* Item 7 */}
         <div>
-          <Link href={`/${lang}/blog`} className='text-[4.267vw] opacity-60 capitalize leading-[1.2]'>
+          <Link href={`/${lang}/blog`} className='text-[4.267vw] opacity-60 capitalize leading-[1.2]' onClick={onCloseMenu}>
             Blog
           </Link>
         </div>
