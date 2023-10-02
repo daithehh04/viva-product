@@ -19,8 +19,14 @@ function Banner({ data }) {
         }
       }}
     >
-      <div className='relative h-[100%] flex justify-center items-center'>
-        <Image alt='imageSrc' src={imageSrc} quality={100} fill className='w-[100%] h-screen object-cover z-[-1]' />
+      <div className='travel-style-banner relative h-[100%] flex justify-center items-center'>
+        <Image
+          alt='imageSrc'
+          src={imageSrc}
+          quality={100}
+          fill
+          className='w-[100%] h-screen object-cover z-[-1]'
+        />
         <div className='flex flex-col justify-center text-center items-center absolute z-[10] max-md:pt-[22vw] '>
           <span className='text-center md:text-[1.94vw] text-[3.2vw] md:font-bold font-medium leading-normal text-[#fff] md:mb-[0.62vw] mb-[1.07vw] font-sans '>
             {data?.title}
@@ -29,12 +35,15 @@ function Banner({ data }) {
             {data?.heading}
           </span>
           <span className='md:w-[43vw] w-[66.27vw] text-center font-sans md:text-[1.5vw] text-[2.67vw] font-medium leading-[151%] text-[#fff] pb-[2.5vw]'>
-            <span dangerouslySetInnerHTML={{ __html: data?.desc }} className='whitespace-pre-wrap white'></span>
+            <span
+              dangerouslySetInnerHTML={{ __html: data?.desc }}
+              className='whitespace-pre-wrap travel-style-desc'
+            ></span>
           </span>
 
           <div
             onClick={() => scrollDown(scrollDownRef, 'start')}
-            className='flex flex-col gap-[0.94vw] text-center items-center justify-center explore '
+            className='flex flex-col gap-[0.94vw] text-center items-center justify-center explore cursor-pointer '
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -42,8 +51,16 @@ function Banner({ data }) {
               viewBox='0 0 24 25'
               fill='none'
             >
-              <path d='M1 1L12 12L23 1' stroke='white' strokeWidth='2' />
-              <path d='M1 12L12 23L23 12' stroke='white' strokeWidth='2' />
+              <path
+                d='M1 1L12 12L23 1'
+                stroke='white'
+                strokeWidth='2'
+              />
+              <path
+                d='M1 12L12 23L23 12'
+                stroke='white'
+                strokeWidth='2'
+              />
             </svg>
             <span className='md:block hidden text-center font-manrope text-[0.875vw] not-italic font-semibold tracking-[0.04375vw] uppercase text-[#fff] '>
               {data?.subdesc}

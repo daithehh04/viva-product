@@ -1,5 +1,4 @@
 import { idEn, idFr, idIt } from '@/data/getDataPage'
-
 import Footer from '../../components/Common/Footer'
 import ThemeRegistry from '../../components/ThemeRegistry/ThemeRegistry'
 
@@ -35,6 +34,7 @@ import { GET_DATA_MENU_RV } from '@/graphql/aboutUs/reviews/queries'
 import Navbar from '@/components/Common/Navbar'
 import { Suspense } from 'react'
 import Loading from './loading'
+import { usePathname } from 'next/navigation'
 const idEnBook = 'cG9zdDoxNDIy'
 const idFrBook = 'cG9zdDoxNDIy'
 const idItBook = 'cG9zdDoxNDIy'

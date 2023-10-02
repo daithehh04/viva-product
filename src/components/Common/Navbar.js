@@ -20,6 +20,7 @@ import HotDeal from './HotDeal'
 import BookTour from './BookTour'
 import ModalCustom from './ModalCustom'
 import Button from './Button'
+import { usePathname } from 'next/navigation'
 
 export default function Navbar({
   params,
@@ -99,6 +100,7 @@ export default function Navbar({
   //   refFormPopup.current.classList.remove('active')
   // }
 
+  const pathName = usePathname()
   return (
     <div className=''>
       <nav className='bg-white w-full navbar h-[5.375vw] max-lg:h-[14.93vw]'>
@@ -113,12 +115,19 @@ export default function Navbar({
                 className='w-[3.5625vw] object-cover max-lg:w-[10.4vw]'
               />
             </Link>
-            <div className='max-lg:hidden flex items-center gap-x-[2vw] mr-[6vw]' ref={refMenu}>
+            <div
+              className='max-lg:hidden flex items-center gap-x-[2vw] mr-[6vw]'
+              ref={refMenu}
+            >
               <div className='relative flex-shrink-0'>
                 <div className='capitalize text-[1vw] nav-link'>
                   {dataHome?.nav1}
                   <div className='menu-item'>
-                    <MenuDestinations data={dataMenuCountry} lang={params} onCloseMenu={handleCloseMenu} />
+                    <MenuDestinations
+                      data={dataMenuCountry}
+                      lang={params}
+                      onCloseMenu={handleCloseMenu}
+                    />
                   </div>
                 </div>
                 <span className='absolute top-[-12px] right-[-6px] px-[10px] rounded-[99px] bg-primaryColor text-[12px]'>
@@ -128,31 +137,53 @@ export default function Navbar({
               <div className='capitalize text-[1vw] nav-link'>
                 {dataHome?.nav2}
                 <div className='menu-item'>
-                  <MenuStyle travelStylesList={travelStylesList} lang={params} onCloseMenu={handleCloseMenu} />
+                  <MenuStyle
+                    travelStylesList={travelStylesList}
+                    lang={params}
+                    onCloseMenu={handleCloseMenu}
+                  />
                 </div>
               </div>
-              <Link href={`/${params}/hot-deals`} className='capitalize text-[1vw] nav-link'>
+              <Link
+                href={`/${params}/hot-deals`}
+                className='capitalize text-[1vw] nav-link'
+              >
                 {dataHome?.nav3}
                 <div className='hidden menu-item'>
-                  <HotDeal hotDeals={hotDeals} listVoucher={listVoucher} menu lang={params} />
+                  <HotDeal
+                    hotDeals={hotDeals}
+                    listVoucher={listVoucher}
+                    menu
+                  />
                 </div>
               </Link>
-              <Link href={`/${params}/check-visa`} className='capitalize text-[1vw] nav-link'>
+              <Link
+                href={`/${params}/check-visa`}
+                className='capitalize text-[1vw] nav-link'
+              >
                 {dataHome?.nav4}
               </Link>
               <div className='capitalize text-[1vw] nav-link'>
                 {dataHome?.nav5}
                 <div className='menu-item'>
+
                   <MenuAbout dataAboutUs={dataAboutUs} onCloseMenu={handleCloseMenu} lang={params}/>
                 </div>
               </div>
               <div className='capitalize text-[1vw] nav-link'>
                 {dataHome?.nav6}
                 <div className='menu-item'>
-                  <MenuRcmService rcmServicesList={rcmServicesList} lang={params} onCloseMenu={handleCloseMenu} />
+                  <MenuRcmService
+                    rcmServicesList={rcmServicesList}
+                    lang={params}
+                    onCloseMenu={handleCloseMenu}
+                  />
                 </div>
               </div>
-              <Link href={`/${params}/blog`} className='capitalize text-[1vw] nav-link'>
+              <Link
+                href={`/${params}/blog`}
+                className='capitalize text-[1vw] nav-link'
+              >
                 {dataHome?.nav7}
               </Link>
             </div>
@@ -164,7 +195,13 @@ export default function Navbar({
             onClick={() => setOpenModal(true)}
           >
             <Button className='flex-shrink-0 btn-primary mr-[3.25vw]'>
-              <Image src={star} width={50} height={50} alt='img' className='w-[1.25vw] object-cover mr-[0.75vw]' />
+              <Image
+                src={star}
+                width={50}
+                height={50}
+                alt='img'
+                className='w-[1.25vw] object-cover mr-[0.75vw]'
+              />
               Book tour
             </Button>
           </div>
@@ -199,15 +236,37 @@ export default function Navbar({
           menu
         />
       </div>
-      <div className='books-footer h-[15.2vw] fixed bottom-0 left-0 right-0 z-[99] hidden max-md:flex'>
-        <Link href='#' className='flex items-center gap-[1.6vw] w-[50%] bg-[#fff] justify-center'>
-          <Image src={planeF} width={50} height={50} alt='img' className='w-[4.26vw] h-[4.26vw]' />
+      <div
+        className={`${
+          pathName.includes('tours') ? 'max-md:hidden' : ''
+        } books-footer h-[15.2vw] fixed bottom-0 left-0 right-0 z-[99] hidden max-md:flex`}
+      >
+        <Link
+          href='#'
+          className='flex items-center gap-[1.6vw] w-[50%] bg-[#fff] justify-center'
+        >
+          <Image
+            src={planeF}
+            width={50}
+            height={50}
+            alt='img'
+            className='w-[4.26vw] h-[4.26vw]'
+          />
           <span className='text-[3.46vw] font-[500]'>Tours List</span>
         </Link>
-        <Link href='#' className='flex items-center gap-[1.6vw] w-[50%] bg-[#FFD220] justify-center'>
-          <Image src={starF} width={50} height={50} alt='img' className='w-[4.26vw] h-[4.26vw]' />
+        <div
+          onClick={() => setOpenModal(true)}
+          className='flex items-center gap-[1.6vw] w-[50%] bg-[#FFD220] justify-center'
+        >
+          <Image
+            src={starF}
+            width={50}
+            height={50}
+            alt='img'
+            className='w-[4.26vw] h-[4.26vw]'
+          />
           <span className='text-[3.46vw] font-[500]'>Book tour</span>
-        </Link>
+        </div>
       </div>
       {/* <div
         className='absolute top-0 z-[999] w-full flex justify-center form-popup h-[100vh] overflow-auto'
@@ -227,7 +286,10 @@ export default function Navbar({
           className='w-[91.46vw] md:w-[82.93vw] md:h-[90vh] h-[80vh]'
         >
           <div className='w-full h-full overflow-y-auto md:rounded-[16px] overflow-x-hidden'>
-            <BookTour data={dataBookTour} setOpenModal={setOpenModal} />
+            <BookTour
+              data={dataBookTour}
+              setOpenModal={setOpenModal}
+            />
           </div>
         </ModalCustom>
       )}

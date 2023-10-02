@@ -96,7 +96,8 @@ function FilterPopup({ lang, dataFilter, slug }) {
   }
 
   useClickOutside(popUp, (e) => {
-    if (popUp.current && popUp.current.classList.contains('active') && !searchRef.current.contains(e.target)) {
+    e.stopPropagation()
+    if (popUp.current && !searchRef.current.contains(e.target)) {
       popUp.current.classList.remove('active')
     }
   })

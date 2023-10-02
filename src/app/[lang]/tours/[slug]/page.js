@@ -10,6 +10,8 @@ import { GET_TOUR_META_DATA } from '@/graphql/metaData/queries'
 import { GET_RANDOM_TOUR, GET_TOUR_DETAIL } from '@/graphql/tourDetail/queries'
 import TourDetail from '@/pageComponent/TourDetail'
 import Loading from '../../loading'
+import getDataFormBookTour from '@/data/formBookTour/getDataFormBookTour'
+import { GET_DATA_FORM_BOOKTOUR } from '@/graphql/formBookTour/queries'
 
 export async function generateMetadata({ params: { slug, lang } }) {
   const res = await getMetaDataTour(GET_TOUR_META_DATA, lang, slug)
@@ -21,6 +23,9 @@ export async function generateMetadata({ params: { slug, lang } }) {
 }
 
 export default async function page({ params: { lang, slug } }) {
+  const idEnBook = 'cG9zdDoxNDIy'
+  const idFrBook = 'cG9zdDoxNDIy'
+  const idItBook = 'cG9zdDoxNDIy'
   //get header data
   const headerData = await getTourDetailHeader(lang)
   // // get detail of tour
@@ -32,17 +37,26 @@ export default async function page({ params: { lang, slug } }) {
 
   // get tours which have the same country
   const result2 = await getRelatedTour(country, 'COUNTRIES', lang)
-
   let relatedTours = result2?.data?.allTours?.nodes?.filter((item) => item.translation.id !== tourId)
-
   if (!relatedTours || relatedTours?.length <= 0) {
     const res = await getRandomTour(GET_RANDOM_TOUR, lang)
     let resRmDup = res?.data?.allTours?.nodes.filter((item, index) => item.translation.id !== tourId)
     relatedTours = Array.from(new Set(resRmDup))
   }
-
+  // get Default list Reviews
   const result3 = await getDataPost(lang, GET_REVIEWS)
   const defaultListReViews = result3?.data?.allCustomerReview?.nodes
+  let dataBookTour
+  // get Data form book tour
+  if (lang === 'en') {
+    dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idEnBook, lang)
+  }
+  if (lang === 'it') {
+    dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idItBook, lang)
+  }
+  if (lang === 'fr') {
+    dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idFrBook, lang)
+  }
   return (
     <TourDetail
       data={tourDetailData}
@@ -50,6 +64,8 @@ export default async function page({ params: { lang, slug } }) {
       relatedTours={relatedTours}
       tourId={tourId}
       defaultListReViews={defaultListReViews}
+      lang={lang}
+      dataBookTour={dataBookTour}
     />
   )
 }

@@ -65,7 +65,7 @@ function ReviewItem({ className, data }) {
           </div>
 
           <div className='relative'>
-            <p className='md:text-[0.875vw] text-[3.73vw] opacity-60 md:opacity-100 leading-normal mt-[3.2vw] md:mt-0 md:line-clamp-4 line-clamp-3'>
+            <p className='md:text-[0.875vw] text-[3.73vw] opacity-60 md:opacity-70 leading-normal mt-[3.2vw] md:mt-0 md:line-clamp-4 line-clamp-3'>
               {data?.customerReview?.content}
             </p>
             <Image

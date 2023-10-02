@@ -8,6 +8,8 @@ import TourDetailVideo from './TourDetailVideo'
 import { useState } from 'react'
 import Listimg from '../HotDeal/ListImg'
 import ModalCustom from '@/components/Common/ModalCustom'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay } from 'swiper/modules'
 
 export default function TourDetailBannerMobile({ data = {} }) {
   const { gallery, price, location, rate, video, title } = data
@@ -15,20 +17,55 @@ export default function TourDetailBannerMobile({ data = {} }) {
   const [isPlay, setIsPlay] = useState(false)
 
   const [openModal, setOpenModal] = useState(false)
-
+  const listGallery = gallery?.concat(gallery)
   return (
     <section className='md:hidden block relative mt-[10vw] mb-[6.4vw] text-textColor'>
       <div className='w-full h-[72.8vw] relative'>
-        <TourDetailVideo
-          className={{
-            video: 'h-full',
-            button: 'w-[9.6vw] h-[11.2vw] bottom-[24.8vw] left-[45vw] z-10'
+        <Swiper
+          slidesPerView={1}
+          spaceBetween={0}
+          modules={[Autoplay]}
+          loop={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false
           }}
-          vidLink={video?.uploadVideo?.mediaItemUrl}
-          overlayImg={video?.overlayImage || videoBG}
-          isPlay={isPlay}
-          setIsPlay={setIsPlay}
-        />
+          className='mySwiper2 w-full h-full'
+        >
+          <>
+            {video?.uploadVideo?.mediaItemUrl && (
+              <SwiperSlide className='relative w-full h-full'>
+                <TourDetailVideo
+                  className={{
+                    video: 'h-full',
+                    button: 'w-[9.6vw] h-[11.2vw] bottom-[24.8vw] left-[45vw] z-10'
+                  }}
+                  vidLink={video?.uploadVideo?.mediaItemUrl}
+                  overlayImg={video?.overlayImage || videoBG}
+                  isPlay={isPlay}
+                  setIsPlay={setIsPlay}
+                />
+              </SwiperSlide>
+            )}
+          </>
+          {listGallery?.map((img, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <div className='w-full h-full relative'>
+                  <Image
+                    src={img?.sourceUrl}
+                    alt={img?.altText}
+                    width={1000}
+                    height={1000}
+                    priority
+                    className='w-full h-full object-cover select-none'
+                  />
+                  <div className='bg-[#00000033] w-full h-full absolute top-0 left-0'></div>
+                </div>
+              </SwiperSlide>
+            )
+          })}
+        </Swiper>
 
         <div
           className='flex items-center justify-center gap-[1vw] px-[1.867vw] py-[0.53vw] rounded-[2px] bg-[#2e2e2e99] text-white absolute bottom-[4.8vw] right-[4.26vw] cursor-pointer text-[3.2vw] z-30'

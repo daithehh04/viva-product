@@ -5,7 +5,7 @@ import { useRef } from 'react'
 import scrollDown from '@/helpers/scrollDown'
 import FilterBanner from './FilterBanner'
 
-function Banner({ data, dataFilter, slug,lang }) {
+function Banner({ data, dataFilter, slug, lang }) {
   const scrollRef = useRef()
   return (
     <Box
@@ -30,7 +30,11 @@ function Banner({ data, dataFilter, slug,lang }) {
           </span>
 
           <div className='filter-tour hidden md:flex gap-x-[1.75vw] ml-auto mr-auto mt-[1.94vw] bg-white w-max py-[1.5vw] pl-[2.87vw] pr-[2vw] rounded-[1.125vw]'>
-            <FilterBanner dataFilter={dataFilter} slug={slug} lang={lang}/>
+            <FilterBanner
+              dataFilter={dataFilter}
+              slug={slug}
+              lang={lang}
+            />
           </div>
           <div
             onClick={() => scrollDown(scrollRef, 'start')}
@@ -42,8 +46,16 @@ function Banner({ data, dataFilter, slug,lang }) {
               viewBox='0 0 24 25'
               fill='none'
             >
-              <path d='M1 1L12 12L23 1' stroke='white' strokeWidth='2' />
-              <path d='M1 12L12 23L23 12' stroke='white' strokeWidth='2' />
+              <path
+                d='M1 1L12 12L23 1'
+                stroke='white'
+                strokeWidth='2'
+              />
+              <path
+                d='M1 12L12 23L23 12'
+                stroke='white'
+                strokeWidth='2'
+              />
             </svg>
             <span className='md:block hidden text-center font-manrope text-[0.875vw] not-italic font-semibold tracking-[0.04375vw] uppercase text-[#fff] '>
               Explore now
@@ -57,11 +69,15 @@ function Banner({ data, dataFilter, slug,lang }) {
           alt='banner'
           className='absolute inset-0 object-cover w-full h-full z-[-1]'
         />
+        <div
+          className='w-full h-full absolute top-0 left-0 z-100'
+          style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 45.44%, rgba(0, 0, 0, 0.35) 69.74%)' }}
+        ></div>
 
         {/* animation button filter tour */}
         <div
           id='explore'
-          className='absolute bottom-0 h-[12.4vw] w-full hidden md:flex flex-shrink-0 items-center  bg-overlayBanner2 py-[4vw] pr-[3.31vw] '
+          className='absolute bottom-0 h-[12.4vw] w-full hidden md:flex flex-shrink-0 items-center bg-overlayBanner2 py-[4vw] pr-[3.31vw] '
         ></div>
       </div>
       <div ref={scrollRef}></div>

@@ -114,7 +114,7 @@ function TourSlide({
   totalPage.current = onlySmallScreen ? Math.ceil(allTours?.length / size) : Math.ceil(allTours?.length / size)
   const pagis = new Array(totalPage.current || 0).fill(0)
   return (
-    <div className='best-tours pt-[8.13vw] relative max-md:z-10 max-md:top-[-4vw] bg-white max-md:rounded-[4.27vw]'>
+    <div className='best-tours pt-[2.5vw] relative max-md:z-10 max-md:top-[-4vw] bg-white max-md:rounded-[4.27vw]'>
       <div className='max-md:pl-[4.27vw] pl-[8.125vw] max-md:pr-[4.27vw] '>
         <h2 className='heading-1'>{tourStyleName}</h2>
         <div className='bg-white mt-[1vw] w-max rounded-[1.125vw] px-[2.38vw] py-[1.19vw] max-md:mt-[4.27vw] max-md:p-0 max-md:bg-transparent max-md:w-full'>
@@ -142,9 +142,8 @@ function TourSlide({
           <div className='flex justify-center w-full col-span-4'>
             <Loading/>
           </div>
-        }
+        )}
       </div>
-      {/* pagination */}
       <div className='flex md:gap-[0.75vw] gap-[3.2vw] justify-center items-center relative md:mt-[4.5vw] mt-[8.53vw]'>
         {totalPage.current > 1 &&
           pagis?.map((page, index) => (
@@ -162,5 +161,4 @@ function TourSlide({
     </div>
   )
 }
-
 export default TourSlide
