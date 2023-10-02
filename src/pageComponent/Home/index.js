@@ -64,11 +64,10 @@ export default function Home({
       return numTour >= +minDay && numTour <= +maxDay
     })
   }
-  // useEffect(() => {
-  //   window?.scrollTo(0, 0);
-  //   AOS.init();
-  //   AOS.refresh();
-  // }, []);
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   // AOS.init({
   //     disable: function () {
   //         var maxWidth = 768;
