@@ -2,7 +2,6 @@
 import { createTheme, useMediaQuery } from '@mui/material'
 import Link from 'next/link'
 
-import BlogItem from './BlogItem'
 import BlogItem2 from './BlogItem2'
 
 function OurBlogHomePage({ data, button, lang }) {

@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Banner from './Banner'
 import Surveys from './Surveys'
 import InspectionTrip from './InspectionTrip'
@@ -11,6 +11,7 @@ import BookingProcessSteps from '@/components/Common/BookingProcessSteps'
 import TravelStyleMb from './TravelStyle/TravelStyleMb'
 import AboutVideo from '@/components/Common/Video'
 import OurBlogHomePage from '@/components/Common/OurBlogHomePage'
+import AOS from "aos";
 
 import { useQuery } from '@apollo/client'
 import { DATA_BEST_TOUR } from '@/graphql/filter/queries'
@@ -41,6 +42,7 @@ export default function Home({
       styleTourSlug: !travelStyle || travelStyle.length === 0 ? arrSlugTaxonomiesStyleTravel : travelStyle
     }
   })
+  const loading = dataBestTours?.loading
   var allTours = dataBestTours?.data?.allTours?.nodes
   if (budget) {
     allTours = allTours?.filter((tour) => {
@@ -62,13 +64,22 @@ export default function Home({
       return numTour >= +minDay && numTour <= +maxDay
     })
   }
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+  // AOS.init({
+  //     disable: function () {
+  //         var maxWidth = 768;
+  //         return window?.innerWidth < maxWidth;
+  //     },
+  // });
 
   if (!data) {
     return <p>Loading....</p>
   }
   const finalData = data?.data?.page?.home
 
-  const header = finalData?.header
   const banner = finalData?.banner
   const survey = finalData?.survey
   const inspection = finalData?.inspectionTrip
@@ -124,10 +135,11 @@ export default function Home({
           <Surveys data={survey} button={button} />
         </div>
         <div className='trip-wrapper'>
-          <InspectionTrip data={inspection} />
+          <InspectionTrip data={inspection} lang={lang}/>
         </div>
         <div className='bg-home34'>
           <BestTour
+            loading={loading}
             dataFilter={dataFilter}
             finalData={finalData}
             onDestination={(data) => setDestination(data)}

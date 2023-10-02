@@ -7,8 +7,8 @@ import imgTour from '@/assets/images/img-more.png'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import Loading from '@/components/Common/Loading'
 import Button from '@/components/Common/Button'
-
 function BestTour({
   dataFilter,
   onDestination,
@@ -18,8 +18,10 @@ function BestTour({
   allTours,
   lang,
   button,
-  finalData
+  finalData,
+  loading
 }) {
+
   const [destination, setDestination] = useState('')
   const [travelStyle, setTravelStyle] = useState('')
   const [budget, setBudget] = useState('')
@@ -52,18 +54,19 @@ function BestTour({
           />
         </div>
       </div>
-      <div className='grid grid-cols-4 gap-[2.5vw] max-md:relative md:mt-[1.88vw] mt-[7.73vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'>
-        <div className='bg-tourMobile md:hidden'></div>
-        {allTours?.slice(0, 7).map((tour, index) => (
+
+      {!loading ?
+      <div className={`${allTours?.length === 0 ? `w-full block md:mt-[1.88vw] mt-[7.73vw]` : 'grid grid-cols-4 gap-[2.5vw] md:mt-[1.88vw] mt-[7.73vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'}`}>
+        {allTours?.length !== 0 ? allTours?.slice(0, 7).map((tour, index) => (
           <div key={index}>
             <div className='max-md:hidden'>
-              <TourItem data={tour} />
+              <TourItem data={tour} lang={lang}/>
             </div>
             <div className='hidden max-md:block'>
               <TourItemMobile data={tour} />
             </div>
           </div>
-        ))}
+        )) : <div className='text-center text-[3.5vw] w-full text-[#c23a3a] font-optima max-md:text-[5.67vw]'>Not Found Tour !</div>}
         {allTours?.length > 7 ? (
           <div className='h-[24.5vw] rounded-[1vw] relative hidden md:flex  justify-center items-center lastItem'>
             <Image src={imgTour} alt='img-tour' fill className='object-cover h-full ' />
@@ -75,7 +78,7 @@ function BestTour({
               <span className='text-white text-justify font-optima text-[1.5vw] block font-medium leading-[150%]'>
                 Other tours
               </span>
-              <div className='flex justify-center mt-[1.25vw]'>
+              <div className='flex justify-center md:hidden max-md:mt-[8.53vw]'>
                 <Link href={`/${lang}/search`} className='btn-secondary'>
                   {button?.buttonseemore}
                 </Link>
@@ -85,13 +88,7 @@ function BestTour({
         ) : (
           ''
         )}
-      </div>
-
-      <div className='flex justify-center md:hidden max-md:mt-[8.53vw]'>
-        <Link href={`/${lang}/search`}>
-          <Button className='btn-secondary'> {button?.buttonseemore}</Button>
-        </Link>
-      </div>
+      </div> : <div className='flex items-center justify-center flex-1 w-full text-center h-[60vh]'><Loading/></div> }
     </div>
   )
 }

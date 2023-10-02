@@ -1,11 +1,10 @@
 import Image from 'next/image'
-import img from '@/assets/images/des-menu.png'
 import icon from '@/assets/images/icon-style.svg'
 import Link from 'next/link'
-function AboutItem({ data, slug,onCloseMenu }) {
+function AboutItem({ data, slug,onCloseMenu,lang }) {
   return (
     <Link
-      href={slug}
+      href={`/${lang}/${slug}`}
       className='relative h-max'
       onClick={onCloseMenu}
     >
