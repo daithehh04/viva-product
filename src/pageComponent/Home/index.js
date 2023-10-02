@@ -64,17 +64,17 @@ export default function Home({
       return numTour >= +minDay && numTour <= +maxDay
     })
   }
-  useEffect(() => {
-    window?.scrollTo(0, 0);
-    AOS.init();
-    AOS.refresh();
-  }, []);
-  AOS.init({
-      disable: function () {
-          var maxWidth = 768;
-          return window?.innerWidth < maxWidth;
-      },
-  });
+  // useEffect(() => {
+  //   window?.scrollTo(0, 0);
+  //   AOS.init();
+  //   AOS.refresh();
+  // }, []);
+  // AOS.init({
+  //     disable: function () {
+  //         var maxWidth = 768;
+  //         return window?.innerWidth < maxWidth;
+  //     },
+  // });
 
   if (!data) {
     return <p>Loading....</p>
