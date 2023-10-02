@@ -142,7 +142,7 @@ function TourSlide({
           <div className='flex justify-center w-full col-span-4'>
             <Loading/>
           </div>
-        )}
+        }
       </div>
       <div className='flex md:gap-[0.75vw] gap-[3.2vw] justify-center items-center relative md:mt-[4.5vw] mt-[8.53vw]'>
         {totalPage.current > 1 &&

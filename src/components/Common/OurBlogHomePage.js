@@ -34,7 +34,7 @@ function OurBlogHomePage({ data, button, lang }) {
                   data={blog}
                   className='max-md:hidden flex flex-shrink-0 blogItem max-md:pl-[4.27vw] '
                 />
-
+                
                 <BlogItem
                   className='md:hidden !ml-0 !w-[43vw]'
                   heightImage={'!h-[43.73333vw]'}
