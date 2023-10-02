@@ -65,14 +65,14 @@ export default function Home({
     })
   }
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window?.scrollTo(0, 0);
     AOS.init();
     AOS.refresh();
   }, []);
   AOS.init({
       disable: function () {
           var maxWidth = 768;
-          return window.innerWidth < maxWidth;
+          return window?.innerWidth < maxWidth;
       },
   });
 
@@ -81,7 +81,6 @@ export default function Home({
   }
   const finalData = data?.data?.page?.home
 
-  const header = finalData?.header
   const banner = finalData?.banner
   const survey = finalData?.survey
   const inspection = finalData?.inspectionTrip
