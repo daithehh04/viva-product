@@ -76,11 +76,14 @@ function FilterPopup({ lang, dataFilter, slug }) {
             filterTourRef.current.style.transform = 'translateX(30%)'
             filterTourRef.current.style.visibility = 'hidden'
             filterTourRef.current.style.opacity = '0'
-          }, 3000)
-        }, 1000)
+          }, 2000)
+        }, 500)
         isFilterTourRef.current = true
       } else if (window.scrollY < 600 && isFilterTourRef.current) {
         searchRef.current.style.transform = 'translateX(300%)'
+        filterTourRef.current.style.transform = 'translateX(30%)'
+        filterTourRef.current.style.visibility = 'hidden'
+        filterTourRef.current.style.opacity = '0'
         isFilterTourRef.current = false
       }
     }
@@ -109,13 +112,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
           ref={searchRef}
           className='w-[4.5vw] h-[4.5vw] rounded-[50%] absolute right-[3.31vw] bg-[#FFD220] flex justify-center items-center flex-shrink-0 z-20'
         >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            width='22'
-            height='22'
-            viewBox='0 0 22 22'
-            fill='none'
-          >
+          <svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22' fill='none'>
             <path
               d='M10.5413 19.2502C15.3508 19.2502 19.2497 15.3513 19.2497 10.5418C19.2497 5.73235 15.3508 1.8335 10.5413 1.8335C5.73186 1.8335 1.83301 5.73235 1.83301 10.5418C1.83301 15.3513 5.73186 19.2502 10.5413 19.2502Z'
               stroke='#171717'
@@ -182,17 +179,14 @@ function FilterPopup({ lang, dataFilter, slug }) {
                   }
                 }}
               >
-                <MenuItem value=''>
-                  <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
+                <MenuItem value='' className='filter-item'>
+                  <span className='filter-item md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                     Travel Style
                   </span>
                 </MenuItem>
                 {dataFilter?.style?.map((item, index) => (
-                  <MenuItem
-                    value={item?.slug}
-                    key={index}
-                  >
-                    <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
+                  <MenuItem value={item?.slug} key={index} className='filter-item'>
+                    <span className='filter-item md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                       {item?.name}
                     </span>
                   </MenuItem>
@@ -239,17 +233,14 @@ function FilterPopup({ lang, dataFilter, slug }) {
                   }
                 }}
               >
-                <MenuItem value=''>
-                  <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
+                <MenuItem value='' className='filter-item'>
+                  <span className='filter-item md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                     Duration
                   </span>
                 </MenuItem>
                 {dataFilter?.duration?.map((item, index) => (
-                  <MenuItem
-                    value={item?.name}
-                    key={index}
-                  >
-                    <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
+                  <MenuItem value={item?.name} key={index} className='filter-item'>
+                    <span className='filter-item md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                       {item?.name} day
                     </span>
                   </MenuItem>
@@ -296,17 +287,14 @@ function FilterPopup({ lang, dataFilter, slug }) {
                   }
                 }}
               >
-                <MenuItem value=''>
-                  <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
+                <MenuItem value='' className='filter-item'>
+                  <span className='filter-item md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                     Budget
                   </span>
                 </MenuItem>
                 {dataFilter?.budget?.map((item, index) => (
-                  <MenuItem
-                    value={item?.name}
-                    key={index}
-                  >
-                    <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
+                  <MenuItem value={item?.name} key={index} className='filter-item'>
+                    <span className='filter-item md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                       {item?.name}$
                     </span>
                   </MenuItem>
@@ -315,18 +303,8 @@ function FilterPopup({ lang, dataFilter, slug }) {
             </FormControl>
           </div>
         </div>
-        <Button
-          ref={refLink}
-          onClick={handleSearch}
-          className='btn-primary w-fit '
-        >
-          <Image
-            src={searchIcon}
-            width={50}
-            height={50}
-            alt='search'
-            className='w-[1.25vw] h-[1.25vw]'
-          />
+        <Button ref={refLink} onClick={handleSearch} className='btn-primary w-fit '>
+          <Image src={searchIcon} width={50} height={50} alt='search' className='w-[1.25vw] h-[1.25vw]' />
           Search
         </Button>
       </div>
