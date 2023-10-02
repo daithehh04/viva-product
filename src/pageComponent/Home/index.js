@@ -126,20 +126,13 @@ export default function Home({
   }
   return (
     <div>
-      <Banner
-        lang={lang}
-        data={banner}
-        dataFilter={dataFilter}
-      />
+      <Banner lang={lang} data={banner} dataFilter={dataFilter} />
       <div className='body-wrapper'>
         <div className='style-mb'>
-          <TravelStyleMb data={travelStyleList} />
+          <TravelStyleMb data={travelStyleList} title={travelStyleList?.title} />
         </div>
         <div className='survey-wrapper'>
-          <Surveys
-            data={survey}
-            button={button}
-          />
+          <Surveys data={survey} button={button} />
         </div>
         <div className='trip-wrapper'>
           <InspectionTrip data={inspection} lang={lang}/>
@@ -148,6 +141,7 @@ export default function Home({
           <BestTour
             loading={loading}
             dataFilter={dataFilter}
+            finalData={finalData}
             onDestination={(data) => setDestination(data)}
             onTravelStyle={(data) => setTravelStyle(data)}
             onBudget={(data) => setBudget(data)}
@@ -167,21 +161,14 @@ export default function Home({
         </div>
         <AboutVideo data={aboutVideo} />
         <div className='review-wrapper'>
-          <Review
-            data={customerReview}
-            button={button}
-          />
+          <Review data={customerReview} button={button} />
         </div>
         <div className='relative bg-home67'>
           <div className='pt-[8.62vw]'>
             <BookingProcessSteps data={nextStepBookTour} />
           </div>
           <div className='pt-[7.31vw]'>
-            <OurBlogHomePage
-              data={blog}
-              button={button}
-              lang={lang}
-            />
+            <OurBlogHomePage data={blog} button={button} lang={lang} />
           </div>
           <div className='absolute bottom-0 left-0 right-0 bg-overlayBanner2 h-[6.62vw] max-md:hidden'></div>
         </div>

@@ -2,13 +2,26 @@
 import FilterTour from '@/components/Common/FilterTour'
 import TourItem from '@/components/Common/TourItem'
 import TourItemMobile from '@/components/Common/TourItemMobile'
+import bgTourItemMB from '@/assets/images/bgTourItemMB.png'
 import imgTour from '@/assets/images/img-more.png'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Loading from '@/components/Common/Loading'
+import Button from '@/components/Common/Button'
+function BestTour({
+  dataFilter,
+  onDestination,
+  onTravelStyle,
+  onBudget,
+  onDuration,
+  allTours,
+  lang,
+  button,
+  finalData,
+  loading
+}) {
 
-function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDuration, allTours, lang, button,loading }) {
   const [destination, setDestination] = useState('')
   const [travelStyle, setTravelStyle] = useState('')
   const [budget, setBudget] = useState('')
@@ -20,11 +33,16 @@ function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDurati
     onDuration(duration)
   }, [onDestination, onTravelStyle, destination, travelStyle, budget, duration, onBudget, onDuration])
   return (
-    <div className='best-tours pt-[8.13vw]'>
+    <div className='best-tours pt-[8.13vw] relative'>
+      <div className='absolute top-0 h-[50vw] w-full bg-white md:hidden'></div>
+      <Image
+        alt='img'
+        src={bgTourItemMB}
+        quality={100}
+        className='absolute w-full h-[171vw] object-cover bottom-[-17.5%] z-[-1] md:hidden'
+      />
       <div className='max-md:pl-[4.27vw] pl-[8.125vw] max-md:pr-[4.27vw] '>
-        <h2 className='heading-1' data-aos-once="true"
-            data-aos="fade-up"
-            data-aos-duration="1000">Best Seller Tours</h2>
+        <h2 className='heading-1 max-md:relative max-md:text-center'>{finalData?.bestTour?.title}</h2>
         <div className='bg-white mt-[1vw] w-max rounded-[1.125vw] px-[2.38vw] py-[1.19vw] max-md:mt-[4.27vw] max-md:p-0 max-md:bg-transparent max-md:w-full'>
           <FilterTour
             dataFilter={dataFilter}
@@ -32,9 +50,11 @@ function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDurati
             onSelectStyle={(data) => setTravelStyle(data)}
             onSelectBudget={(data) => setBudget(data)}
             onSelectDuration={(data) => setDuration(data)}
+            className={'filterMobile'}
           />
         </div>
       </div>
+
       {!loading ?
       <div className={`${allTours?.length === 0 ? `w-full block md:mt-[1.88vw] mt-[7.73vw]` : 'grid grid-cols-4 gap-[2.5vw] md:mt-[1.88vw] mt-[7.73vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'}`}>
         {allTours?.length !== 0 ? allTours?.slice(0, 7).map((tour, index) => (
@@ -49,7 +69,7 @@ function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDurati
         )) : <div className='text-center text-[3.5vw] w-full text-[#c23a3a] font-optima max-md:text-[5.67vw]'>Not Found Tour !</div>}
         {allTours?.length > 7 ? (
           <div className='h-[24.5vw] rounded-[1vw] relative hidden md:flex  justify-center items-center lastItem'>
-            <Image src={imgTour} alt='img-tour' fill className='object-cover h-full' />
+            <Image src={imgTour} alt='img-tour' fill className='object-cover h-full ' />
             <div className='absolute flex flex-col items-center justify-center'>
               <div className='inline-flex gap-[0.3125vw] justify-center items-center'>
                 <span className='text-justify font-optima text-[2vw] font-normal leading-[130%] text-white'>+</span>
@@ -58,7 +78,7 @@ function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDurati
               <span className='text-white text-justify font-optima text-[1.5vw] block font-medium leading-[150%]'>
                 Other tours
               </span>
-              <div className='flex justify-center mt-[1.25vw]'>
+              <div className='flex justify-center md:hidden max-md:mt-[8.53vw]'>
                 <Link href={`/${lang}/search`} className='btn-secondary'>
                   {button?.buttonseemore}
                 </Link>
@@ -69,7 +89,6 @@ function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDurati
           ''
         )}
       </div> : <div className='flex items-center justify-center flex-1 w-full text-center h-[60vh]'><Loading/></div> }
-      
     </div>
   )
 }
