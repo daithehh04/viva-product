@@ -8,7 +8,15 @@ import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import { useState } from 'react'
-function FilterTour({ onSelectDes, dataFilter, onSelectStyle, onSelectBudget, onSelectDuration, travelStyleSlug }) {
+function FilterTour({
+  onSelectDes,
+  dataFilter,
+  onSelectStyle,
+  onSelectBudget,
+  onSelectDuration,
+  travelStyleSlug,
+  className
+}) {
   const [destination, setDestination] = useState('')
   const [travelStyle, setTravelStyle] = useState(travelStyleSlug || '')
   const [duration, setDuration] = useState('')
@@ -32,8 +40,11 @@ function FilterTour({ onSelectDes, dataFilter, onSelectStyle, onSelectBudget, on
   }
 
   return (
-    <div className='flex max-md:grid max-md:grid-cols-2 max-md:gap-[2.67vw] md:gap-x-[1.87vw] gap-y-[3.2vw] gap-x-[2.67vw] md:flex-nowrap flex-wrap md:justify-normal justify-between'>
+    <div
+      className={`flex max-md:grid max-md:grid-cols-2 max-md:gap-[2.67vw] md:gap-x-[1.87vw] gap-y-[3.2vw] gap-x-[2.67vw] md:flex-nowrap flex-wrap md:justify-normal justify-between ${className}`}
+    >
       <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full'>
+        <div className='bg-mobile md:hidden'></div>
         <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Destination</span>
         <div className='flex items-center select-mobile'>
           <Image
@@ -88,6 +99,7 @@ function FilterTour({ onSelectDes, dataFilter, onSelectStyle, onSelectBudget, on
       </div>
 
       <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
+        <div className='bg-mobile md:hidden'></div>
         <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Travel Style</span>
         <div className='flex items-center select-mobile'>
           <Image
@@ -142,6 +154,7 @@ function FilterTour({ onSelectDes, dataFilter, onSelectStyle, onSelectBudget, on
       </div>
 
       <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
+        <div className='bg-mobile md:hidden'></div>
         <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Duration</span>
         <div className='flex items-center select-mobile'>
           <Image
@@ -196,6 +209,7 @@ function FilterTour({ onSelectDes, dataFilter, onSelectStyle, onSelectBudget, on
       </div>
 
       <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
+        <div className='bg-mobile md:hidden'></div>
         <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Budget</span>
         <div className='flex items-center select-mobile'>
           <Image

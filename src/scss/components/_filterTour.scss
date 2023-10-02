@@ -32,3 +32,13 @@
     flex: 1;
   }
 }
+.filterMobile {
+  position: relative;
+  .bg-mobile {
+    background: #171717 !important;
+    opacity: 0.04;
+    position: absolute;
+    inset: 0;
+    border-radius: 1.06667vw;
+  }
+}

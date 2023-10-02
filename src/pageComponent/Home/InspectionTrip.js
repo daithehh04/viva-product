@@ -11,6 +11,7 @@ import restaurantIcon from '@/assets/images/restauY.svg'
 
 function InspectionTrip({ data }) {
   const [indexSlider, setIndexSlider] = useState(0)
+  console.log(data)
   const swiperRef = useRef()
   const handleNextSlide = () => {
     swiperRef.current?.slideNext()
@@ -56,7 +57,11 @@ function InspectionTrip({ data }) {
                   <Link href={`#!`}>
                     <div className='h-[28.75vw] rounded-[1vw] max-md:rounded-[2.13vw] relative max-md:h-[53.33vw] max-md:ml-[3.2vw]'>
                       <Image
-                        src={item?.tourDetail?.banner?.gallery ? item?.tourDetail?.banner?.gallery[0]?.sourceUrl : 'https://viva-cms.okhub.tech/wp-content/uploads/2023/09/blogDetail_Banner.png'}
+                        src={
+                          item?.tourDetail?.banner?.gallery
+                            ? item?.tourDetail?.banner?.gallery[0]?.sourceUrl
+                            : 'https://viva-cms.okhub.tech/wp-content/uploads/2023/09/blogDetail_Banner.png'
+                        }
                         width={1000}
                         height={500}
                         alt='img'
@@ -90,7 +95,7 @@ function InspectionTrip({ data }) {
                               className='w-[1.5vw] h-[1.5vw] max-md:w-[3.2vw] max-md:h-[3.2vw] object-cover'
                             />
                             <span className='text-white text-[1.125vw] max-md:text-[2.267vw] leading-[1.3]'>
-                              10 April, 2001
+                              {item?.tourDetail?.banner?.time}
                             </span>
                           </div>
                           {/* Icon 3 */}
@@ -103,7 +108,7 @@ function InspectionTrip({ data }) {
                               className='w-[1.5vw] h-[1.5vw] max-md:w-[3.2vw] max-md:h-[3.2vw] object-cover'
                             />
                             <span className='text-white text-[1.125vw] max-md:text-[2.267vw] leading-[1.3]'>
-                              Restaurants
+                              {item?.tourDetail?.banner?.restaurant}
                             </span>
                           </div>
                         </div>

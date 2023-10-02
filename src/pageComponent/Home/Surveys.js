@@ -71,7 +71,7 @@ function Surveys({ data, button }) {
             <Button className='btn-secondary'>{button?.buttonseemore}</Button>
           </div>
         </div>
-        <div className='relative flex flex-col-reverse flex-1 max-md:mt-[31.08vw]'>
+        <div className='relative flex flex-col-reverse flex-1 max-md:mt-[20.08vw]'>
           <Image
             src={imgPerson}
             width={500}

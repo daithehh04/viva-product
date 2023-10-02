@@ -41,7 +41,7 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
     variables: {
       language,
       offset: 0,
-      size: 2,
+      size: 12,
       topicSlug: topic === '' ? arrayTopicInit : topic,
       categorySlug: category === '' ? arrayCateInit : category,
       destinationSlug: destination === '' ? arrayDesInit : destination
@@ -59,13 +59,12 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
     setActivePage(index)
     refetch({
       offset: index * 2,
-      size: 2
+      size: 12
     })
   }
   const allBlogData = data?.posts?.nodes
-  // console.log(data)
   const pageInfo = data?.posts?.pageInfo?.offsetPagination?.total
-  const totalPage = Math.ceil(pageInfo / 2)
+  const totalPage = Math.ceil(pageInfo / 12)
 
   return (
     <div>
