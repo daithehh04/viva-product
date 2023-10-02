@@ -7,10 +7,17 @@ import TourDetailBannerMobile from '@/pageComponent/TourDetail/TourDetailBannerM
 import Image from 'next/image'
 import tour from '@/assets/images/tourDetail/tourBg.png'
 
-export default function TourDetail({ data = {}, headerData = {}, relatedTours, defaultListReViews = [] }) {
+export default function TourDetail({
+  data = {},
+  headerData = {},
+  relatedTours,
+  defaultListReViews = [],
+  lang,
+  dataBookTour = {}
+}) {
   const { banner, content, map, reviews } = data
   const { bannerHeaders, content: contentHeader, relatedTour: relatedTourHeader, subBanner } = headerData
-
+  console.log(dataBookTour)
   return (
     <>
       <TourDetailBanner
@@ -42,10 +49,13 @@ export default function TourDetail({ data = {}, headerData = {}, relatedTours, d
             headerData={{ contentHeader, relatedTourHeader, bannerHeaders }}
             relatedTours={relatedTours}
             defaultListReViews={defaultListReViews}
+            lang={lang}
+            dataBookTour={dataBookTour}
           />
           <SubBanner
             data={subBanner}
             className={'md:text-[2.75vw]'}
+            lang={lang}
           />
         </main>
       </div>

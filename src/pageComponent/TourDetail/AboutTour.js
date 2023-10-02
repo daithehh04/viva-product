@@ -16,9 +16,13 @@ import Price from './Price'
 import { ACCOM_REF, BRIEF_REF, OVERVIEW_REF, ROLE_REF, TOUR_DETAIL_REF } from '../../lib/constants'
 import { createTheme, useMediaQuery } from '@mui/material'
 import Button from '@/components/Common/Button'
+import { useRouter } from 'next/navigation'
+import PriceMb from './PriceMb'
+import ModalCustom from '@/components/Common/ModalCustom'
+import BookTour from '@/components/Common/BookTour'
 
 export default function AboutTour(props) {
-  const { type, data, headerData = {}, relatedTours = [], defaultListReViews } = props
+  const { type, data, headerData = {}, relatedTours = [], defaultListReViews, lang, dataBookTour } = props
 
   const { contentHeader, relatedTourHeader, bannerHeaders } = headerData
   const { reviews, banner, content = {} } = data || []
@@ -208,7 +212,9 @@ export default function AboutTour(props) {
     }
   ]
 
+  const [openModal, setOpenModal] = useState()
   const [isBottom, setIsBottom] = useState(false)
+  const router = useRouter()
   const mapRef = useRef()
   const aboutTourRef = useRef()
   const stepIconRef = useRef()
@@ -309,7 +315,7 @@ export default function AboutTour(props) {
                     {stepData.map((step, index) => {
                       return (
                         <div
-                          className='step-icon flex md:gap-[0.5vw] gap-[1vw] cursor-pointer'
+                          className='step-icon flex md:gap-[0.5vw] gap-[1vw] cursor-pointer px-[2vw]'
                           key={index}
                           onClick={() => scrollDown(sectionRefs[step.key])}
                         >
@@ -329,7 +335,7 @@ export default function AboutTour(props) {
                             <span
                               className={`${
                                 activeIcon === index && 'text-[#138140]'
-                              } md:text-[1.125vw] text-[2.67vw] font-medium leading-normal md:max-w-[9vw] max-w-[20.53vw] line-clamp-1 md:line-clamp-none text-center`}
+                              } md:text-[1.125vw] text-[2.67vw] font-medium leading-normal md:max-w-[9vw] max-w-[18vw] line-clamp-1 md:line-clamp-none text-center`}
                             >
                               {step.title}
                             </span>
@@ -542,6 +548,7 @@ export default function AboutTour(props) {
                   button: data?.map?.button,
                   price: { header: bannerHeaders?.priceHeader, value: banner?.price }
                 }}
+                onClick={() => setOpenModal(true)}
               />
             )}
 
@@ -550,13 +557,13 @@ export default function AboutTour(props) {
               alt={data?.map?.image?.altText}
               width={1000}
               height={1000}
-              className='w-full md:h-[30vw] h-[130vw] object-cover rounded shadow-[0_2px_50px_0_rgba(0,0,0,0.04)'
+              className='md:block hidden w-full md:h-[30vw] h-[130vw] object-cover rounded shadow-[0_2px_50px_0_rgba(0,0,0,0.04)'
             />
           </div>
         </div>
         {/* review */}
         <div
-          className=' hidden-scroll overflow-auto md:overflow-hidden overflow-y-hidden mb-[5vw]'
+          className=' hidden-scroll overflow-auto md:overflow-hidden overflow-y-hidden mb-[13vw]'
           ref={reviewRef}
         >
           <div className='md:w-[62.1875vw] md:h-[35.75vw] md:ml-[8.125vw] md:grid flex w-fit h-[121.33vw] grid-cols-2 grid-rows-2 md:gap-[2vw] gap-[4.44vw]'>
@@ -590,8 +597,39 @@ export default function AboutTour(props) {
           data={relatedTours}
           slug={type === 'promo' && 'hot-deals'}
         />
-        <Button className='btn-secondary mx-auto mt-[9.83vw] md:mt-[3.5vw]'>{relatedTourHeader?.buttonContent}</Button>
+        <Button
+          className='btn-secondary mx-auto mt-[9.83vw] md:mt-[3.5vw]'
+          onClick={() => router.push(`/${lang}/search`)}
+        >
+          {relatedTourHeader?.buttonContent}
+        </Button>
       </div>
+
+      {/* footer in mb */}
+      {onlySmallScreen && (
+        <PriceMb
+          data={{
+            button: data?.map?.button,
+            price: { header: bannerHeaders?.priceHeader, value: banner?.price }
+          }}
+          onClick={() => setOpenModal(true)}
+        />
+      )}
+
+      {openModal && (
+        <ModalCustom
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          className='w-[91.46vw] md:w-[82.93vw] md:h-[90vh] h-[80vh]'
+        >
+          <div className='w-full h-full overflow-y-auto md:rounded-[16px] overflow-x-hidden'>
+            <BookTour
+              data={dataBookTour}
+              setOpenModal={setOpenModal}
+            />
+          </div>
+        </ModalCustom>
+      )}
     </section>
   )
 }

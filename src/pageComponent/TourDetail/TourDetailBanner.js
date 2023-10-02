@@ -5,8 +5,9 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
 import 'swiper/css/free-mode'
 import 'swiper/css/thumbs'
+import 'swiper/css/effect-fade'
 // import required modules
-import { FreeMode, Thumbs, Autoplay } from 'swiper/modules'
+import { FreeMode, Thumbs, Autoplay, EffectFade } from 'swiper/modules'
 import Image from 'next/image'
 import locationIcon from '@/assets/images/location.svg'
 import star from '@/assets/images/tourDetail/star.svg'
@@ -21,8 +22,10 @@ export default function TourDetailBanner({ data = {}, headerData }) {
   const icons = new Array(Math.ceil(data?.rate || 5)).fill(0)
   const outsideRef = useRef()
   const swiperRef = useRef()
+  const thumbsSwiperRef = useRef()
   const [thumbsSwiper, setThumbsSwiper] = useState(null) // config swiper
   const [isPlay, setIsPlay] = useState(false)
+  const listGallery = gallery?.concat(gallery)
   // scroll to next section
   const handleScrollDown = () => {
     outsideRef.current.scrollIntoView({
@@ -30,19 +33,23 @@ export default function TourDetailBanner({ data = {}, headerData }) {
     })
   }
   useEffect(() => {
-    isPlay ? swiperRef.current.autoplay.stop() : swiperRef.current.autoplay.start()
+    isPlay ? swiperRef.current?.autoplay.stop() : swiperRef.current?.autoplay.start()
   }, [isPlay])
+
   return (
     <section className='tour-banner-wrapper relative overflow-hidden md:block hidden'>
       <Swiper
+        slidesPerView={1}
         spaceBetween={0}
         thumbs={{ swiper: thumbsSwiper }}
-        modules={[FreeMode, Thumbs, Autoplay]}
+        modules={[Thumbs, Autoplay]}
         loop={true}
-        className='mySwiper2'
+        autoplayTimeout={3000}
+        className='mySwiper2 banner-slide'
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
         }}
+        ref={swiperRef}
       >
         <>
           {video?.uploadVideo?.mediaItemUrl && (
@@ -60,7 +67,7 @@ export default function TourDetailBanner({ data = {}, headerData }) {
             </SwiperSlide>
           )}
         </>
-        {gallery?.map((img, index) => {
+        {listGallery?.map((img, index) => {
           return (
             <SwiperSlide key={index}>
               <div className='w-full h-[100vh] relative'>
@@ -70,7 +77,7 @@ export default function TourDetailBanner({ data = {}, headerData }) {
                   width={1000}
                   height={1000}
                   priority
-                  className='w-full h-full object-cover'
+                  className='w-full h-full object-cover select-none'
                 />
                 <div className='bg-[#00000033] w-full h-full absolute top-0 left-0'></div>
               </div>
@@ -89,15 +96,15 @@ export default function TourDetailBanner({ data = {}, headerData }) {
             priority
             className='w-[1.5vw] h-[1.5vw]'
           />
-          <span className='text-[1.5vw] leading-normal text-primaryColor'>{location}</span>
+          <span className='text-[1.5vw] leading-normal text-primaryColor select-none'>{location}</span>
         </div>
 
-        <div className='w-[37.0625vw] text-[2.5vw] font-optima font-semibold leading-[1.2] text-white'>
+        <div className='select-none w-[37.0625vw] text-[2.5vw] font-optima font-semibold leading-[1.2] text-white'>
           {title || ''}
         </div>
       </div>
 
-      <div className='tour-banner'>
+      <div className='tour-banner select-none'>
         <div>
           <div className='w-[32vw] flex items-center justify-between pr-[2.87vw] text-white'>
             <div>
@@ -158,11 +165,17 @@ export default function TourDetailBanner({ data = {}, headerData }) {
           onSwiper={setThumbsSwiper}
           spaceBetween={14}
           slidesPerView={4}
-          freeMode={true}
           loop={true}
           watchSlidesProgress={true}
-          modules={[FreeMode, Thumbs]}
+          watchSlidesVisibility={true}
+          slideToClickedSlide={true}
+          centeredSlides={true}
+          modules={[Thumbs]}
           className='mySwiper sub-banner-slide'
+          onBeforeInit={(swiper) => {
+            thumbsSwiperRef.current = swiper
+          }}
+          ref={thumbsSwiperRef}
         >
           {video?.uploadVideo?.mediaItemUrl && (
             <SwiperSlide className='relative'>
@@ -172,7 +185,7 @@ export default function TourDetailBanner({ data = {}, headerData }) {
                 width={200}
                 height={200}
                 priority
-                className='w-[7.1875vw] h-[4.9375vw] object-cover rounded-lg'
+                className='w-[7.1875vw] h-[4.9375vw] object-cover rounded-lg select-none'
               />
               <Image
                 src={smallPlayBtn}
@@ -183,7 +196,7 @@ export default function TourDetailBanner({ data = {}, headerData }) {
               />
             </SwiperSlide>
           )}
-          {gallery?.map((img, index) => {
+          {listGallery?.map((img, index) => {
             return (
               <SwiperSlide key={index}>
                 <Image
@@ -192,7 +205,7 @@ export default function TourDetailBanner({ data = {}, headerData }) {
                   priority
                   width={1000}
                   height={1000}
-                  className='w-[7.1875vw] h-[4.9375vw] object-cover rounded-lg'
+                  className='w-[7.1875vw] h-[4.9375vw] object-cover rounded-lg select-none'
                 />
               </SwiperSlide>
             )

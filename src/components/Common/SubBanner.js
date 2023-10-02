@@ -1,9 +1,13 @@
+'use client'
+
 import Image from 'next/image'
 import subBannerBg from '@/assets/images/about/subBannerBg.png'
 import subBannerBg2 from '@/assets/images/about/subBannerBg2.png'
 import Button from './Button'
+import { useRouter } from 'next/navigation'
 
-export default function SubBanner({ data = {}, className }) {
+export default function SubBanner({ data = {}, className, lang }) {
+  const router = useRouter()
   return (
     <section className='md:w-[83.81vw] w-full md:m-auto rounded-[10px] relative md:px-[4.375vw] px-0 md:pt-[7.9375vw] pt-0 md:pb-[13.25vw] pb-0 md:shadow-[0_0_2.5vw_0_rgba(0,0,0,0.08)]'>
       <Image
@@ -23,7 +27,10 @@ export default function SubBanner({ data = {}, className }) {
         <p className='text-justify md:text-[1.125vw] text-[3.733vw] md:mt-[1vw] mt-[2.13vw] md:mb-[2vw] mb-[8.8vw] md:font-manrope font-medium leading-[150%] text-textColor opacity-80'>
           {data?.paragraph}
         </p>
-        <Button className='btn-primary md:min-w-[14.3125vw] min-w-[29.6vw] md:h-[3.875vw] h-[10.4vw] flex justify-center items-center'>
+        <Button
+          onClick={() => router.push(`/${lang}/check-visa`)}
+          className='btn-primary md:min-w-[14.3125vw] min-w-[29.6vw] md:h-[3.875vw] h-[10.4vw] flex justify-center items-center'
+        >
           {data?.button}
         </Button>
       </div>

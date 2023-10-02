@@ -28,7 +28,10 @@ export default function IndexAboutUs({ res, lang }) {
             className='md:block hidden absolute bottom-0 left-0 md:w-full w-[200vw] h-[80vw] z-0'
           />
         </div>
-        <SubBanner data={subBannerStep} />
+        <SubBanner
+          data={subBannerStep}
+          lang={lang}
+        />
       </div>
     </>
   )

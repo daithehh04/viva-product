@@ -38,6 +38,19 @@
     }
   }
 
+  .banner-slide {
+    .swiper-slide {
+      transition: opacity 0.5s;
+      opacity: 0.5;
+      z-index: 1000;
+    }
+
+    .swiper-slide.swiper-slide-active {
+      opacity: 1;
+      z-index: 1000;
+    }
+  }
+
   .tour-detail-scroll {
     img {
       animation: scroll 2s ease-out infinite;
@@ -136,7 +149,7 @@
     }
 
     .review-icon-comma {
-      display: none;
+      top: 0;
     }
   }
 

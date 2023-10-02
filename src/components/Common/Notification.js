@@ -3,13 +3,13 @@ import ModalCustom from './ModalCustom'
 const boxClass = 'absolute w-full h-full left-0 rounded-[20px]'
 const faceClass =
   'absolute top-[21%] left-[40%] h-[22%] bg-[#fcfcfc] rounded-[50%] border border-solid border-[#777777] z-[2]'
-const titleClass = 'md:text-[1vw] text-[2.5vw] tracking-[3px] text-[#fcfcfc] uppercase pt-[0.4vw] font-bold'
+const titleClass = 'md:text-[1vw] text-[4.27vw] tracking-[3px] text-[#fcfcfc] uppercase pt-[0.4vw] font-bold'
 const eyeClass = 'absolute top-[40%] left-[20%] md:w-[0.4vw] w-[0.7vw] md:h-[0.4vw] h-[0.7vw] bg-[#777777] rounded-full'
 const mouthClass =
   'absolute left-[41%] md:w-[0.5vw] w-[0.9vw] md:h-[0.5vw] h-[0.9vw] rotate-45 border-solid border-[2px] rounded-[50%]'
 const shadowClass = 'absolute w-[21%] h-[3%] opacity-50 bg-[#777777] top-[43%] left-[40%] rounded-[50%] z-[1]'
 const msgClass = 'absolute top-[47%] w-full h-[40%] text-center'
-const pClass = 'md:text-[.9vw] text-[2vw] text-[#0f41cc] tracking-[1px] capitalize'
+const pClass = 'md:text-[.9vw] text-[2.5vw] text-[#0f41cc] tracking-[1px] capitalize'
 const btnClass = 'absolute bg-[#fcfcfc] w-1/2 h-[15%] md:text-[0.8vw] text-[2vw] rounded-[20px] top-[73%] left-[25%]'
 
 export default function Notification(props) {
@@ -91,19 +91,19 @@ export default function Notification(props) {
         <div className={`${titleClass} title text-textColor`}>Confirm !</div>
         <div className='md:text-[0.9vw] text-[2.5vw]'> You really want to close this?</div>
 
-        <div className='absolute md:bottom-[2vw] bottom-[4vw] right-[2vw] flex md:gap-[1vw] gap-[2.23vw] md:text-[0.8vw] text-[2vw] '>
+        <div className='absolute md:bottom-[2vw] bottom-[4vw] right-[2vw] flex md:gap-[1vw] gap-[2.23vw] md:text-[0.8vw] text-[2.5vw] font-semibold '>
           <button
             onClick={(e) => {
               e.preventDefault()
               setOpenNoti(false)
             }}
-            className='md:w-[4vw] w-[9vw] md:h-[2vw] h-[4vw] border-[2px] flex items-center justify-center border-solid border-[#ef8d9c] rounded-lg'
+            className='md:w-[4vw] w-[14vw] md:h-[2vw] h-[6vw] border-[2px] flex items-center justify-center border-solid border-[#ef8d9c] md:rounded-lg rounded-[8px]'
           >
             Cancel
           </button>
           <button
             onClick={handleClose}
-            className='md:w-[4vw] w-[9vw] md:h-[2vw] h-[4vw] border-[2px] flex items-center justify-center border-solid border-[#b0db7d]  rounded-lg'
+            className='md:w-[4vw] w-[14vw] md:h-[2vw] h-[6vw] border-[2px] flex items-center justify-center border-solid border-[#b0db7d] md:rounded-lg rounded-[8px]'
           >
             OK
           </button>

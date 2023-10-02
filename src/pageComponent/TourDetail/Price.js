@@ -3,7 +3,7 @@
 import triangle from '@/assets/images/triangle.svg'
 import Image from 'next/image'
 
-export default function Price({ type, className, data }) {
+export default function Price({ type, className, data, onClick }) {
   return (
     <div>
       <div
@@ -17,7 +17,10 @@ export default function Price({ type, className, data }) {
             ${data?.price?.value?.lowestPrice} - ${data?.price?.value?.highestPrice}
           </span>
         </div>
-        <button className=' w-[15.375vw] h-[3.6875vw] flex items-center text-[1vw] px-[2.62vw] py-[1.25vw] bg-primaryColor rounded-xl cursor-pointer'>
+        <button
+          className=' w-[15.375vw] h-[3.6875vw] flex items-center text-[1vw] px-[2.62vw] py-[1.25vw] bg-primaryColor rounded-xl cursor-pointer'
+          onClick={onClick}
+        >
           {data?.button}
         </button>
 

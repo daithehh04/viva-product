@@ -113,7 +113,7 @@ function TourSlide({
   totalPage.current = onlySmallScreen ? Math.ceil(allTours?.length / size) : Math.ceil(allTours?.length / size)
   const pagis = new Array(totalPage.current || 0).fill(0)
   return (
-    <div className='best-tours pt-[8.13vw] relative max-md:z-10 max-md:top-[-4vw] bg-white max-md:rounded-[4.27vw]'>
+    <div className='best-tours pt-[2.5vw] relative max-md:z-10 max-md:top-[-4vw] bg-white max-md:rounded-[4.27vw]'>
       <div className='max-md:pl-[4.27vw] pl-[8.125vw] max-md:pr-[4.27vw] '>
         <h2 className='heading-1'>{tourStyleName}</h2>
         <div className='bg-white mt-[1vw] w-max rounded-[1.125vw] px-[2.38vw] py-[1.19vw] max-md:mt-[4.27vw] max-md:p-0 max-md:bg-transparent max-md:w-full'>
@@ -128,21 +128,34 @@ function TourSlide({
         </div>
       </div>
       <div className='grid grid-cols-4 gap-[2.5vw] mt-[1.88vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'>
-        {!dataBestTours.loading ? (allTours?.length ? 
-        allTours?.slice(size * (activePage - 1), size * activePage).map((tour, index) => (
-          <div key={index}>
-            <div className='max-md:hidden'>
-              <TourItem data={tour} />
+        {!dataBestTours.loading ? (
+          allTours?.length ? (
+            allTours?.slice(size * (activePage - 1), size * activePage).map((tour, index) => (
+              <div key={index}>
+                <div className='max-md:hidden'>
+                  <TourItem data={tour} />
+                </div>
+                <div className='hidden max-md:block'>
+                  <TourItemMobile data={tour} />
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className='w-full col-span-4'>
+              <OtherTours lang={lng} />
             </div>
-            <div className='hidden max-md:block'>
-              <TourItemMobile data={tour} />
-            </div>
-          </div>)) : <div className='w-full col-span-4'><OtherTours lang={lng}/></div>) : 
+          )
+        ) : (
           <div className='w-full flex justify-center col-span-4'>
-            <Image src={'https://viva-cms.okhub.tech/wp-content/uploads/2023/10/1600px_COLOURBOX26630164.jpg'} 
-            className='w-[30vw] ' width={1000} height={1000} alt='loading'/>
+            <Image
+              src={'https://viva-cms.okhub.tech/wp-content/uploads/2023/10/1600px_COLOURBOX26630164.jpg'}
+              className='w-[30vw] '
+              width={1000}
+              height={1000}
+              alt='loading'
+            />
           </div>
-        }
+        )}
       </div>
       {/* pagination */}
       <div className='flex md:gap-[0.75vw] gap-[3.2vw] justify-center items-center relative md:mt-[4.5vw] mt-[8.53vw]'>
