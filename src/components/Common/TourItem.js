@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { iconsTour } from '@/lib/Icons'
 
-function TourItem({ data, menu }) {
+function TourItem({ data, menu,lang }) {
   const tourData = data?.translation?.tourDetail?.banner || data?.tourDetail?.banner
   let icons = null
   if (tourData?.rate) icons = new Array(Math.round(tourData?.rate)).fill(0)
@@ -15,7 +15,7 @@ function TourItem({ data, menu }) {
   const isPromotion = pathName.includes('hot-deals')
   return (
     <Link
-      href={`/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
+      href={`/${lang}/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
       className={`${
         menu ? 'md:h-[14.5vw]' : 'md:h-[24.5vw]'
       } flex w-full h-[67.23vw] md:rounded-[1vw] rounded-[2.75vw] relative max-md:flex-shrink-0  tour-item cursor-pointer`}

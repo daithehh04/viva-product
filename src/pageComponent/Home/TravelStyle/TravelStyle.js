@@ -42,8 +42,12 @@ function TravelStyle({ data, title, desc }) {
   return (
     <div className='pt-[10.62vw] pb-[4.87vw] relative max-md:hidden'>
       <div className='content'>
-        <h2 className='heading-1'>{title}</h2>
-        <p className='w-[36vw] text-[1.125vw] text-textColor text-justify opacity-80 leading-normal'>{desc}</p>
+        <h2 className='heading-1' data-aos-once="true"
+            data-aos="fade-up"
+            data-aos-duration="1000">{title}</h2>
+        <p className='w-[36vw] text-[1.125vw] text-textColor text-justify opacity-80 leading-normal' data-aos-once="true"
+            data-aos="fade-up"
+            data-aos-duration="1000">{desc}</p>
         <div className='flex gap-[2.5vw]'>
           <div className='col-1 flex flex-col gap-[2.5vw] mt-[4.56vw]'>
             {row1?.map((item, index) => (

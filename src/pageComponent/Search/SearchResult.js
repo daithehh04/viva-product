@@ -2,7 +2,7 @@
 import React, { useRef, useState } from 'react'
 import TourItem from '@/components/Common/TourItem'
 
-const SearchResult = ({ data, quantity }) => {
+const SearchResult = ({ data, quantity,lang }) => {
   let totalPage = useRef(0)
   const [activePage, setActivePage] = useState(1)
   const size = quantity
@@ -15,7 +15,7 @@ const SearchResult = ({ data, quantity }) => {
         {data?.slice(size * (activePage - 1), size * activePage).map((tour, index) => (
           <div key={index}>
             <div>
-              <TourItem data={tour} />
+              <TourItem data={tour} lang={lang}/>
             </div>
           </div>
         ))}

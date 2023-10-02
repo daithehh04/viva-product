@@ -3,9 +3,8 @@ import ListPromotionTour from '../../pageComponent/HotDeal/ListPromotionTour'
 import Image from 'next/image'
 import imageSrc from '@/assets/images/bg-hotdeals.png'
 
-export default function HotDeal({ hotDeals, menu }) {
+export default function HotDeal({ hotDeals, menu,lang }) {
   const listVoucher = hotDeals?.voucherHeader?.listVoucher
-  console.log(listVoucher)
   return (
     <div className={`${menu ? 'pt-[3vw]' : 'md:pt-[9.75vw] pt-[23.46vw]'} mb-[9.19vw] max-md:bg-[#f3f6fb]`}>
       <div className='content'>
@@ -30,6 +29,7 @@ export default function HotDeal({ hotDeals, menu }) {
         <ListPromotionTour
           promotionList={hotDeals?.promotionList}
           menu={menu}
+          lang={lang}
         />
       </div>
       {!menu && (
