@@ -141,7 +141,7 @@
   .slide-represent {
     .swiper-3d .swiper-slide-shadow-left,
     .swiper-3d .swiper-slide-shadow-right {
-      // background: none;
+      border-radius: 1.6vw;
     }
   }
 }
@@ -223,6 +223,10 @@
   width: 100%;
   height: auto;
   background-position: top;
+  .video__review {
+    border-bottom-right-radius: 1vw !important;
+    border-top-right-radius: 1vw !important;
+  }
   .overlayReview-top {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.38) 0%, rgba(0, 0, 0, 0) 100%);
   }

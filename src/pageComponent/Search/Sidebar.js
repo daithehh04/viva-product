@@ -31,17 +31,17 @@ export default function Sidebar({
     }
   }
   useEffect(() => {
-    const list = refStyle?.current?.children;
+    const list = refStyle?.current?.children
     Array.from(list).forEach((item) => {
       const value = item.querySelector('label').getAttribute('for')
-      if(value === params.style) {
+      if (value === params.style) {
         setTravelStyle([value])
       }
     })
-  },[params.style])
+  }, [params.style])
 
   return (
-    <div className='w-[20vw] flex flex-col'>
+    <div className='w-[20vw] flex flex-col max-md:hidden'>
       <h2 className='text-[1.375vw] leading-[1.5125vw] font-medium mb-[1vw]'>Select your destination:</h2>
       <div
         className='search-option mb-[1.88vw] pt-[1.5vw] pb-[2vw] w-full px-[1.8vw] border'
@@ -65,31 +65,26 @@ export default function Sidebar({
         style={{ boxShadow: '0px 0px 30px 0px rgba(0, 0, 0, 0.08)' }}
       >
         <h3 className='mb-[1.32vw] text-[1.25vw] font-bold'>Travel styles</h3>
-        <div className='flex flex-col justify-center gap-[0.75vw]'
-          ref={refStyle}
-        >
+        <div className='flex flex-col justify-center gap-[0.75vw]' ref={refStyle}>
           {travelStylesList?.data?.allTourStyle?.nodes?.map((item) => (
-            <div
-              className='flex items-center justify-between'
-              key={item?.id}
-            >
+            <div className='flex items-center justify-between' key={item?.id}>
               <div className='flex gap-[0.4375vw] items-center cursor-pointer'>
                 <Checkbox
                   checked={travelStyle.includes(item?.slug)}
                   value={item?.slug}
                   color='info'
                   id={item?.slug}
-                  sx={{ color: '#C7D0D9', '& .MuiSvgIcon-root': { fontSize: '1.25vw' },
-                  '&.Mui-checked': {
-                    color: '#228B22',
-                  }, }}
+                  sx={{
+                    color: '#C7D0D9',
+                    '& .MuiSvgIcon-root': { fontSize: '1.25vw' },
+                    '&.Mui-checked': {
+                      color: '#228B22'
+                    }
+                  }}
                   className='w-[1.25vw] h-[1.25vw]'
                   onChange={handleCheck}
                 />
-                <label
-                  className='text-[0.875vw] cursor-pointer'
-                  for={item?.slug}
-                >
+                <label className='text-[0.875vw] cursor-pointer' for={item?.slug}>
                   {item?.name}
                 </label>
               </div>

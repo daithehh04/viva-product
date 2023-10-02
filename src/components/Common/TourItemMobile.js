@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { iconsTour } from '@/lib/Icons'
 
-function TourItemMobile({ data }) {
+function TourItemMobile({ data, lang }) {
   const tourData = data?.translation?.tourDetail?.banner
   let listRate = null
   if (tourData?.rate) listRate = new Array(Math.round(tourData?.rate)).fill(0)
@@ -15,7 +15,7 @@ function TourItemMobile({ data }) {
   const isPromotion = pathName.includes('hot-deals')
   return (
     <Link
-      href={`/${isPromotion ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
+      href={`/${lang}/${isPromotion ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
       className={` p-[4.27vw] h-[46.4vw] flex gap-[4.27vw] bg-white`}
     >
       <div className='h-full w-[45%] rounded-[1.067vw]'>

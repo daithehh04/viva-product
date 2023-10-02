@@ -1,8 +1,9 @@
 'use client'
 import React, { useRef, useState } from 'react'
 import TourItem from '@/components/Common/TourItem'
+import TourItemMobile from '@/components/Common/TourItemMobile'
 
-const SearchResult = ({ data, quantity,lang }) => {
+const SearchResult = ({ data, quantity, lang }) => {
   let totalPage = useRef(0)
   const [activePage, setActivePage] = useState(1)
   const size = quantity
@@ -10,12 +11,17 @@ const SearchResult = ({ data, quantity,lang }) => {
   const pagination = new Array(totalPage.current || 0).fill(0)
   return (
     <div>
-      <h2 className='text-[2vw] font-medium leading-[2.2vw] mb-[1.5vw]'></h2>
-      <div className='grid grid-cols-3 gap-[1.5vw]'>
+      <h2 className='text-[2vw] font-medium leading-[2.2vw] mb-[1.5vw] max-md:hidden'>Found {size} results</h2>
+      <div className='grid md:grid-cols-3 grid-cols-1 md:gap-[1.5vw] gap-[4.27vw] relative'>
+        <div className='absolute inset-0 z-[-1] bg-[#F3F6FB] md:hidden'></div>
         {data?.slice(size * (activePage - 1), size * activePage).map((tour, index) => (
           <div key={index}>
-            <div>
-              <TourItem data={tour} lang={lang}/>
+            <div className='max-md:hidden'>
+              <TourItem data={tour} lang={lang} />
+            </div>
+
+            <div className='md:hidden'>
+              <TourItemMobile data={tour} lang={lang} />
             </div>
           </div>
         ))}
