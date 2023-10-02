@@ -6,8 +6,9 @@ import imgTour from '@/assets/images/img-more.png'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import Loading from '@/components/Common/Loading'
 
-function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDuration, allTours, lang, button }) {
+function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDuration, allTours, lang, button,loading }) {
   const [destination, setDestination] = useState('')
   const [travelStyle, setTravelStyle] = useState('')
   const [budget, setBudget] = useState('')
@@ -21,7 +22,9 @@ function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDurati
   return (
     <div className='best-tours pt-[8.13vw]'>
       <div className='max-md:pl-[4.27vw] pl-[8.125vw] max-md:pr-[4.27vw] '>
-        <h2 className='heading-1'>Best Seller Tours</h2>
+        <h2 className='heading-1' data-aos-once="true"
+            data-aos="fade-up"
+            data-aos-duration="1000">Best Seller Tours</h2>
         <div className='bg-white mt-[1vw] w-max rounded-[1.125vw] px-[2.38vw] py-[1.19vw] max-md:mt-[4.27vw] max-md:p-0 max-md:bg-transparent max-md:w-full'>
           <FilterTour
             dataFilter={dataFilter}
@@ -32,17 +35,18 @@ function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDurati
           />
         </div>
       </div>
-      <div className='grid grid-cols-4 gap-[2.5vw] md:mt-[1.88vw] mt-[7.73vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'>
-        {allTours?.slice(0, 7).map((tour, index) => (
+      {!loading ?
+      <div className={`${allTours?.length === 0 ? `w-full block md:mt-[1.88vw] mt-[7.73vw]` : 'grid grid-cols-4 gap-[2.5vw] md:mt-[1.88vw] mt-[7.73vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'}`}>
+        {allTours?.length !== 0 ? allTours?.slice(0, 7).map((tour, index) => (
           <div key={index}>
             <div className='max-md:hidden'>
-              <TourItem data={tour} />
+              <TourItem data={tour} lang={lang}/>
             </div>
             <div className='hidden max-md:block'>
               <TourItemMobile data={tour} />
             </div>
           </div>
-        ))}
+        )) : <div className='text-center text-[3.5vw] w-full text-[#c23a3a] font-optima max-md:text-[5.67vw]'>Not Found Tour !</div>}
         {allTours?.length > 7 ? (
           <div className='h-[24.5vw] rounded-[1vw] relative hidden md:flex  justify-center items-center lastItem'>
             <Image src={imgTour} alt='img-tour' fill className='object-cover h-full' />
@@ -64,7 +68,8 @@ function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDurati
         ) : (
           ''
         )}
-      </div>
+      </div> : <div className='flex items-center justify-center flex-1 w-full text-center h-[60vh]'><Loading/></div> }
+      
     </div>
   )
 }

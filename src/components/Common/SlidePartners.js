@@ -1,13 +1,8 @@
 'use client'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, FreeMode } from 'swiper/modules'
-import img1 from '@/assets/images/fo1.png'
-import img2 from '@/assets/images/fo2.png'
-import img3 from '@/assets/images/fo3.png'
-import img4 from '@/assets/images/fo4.png'
-import img5 from '@/assets/images/fo5.png'
+
 import Image from 'next/image'
-import { useState } from 'react'
 
 function SlidePartners({ data, reverse }) {
   

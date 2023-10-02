@@ -38,6 +38,7 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
           slideTrip {
             ... on Tours {
               id
+              slug
               tourDetail {
                 banner {
                   gallery {
