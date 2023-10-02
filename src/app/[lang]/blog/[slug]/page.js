@@ -2,6 +2,8 @@ import Blog from '@/pageComponent/Blog'
 import getDataPost from '@/data/getDataPost'
 import { GET_ALL_TOURS_BESTSELLER } from '@/graphql/post/queries'
 import getDataWithTaxonomy from '@/data/getDataWithTaxonomy'
+import getMetaDataPages from '@/data/metaData/getMetaDataPages'
+import { getMeta } from '@/data/metaData/getMeta'
 
 const GET_INITIAL_FILTER = `
 query($language : LanguageCodeFilterEnum!){
@@ -68,6 +70,37 @@ const GET_SLUG_RCM = `
     }
   }
 }`
+
+const GET_META_DATA_RCM_SERVICE = `
+  query ($language: LanguageCodeEnum!) {
+  page(id: "cG9zdDoxOTEy") {
+    translation(language: $language){
+      featuredImage{
+        node{
+          sourceUrl
+          title
+          altText
+        }
+      }
+      recommendService{
+        meta{
+          description
+          title
+        }
+      }
+    }
+  }
+}
+  `
+
+export async function generateMetadata({ params: { lang } }) {
+  const res = await getMetaDataPages(GET_META_DATA_RCM_SERVICE, lang)
+  if (!res) return
+  const { recommendService, featuredImage } = res?.data?.page?.translation
+  const title = recommendService?.meta?.title
+  const excerpt = recommendService?.meta?.description
+  return getMeta(title, excerpt, featuredImage)
+}
 
 async function Page({ params: { lang, slug } }) {
   const data = await getDataPost(lang?.toUpperCase(), GET_ALL_TOURS_BESTSELLER)

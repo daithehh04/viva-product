@@ -52,6 +52,8 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
                   rate
                   title
                   location
+                  time
+                  restaurant
                 }
               }
             }
