@@ -1,5 +1,4 @@
 import Banner from './Banner'
-import FilterTourTravel from './FilterTour'
 import HotTour from './HotTour'
 import TourSlide from './TourSlide'
 import { GET_INFO_PAGE_TRAVEL_STYLE } from '@/graphql/travelStyle/queries'

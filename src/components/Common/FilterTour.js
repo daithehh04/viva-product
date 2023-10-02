@@ -76,7 +76,7 @@ function FilterTour({ onSelectDes, dataFilter, onSelectStyle, onSelectBudget, on
                 </span>
               </MenuItem>
               {dataFilter?.countries?.map((item, index) => (
-                <MenuItem value={item?.slug} key={index}>
+                <MenuItem value={item?.name} key={index}>
                   <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
                     {item?.name}
                   </span>
