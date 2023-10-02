@@ -15,9 +15,10 @@ function OurBlogHomePage({ data, button, lang }) {
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
   return (
     <div className={`flex flex-col ${onlySmallScreen ? 'w-full' : 'content'}`}>
-      <span className='heading-1 md:mb-[3vw] mb-[6.4vw] md:pl-0 pl-[4.27vw]' data-aos-once="true"
-            data-aos="fade-up"
-            data-aos-duration="1000">{data?.title}</span>
+      <span className='heading-1 md:mb-[3vw] mb-[6.4vw] md:pl-0 pl-[4.27vw]' 
+        data-aos-once="true"
+        data-aos="fade-up"
+        data-aos-duration="1000">{data?.title}</span>
       <div className='md:grid md:grid-cols-4 md:grid-rows-2 md:gap-[2.5vw] flex md:overflow-x-visible overflow-x-auto gap-0 listBlog max-md:flex '>
         <div className='hidden md:flex flex-shrink-0 md:col-span-2 md:row-span-2 h-full md:pl-0 pl-[4.27vw]'>
           <BlogItem2

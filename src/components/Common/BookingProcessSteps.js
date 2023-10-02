@@ -86,7 +86,8 @@ const stepsBelow = ['01', '02', '03', '04', '05']
 export default function BookingProcessSteps({ data = {} }) {
   return (
     <section className='relative z-10 about-step-container'>
-      <h3 className='content md:text-[4vw] text-[4.8vw] font-semibold capitalize font-optima md:leading-[110%] leading-[120%] md:text-center w-fit md:mb-[3.375vw]' data-aos-once="true"
+      <h3 className='content md:text-[4vw] text-[4.8vw] font-semibold capitalize font-optima md:leading-[110%] leading-[120%] md:text-center w-fit md:mb-[3.375vw]' 
+            data-aos-once="true"
             data-aos="fade-up"
             data-aos-duration="1000">
         {data?.heading}

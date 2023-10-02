@@ -22,9 +22,11 @@ function BestTour({ dataFilter, onDestination, onTravelStyle, onBudget, onDurati
   return (
     <div className='best-tours pt-[8.13vw]'>
       <div className='max-md:pl-[4.27vw] pl-[8.125vw] max-md:pr-[4.27vw] '>
-        <h2 className='heading-1' data-aos-once="true"
+        <h2 className='heading-1' 
+            data-aos-once="true"
             data-aos="fade-up"
-            data-aos-duration="1000">Best Seller Tours</h2>
+            data-aos-duration="1000"
+        >Best Seller Tours</h2>
         <div className='bg-white mt-[1vw] w-max rounded-[1.125vw] px-[2.38vw] py-[1.19vw] max-md:mt-[4.27vw] max-md:p-0 max-md:bg-transparent max-md:w-full'>
           <FilterTour
             dataFilter={dataFilter}

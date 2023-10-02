@@ -3,7 +3,6 @@ import SlideReview from './SlideReview'
 import Button from '@/components/Common/Button'
 
 function Review({ data, button }) {
-  // console.log(data?.customerReview?.customerReview, 213213)
   return (
     <>
       <div className='flex gap-x-[2vw] items-end overflow-hidden custom-review pt-[9.37vw]'>
@@ -11,10 +10,13 @@ function Review({ data, button }) {
           <VideoReview data={data?.video} videoInfo={data?.customerReview?.customerReview} />
         </div>
         <div className='w-[62vw] max-md:w-full'>
-          <h2 className='heading-1 max-md:pl-[4.27vw]' data-aos-once="true"
+          <h2 className='heading-1 max-md:pl-[4.27vw]' 
+            data-aos-once="true"
             data-aos="fade-up"
-            data-aos-duration="1000">{data?.title}</h2>
-          <p className='text-[1.125vw] leading-normal mb-[5.31vw] w-[30.875vw] max-md:text-[3.73vw] max-md:w-full max-md:pl-[4.27vw] max-md:mt-[2.13vw]' data-aos-once="true"
+            data-aos-duration="1000">
+          {data?.title}</h2>
+          <p className='text-[1.125vw] leading-normal mb-[5.31vw] w-[30.875vw] max-md:text-[3.73vw] max-md:w-full max-md:pl-[4.27vw] max-md:mt-[2.13vw]' 
+            data-aos-once="true"
             data-aos="fade-up"
             data-aos-duration="1000">
             {data?.text}
