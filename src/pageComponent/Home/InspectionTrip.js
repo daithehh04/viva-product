@@ -3,14 +3,14 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, FreeMode } from 'swiper/modules'
 import { useRef, useState } from 'react'
 import Link from 'next/link'
-import img from '@/assets/images/special-trip.png'
 import Image from 'next/image'
 import locationIcon from '@/assets/images/route-square.svg'
 import calendarIcon from '@/assets/images/calendarY.svg'
 import restaurantIcon from '@/assets/images/restauY.svg'
 
-function InspectionTrip({ data }) {
+function InspectionTrip({ data,lang }) {
   const [indexSlider, setIndexSlider] = useState(0)
+  console.log(data)
   const swiperRef = useRef()
   const handleNextSlide = () => {
     swiperRef.current?.slideNext()
@@ -23,10 +23,11 @@ function InspectionTrip({ data }) {
   const handleSlideChange = (swiper) => {
     setIndexSlider(swiper.activeIndex)
   }
-  const dataSlide = new Array(10).fill(0)
   return (
     <div className='inspection-trip mt-[-8.38vw] max-md:mt-[11.68vw]'>
-      <h2 className='text-center heading-1 max-md:text-start max-md:pl-[4.27vw]'>{data?.title}</h2>
+      <h2 className='text-center heading-1 max-md:text-start max-md:pl-[4.27vw]' data-aos-once="true"
+            data-aos="fade-up"
+            data-aos-duration="1000">{data?.title}</h2>
       <div className='relative mt-[3.5vw]'>
         <Swiper
           breakpoints={{
@@ -39,7 +40,7 @@ function InspectionTrip({ data }) {
           }}
           slidesPerView={1.2}
           spaceBetween={0}
-          loop={false}
+          loop={true}
           speed={800}
           onSlideChange={handleSlideChange}
           freeMode={true}
@@ -53,10 +54,14 @@ function InspectionTrip({ data }) {
             return (
               <SwiperSlide key={index}>
                 {({ isActive }) => (
-                  <Link href={`#!`}>
+                  <Link href={`${lang}/tours/${item?.slug}`}>
                     <div className='h-[28.75vw] rounded-[1vw] max-md:rounded-[2.13vw] relative max-md:h-[53.33vw] max-md:ml-[3.2vw]'>
                       <Image
-                        src={item?.tourDetail?.banner?.gallery ? item?.tourDetail?.banner?.gallery[0]?.sourceUrl : 'https://viva-cms.okhub.tech/wp-content/uploads/2023/09/blogDetail_Banner.png'}
+                        src={
+                          item?.tourDetail?.banner?.gallery
+                            ? item?.tourDetail?.banner?.gallery[0]?.sourceUrl
+                            : 'https://viva-cms.okhub.tech/wp-content/uploads/2023/09/blogDetail_Banner.png'
+                        }
                         width={1000}
                         height={500}
                         alt='img'
@@ -90,7 +95,7 @@ function InspectionTrip({ data }) {
                               className='w-[1.5vw] h-[1.5vw] max-md:w-[3.2vw] max-md:h-[3.2vw] object-cover'
                             />
                             <span className='text-white text-[1.125vw] max-md:text-[2.267vw] leading-[1.3]'>
-                              10 April, 2001
+                              {item?.tourDetail?.banner?.time}
                             </span>
                           </div>
                           {/* Icon 3 */}
@@ -103,7 +108,7 @@ function InspectionTrip({ data }) {
                               className='w-[1.5vw] h-[1.5vw] max-md:w-[3.2vw] max-md:h-[3.2vw] object-cover'
                             />
                             <span className='text-white text-[1.125vw] max-md:text-[2.267vw] leading-[1.3]'>
-                              Restaurants
+                              {item?.tourDetail?.banner?.restaurant}
                             </span>
                           </div>
                         </div>

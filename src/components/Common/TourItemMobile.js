@@ -32,8 +32,8 @@ function TourItemMobile({ data }) {
         />
       </div>
 
-      <div className='flex flex-col justify-between flex-1'>
-        <div className='flex gap-[0.5736vw] items-center'>
+      <div className='flex flex-col flex-1'>
+        <div className='flex gap-[0.5736vw] items-center mb-[0.53vw]'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             className='w-[2.66667vw] h-[2.66667vw]'
@@ -50,13 +50,15 @@ function TourItemMobile({ data }) {
               fill='#171717'
             />
           </svg>
-          <span className='text-justify font-sans text-[2.67vw] leading-[150%]'>{tourData?.location}</span>
+          <span className='text-justify font-sans text-[2.67vw] text-textColor leading-[150%]'>
+            {tourData?.location}
+          </span>
         </div>
 
-        <span className=' font-sans text-[#171717] text-[3.2vw] font-bold leading-[120%] tracking-[-0.015vw] '>
+        <span className=' font-sans text-[#171717] line-clamp-2 text-[3.2vw] font-bold leading-[120%] tracking-[-0.064vw] '>
           {tourData?.title}
         </span>
-        <div className='flex gap-[0.53vw]  items-center'>
+        <div className='flex gap-[0.53333vw] items-center mt-[2.13vw]'>
           <span className='text-[#171717] text-[2.67vw] text-justify font-medium leading-[150%] opacity-70 '>
             {tourData?.rate}
           </span>
@@ -67,7 +69,7 @@ function TourItemMobile({ data }) {
           </div>
         </div>
 
-        <span className='text-[#171717] text-justify font-sans text-[4.27vw] font-bold leading-[150%] capitalize mb-[3.6vw]'>
+        <span className='text-[#171717] text-justify font-sans text-[4.27vw] font-bold leading-[150%] capitalize mb-[6.4vw]'>
           ${tourData?.price?.highestPrice} - ${tourData?.price?.lowestPrice}
         </span>
 

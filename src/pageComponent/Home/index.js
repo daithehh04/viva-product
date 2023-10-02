@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Banner from './Banner'
 import Surveys from './Surveys'
 import InspectionTrip from './InspectionTrip'
@@ -11,6 +11,7 @@ import BookingProcessSteps from '@/components/Common/BookingProcessSteps'
 import TravelStyleMb from './TravelStyle/TravelStyleMb'
 import AboutVideo from '@/components/Common/Video'
 import OurBlogHomePage from '@/components/Common/OurBlogHomePage'
+import AOS from "aos";
 
 import { useQuery } from '@apollo/client'
 import { DATA_BEST_TOUR } from '@/graphql/filter/queries'
@@ -41,6 +42,7 @@ export default function Home({
       styleTourSlug: !travelStyle || travelStyle.length === 0 ? arrSlugTaxonomiesStyleTravel : travelStyle
     }
   })
+  const loading = dataBestTours?.loading
   var allTours = dataBestTours?.data?.allTours?.nodes
   if (budget) {
     allTours = allTours?.filter((tour) => {
@@ -62,13 +64,22 @@ export default function Home({
       return numTour >= +minDay && numTour <= +maxDay
     })
   }
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+  // AOS.init({
+  //     disable: function () {
+  //         var maxWidth = 768;
+  //         return window?.innerWidth < maxWidth;
+  //     },
+  // });
 
   if (!data) {
     return <p>Loading....</p>
   }
   const finalData = data?.data?.page?.home
 
-  const header = finalData?.header
   const banner = finalData?.banner
   const survey = finalData?.survey
   const inspection = finalData?.inspectionTrip
@@ -113,30 +124,24 @@ export default function Home({
     budget: newArrDataTaxonomiesBudget,
     duration: newArrDataTaxonomiesDuration
   }
-  console.log(customerReview)
   return (
     <div>
-      <Banner
-        lang={lang}
-        data={banner}
-        dataFilter={dataFilter}
-      />
+      <Banner lang={lang} data={banner} dataFilter={dataFilter} />
       <div className='body-wrapper'>
         <div className='style-mb'>
-          <TravelStyleMb data={travelStyleList} />
+          <TravelStyleMb data={travelStyleList} title={travelStyleList?.title} />
         </div>
         <div className='survey-wrapper'>
-          <Surveys
-            data={survey}
-            button={button}
-          />
+          <Surveys data={survey} button={button} />
         </div>
         <div className='trip-wrapper'>
-          <InspectionTrip data={inspection} />
+          <InspectionTrip data={inspection} lang={lang}/>
         </div>
         <div className='bg-home34'>
           <BestTour
+            loading={loading}
             dataFilter={dataFilter}
+            finalData={finalData}
             onDestination={(data) => setDestination(data)}
             onTravelStyle={(data) => setTravelStyle(data)}
             onBudget={(data) => setBudget(data)}
@@ -156,21 +161,14 @@ export default function Home({
         </div>
         <AboutVideo data={aboutVideo} />
         <div className='review-wrapper'>
-          <Review
-            data={customerReview}
-            button={button}
-          />
+          <Review data={customerReview} button={button} />
         </div>
         <div className='relative bg-home67'>
           <div className='pt-[8.62vw]'>
             <BookingProcessSteps data={nextStepBookTour} />
           </div>
           <div className='pt-[7.31vw]'>
-            <OurBlogHomePage
-              data={blog}
-              button={button}
-              lang={lang}
-            />
+            <OurBlogHomePage data={blog} button={button} lang={lang} />
           </div>
           <div className='absolute bottom-0 left-0 right-0 bg-overlayBanner2 h-[6.62vw] max-md:hidden'></div>
         </div>

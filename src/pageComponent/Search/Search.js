@@ -6,6 +6,7 @@ import ListTour from './ListTour'
 import Sidebar from './Sidebar'
 import OtherTours from './OtherTours'
 import NewRelease from './NewRelease'
+import Loading from '@/components/Common/Loading'
 
 const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget, listBlog }) => {
   if (typeof window !== "undefined") {
@@ -72,6 +73,7 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
     }
   })
   var allTours = dataAllTours?.data?.allTours?.nodes
+  const loading = dataAllTours?.loading
   if (budget) {
     allTours = allTours?.filter((tour) => {
       let priceTour = tour?.translation?.tourDetail?.priceTour
@@ -108,9 +110,9 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
           onTravelStyle={(data) => setTravelStyle(data)}
           onBudget={(data) => setBudget(data)}
         />
-        <div className='flex-1'>
-          {allTours?.length !== 0 ? <ListTour data={allTours} /> : <OtherTours lang={lang} />}
-        </div>
+        {!loading ? <div className='flex-1'>
+          {allTours?.length !== 0 ? <ListTour data={allTours} lang={lang}/> : <OtherTours lang={lang} />}
+        </div> : <div className='flex items-center justify-center flex-1 w-full text-center h-[80vh]'><Loading/></div>}
       </div>
       {allTours?.length !== 0 && <NewRelease data={listBlog} />}
     </div>

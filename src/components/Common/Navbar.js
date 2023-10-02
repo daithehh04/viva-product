@@ -166,10 +166,8 @@ export default function Navbar({
               <div className='capitalize text-[1vw] nav-link'>
                 {dataHome?.nav5}
                 <div className='menu-item'>
-                  <MenuAbout
-                    dataAboutUs={dataAboutUs}
-                    onCloseMenu={handleCloseMenu}
-                  />
+
+                  <MenuAbout dataAboutUs={dataAboutUs} onCloseMenu={handleCloseMenu} lang={params}/>
                 </div>
               </div>
               <div className='capitalize text-[1vw] nav-link'>

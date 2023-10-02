@@ -1,12 +1,15 @@
 .bg-home34 {
-  background-image: url(../../assets/images/bg-beach.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: auto;
+  @media screen and (min-width: 769px) {
+    background-image: url(../../assets/images/bg-beach.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+  }
 }
 .search-mb::placeholder {
   font-size: 3.2vw;
+  color: #171717;
 }
 
 .banner {
@@ -138,7 +141,7 @@
   .slide-represent {
     .swiper-3d .swiper-slide-shadow-left,
     .swiper-3d .swiper-slide-shadow-right {
-      background: none;
+      // background: none;
     }
   }
 }
@@ -325,6 +328,13 @@
   .best-tours {
     .MuiOutlinedInput-root {
       height: 10vw;
+    }
+
+    .bg-tourMobile {
+      background: #f3f6fb;
+      position: absolute;
+      inset: 0;
+      z-index: -1;
     }
   }
 }

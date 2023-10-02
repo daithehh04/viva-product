@@ -11,6 +11,7 @@ import FilterTour from '@/components/Common/FilterTour'
 import imgTour from '@/assets/images/img-more.png'
 import { DATA_BEST_TOUR } from '@/graphql/filter/queries'
 import OtherTours from '../Search/OtherTours'
+import Loading from '@/components/Common/Loading'
 
 const theme = createTheme({
   breakpoints: {
@@ -127,37 +128,22 @@ function TourSlide({
           />
         </div>
       </div>
-      <div className='grid grid-cols-4 gap-[2.5vw] mt-[1.88vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'>
-        {!dataBestTours.loading ? (
-          allTours?.length ? (
-            allTours?.slice(size * (activePage - 1), size * activePage).map((tour, index) => (
-              <div key={index}>
-                <div className='max-md:hidden'>
-                  <TourItem data={tour} />
-                </div>
-                <div className='hidden max-md:block'>
-                  <TourItemMobile data={tour} />
-                </div>
-              </div>
-            ))
-          ) : (
-            <div className='w-full col-span-4'>
-              <OtherTours lang={lng} />
+      <div className={`${allTours?.length === 0 ? `w-full block mt-[1.88vw]` : 'grid grid-cols-4 gap-[2.5vw] mt-[1.88vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'}`}>
+        {!dataBestTours.loading ? (allTours?.length ? 
+        allTours?.slice(size * (activePage - 1), size * activePage).map((tour, index) => (
+          <div key={index}>
+            <div className='max-md:hidden'>
+              <TourItem data={tour} lang={lang}/>
             </div>
-          )
-        ) : (
-          <div className='w-full flex justify-center col-span-4'>
-            <Image
-              src={'https://viva-cms.okhub.tech/wp-content/uploads/2023/10/1600px_COLOURBOX26630164.jpg'}
-              className='w-[30vw] '
-              width={1000}
-              height={1000}
-              alt='loading'
-            />
+            <div className='hidden max-md:block'>
+              <TourItemMobile data={tour} />
+            </div>
+          </div>)) : <div className='text-center text-[3.5vw] w-full text-[#c23a3a] font-optima max-md:text-[5.67vw]'>Not Found Tour !</div>) : 
+          <div className='flex justify-center w-full col-span-4'>
+            <Loading/>
           </div>
         )}
       </div>
-      {/* pagination */}
       <div className='flex md:gap-[0.75vw] gap-[3.2vw] justify-center items-center relative md:mt-[4.5vw] mt-[8.53vw]'>
         {totalPage.current > 1 &&
           pagis?.map((page, index) => (
@@ -175,5 +161,4 @@ function TourSlide({
     </div>
   )
 }
-
 export default TourSlide

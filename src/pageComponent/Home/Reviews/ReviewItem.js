@@ -1,5 +1,4 @@
-import img from '@/assets/images/review.png'
-import avatar from '@/assets/images/avatar.png'
+
 import locationIcon from '@/assets/images/route-square.svg'
 import calendarIcon from '@/assets/images/calendarY.svg'
 import quote from '@/assets/images/quote-review.png'

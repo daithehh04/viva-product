@@ -2,17 +2,6 @@ import logo from '@/assets/images/logoF.png'
 import location from '@/assets/images/route-squareB.svg'
 import Image from 'next/image'
 import SlidePartners from './SlidePartners'
-import fbIcon from '@/assets/images/facebook.svg'
-import linkedIcon from '@/assets/images/linkedin.svg'
-import instarIcon from '@/assets/images/instar.svg'
-import ytbIcon from '@/assets/images/youtube.svg'
-import pay1 from '@/assets/images/pay-1.png'
-import pay2 from '@/assets/images/pay-2.png'
-import pay3 from '@/assets/images/pay-3.png'
-import pay4 from '@/assets/images/pay-4.png'
-import forum1 from '@/assets/images/forum-1.png'
-import forum2 from '@/assets/images/forum-2.png'
-import forum3 from '@/assets/images/forum-3.png'
 import getDataPost from '@/data/getDataPost'
 import { GET_FOOTER } from '@/graphql/home/queries'
 
@@ -26,7 +15,7 @@ async function Footer({ lang }) {
   const col4 = footerData?.column4
   return (
     <footer className='footer max-md:pb-[24.5vw] pb-[4.75vw] pt-[2.62vw] max-md:pt-[16.27vw]'>
-      <div className='pointer-events-none  select-none'>
+      <div className='pointer-events-none select-none'>
         <SlidePartners data={logoPartner} />
         <SlidePartners data={logoPartner} reverse={true} />
       </div>
