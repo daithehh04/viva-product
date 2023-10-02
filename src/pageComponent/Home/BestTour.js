@@ -21,7 +21,6 @@ function BestTour({
   finalData,
   loading
 }) {
-
   const [destination, setDestination] = useState('')
   const [travelStyle, setTravelStyle] = useState('')
   const [budget, setBudget] = useState('')
@@ -39,12 +38,17 @@ function BestTour({
         alt='img'
         src={bgTourItemMB}
         quality={100}
-        className='absolute w-full h-[171vw] object-cover bottom-[-17.5%] z-[-1] md:hidden'
+        className='absolute w-full h-[171vw] object-cover bottom-[-18%] z-[-1] md:hidden'
       />
       <div className='max-md:pl-[4.27vw] pl-[8.125vw] max-md:pr-[4.27vw] '>
-        <h2 className='heading-1' data-aos-once="true"
-            data-aos="fade-up"
-            data-aos-duration="1000">Best Seller Tours</h2>
+        <h2
+          className='heading-1 max-md:relative max-md:text-center'
+          data-aos-once='true'
+          data-aos='fade-up'
+          data-aos-duration='1000'
+        >
+          {finalData?.bestTour?.title}
+        </h2>
         <div className='bg-white mt-[1vw] w-max rounded-[1.125vw] px-[2.38vw] py-[1.19vw] max-md:mt-[4.27vw] max-md:p-0 max-md:bg-transparent max-md:w-full'>
           <FilterTour
             dataFilter={dataFilter}
@@ -57,40 +61,63 @@ function BestTour({
         </div>
       </div>
 
-      {!loading ?
-      <div className={`${allTours?.length === 0 ? `w-full block md:mt-[1.88vw] mt-[7.73vw]` : 'grid grid-cols-4 gap-[2.5vw] md:mt-[1.88vw] mt-[7.73vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'}`}>
-        {allTours?.length !== 0 ? allTours?.slice(0, 7).map((tour, index) => (
-          <div key={index}>
-            <div className='max-md:hidden'>
-              <TourItem data={tour} lang={lang}/>
-            </div>
-            <div className='hidden max-md:block'>
-              <TourItemMobile data={tour} />
-            </div>
-          </div>
-        )) : <div className='text-center text-[3.5vw] w-full text-[#c23a3a] font-optima max-md:text-[5.67vw]'>Not Found Tour !</div>}
-        {allTours?.length > 7 ? (
-          <div className='h-[24.5vw] rounded-[1vw] relative hidden md:flex  justify-center items-center lastItem'>
-            <Image src={imgTour} alt='img-tour' fill className='object-cover h-full ' />
-            <div className='absolute flex flex-col items-center justify-center'>
-              <div className='inline-flex gap-[0.3125vw] justify-center items-center'>
-                <span className='text-justify font-optima text-[2vw] font-normal leading-[130%] text-white'>+</span>
-                <span className='text-white heading-1'>{allTours.length - 7}</span>
+      {!loading ? (
+        <div
+          className={`${
+            allTours?.length === 0
+              ? `w-full block md:mt-[1.88vw] mt-[7.73vw]`
+              : 'grid grid-cols-4 relative gap-[2.5vw] md:mt-[1.88vw] mt-[7.73vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'
+          }`}
+        >
+          <div className='md:hidden bg-tourMobile'></div>
+          {allTours?.length !== 0 ? (
+            allTours?.slice(0, 7).map((tour, index) => (
+              <div key={index}>
+                <div className='max-md:hidden'>
+                  <TourItem data={tour} lang={lang} />
+                </div>
+                <div className='hidden max-md:block'>
+                  <TourItemMobile data={tour} />
+                </div>
               </div>
-              <span className='text-white text-justify font-optima text-[1.5vw] block font-medium leading-[150%]'>
-                Other tours
-              </span>
-              <div className='flex justify-center md:hidden max-md:mt-[8.53vw]'>
-                <Link href={`/${lang}/search`} className='btn-secondary'>
-                  {button?.buttonseemore}
-                </Link>
+            ))
+          ) : (
+            <div className='text-center text-[3.5vw] w-full text-[#c23a3a] font-optima max-md:text-[5.67vw]'>
+              Not Found Tour !
+            </div>
+          )}
+          {allTours?.length > 7 ? (
+            <div className='h-[24.5vw] rounded-[1vw] relative hidden md:flex  justify-center items-center lastItem'>
+              <Image src={imgTour} alt='img-tour' fill className='object-cover h-full ' />
+              <div className='absolute flex flex-col items-center justify-center'>
+                <div className='inline-flex gap-[0.3125vw] justify-center items-center'>
+                  <span className='text-justify font-optima text-[2vw] font-normal leading-[130%] text-white'>+</span>
+                  <span className='text-white heading-1'>{allTours.length - 7}</span>
+                </div>
+                <span className='text-white text-justify font-optima text-[1.5vw] block font-medium leading-[150%]'>
+                  Other tours
+                </span>
+                <div className='flex justify-center max-md:hidden max-md:mt-[8.53vw]'>
+                  <Link href={`/${lang}/search`} className='btn-secondary'>
+                    {button?.buttonseemore}
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        ) : (
-          ''
-        )}
-      </div> : <div className='flex items-center justify-center flex-1 w-full text-center h-[60vh]'><Loading/></div> }
+          ) : (
+            ''
+          )}
+        </div>
+      ) : (
+        <div className='flex items-center justify-center flex-1 w-full text-center h-[60vh]'>
+          <Loading />
+        </div>
+      )}
+      <div className='flex justify-center md:hidden mt-[8.53vw]'>
+        <Link href={`/${lang}/search`}>
+          <Button className='btn-secondary'>{button?.buttonseemore}</Button>
+        </Link>
+      </div>
     </div>
   )
 }
