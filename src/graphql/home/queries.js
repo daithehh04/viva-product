@@ -99,6 +99,8 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
               sourceUrl
             }
           }
+          telephone
+          email
         }
         video {
           thumbnail {

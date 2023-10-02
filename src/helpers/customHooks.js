@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 export function useClickOutside(ref, handler) {
   useEffect(() => {
     const listener = (event) => {
-      if (!ref.current || ref.current.contains(event.target)) {
+      if (event.target.classList.contains('filter-item') || !ref.current || ref.current.contains(event.target)) {
         return
       }
       handler(event)

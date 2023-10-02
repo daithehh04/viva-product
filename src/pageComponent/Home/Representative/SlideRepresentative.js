@@ -8,7 +8,7 @@ import icon from '@/assets/images/route-square.svg'
 import callIcon from '@/assets/images/call-calling.svg'
 import directIcon from '@/assets/images/direct.svg'
 
-function SlideRepresent({ data }) {
+function SlideRepresent({ data, dataInfo }) {
   const [indexSlider, setIndexSlider] = useState(0)
   const [slideData, setSlideData] = useState([])
   const swiperRef = useRef()
@@ -24,8 +24,8 @@ function SlideRepresent({ data }) {
   }
 
   useEffect(() => {
-    if(data?.length < 20) {
-      let newArr = Array.from(Array(10)).map(item => (data[0]))
+    if (data?.length < 20) {
+      let newArr = Array.from(Array(10)).map((item) => data[0])
 
       newArr = [...data, ...newArr]
       setSlideData(newArr)
@@ -79,23 +79,33 @@ function SlideRepresent({ data }) {
                     className='w-full h-full block object-cover rounded-[1.6vw] presentative-img'
                   />
                   <div className='hidden md:flex contact absolute top-0 right-0 pt-[1.5vw] pr-[1.42vw]  flex-col gap-[0.75vw]'>
-                    <div className='w-[2.5vw] h-[2.5vw] rounded-full bg-[#444340] flex items-center justify-center'>
-                      <Image
-                        src={callIcon}
-                        width={50}
-                        height={50}
-                        alt='img'
-                        className='w-[1.5vw] h-[1.5vw] object-cover'
-                      />
+                    <div className='flex gap-[0.5vw] flex-row-reverse items-center'>
+                      <div className='iconContact w-[2.5vw] h-[2.5vw] rounded-full bg-[#444340] flex items-center justify-center'>
+                        <Image
+                          src={callIcon}
+                          width={50}
+                          height={50}
+                          alt='img'
+                          className='w-[1.5vw] h-[1.5vw] object-cover cursor-pointer '
+                        />
+                      </div>
+                      <span className='bg-[#444340] text-[#FFD220] md:text-[1vw] md:px-[0.5vw] rounded-[0.67vw] contactInfo md:py-[0.2vw]'>
+                        {dataInfo?.telephone}
+                      </span>
                     </div>
-                    <div className='w-[2.5vw] h-[2.5vw] rounded-full bg-[#444340] flex items-center justify-center'>
-                      <Image
-                        src={directIcon}
-                        width={50}
-                        height={50}
-                        alt='img'
-                        className='w-[1.5vw] h-[1.5vw] object-cover'
-                      />
+                    <div className='flex gap-[0.5vw] flex-row-reverse items-center'>
+                      <div className='iconContact w-[2.5vw] h-[2.5vw] rounded-full bg-[#444340] flex items-center justify-center'>
+                        <Image
+                          src={directIcon}
+                          width={50}
+                          height={50}
+                          alt='img'
+                          className='w-[1.5vw] h-[1.5vw] object-cover  cursor-pointer'
+                        />
+                      </div>
+                      <span className='bg-[#444340] text-[#FFD220] md:text-[1vw] md:px-[0.5vw] rounded-[0.67vw] contactInfo md:py-[0.2vw]'>
+                        {dataInfo?.email}
+                      </span>
                     </div>
                   </div>
                   <div className='info absolute bottom-0 md:pb-[1.77vw] pb-[3.544vw] md:pl-[1.79vw] pl-[3.5vw]'>
@@ -132,10 +142,7 @@ function SlideRepresent({ data }) {
             xmlns='http://www.w3.org/2000/svg'
             className='w-[1.5vw] h-[1.5vw]'
           >
-            <path
-              d='M3.15303 12.0969L19.457 0.960938L12.873 12.0969L19.457 23.2409L3.15303 12.0969Z'
-              fill='#001258'
-            />
+            <path d='M3.15303 12.0969L19.457 0.960938L12.873 12.0969L19.457 23.2409L3.15303 12.0969Z' fill='#001258' />
           </svg>
         </button>
         <button
@@ -150,10 +157,7 @@ function SlideRepresent({ data }) {
             xmlns='http://www.w3.org/2000/svg'
             className='w-[1.5vw] h-[1.5vw]'
           >
-            <path
-              d='M20.847 12.0969L4.54297 0.960938L11.127 12.0969L4.54297 23.2409L20.847 12.0969Z'
-              fill='#001258'
-            />
+            <path d='M20.847 12.0969L4.54297 0.960938L11.127 12.0969L4.54297 23.2409L20.847 12.0969Z' fill='#001258' />
           </svg>
         </button>
       </div>
