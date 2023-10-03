@@ -101,10 +101,9 @@
 }
 .tour-detail-main {
   .sticky {
-    position: fixed;
-    right: 0;
-    top: 5.375vw;
-    right: 9.725vw;
+    position: fixed !important;
+    top: 5.375vw !important;
+    right: 9.725vw !important;
     z-index: 0;
   }
 

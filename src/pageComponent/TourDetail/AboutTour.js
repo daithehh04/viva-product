@@ -20,6 +20,7 @@ import { useRouter } from 'next/navigation'
 import PriceMb from './PriceMb'
 import ModalCustom from '@/components/Common/ModalCustom'
 import BookTour from '@/components/Common/BookTour'
+import vw from '@/helpers/convertToVw'
 
 export default function AboutTour(props) {
   const { type, data, headerData = {}, relatedTours = [], defaultListReViews, lang, dataBookTour } = props
@@ -213,7 +214,6 @@ export default function AboutTour(props) {
   ]
 
   const [openModal, setOpenModal] = useState()
-  const [isBottom, setIsBottom] = useState(false)
   const router = useRouter()
   const mapRef = useRef()
   const aboutTourRef = useRef()
@@ -239,9 +239,21 @@ export default function AboutTour(props) {
       let roleTop = roleRef.current.getBoundingClientRect().top
       let accomTop = accomRef.current.getBoundingClientRect().top
 
-      let reviewRect = reviewRef.current.getBoundingClientRect()
-      if (mapRef.current) {
-        mapRef.current.classList.toggle('sticky', aboutTourRef.current.getBoundingClientRect().top < 0)
+      let reviewRec = reviewRef.current.getBoundingClientRect()
+      let aboutTourRec = aboutTourRef.current.getBoundingClientRect()
+
+      // set position for map
+      if (mapRef.current && !onlySmallScreen) {
+        if (aboutTourRec.top < 0 && reviewRec.top > innerHeight) {
+          mapRef.current.classList.add('sticky')
+        } else if (aboutTourRec.top < 0 && reviewRec.top < innerHeight) {
+          mapRef.current.classList.remove('sticky')
+          mapRef.current.style.position = 'absolute'
+          mapRef.current.style.bottom = innerHeight - mapRef.current.clientHeight + 'px'
+        } else if (aboutTourRec.top >= 0 && reviewRec.top > innerHeight) {
+          mapRef.current.classList.remove('sticky')
+          mapRef.current.style.bottom = 'unset'
+        }
       }
 
       //show icons when scroll over "Overview" section's position
@@ -266,16 +278,6 @@ export default function AboutTour(props) {
       }
 
       // in Pc, when review section appears, map&price section + stepIcon section will be hidden  and  button scroll to top will be appeared
-
-      if (!onlySmallScreen) {
-        if (reviewRect.top < innerHeight) {
-          mapRef.current.style.display = 'none'
-          setIsBottom(true)
-        } else {
-          mapRef.current.style.display = 'flex'
-          setIsBottom(false)
-        }
-      }
 
       // when scroll to section, change activeIcon
 
@@ -386,7 +388,7 @@ export default function AboutTour(props) {
                   </div>
                 </div>
 
-                {onlySmallScreen && (
+                {/* {onlySmallScreen && (
                   <div
                     ref={stepIconMbRef}
                     className='fixed top-[14.375vw] right-0 w-full h-[15vw] px-[5vw] text-[4vw] bg-amber-100 flex items-center justify-between gap-[2vw] shadow-lg shadow-amber-500/50 z-50'
@@ -415,7 +417,7 @@ export default function AboutTour(props) {
                       )
                     })}
                   </div>
-                )}
+                )} */}
               </>
             )}
 
@@ -538,7 +540,7 @@ export default function AboutTour(props) {
 
           {/* price & map*/}
           <div
-            className='md:w-[26.25vw] md:flex md:flex-col gap-[1.6875vw] hidden text-textColor md:absolute right-[1.6vw]'
+            className='md:w-[26.25vw] md:h-[81.2vw] md:flex md:flex-col gap-[1.6875vw] hidden text-textColor md:absolute right-[1.6vw]'
             ref={mapRef}
           >
             {/* price */}

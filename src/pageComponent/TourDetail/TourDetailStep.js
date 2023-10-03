@@ -4,7 +4,6 @@ import { iconsTour } from '@/lib/Icons'
 import Image from 'next/image'
 
 export default function TourDetailStep({ data: tourDetailData, icons }) {
-  console.log(tourDetailData)
   return (
     <>
       <div>

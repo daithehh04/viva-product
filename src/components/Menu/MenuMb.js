@@ -19,7 +19,7 @@ import instarIcon from '@/assets/images/instar.svg'
 import ytbIcon from '@/assets/images/youtube.svg'
 import HotDeal from '../Common/HotDeal'
 
-function MenuMb({ onCloseMenu, hotDeals, lang, listVoucher, dataMenuCountry, travelStylesList, rcmServicesList }) {
+function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList, rcmServicesList }) {
   const [selected, setSelected] = useState(null)
   const contentEle = useRef()
   const contentEle2 = useRef()
@@ -208,7 +208,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, listVoucher, dataMenuCountry, tra
           >
             <span className='text-[3.73vw] opacity-40  font-[500] block'>{hotDeals?.voucherHeader?.listHeader}</span>
             <div className='hidden-scroll flex overflow-x-auto gap-[3.73vw] mt-[3.2vw] '>
-              {listVoucher?.map((item, index) => (
+              {hotDeals?.voucherHeader?.listVoucher?.map((item, index) => (
                 <VoucherItem
                   key={index}
                   data={item}
@@ -225,6 +225,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, listVoucher, dataMenuCountry, tra
                   key={index}
                   data={item}
                   lang={lang}
+                  menu
                 />
               ))}
             </div>

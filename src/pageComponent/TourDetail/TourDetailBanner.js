@@ -53,7 +53,7 @@ export default function TourDetailBanner({ data = {}, headerData }) {
           disableOnInteraction: false
         }}
         onSlideChange={(swiper) => {
-          console.log(swiper.realIndex)
+          // console.log(swiper.realIndex)
         }}
         modules={[Autoplay]}
         className='mySwiper2 banner-slide'
@@ -180,7 +180,7 @@ export default function TourDetailBanner({ data = {}, headerData }) {
             thumbsSwiperRef.current = swiper
           }}
           onSlideChange={(swiper) => {
-            console.log(swiper.realIndex)
+            // console.log(swiper.realIndex)
           }}
         >
           {video?.uploadVideo?.mediaItemUrl && (
