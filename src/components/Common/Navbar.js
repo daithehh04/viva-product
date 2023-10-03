@@ -108,6 +108,7 @@ export default function Navbar({
         // menuItems[index].style.display = 'none'
       })
     })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleCloseMenu = () => {

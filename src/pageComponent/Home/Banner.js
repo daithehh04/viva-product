@@ -4,11 +4,19 @@ import scrollDown from '@/helpers/scrollDown'
 import Image from 'next/image'
 import FilterBanner from './FilterBanner'
 import searchIcon from '@/assets/images/search-normal.svg'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import Button from '@/components/Common/Button'
+import PopupSearch from './PopupSearch'
 
 function Banner({ data, dataFilter, lang }) {
+  const [popup,setPopup] = useState(false)
   const scrollRef = useRef()
+  function handleOpenPopup() {
+    setPopup(true)
+  }
+  function handleClosePopup() {
+    setPopup(false)
+  }
   return (
     <div className='h-[100vh] relative banner max-lg:h-[84.8vw]'>
       <div className='relative z-40 wrapper-banner'>
@@ -58,6 +66,7 @@ function Banner({ data, dataFilter, lang }) {
       <div className='absolute right-0 bottom-0 max-md:hidden z-[45]'>
         <Button
           className='py-[1.06vw] px-[2.4vw] bg-primaryColor rounded-tl-[1vw] flex items-center text-[1vw] font-[500] gap-x-[0.75vw] cursor-pointer'
+          onClick={handleOpenPopup}
         >
           <Image
             src={searchIcon}
@@ -69,6 +78,14 @@ function Banner({ data, dataFilter, lang }) {
           Search
         </Button>
       </div>
+      {popup && <div className='fixed left-0 top-0 flex items-center justify-center z-[99] w-full h-full transition-all'>
+        <PopupSearch/>
+        <div
+        onClick={handleClosePopup}
+        className='absolute inset-0 max-md:block'
+        style={{ background: 'rgba(0,0,0,0.6)' }}
+      ></div>
+      </div>}
     </div>
   )
 }
