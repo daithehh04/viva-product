@@ -141,7 +141,7 @@
   .slide-represent {
     .swiper-3d .swiper-slide-shadow-left,
     .swiper-3d .swiper-slide-shadow-right {
-      // background: none;
+      border-radius: 1.6vw;
     }
   }
 }
@@ -157,6 +157,22 @@
         .presentative-img {
           scale: 1.1;
         }
+      }
+      .iconContact:hover {
+        transform: translateX(0);
+      }
+      .iconContact:hover ~ .contactInfo {
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+      }
+      .contactInfo {
+        transform: translateX(30%);
+        position: relative;
+        z-index: -1;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.3s ease;
       }
     }
     .slide-represent {
@@ -223,6 +239,10 @@
   width: 100%;
   height: auto;
   background-position: top;
+  .video__review {
+    border-bottom-right-radius: 1vw !important;
+    border-top-right-radius: 1vw !important;
+  }
   .overlayReview-top {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.38) 0%, rgba(0, 0, 0, 0) 100%);
   }

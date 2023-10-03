@@ -9,7 +9,7 @@ import Image from 'next/image'
 import playIcon from '@/assets/images/play-video.png'
 
 const defaultVideo = 'https://viva-cms.okhub.tech/wp-content/uploads/2023/09/river_-_40012-1080p-2.mp4'
-function VideoReview({ data, videoInfo }) {
+function VideoReview({ data, videoInfo, className }) {
   const [isPlay, setIsPlay] = useState(false)
   const videoRef = useRef()
   useEffect(() => {
@@ -19,48 +19,30 @@ function VideoReview({ data, videoInfo }) {
   }, [isPlay])
   return (
     <div
-      className='relative w-[35.1875vw] h-[47.5vw] rounded-[1vw] bg-[#ccc]'
+      className={`relative w-[35.1875vw] h-[47.5vw] rounded-[1vw] bg-[#ccc] ${className}`}
       onClick={() => setIsPlay(!isPlay)}
     >
-      <video
-        width='100%'
-        controls={isPlay}
-        ref={videoRef}
-        className='w-full h-full'
-      >
-        <source
-          src={defaultVideo}
-          type='video/mp4'
-        />
+      <video width='100%' controls={isPlay} ref={videoRef} className={`w-full h-full ${className}`}>
+        <source src={defaultVideo} type='video/mp4' />
       </video>
       <Image
         src={img}
         width={500}
         height={500}
         alt='img'
-        className={`rounded-[1vw] w-full h-full object-cover absolute z-10 inset-0 ${isPlay ? 'hidden' : ''}`}
+        className={`rounded-[1vw] w-full h-full object-cover absolute z-10 inset-0 ${className} ${
+          isPlay ? 'hidden' : ''
+        }`}
       />
       <div className={`top absolute top-0 pt-[1.5vw] pl-[1.5vw] pr-[2.38vw] z-30 ${isPlay ? 'hidden' : ''}`}>
         <h3 className='text-white text-[1.25vw] font-bold leading-[1.3] tracking-tight'>{videoInfo?.title}</h3>
         <div className='flex items-center gap-x-[1.63vw] mt-[1vw]'>
           <div className='flex items-center gap-x-[0.25vw]'>
-            <Image
-              src={locationIcon}
-              width={50}
-              height={50}
-              alt='img'
-              className='w-[1vw] h-[1vw] object-cover'
-            />
+            <Image src={locationIcon} width={50} height={50} alt='img' className='w-[1vw] h-[1vw] object-cover' />
             <span className='text-white text-[0.875vw] leading-normal'>{videoInfo?.location}</span>
           </div>
           <div className='flex items-center gap-x-[0.25vw]'>
-            <Image
-              src={calendarIcon}
-              width={50}
-              height={50}
-              alt='img'
-              className='w-[1vw] h-[1vw] object-cover'
-            />
+            <Image src={calendarIcon} width={50} height={50} alt='img' className='w-[1vw] h-[1vw] object-cover' />
             <span className='text-white text-[0.875vw] leading-normal'>{videoInfo?.time}</span>
           </div>
         </div>

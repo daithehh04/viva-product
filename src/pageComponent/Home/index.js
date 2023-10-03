@@ -11,7 +11,7 @@ import BookingProcessSteps from '@/components/Common/BookingProcessSteps'
 import TravelStyleMb from './TravelStyle/TravelStyleMb'
 import AboutVideo from '@/components/Common/Video'
 import OurBlogHomePage from '@/components/Common/OurBlogHomePage'
-import AOS from "aos";
+import AOS from 'aos'
 
 import { useQuery } from '@apollo/client'
 import { DATA_BEST_TOUR } from '@/graphql/filter/queries'
@@ -65,9 +65,9 @@ export default function Home({
     })
   }
   useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
+    AOS.init()
+    AOS.refresh()
+  }, [])
   // AOS.init({
   //     disable: function () {
   //         var maxWidth = 768;
@@ -135,7 +135,7 @@ export default function Home({
           <Surveys data={survey} button={button} />
         </div>
         <div className='trip-wrapper'>
-          <InspectionTrip data={inspection} lang={lang}/>
+          <InspectionTrip data={inspection} lang={lang} />
         </div>
         <div className='bg-home34'>
           <BestTour

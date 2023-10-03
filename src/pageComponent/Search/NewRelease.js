@@ -13,7 +13,7 @@ const NewRelease = ({ data, lang }) => {
           lang={lang}
         />
       </div>
-      <div className='flex mt-[4vw] mb-[5.75vw] justify-center'>
+      <div className='flex md:mt-[4vw] mt-[9.87vw] md:mb-[5.75vw] mb-[14.93vw] justify-center'>
         <Button className='btn-secondary'>See more</Button>
       </div>
     </div>
