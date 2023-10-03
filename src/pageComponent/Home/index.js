@@ -14,7 +14,7 @@ import OurBlogHomePage from '@/components/Common/OurBlogHomePage'
 import AOS from 'aos'
 
 import { useQuery } from '@apollo/client'
-import { DATA_BEST_TOUR } from '@/graphql/filter/queries'
+import { DATA_BEST_TOUR, DATA_BEST_TOUR_HOME_PAGE } from '@/graphql/filter/queries'
 export default function Home({
   data,
   lang,
@@ -42,6 +42,16 @@ export default function Home({
       styleTourSlug: !travelStyle || travelStyle.length === 0 ? arrSlugTaxonomiesStyleTravel : travelStyle
     }
   })
+  const dataBestToursHomePage = useQuery(DATA_BEST_TOUR_HOME_PAGE, {
+    variables: {
+      language: lng,
+      countrySlug: !destination ? arrSlugTaxonomiesCountry : destination,
+      styleTourSlug: !travelStyle || travelStyle.length === 0 ? arrSlugTaxonomiesStyleTravel : travelStyle,
+      bestSellerSlug: ['BestSeller']
+    }
+  })
+
+  const allToursBestSeller = dataBestToursHomePage?.data?.allTours?.nodes
   const loading = dataBestTours?.loading
   var allTours = dataBestTours?.data?.allTours?.nodes
   if (budget) {
@@ -146,7 +156,7 @@ export default function Home({
             onTravelStyle={(data) => setTravelStyle(data)}
             onBudget={(data) => setBudget(data)}
             onDuration={(data) => setDuration(data)}
-            allTours={allTours}
+            allTours={allToursBestSeller}
             lang={lang}
             button={button}
           />

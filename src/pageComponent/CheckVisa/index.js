@@ -1,4 +1,4 @@
-import { GET_DATA_CHECKVISA } from '@/graphql/page/queries'
+import { GET_DATA_CHECKVISA2 } from '@/graphql/page/queries'
 
 import Banner from './Banner'
 import BestSellerTour from './BestSellerTour'
@@ -8,7 +8,8 @@ import { COUNTRY_FROM, COUNTRY_TO } from '@/graphql/checkVisa/queries'
 import { DataProvider } from './DataContext'
 
 async function index({ lang }) {
-  let data = await getDataPost(lang, GET_DATA_CHECKVISA)
+  // let data = await getDataPost(lang, GET_DATA_CHECKVISA)
+  let data = await getDataPost(lang, GET_DATA_CHECKVISA2)
   const dataCheckVisa = data?.data?.page?.translation
   const dataCountryFrom = await getDataPost(lang, COUNTRY_FROM)
   const dataCountryTo = await getDataPost(lang, COUNTRY_TO)
@@ -27,16 +28,9 @@ async function index({ lang }) {
   }
   return (
     <DataProvider>
-      <Banner
-        data={dataCheckVisa}
-        dataFilter={dataFilter}
-        lang={lang}
-      />
+      <Banner data={dataCheckVisa} dataFilter={dataFilter} lang={lang} />
       <Infomation data={dataCheckVisa} />
-      <BestSellerTour
-        data={dataCheckVisa}
-        lang={lang}
-      />
+      <BestSellerTour dataCheckVisa={dataCheckVisa} data={data} lang={lang} />
     </DataProvider>
   )
 }
