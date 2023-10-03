@@ -83,7 +83,12 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
       </div>
 
       <div className='relative'>
-        <Image alt='banner' src={background} fill quality={100} />
+        <Image
+          alt='banner'
+          src={background}
+          fill
+          quality={100}
+        />
         <div className='grid md:grid-cols-4 md:px-[8.06vw] px-[4.27vw] grid-cols-2 md:gap-x-[2.5vw] md:gap-y-[3vw] gap-x-[4.27vw] gap-y-[6.4vw] md:mt-[4vw] mt-[7.73vw]'>
           {allBlogData?.map((item, index) => (
             <BlogItem
@@ -113,7 +118,10 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
           {data1?.data?.page?.translation?.ourblog?.heading2}
         </h2>
         <div className='md:px-[8.06vw]'>
-          <SlideTour data={data1?.data?.page?.translation?.ourblog?.bestseller} />
+          <SlideTour
+            data={data1?.data?.page?.translation?.ourblog?.bestseller}
+            lang={lang}
+          />
         </div>
         <Button className='btn-secondary  m-auto md:mt-[3.5vw] mt-[10.01vw]'>
           {' '}

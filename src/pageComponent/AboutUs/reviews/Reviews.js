@@ -49,7 +49,7 @@ const Reviews = ({ lang, data }) => {
           return (
             <div
               key={index}
-              className={`${index === 0 && !onlySmallScreen && 'md:col-span-2 big-item md:p-[1.87vw] md:gap-[2.5vw]'}`}
+              className={`${index === 0 && !onlySmallScreen && 'md:col-span-2 big-item md:gap-[2.5vw]'}`}
             >
               <ReviewItem data={item?.translation} />
             </div>
@@ -57,7 +57,7 @@ const Reviews = ({ lang, data }) => {
         })}
       </div>
 
-      <div className='w-fit m-auto flex md:gap-[0.75vw] gap-[3.2vw] md:mt-[4.538vw] mt-[6.4vw]'>
+      <div className='w-fit m-auto flex md:gap-[0.75vw] gap-[3.2vw] md:mt-[6.538vw] mt-[6.4vw]'>
         {paginations?.map((pagination, index) => {
           return (
             <span

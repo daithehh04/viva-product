@@ -23,13 +23,20 @@ async function index({ lang }) {
   const arrCountryTo = handleTaxonomies(dataCountryTo?.data?.allToCountry?.nodes)
   const dataFilter = {
     countryFrom: arrCountryFrom,
-    countryTo: arrCountryTo,
+    countryTo: arrCountryTo
   }
   return (
     <DataProvider>
-      <Banner data={dataCheckVisa} dataFilter={dataFilter} lang={lang}/>
+      <Banner
+        data={dataCheckVisa}
+        dataFilter={dataFilter}
+        lang={lang}
+      />
       <Infomation data={dataCheckVisa} />
-      <BestSellerTour data={dataCheckVisa} />
+      <BestSellerTour
+        data={dataCheckVisa}
+        lang={lang}
+      />
     </DataProvider>
   )
 }

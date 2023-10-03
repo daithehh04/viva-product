@@ -6,6 +6,32 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
+.nav-mb-special {
+  background-color: transparent;
+  .nav-logo {
+    background-color: transparent;
+    filter: brightness(0) invert(1);
+    -webkit-filter: brightness(0) invert(1);
+  }
+
+  .nav-list {
+    color: white;
+  }
+
+  .icon-hot {
+    color: black;
+  }
+
+  .MuiBox-root {
+    span {
+      color: white !important;
+    }
+    svg {
+      color: white !important;
+    }
+  }
+}
+
 .navbar {
   position: absolute;
   top: 0;
@@ -161,6 +187,19 @@
     .MuiFormControl-root {
       border: 1px solid #ccc;
       padding-left: 10px;
+    }
+  }
+
+  .nav-mb-special {
+    filter: brightness(0) invert(1);
+    -webkit-filter: brightness(0) invert(1);
+
+    .search-mb {
+      background-color: transparent;
+    }
+
+    .search-mb-btn {
+      background-color: rgba(255, 255, 255, 0.2) !important;
     }
   }
 }

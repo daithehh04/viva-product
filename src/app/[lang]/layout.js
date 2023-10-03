@@ -84,7 +84,7 @@ export default async function RootLayout({ children, params }) {
             <Suspense fallback={<Loading />}>
               <Navbar
                 travelStylesList={travelStylesList}
-                params={params.lang}
+                lang={params.lang}
                 dataHome={dataHome?.header}
                 dataMenuCountry={dataMenuCountry?.data?.allCountries?.nodes}
                 hotDeals={hotDeals}

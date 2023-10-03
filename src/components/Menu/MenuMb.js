@@ -19,15 +19,7 @@ import instarIcon from '@/assets/images/instar.svg'
 import ytbIcon from '@/assets/images/youtube.svg'
 import HotDeal from '../Common/HotDeal'
 
-function MenuMb({
-  onCloseMenu,
-  hotDeals,
-  lang,
-  listVoucher,
-  dataMenuCountry,
-  travelStylesList,
-  rcmServicesList
-}) {
+function MenuMb({ onCloseMenu, hotDeals, lang, listVoucher, dataMenuCountry, travelStylesList, rcmServicesList }) {
   const [selected, setSelected] = useState(null)
   const contentEle = useRef()
   const contentEle2 = useRef()
@@ -46,12 +38,21 @@ function MenuMb({
       <div className='flex items-center justify-center h-[14.93vw] border-b border-solid border-textColor border-opacity-20'>
         <div className='flex items-center content'>
           <Link href='#'>
-            <Image src={logo} width={100} height={100} alt='viva-travel' className='w-[10.4vw] object-cover' />
+            <Image
+              src={logo}
+              width={100}
+              height={100}
+              alt='viva-travel'
+              className='w-[10.4vw] object-cover'
+            />
           </Link>
           <div className='flex-1 hidden max-lg:block'>
             <InputSearchMb />
           </div>
-          <div className='cursor-pointer close' onClick={onCloseMenu}>
+          <div
+            className='cursor-pointer close'
+            onClick={onCloseMenu}
+          >
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='26'
@@ -60,8 +61,22 @@ function MenuMb({
               fill='none'
               className='w-[6.93vw] h-[6.93vw] object-cover'
             >
-              <line x1='20.0581' y1='7.17899' x2='7.04918' y2='20.188' stroke='#000' strokeWidth='1.2265' />
-              <line x1='19.1909' y1='20.0576' x2='6.18192' y2='7.04863' stroke='#000' strokeWidth='1.2265' />
+              <line
+                x1='20.0581'
+                y1='7.17899'
+                x2='7.04918'
+                y2='20.188'
+                stroke='#000'
+                strokeWidth='1.2265'
+              />
+              <line
+                x1='19.1909'
+                y1='20.0576'
+                x2='6.18192'
+                y2='7.04863'
+                stroke='#000'
+                strokeWidth='1.2265'
+              />
             </svg>
           </div>
         </div>
@@ -74,7 +89,13 @@ function MenuMb({
             onClick={() => handleSelect(1)}
           >
             <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>Our tours</h3>
-            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down' />
+            <Image
+              src={iconDropdown}
+              width={11}
+              height={8}
+              alt='img'
+              className='drop-down'
+            />
           </div>
           <div
             className='list menu-mb_item flex items-center gap-[7.47vw] !overflow-x-auto mt-[3.73vw] '
@@ -116,7 +137,13 @@ function MenuMb({
             onClick={() => handleSelect(2)}
           >
             <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>Travel Style</h3>
-            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down' />
+            <Image
+              src={iconDropdown}
+              width={11}
+              height={8}
+              alt='img'
+              className='drop-down'
+            />
           </div>
           <div
             className='grid menu-mb_item grid-cols-3 gap-x-[15.2vw] gap-y-[7.47vw] mt-[4.27vw] px-[2.67vw] '
@@ -132,7 +159,11 @@ function MenuMb({
           >
             {travelStylesList?.data?.allTourStyle?.nodes?.map((item, index) => (
               <div key={index}>
-                <Link href={`/${lang}/travel-style/${item?.slug}`} className='flex flex-col items-center' onClick={onCloseMenu}>
+                <Link
+                  href={`/${lang}/travel-style/${item?.slug}`}
+                  className='flex flex-col items-center'
+                  onClick={onCloseMenu}
+                >
                   <div className='w-[17.3vw] h-[17.3vw] rounded-full border border-solid border-primaryColor flex items-center justify-center bg-[#FFFBE9]'>
                     <Image
                       src={item?.banner?.travelStyleInfo?.travelStyleImage?.sourceUrl}
@@ -155,7 +186,13 @@ function MenuMb({
             onClick={() => handleSelect(3)}
           >
             <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>Hot deals</h3>
-            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down' />
+            <Image
+              src={iconDropdown}
+              width={11}
+              height={8}
+              alt='img'
+              className='drop-down'
+            />
           </div>
           <div
             className='mt-[3.73vw] menu-mb_item '
@@ -172,7 +209,11 @@ function MenuMb({
             <span className='text-[3.73vw] opacity-40  font-[500] block'>{hotDeals?.voucherHeader?.listHeader}</span>
             <div className='hidden-scroll flex overflow-x-auto gap-[3.73vw] mt-[3.2vw] '>
               {listVoucher?.map((item, index) => (
-                <VoucherItem key={index} data={item} headerData={hotDeals?.voucherHeader?.detailHeader} />
+                <VoucherItem
+                  key={index}
+                  data={item}
+                  headerData={hotDeals?.voucherHeader?.detailHeader}
+                />
               ))}
             </div>
             <span className='text-[3.73vw] opacity-40 font-[500] block mt-[6.4vw]'>
@@ -180,12 +221,22 @@ function MenuMb({
             </span>
             <div className='hidden-scroll flex overflow-x-auto gap-[4.27vw] mt-[3.2vw]'>
               {hotDeals?.promotionList?.map((item, index) => (
-                <TourItem key={index} data={item} />
+                <TourItem
+                  key={index}
+                  data={item}
+                  lang={lang}
+                />
               ))}
             </div>
 
             <div className='flex items-center justify-center mt-[6.4vw]'>
-              <Link href={`${lang}/hot-deals`} onClick={onCloseMenu} className='btn-secondary' >See all</Link>
+              <Link
+                href={`${lang}/hot-deals`}
+                onClick={onCloseMenu}
+                className='btn-secondary'
+              >
+                See all
+              </Link>
             </div>
           </div>
         </div>
@@ -196,7 +247,13 @@ function MenuMb({
             onClick={() => handleSelect(4)}
           >
             <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>Recommended Services</h3>
-            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down' />
+            <Image
+              src={iconDropdown}
+              width={11}
+              height={8}
+              alt='img'
+              className='drop-down'
+            />
           </div>
           <div
             className='flex overflow-x-auto gap-[3.2vw] mt-[3.73vw] menu-mb_item'
@@ -211,13 +268,22 @@ function MenuMb({
             }
           >
             {rcmServicesList?.data?.categories?.nodes?.map((item, index) => (
-              <ServiceItem key={index} data={item} lang={lang} onCloseMenu={onCloseMenu}/>
+              <ServiceItem
+                key={index}
+                data={item}
+                lang={lang}
+                onCloseMenu={onCloseMenu}
+              />
             ))}
           </div>
         </div>
         {/* Item 5 */}
         <div className='flex items-center justify-between'>
-          <Link href={`/${lang}/check-visa`} className='text-[4.267vw] opacity-60 capitalize leading-[1.2]' onClick={onCloseMenu}>
+          <Link
+            href={`/${lang}/check-visa`}
+            className='text-[4.267vw] opacity-60 capitalize leading-[1.2]'
+            onClick={onCloseMenu}
+          >
             Check visa
           </Link>
           <SelectLang />
@@ -229,7 +295,13 @@ function MenuMb({
             onClick={() => handleSelect(5)}
           >
             <h3 className='text-[4.26vw] leading-[1.2] capitalize opacity-60 mr-[3.2vw]'>About us</h3>
-            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down' />
+            <Image
+              src={iconDropdown}
+              width={11}
+              height={8}
+              alt='img'
+              className='drop-down'
+            />
           </div>
           <div
             className='flex flex-col gap-[3.2vw] mt-[5.07vw] menu-mb_item'
@@ -243,20 +315,36 @@ function MenuMb({
                 : { height: '0px', overflow: 'hidden' }
             }
           >
-            <Link href='/about-us/who-we-are' className='text-[3.2vw] capitalize' onClick={onCloseMenu}>
+            <Link
+              href='/about-us/who-we-are'
+              className='text-[3.2vw] capitalize'
+              onClick={onCloseMenu}
+            >
               Who we are
             </Link>
-            <Link href='/about-us/responsible-travel' className='text-[3.2vw] capitalize' onClick={onCloseMenu}>
+            <Link
+              href='/about-us/responsible-travel'
+              className='text-[3.2vw] capitalize'
+              onClick={onCloseMenu}
+            >
               responsible travel
             </Link>
-            <Link href='/about-us/reviews' className='text-[3.2vw] capitalize' onClick={onCloseMenu}>
+            <Link
+              href='/about-us/reviews'
+              className='text-[3.2vw] capitalize'
+              onClick={onCloseMenu}
+            >
               Reviews
             </Link>
           </div>
         </div>
         {/* Item 7 */}
         <div>
-          <Link href={`/${lang}/blog`} className='text-[4.267vw] opacity-60 capitalize leading-[1.2]' onClick={onCloseMenu}>
+          <Link
+            href={`/${lang}/blog`}
+            className='text-[4.267vw] opacity-60 capitalize leading-[1.2]'
+            onClick={onCloseMenu}
+          >
             Blog
           </Link>
         </div>

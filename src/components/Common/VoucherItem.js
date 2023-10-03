@@ -35,12 +35,9 @@ function VoucherItem({ className, headerData = {}, data = {} }) {
           <span className='text-[0.75vw] leading-[1.16] mt-[0.5vw] text-textColor max-md:text-[2.66vw] max-md:mt-[2.13vw]'>
             Date: {expireDate}
           </span>
-          <Link
-            href='/'
-            className='bg-primaryColor max-md:font-medium flex items-center justify-center rounded-[0.25vw] px-[4vw] py-[0.5vw] max-md:mt-[3.2vw] text-[1vw] leading-[1.25] mt-auto text-textColor max-md:text-[2.66vw] max-md:py-[1.89vw] max-md:rounded-[1.26vw]'
-          >
+          <button className='bg-primaryColor max-md:font-medium flex items-center justify-center rounded-[0.25vw] px-[4vw] py-[0.5vw] max-md:mt-[3.2vw] text-[1vw] leading-[1.25] mt-auto text-textColor max-md:text-[2.66vw] max-md:py-[1.89vw] max-md:rounded-[1.26vw]'>
             {headerData?.voucherButton}
-          </Link>
+          </button>
         </div>
       </div>
       {openModal && (
