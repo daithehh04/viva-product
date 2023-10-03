@@ -3,7 +3,9 @@ import banner from '@/assets/images/banner.png'
 import scrollDown from '@/helpers/scrollDown'
 import Image from 'next/image'
 import FilterBanner from './FilterBanner'
+import searchIcon from '@/assets/images/search-normal.svg'
 import { useRef } from 'react'
+import Button from '@/components/Common/Button'
 
 function Banner({ data, dataFilter, lang }) {
   const scrollRef = useRef()
@@ -53,6 +55,20 @@ function Banner({ data, dataFilter, lang }) {
         style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 45.44%, rgba(0, 0, 0, 0.35) 69.74%)' }}
       ></div>
       <div ref={scrollRef}></div>
+      <div className='absolute right-0 bottom-0 max-md:hidden z-[45]'>
+        <Button
+          className='py-[1.06vw] px-[2.4vw] bg-primaryColor rounded-tl-[1vw] flex items-center text-[1vw] font-[500] gap-x-[0.75vw] cursor-pointer'
+        >
+          <Image
+            src={searchIcon}
+            width={50}
+            height={50}
+            alt='search'
+            className='w-[1.25vw] h-[1.25vw]'
+          />
+          Search
+        </Button>
+      </div>
     </div>
   )
 }

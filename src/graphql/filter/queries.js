@@ -85,8 +85,41 @@ const DATA_BEST_TOUR = gql`
     }
   }
 `
+const DATA_SEARCH_TOUR = `
+query SearchTour($title: String){
+  allTours(first: 50,where: {search: $title}) {
+    nodes {
+      title
+      slug
+      tourStyle {
+        nodes {
+          slug
+        }
+      }
+      tourDetail {
+        priceTour
+        numberDay
+        banner {
+          title
+          gallery {
+            sourceUrl
+          }
+          location
+          price {
+            lowestPrice
+            highestPrice
+          }
+          rate
+          icons
+        }
+      }
+    }
+  }
+}
+`
 
 export {
+  DATA_SEARCH_TOUR,
   DATA_TAXONOMIES_COUNTRY,
   DATA_TAXONOMIES_TOUR_STYLE,
   DATA_BEST_TOUR,
