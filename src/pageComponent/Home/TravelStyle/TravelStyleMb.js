@@ -2,14 +2,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-function TravelStyleMb({ data, title }) {
+function TravelStyleMb({ data, title, lang }) {
   return (
     <div className='hidden max-md:block pt-[10.67vw] pb-[15.73vw]'>
       <h2 className='heading-1 pb-[5.33vw] border-b border-solid border-[#ccc] text-center ml-[4.27vw]'>{title}</h2>
       <div className='grid menu-mb_item grid-cols-3 gap-x-[12.27vw] gap-y-[5.6vw] mt-[5.33vw] px-[4.27vw] '>
         {data?.travelStyleList?.map((item, index) => (
           <div key={index}>
-            <Link href='travel-style/abs' className='flex flex-col items-center'>
+            <Link href={`/${lang}/${item?.slug}`} className='flex flex-col items-center'>
               <div className='w-[17.3vw] h-[17.3vw] rounded-full border border-solid border-primaryColor flex items-center justify-center bg-[#FFFBE9]'>
                 <Image
                   src={item?.banner?.travelStyleInfo?.travelStyleImage?.sourceUrl}
@@ -23,7 +23,6 @@ function TravelStyleMb({ data, title }) {
                 {item?.banner?.travelStyleInfo?.travelStyleName?.split(',')[0]}
               </span>
             </Link>
-            {/* <div className='h-[40px]'></div> */}
           </div>
         ))}
       </div>
