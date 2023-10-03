@@ -8,6 +8,7 @@ import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import { useState } from 'react'
+import { Popover } from '@mui/material'
 function FilterTour({
   onSelectDes,
   dataFilter,
@@ -62,38 +63,38 @@ function FilterTour({
               }
             }}
           >
-            <Select
-              value={destination}
-              onChange={handleChangeDestination}
-              displayEmpty
-              inputprops={{ 'aria-label': 'Without label' }}
-              sx={{
-                height: '2.5rem',
-                '& .MuiOutlinedInput-notchedOutline': {
-                  border: 'none'
-                },
-                '& .MuiSvgIcon-root': {
-                  right: 0
-                },
-                '& .MuiSelect-outlined': {
-                  padding: 0,
-                  paddingLeft: '0.62vw'
-                }
-              }}
-            >
-              <MenuItem value=''>
+          <Select
+            value={destination}
+            onChange={handleChangeDestination}
+            displayEmpty
+            inputprops={{ 'aria-label': 'Without label' }}
+            sx={{
+              height: '2.5rem',
+              '& .MuiOutlinedInput-notchedOutline': {
+                border: 'none'
+              },
+              '& .MuiSvgIcon-root': {
+                right: 0
+              },
+              '& .MuiSelect-outlined': {
+                padding: 0,
+                paddingLeft: '0.62vw'
+              }
+            }}
+          >
+            <MenuItem value=''>
+              <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
+                Destination
+              </span>
+            </MenuItem>
+            {dataFilter?.countries?.map((item, index) => (
+              <MenuItem value={item?.name} key={index}>
                 <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                  Destination
+                  {item?.name}
                 </span>
               </MenuItem>
-              {dataFilter?.countries?.map((item, index) => (
-                <MenuItem value={item?.name} key={index}>
-                  <span className='md:text-[1.0625vw] md:font-[500] leading-[130%] text-textColor text-[2.93333vw] font-[400]'>
-                    {item?.name}
-                  </span>
-                </MenuItem>
-              ))}
-            </Select>
+            ))}
+          </Select>
           </FormControl>
         </div>
       </div>
