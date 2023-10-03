@@ -21,7 +21,8 @@ function LinkedInShare({ url, title }) {
         alt='linkdin'
         width={50}
         height={50}
-        className='w-[1.5vw] h-[1.5vw] object-contain lg:w-[2.5vw] lg:h-[2.5vw] md:w-[6.4vw] md:h-[6.4vw]'
+        className='w-[6.4vw] h-[6.4vw] object-contain md:w-[1.5vw] md:h-[1.5vw]'
+
       />
     </button>
   )
