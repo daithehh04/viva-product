@@ -1,8 +1,10 @@
+@media screen and (max-width :768px) {
 .swiperSlideMb {
-  .swiper-slide {
-    margin-right: 0 !important;
-    .articleMb {
-      width: auto;
+      .swiper-slide {
+      margin-right: 0 !important;
+      .articleMb {
+        width: auto;
+      }
     }
   }
 }

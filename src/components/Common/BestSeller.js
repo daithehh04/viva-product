@@ -33,7 +33,7 @@ function BestSeller({ isBlogItem, listBlog, lang }) {
           }
         }}
         slidesPerView={1.7}
-        spaceBetween={40}
+        spaceBetween={0}
         onSlideChange={handleSlideChange}
         freeMode={true}
         modules={[Pagination, FreeMode]}
@@ -62,7 +62,7 @@ function BestSeller({ isBlogItem, listBlog, lang }) {
           )
         })}
       </Swiper>
-      <div className='flex absolute max-md:hidden top-[50%] -translate-y-2/4 z-10 w-full justify-between'>
+      <div className='flex absolute max-md:hidden top-[32%] -translate-y-2/4 z-10 w-full justify-between'>
         <button
           onClick={handlePrevSlide}
           className='w-[3.625vw] h-[3.625vw] rounded-full flex justify-center items-center bg-primaryColor absolute left-[-1.8125vw] top-[50%] -translate-y-2/4'
