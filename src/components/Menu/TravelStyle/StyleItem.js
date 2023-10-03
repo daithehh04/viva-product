@@ -15,7 +15,7 @@ function StyleItem({id, title, image, lang,onCloseMenu}) {
         width={100}
         height={100}
         alt={image?.altText}
-        className='w-[5.1vw] h-[5.1vw] object-cover'
+        className='w-[5.1vw] h-[5.1vw] object-contain'
       />
       <h3 className='uppercase text-[1.4375vw] font-[500] leading-[1.2] text-textColor'>{title}</h3>
     </Link>
