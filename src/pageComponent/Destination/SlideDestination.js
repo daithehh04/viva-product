@@ -5,6 +5,7 @@ import '@/scss/pages/_slideDestination.scss'
 import { createTheme, useMediaQuery } from '@mui/material'
 import TourItemMobile from '@/components/Common/TourItemMobile'
 import SlideTour from '@/components/Common/SlideTour'
+import Link from 'next/link'
 function SlideDestination({ data, dataOtherType, dataTitle, lang }) {
   const theme = createTheme({
     breakpoints: {
@@ -26,7 +27,9 @@ function SlideDestination({ data, dataOtherType, dataTitle, lang }) {
           />
         </div>
         <div className='flex justify-center md:mt-[3.5vw] mt-[10.1vw]'>
-          <Button className='btn-secondary'>{dataTitle?.ourTour?.btn}</Button>
+          <Link href={`/${lang}/search`} className='btn-secondary'>
+            {dataTitle?.ourTour?.btn}
+          </Link>
         </div>
 
         <div className='flex flex-col md:mt-[7.5vw] mt-[11.2vw] '>
@@ -58,7 +61,9 @@ function SlideDestination({ data, dataOtherType, dataTitle, lang }) {
                     {dataTitle?.ourTour?.subtitle}
                   </span>
                   <div className='flex justify-center mt-[1.25vw]'>
-                    <Button className='btn-secondary'>{dataTitle?.ourTour?.btn}</Button>
+                    <Link href={`/${lang}/search`} className='btn-secondary'>
+                      {dataTitle?.ourTour?.btn}
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -68,7 +73,9 @@ function SlideDestination({ data, dataOtherType, dataTitle, lang }) {
           </div>
         </div>
         <div className='flex justify-center md:mt-[3.5vw] mt-[10.1vw]'>
-          <Button className='btn-secondary'>{dataTitle?.ourTour?.btn}</Button>
+          <Link href={`/${lang}/search`} className='btn-secondary'>
+            {dataTitle?.ourTour?.btn}
+          </Link>
         </div>
       </div>
     </div>

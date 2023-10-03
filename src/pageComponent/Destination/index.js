@@ -86,14 +86,8 @@ async function index({ lang, slug }) {
         dataTitle={data}
         lang={lang}
       />
-      <CustomerReview
-        data={data?.country?.customerReviews}
-        dataInfo={data?.ourTour}
-      />
-      <OurBlog
-        data={data}
-        lang={lang}
-      />
+      <CustomerReview data={data?.country?.customerReviews} dataInfo={data?.ourTour} lang={lang} />
+      <OurBlog data={data} lang={lang} />
     </div>
   )
 }
