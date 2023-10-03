@@ -45,9 +45,19 @@ function BestSeller({ isBlogItem, listBlog, lang }) {
         {listBlog?.map((item, index) => {
           return (
             <SwiperSlide key={index}>
-              {({ isActive }) =>
-                isBlogItem ? <BlogItem lang={lang} data={item} className={'articleMb'} /> : <TourItem />
-              }
+              {({ isActive }) => (
+                <>
+                  {isBlogItem ? (
+                    <BlogItem
+                      data={item}
+                      className={'articleMb'}
+                      lang={lang}
+                    />
+                  ) : (
+                    <TourItem lang={lang} />
+                  )}
+                </>
+              )}
             </SwiperSlide>
           )
         })}

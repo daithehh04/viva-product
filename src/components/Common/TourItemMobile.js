@@ -64,7 +64,11 @@ function TourItemMobile({ data, lang }) {
           </span>
           <div className='flex gap-[0.53vw]'>
             {listRate?.map((rate, index) => (
-              <Image key={index} alt='image star' src={imgStar} />
+              <Image
+                key={index}
+                alt='image star'
+                src={imgStar}
+              />
             ))}
           </div>
         </div>
@@ -79,7 +83,13 @@ function TourItemMobile({ data, lang }) {
               key={index}
               className='w-[5.86667vw] h-[5.86667vw] bg-[#FFF8DE] justify-center flex items-center rounded-[0.72vw] object-contain'
             >
-              <Image alt={icon} src={iconsTour[icon]} width={20} height={20} className='w-[3.2vw] h-[3.2vw]' />
+              <Image
+                alt={icon}
+                src={iconsTour[icon]}
+                width={20}
+                height={20}
+                className='w-[3.2vw] h-[3.2vw]'
+              />
             </div>
           ))}
         </div>

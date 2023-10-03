@@ -68,8 +68,17 @@ async function index({ lang, slug }) {
   }
   return (
     <div>
-      <Banner data={data?.country?.banner} slug={slug} dataFilter={dataFilter} lang={lang} />
-      <FilterPopup dataFilter={dataFilter} slug={slug} lang={lang} />
+      <Banner
+        data={data?.country?.banner}
+        slug={slug}
+        dataFilter={dataFilter}
+        lang={lang}
+      />
+      <FilterPopup
+        dataFilter={dataFilter}
+        slug={slug}
+        lang={lang}
+      />
       <SectionActions />
       <SlideDestination
         data={dataOtherTrip?.data?.allTours?.nodes}

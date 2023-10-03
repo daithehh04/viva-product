@@ -6,7 +6,7 @@ import Link from 'next/link'
 import TourItem from './TourItem'
 import vw from '@/helpers/convertToVw'
 
-function SlideTour({ data, slug, isLoading }) {
+function SlideTour({ data, slug, isLoading, lang }) {
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()
   const handleNextSlide = () => {
@@ -45,7 +45,10 @@ function SlideTour({ data, slug, isLoading }) {
             <SwiperSlide key={index}>
               {({ isActive }) => (
                 <div className='md:w-full md:h-[24.5vw] max-md:pl-[4.27vw] block box-border'>
-                  <TourItem data={item} />
+                  <TourItem
+                    data={item}
+                    lang={lang}
+                  />
                 </div>
               )}
             </SwiperSlide>

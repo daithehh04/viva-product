@@ -27,7 +27,6 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
     arrayDesInit.push(des?.slug)
   })
 
-  console.log(metaDestination)
   metaCategories.map((cate, index) => {
     arrayCateInit.push(cate?.slug)
   })
@@ -135,6 +134,7 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
             <Loading />
           </div>
         )}
+
       </div>
     </div>
   )

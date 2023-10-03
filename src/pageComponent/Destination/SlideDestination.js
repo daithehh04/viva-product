@@ -21,7 +21,10 @@ function SlideDestination({ data, dataOtherType, dataTitle, lang }) {
       <div className={`flex flex-col md:mt-[6.94vw] ${onlySmallScreen ? 'w-full' : 'content'}`}>
         <span className='heading-1 md:mb-[3vw] md:pl-0 pl-[4.27vw]'>{dataTitle?.ourTour?.titleTrips}</span>
         <div className='max-md:mt-[6.4vw]'>
-          <SlideTour data={dataOtherType} />
+          <SlideTour
+            data={dataOtherType}
+            lang={lang}
+          />
         </div>
         <div className='flex justify-center md:mt-[3.5vw] mt-[10.1vw]'>
           <Link href={`/${lang}/search`} className='btn-secondary'>
@@ -33,7 +36,19 @@ function SlideDestination({ data, dataOtherType, dataTitle, lang }) {
           <span className='heading-1 md:mb-[3vw] md:pl-0 pl-[4.27vw]'>{dataTitle?.ourTour?.titleTours}</span>
           <div className='grid md:grid-cols-4 gap-x-[2.5vw] gap-y-[3vw] md:bg-transparent bg-[#F3F6FB]'>
             {data?.map((tour, index) => (
-              <div key={index}>{onlySmallScreen ? <TourItemMobile data={tour} /> : <TourItem data={tour} />}</div>
+              <div key={index}>
+                {onlySmallScreen ? (
+                  <TourItemMobile
+                    data={tour}
+                    lang={lang}
+                  />
+                ) : (
+                  <TourItem
+                    data={tour}
+                    lang={lang}
+                  />
+                )}
+              </div>
             ))}
             {data?.length >= 7 ? (
               <div className='h-[24.5vw] rounded-[1vw] relative hidden md:flex  justify-center items-center lastItem'>

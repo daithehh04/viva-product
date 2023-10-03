@@ -141,7 +141,7 @@ function BookTour({ data, setOpenModal }) {
       >
         <div className='relative w-full h-full md:pt-[3.59vw] md:pl-[3.75vw] md:pr-[4.06vw] md:pb-[6.25vw] px-[4.27vw] pb-[22.29vw] pt-[8.8vw]'>
           <svg
-            className='md:w-[3.5vw] md:h-[3.5vw] w-[8.53333vw] h-[8.53333vw]  absolute z-[10] md:top-[3.59vw] md:right-[4.47vw] max-md:right-[4.27vw] cursor-pointer'
+            className='md:w-[3.5vw] md:h-[3.5vw] w-[8.53333vw] h-[8.53333vw]  fixed z-[10] md:top-[3.59vw] md:right-[4.47vw] max-md:right-[4.27vw] cursor-pointer'
             xmlns='http://www.w3.org/2000/svg'
             width='57'
             height='57'

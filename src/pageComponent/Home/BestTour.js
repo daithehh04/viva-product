@@ -66,6 +66,7 @@ function BestTour({
           className={`${
             allTours?.length === 0
               ? `w-full block md:mt-[1.88vw] mt-[7.73vw]`
+
               : 'grid grid-cols-4 relative gap-[2.5vw] md:mt-[1.88vw] mt-[7.73vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'
           }`}
         >
@@ -74,10 +75,16 @@ function BestTour({
             allTours?.slice(0, 7).map((tour, index) => (
               <div key={index}>
                 <div className='max-md:hidden'>
-                  <TourItem data={tour} lang={lang} />
+                  <TourItem
+                    data={tour}
+                    lang={lang}
+                  />
                 </div>
                 <div className='hidden max-md:block'>
-                  <TourItemMobile data={tour} />
+                  <TourItemMobile
+                    data={tour}
+                    lang={lang}
+                  />
                 </div>
               </div>
             ))

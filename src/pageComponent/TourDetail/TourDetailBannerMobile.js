@@ -19,7 +19,7 @@ export default function TourDetailBannerMobile({ data = {} }) {
   const [openModal, setOpenModal] = useState(false)
   const listGallery = gallery?.concat(gallery)
   return (
-    <section className='md:hidden block relative mt-[10vw] mb-[6.4vw] text-textColor'>
+    <section className='md:hidden block relative mb-[6.4vw] text-textColor'>
       <div className='w-full h-[72.8vw] relative'>
         <Swiper
           slidesPerView={1}

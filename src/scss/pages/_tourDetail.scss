@@ -27,7 +27,7 @@
     .sub-banner-slide {
       .swiper-slide {
         cursor: pointer;
-        &:not(.swiper-slide-thumb-active) {
+        &:not(.swiper-slide-active) {
           filter: grayscale(100%);
         }
 
