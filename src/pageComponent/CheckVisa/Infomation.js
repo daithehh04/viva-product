@@ -8,7 +8,6 @@ import { useData } from './DataContext'
 
 function Infomation({ data }) {
   const { dataB } = useData();
-  console.log('dataB: ',dataB);
   const isFreeVisa = dataB?.isFreeVisa
   const dataInfo = data?.checkvisa?.infodetail
   const theme = createTheme({

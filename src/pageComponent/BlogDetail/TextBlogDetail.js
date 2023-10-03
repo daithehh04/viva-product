@@ -31,7 +31,7 @@ function TextBlogDetail({ data }) {
         <span className='text-textColor  md:text-[0.875vw] text-[3.73vw] font-bold md:leading-[1.25] leading-[1.42] uppercase md:mr-[0.81vw] mr-[3.47vw]'>
           {blogdetail?.transtitle?.share}
         </span>
-        <div>
+        <div className='flex items-center'>
           <TwitterShare url={urlDetail?.link} title={urlDetail?.title} />
           <FaceBookShare url={urlDetail?.link} title={urlDetail?.title} />
           <LinkedInShare url={urlDetail?.link} title={urlDetail?.title} />

@@ -44,7 +44,6 @@ async function index({ lang, slug }) {
   )
 
   const dataBestSeller = await getDataPost(lang, GET_DATA_BEST_SELLER_OURTOUR)
-  console.log(dataBestSeller?.data?.bestSeller?.tours?.nodes)
   const data = dataCountry?.data?.countries?.translation
   // ==== Get name filter ====
   const dataTaxonomiesStyleTour = await getDataPost(lang, DATA_TAXONOMIES_TOUR_STYLE)

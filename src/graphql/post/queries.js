@@ -115,36 +115,36 @@ const GET_ALL_POST_FILTER = gql`
 const GET_ALL_TOURS_BESTSELLER = `
 query ($language: LanguageCodeEnum!) {
   page(id: "cG9zdDo1NjY") {
-    translation(language: $language){
+    translation(language: $language) {
       ourblog {
-      heading1
-      heading2
-      bestseller {
-        ... on Tours {
-          translation(language: $language) {
-            id
-            slug
-            tourDetail {
+        heading1
+        heading2
+        button
+      }
+    }
+  }
+  bestSeller(id:"dGVybToyODU="){
+    tours{
+      nodes{
+        translation(language:$language){
+          slug
+          tourDetail {
               banner {
-                title
-                rate
+                gallery {
+                  sourceUrl
+                }
+                icons
+                location
                 price {
                   highestPrice
                   lowestPrice
                 }
-                location
-                gallery {
-                  altText
-                  sourceUrl
-                }
-                icons
+                rate
+                title
               }
             }
-          }
         }
       }
-      button
-    }
     }
   }
 }
