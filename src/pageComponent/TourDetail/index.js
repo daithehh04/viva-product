@@ -17,7 +17,7 @@ export default function TourDetail({
 }) {
   const { banner, content, map, reviews } = data
   const { bannerHeaders, content: contentHeader, relatedTour: relatedTourHeader, subBanner } = headerData
-  console.log(dataBookTour)
+
   return (
     <>
       <TourDetailBanner

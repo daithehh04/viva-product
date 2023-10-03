@@ -17,7 +17,7 @@ function TourItem({ data, menu, lang }) {
     <Link
       href={`/${lang}/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
       className={`${
-        menu ? 'md:h-[14.5vw]' : 'md:h-[24.5vw]'
+        menu ? 'md:h-[14.5vw] w-[52.5vw]' : 'md:h-[24.5vw]'
       } flex w-full h-[67.23vw] md:rounded-[1vw] rounded-[2.75vw] relative max-md:flex-shrink-0  tour-item cursor-pointer`}
     >
       <Image
@@ -44,7 +44,7 @@ function TourItem({ data, menu, lang }) {
           href={`/${lang}/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(
             data?.translation?.slug
           )}`}
-          className='text-white inline line-clamp-2 title-tour md:text-[1.125vw] text-[2.93vw] font-bold tracking-tight leading-[1.2] mt-[0.25vw]'
+          className='text-white block line-clamp-2 title-tour md:text-[1.125vw] text-[2.93vw] font-bold tracking-tight leading-[1.2] mt-[0.25vw]'
         >
           {tourData?.title}
         </Link>

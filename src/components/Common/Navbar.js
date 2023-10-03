@@ -261,7 +261,6 @@ export default function Navbar({
           onCloseMenu={handleClickClose}
           lang={lang}
           hotDeals={hotDeals}
-          listVoucher={listVoucher}
           dataMenuCountry={dataMenuCountry}
           travelStylesList={travelStylesList}
           rcmServicesList={rcmServicesList}
