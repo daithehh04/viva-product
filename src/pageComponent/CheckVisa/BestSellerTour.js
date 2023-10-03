@@ -3,7 +3,7 @@ import SlideTour from '@/components/Common/SlideTour'
 import TourItem from '@/components/Common/TourItem'
 import Link from 'next/link'
 
-function BestSellerTour({ data }) {
+function BestSellerTour({ data, lang }) {
   const dataTour = data?.checkvisa?.bestseller?.bestsellertour
   return (
     <div className='w-full md:mt-[6.87vw]'>
@@ -18,7 +18,10 @@ function BestSellerTour({ data }) {
               index === 0 && 'max-md:ml-[4.27vw]'
             } ${index === dataTour?.length - 1 && 'max-md:mr-[4.27vw]'}`}
           >
-            <TourItem data={tour} />
+            <TourItem
+              data={tour}
+              lang={lang}
+            />
           </div>
         ))}
       </div>

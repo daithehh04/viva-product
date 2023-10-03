@@ -18,7 +18,7 @@ function InputSearchMb() {
         alt='icon'
         className='w-[3.73vw] h-[3.73vw] absolute left-[4.27vw] top-[50%] -translate-y-1/2'
       />
-      <div className='w-[7.46vw] h-[7.46vw] rounded-full flex items-center justify-center bg-[#eee] cursor-pointer absolute right-[1.07vw] top-[50%] -translate-y-1/2'>
+      <div className='search-mb-btn w-[7.46vw] h-[7.46vw] rounded-full flex items-center justify-center bg-[#eee] cursor-pointer absolute right-[1.07vw] top-[50%] -translate-y-1/2'>
         <Image
           src={arrIcon}
           width={50}

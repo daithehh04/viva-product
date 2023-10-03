@@ -1,7 +1,14 @@
+'use client'
 import Image from 'next/image'
 import responsibleBg from '@/assets/images/about/responsibleBg.png'
+import { useEffect } from 'react'
+import AOS from 'aos'
 
 export default function Responsible({ data = {} }) {
+  useEffect(() => {
+    AOS.init()
+    AOS.refresh()
+  }, [])
   return (
     <section className='relative pb-[7.5vw] rounded-2xl md:rounded-none mt-[-7.2vw] bg-white z-10 md:mt-0'>
       <Image
@@ -13,7 +20,12 @@ export default function Responsible({ data = {} }) {
       <div className='content'>
         {/* title */}
         <div className='text-textColor md:w-[65vw] m-auto md:mb-[5.25vw] mb-[21.87vw] md:pt-[6.125vw] pt-[13.6vw] text-center'>
-          <h2 className='md:text-[4vw] text-[4.8vw] font-optima font-semibold md:leading-[110%] leading-[120%] capitalize mb-[1vw]'>
+          <h2
+            className='md:text-[4vw] text-[4.8vw] font-optima font-semibold md:leading-[110%] leading-[120%] capitalize mb-[1vw]'
+            data-aos-once='true'
+            data-aos='fade-up'
+            data-aos-duration='1000'
+          >
             {data?.title}
           </h2>
           <div className='md:w-[80%] md:font-manrope leading-[150%] md:text-[1.125vw] text-[3.733vw] opacity-80 text-center m-auto'>
@@ -32,7 +44,12 @@ export default function Responsible({ data = {} }) {
                   index % 2 !== 0 && 'md:flex-row-reverse'
                 } md:flex justify-between gap-[4.6875vw] items-end`}
               >
-                <main className='capitalize mb-[6.4vw] md:mb-0'>
+                <main
+                  className='capitalize mb-[6.4vw] md:mb-0'
+                  data-aos-once='true'
+                  data-aos-duration='1000'
+                  data-aos='fade-right'
+                >
                   <div className='text-primaryColor md:text-[6vw] text-[17.07vw] leading-[110%] font-optima font-semibold opacity-60'>
                     {index < 10 ? `0${index + 1}` : index}
                   </div>
@@ -50,6 +67,9 @@ export default function Responsible({ data = {} }) {
                   width={1000}
                   height={1000}
                   className='md:w-[35.93vw] w-full md:h-[35.93vw] h-[91.47vw]'
+                  data-aos-once='true'
+                  data-aos-duration='1000'
+                  data-aos='fade-left'
                 />
               </div>
             )

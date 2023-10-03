@@ -23,33 +23,43 @@ export default function TourDetailBanner({ data = {}, headerData }) {
   const outsideRef = useRef()
   const swiperRef = useRef()
   const thumbsSwiperRef = useRef()
-  const [thumbsSwiper, setThumbsSwiper] = useState(null) // config swiper
   const [isPlay, setIsPlay] = useState(false)
   const listGallery = gallery?.concat(gallery)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [thumbActiveIndex, setThumbActiveIndex] = useState(0)
+
   // scroll to next section
   const handleScrollDown = () => {
     outsideRef.current.scrollIntoView({
       behavior: 'smooth'
     })
   }
+
   useEffect(() => {
     isPlay ? swiperRef.current?.autoplay.stop() : swiperRef.current?.autoplay.start()
   }, [isPlay])
+
+  // console.log('activeIndex', activeIndex)
+  // console.log('thumbActiveIndex', thumbActiveIndex)
 
   return (
     <section className='tour-banner-wrapper relative overflow-hidden md:block hidden'>
       <Swiper
         slidesPerView={1}
         spaceBetween={0}
-        thumbs={{ swiper: thumbsSwiper }}
-        modules={[Thumbs, Autoplay]}
         loop={true}
-        autoplayTimeout={3000}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false
+        }}
+        onSlideChange={(swiper) => {
+          console.log(swiper.realIndex)
+        }}
+        modules={[Autoplay]}
         className='mySwiper2 banner-slide'
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
         }}
-        ref={swiperRef}
       >
         <>
           {video?.uploadVideo?.mediaItemUrl && (
@@ -162,20 +172,16 @@ export default function TourDetailBanner({ data = {}, headerData }) {
         </div>
 
         <Swiper
-          onSwiper={setThumbsSwiper}
           spaceBetween={14}
           slidesPerView={4}
           loop={true}
-          watchSlidesProgress={true}
-          watchSlidesVisibility={true}
-          slideToClickedSlide={true}
-          centeredSlides={true}
-          modules={[Thumbs]}
           className='mySwiper sub-banner-slide'
           onBeforeInit={(swiper) => {
             thumbsSwiperRef.current = swiper
           }}
-          ref={thumbsSwiperRef}
+          onSlideChange={(swiper) => {
+            console.log(swiper.realIndex)
+          }}
         >
           {video?.uploadVideo?.mediaItemUrl && (
             <SwiperSlide className='relative'>

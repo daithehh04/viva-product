@@ -6,7 +6,7 @@ import Link from 'next/link'
 import TourItem from './TourItem'
 import BlogItem from './BlogItem'
 
-function BestSeller({ isBlogItem, listBlog }) {
+function BestSeller({ isBlogItem, listBlog, lang }) {
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()
   const handleNextSlide = () => {
@@ -46,16 +46,17 @@ function BestSeller({ isBlogItem, listBlog }) {
           return (
             <SwiperSlide key={index}>
               {({ isActive }) => (
-                <Link href={`#!`}>
+                <>
                   {isBlogItem ? (
                     <BlogItem
                       data={item}
                       className={'articleMb'}
+                      lang={lang}
                     />
                   ) : (
-                    <TourItem />
+                    <TourItem lang={lang} />
                   )}
-                </Link>
+                </>
               )}
             </SwiperSlide>
           )

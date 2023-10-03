@@ -21,9 +21,18 @@ import BookTour from './BookTour'
 import ModalCustom from './ModalCustom'
 import Button from './Button'
 import { usePathname } from 'next/navigation'
+import logoMb from '@/assets/images/logoMb.svg'
+import { createTheme, useMediaQuery } from '@mui/material'
 
+const theme = createTheme({
+  breakpoints: {
+    values: {
+      sm: 768
+    }
+  }
+})
 export default function Navbar({
-  params,
+  lang,
   dataHome,
   dataMenuCountry,
   travelStylesList,
@@ -36,6 +45,26 @@ export default function Navbar({
   const refMb = useRef()
   const refMenu = useRef()
   const refBtnBookTour = useRef()
+  const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
+  //check pathName
+  const pathName = usePathname()
+
+  const pathNameMb = [
+    'our-tours',
+    'travel-style',
+    'tours',
+    'who-we-are',
+    'responsible-travel',
+    'review',
+    'hot-deals',
+    'check-visa'
+  ]
+
+  const pathNamePc = ['tours']
+
+  const isTranparent = onlySmallScreen
+    ? pathNameMb.some((item) => pathName.includes(item))
+    : pathName.includes(pathNamePc) && !pathName.includes('our-tours')
   // const refFormPopup = useRef()
   const [openModal, setOpenModal] = useState(false)
 
@@ -46,8 +75,10 @@ export default function Navbar({
       var scrollPosition = window.pageYOffset || document.documentElement.scrollTop
       if (scrollPosition >= 200) {
         nav.classList.add('nav-active')
+        nav.classList.remove('nav-mb-special')
       } else {
         nav.classList.remove('nav-active')
+        if (isTranparent) nav.classList.add('nav-mb-special')
       }
     })
     // ===========================
@@ -93,30 +124,27 @@ export default function Navbar({
   const handleClickClose = () => {
     refMb.current.classList.remove('active')
   }
-  // const handleOpenPopup = () => {
-  //   refFormPopup.current.classList.add('active')
-  // }
-  // const handleClosePopup = () => {
-  //   refFormPopup.current.classList.remove('active')
-  // }
 
-  const pathName = usePathname()
   return (
     <div className=''>
-      <nav className='bg-white w-full navbar h-[5.375vw] max-lg:h-[14.93vw]'>
+      <nav
+        className={`${
+          isTranparent ? 'md:bg-white border-b border-solid border-[#ffffff29] nav-mb-special' : 'bg-white'
+        } w-full navbar h-[5.375vw] max-lg:h-[14.93vw]`}
+      >
         <div className='flex items-center h-full content '>
           <div className='flex items-center gap-x-[2vw]'>
-            <Link href={`/${params}`}>
+            <Link href={`/${lang}`}>
               <Image
                 src={logo}
                 width={100}
                 height={100}
                 alt='viva-travel'
-                className='w-[3.5625vw] object-cover max-lg:w-[10.4vw]'
+                className='nav-logo w-[3.5625vw] object-cover max-lg:w-[10.4vw]'
               />
             </Link>
             <div
-              className='max-lg:hidden flex items-center gap-x-[2vw] mr-[6vw]'
+              className='nav-list max-lg:hidden flex items-center gap-x-[2vw] mr-[6vw]'
               ref={refMenu}
             >
               <div className='relative flex-shrink-0'>
@@ -125,12 +153,12 @@ export default function Navbar({
                   <div className='menu-item'>
                     <MenuDestinations
                       data={dataMenuCountry}
-                      lang={params}
+                      lang={lang}
                       onCloseMenu={handleCloseMenu}
                     />
                   </div>
                 </div>
-                <span className='absolute top-[-12px] right-[-6px] px-[10px] rounded-[99px] bg-primaryColor text-[12px]'>
+                <span className='icon-hot absolute top-[-12px] right-[-6px] px-[10px] rounded-[99px] bg-primaryColor text-[12px]'>
                   Hot
                 </span>
               </div>
@@ -139,13 +167,13 @@ export default function Navbar({
                 <div className='menu-item'>
                   <MenuStyle
                     travelStylesList={travelStylesList}
-                    lang={params}
+                    lang={lang}
                     onCloseMenu={handleCloseMenu}
                   />
                 </div>
               </div>
               <Link
-                href={`/${params}/hot-deals`}
+                href={`/${lang}/hot-deals`}
                 className='capitalize text-[1vw] nav-link'
               >
                 {dataHome?.nav3}
@@ -154,11 +182,12 @@ export default function Navbar({
                     hotDeals={hotDeals}
                     listVoucher={listVoucher}
                     menu
+                    lang={lang}
                   />
                 </div>
               </Link>
               <Link
-                href={`/${params}/check-visa`}
+                href={`/${lang}/check-visa`}
                 className='capitalize text-[1vw] nav-link'
               >
                 {dataHome?.nav4}
@@ -166,8 +195,11 @@ export default function Navbar({
               <div className='capitalize text-[1vw] nav-link'>
                 {dataHome?.nav5}
                 <div className='menu-item'>
-
-                  <MenuAbout dataAboutUs={dataAboutUs} onCloseMenu={handleCloseMenu} lang={params}/>
+                  <MenuAbout
+                    dataAboutUs={dataAboutUs}
+                    onCloseMenu={handleCloseMenu}
+                    lang={lang}
+                  />
                 </div>
               </div>
               <div className='capitalize text-[1vw] nav-link'>
@@ -175,13 +207,13 @@ export default function Navbar({
                 <div className='menu-item'>
                   <MenuRcmService
                     rcmServicesList={rcmServicesList}
-                    lang={params}
+                    lang={lang}
                     onCloseMenu={handleCloseMenu}
                   />
                 </div>
               </div>
               <Link
-                href={`/${params}/blog`}
+                href={`/${lang}/blog`}
                 className='capitalize text-[1vw] nav-link'
               >
                 {dataHome?.nav7}
@@ -206,7 +238,7 @@ export default function Navbar({
             </Button>
           </div>
           <div className='flex-shrink-0 max-lg:hidden'>
-            <SelectLang lang={params} />
+            <SelectLang lang={lang} />
           </div>
           <div className='flex-1 hidden max-lg:block'>
             <InputSearchMb />
@@ -216,7 +248,7 @@ export default function Navbar({
             width={50}
             height={50}
             alt='bars'
-            className='w-[4.8vw] h-[2.93vw] ml-auto object-cover cursor-pointer hidden max-lg:block'
+            className={`w-[4.8vw] h-[2.93vw] ml-auto object-cover cursor-pointer hidden max-lg:block`}
             onClick={handleClickBars}
           />
         </div>
@@ -227,7 +259,7 @@ export default function Navbar({
       >
         <MenuMb
           onCloseMenu={handleClickClose}
-          lang={params}
+          lang={lang}
           hotDeals={hotDeals}
           listVoucher={listVoucher}
           dataMenuCountry={dataMenuCountry}

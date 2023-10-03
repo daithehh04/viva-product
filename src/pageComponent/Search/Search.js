@@ -9,19 +9,19 @@ import NewRelease from './NewRelease'
 import Loading from '@/components/Common/Loading'
 
 const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget, listBlog }) => {
-  if (typeof window !== "undefined") {
-    const currentUrl = window?.location.href;
-    var urlParams = new URLSearchParams(currentUrl);
-    var durationParams = urlParams.get('duration');
-    var budgetParams = urlParams.get('budget');
-    var styleParams = urlParams.get('style');
-    var destinationParams = urlParams.get('country');
+  if (typeof window !== 'undefined') {
+    const currentUrl = window?.location.href
+    var urlParams = new URLSearchParams(currentUrl)
+    var durationParams = urlParams.get('duration')
+    var budgetParams = urlParams.get('budget')
+    var styleParams = urlParams.get('style')
+    var destinationParams = urlParams.get('country')
   }
   const params = {
-    'day':durationParams,
-    'budget':budgetParams,
-    'style':styleParams,
-    'country':destinationParams
+    day: durationParams,
+    budget: budgetParams,
+    style: styleParams,
+    country: destinationParams
   }
 
   function handleTaxonomiesSlug(data) {
@@ -46,25 +46,25 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
   const [budget, setBudget] = useState(null)
 
   useEffect(() => {
-    const nameV = dataMenuCountry?.data?.allCountries?.nodes.filter(item => item.slug === destinationParams)
-    if(nameV) {
+    const nameV = dataMenuCountry?.data?.allCountries?.nodes.filter((item) => item.slug === destinationParams)
+    if (nameV) {
       var nameDef = nameV[0]?.name
       setDestination(nameDef)
     }
-    if(durationParams) {
-      var rangeArray = durationParams?.split('-').map(Number);
+    if (durationParams) {
+      var rangeArray = durationParams?.split('-').map(Number)
       setDay(rangeArray)
     }
-    if(budgetParams) {
+    if (budgetParams) {
       setBudget(budgetParams)
     }
-  },[budgetParams,durationParams,dataMenuCountry,destinationParams])
-  
+  }, [budgetParams, durationParams, dataMenuCountry, destinationParams])
+
   useEffect(() => {
-    if(styleParams) {
+    if (styleParams) {
       setTravelStyle(styleParams)
     }
-  },[styleParams])
+  }, [styleParams])
   const dataAllTours = useQuery(DATA_BEST_TOUR, {
     variables: {
       language: lang?.toUpperCase(),
@@ -110,11 +110,29 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
           onTravelStyle={(data) => setTravelStyle(data)}
           onBudget={(data) => setBudget(data)}
         />
-        {!loading ? <div className='flex-1'>
-          {allTours?.length !== 0 ? <ListTour data={allTours} lang={lang}/> : <OtherTours lang={lang} />}
-        </div> : <div className='flex items-center justify-center flex-1 w-full text-center h-[80vh]'><Loading/></div>}
+        {!loading ? (
+          <div className='flex-1'>
+            {allTours?.length !== 0 ? (
+              <ListTour
+                data={allTours}
+                lang={lang}
+              />
+            ) : (
+              <OtherTours lang={lang} />
+            )}
+          </div>
+        ) : (
+          <div className='flex items-center justify-center flex-1 w-full text-center h-[80vh]'>
+            <Loading />
+          </div>
+        )}
       </div>
-      {allTours?.length !== 0 && <NewRelease data={listBlog} />}
+      {allTours?.length !== 0 && (
+        <NewRelease
+          data={listBlog}
+          lang={lang}
+        />
+      )}
     </div>
   )
 }

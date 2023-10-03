@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { iconsTour } from '@/lib/Icons'
 
-function TourItem({ data, menu,lang }) {
+function TourItem({ data, menu, lang }) {
   const tourData = data?.translation?.tourDetail?.banner || data?.tourDetail?.banner
   let icons = null
   if (tourData?.rate) icons = new Array(Math.round(tourData?.rate)).fill(0)
@@ -41,7 +41,9 @@ function TourItem({ data, menu,lang }) {
           <span className='text-[2.66vw] md:text-[0.875vw] leading-normal text-primaryColor'>{tourData?.location}</span>
         </div>
         <Link
-          href={`/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
+          href={`/${lang}/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(
+            data?.translation?.slug
+          )}`}
           className='text-white inline line-clamp-2 title-tour md:text-[1.125vw] text-[2.93vw] font-bold tracking-tight leading-[1.2] mt-[0.25vw]'
         >
           {tourData?.title}

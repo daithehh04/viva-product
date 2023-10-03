@@ -128,19 +128,39 @@ function TourSlide({
           />
         </div>
       </div>
-      <div className={`${allTours?.length === 0 ? `w-full block mt-[1.88vw]` : 'grid grid-cols-4 gap-[2.5vw] mt-[1.88vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'}`}>
-        {!dataBestTours.loading ? (allTours?.length ? 
-        allTours?.slice(size * (activePage - 1), size * activePage).map((tour, index) => (
-          <div key={index}>
-            <div className='max-md:hidden'>
-              <TourItem data={tour} lang={lang}/>
+      <div
+        className={`${
+          allTours?.length === 0
+            ? `w-full block mt-[1.88vw]`
+            : 'grid grid-cols-4 gap-[2.5vw] mt-[1.88vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'
+        }`}
+      >
+        {!dataBestTours.loading ? (
+          allTours?.length ? (
+            allTours?.slice(size * (activePage - 1), size * activePage).map((tour, index) => (
+              <div key={index}>
+                <div className='max-md:hidden'>
+                  <TourItem
+                    data={tour}
+                    lang={lang}
+                  />
+                </div>
+                <div className='hidden max-md:block'>
+                  <TourItemMobile
+                    data={tour}
+                    lang={lang}
+                  />
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className='text-center text-[3.5vw] w-full text-[#c23a3a] font-optima max-md:text-[5.67vw]'>
+              Not Found Tour !
             </div>
-            <div className='hidden max-md:block'>
-              <TourItemMobile data={tour} />
-            </div>
-          </div>)) : <div className='text-center text-[3.5vw] w-full text-[#c23a3a] font-optima max-md:text-[5.67vw]'>Not Found Tour !</div>) : 
+          )
+        ) : (
           <div className='flex justify-center w-full col-span-4'>
-            <Loading/>
+            <Loading />
           </div>
         )}
       </div>

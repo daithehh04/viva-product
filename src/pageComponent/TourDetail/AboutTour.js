@@ -315,7 +315,7 @@ export default function AboutTour(props) {
                     {stepData.map((step, index) => {
                       return (
                         <div
-                          className='step-icon flex md:gap-[0.5vw] gap-[1vw] cursor-pointer px-[2vw]'
+                          className='step-icon flex md:gap-[0.5vw] gap-[1vw] cursor-pointer md:px-0 px-[2vw]'
                           key={index}
                           onClick={() => scrollDown(sectionRefs[step.key])}
                         >

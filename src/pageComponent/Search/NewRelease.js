@@ -2,7 +2,7 @@ import BestSeller from '@/components/Common/BestSeller'
 import Button from '@/components/Common/Button'
 import React from 'react'
 
-const NewRelease = ({ data }) => {
+const NewRelease = ({ data, lang }) => {
   return (
     <div>
       <div className='mt-[6.69vw]'>
@@ -10,6 +10,7 @@ const NewRelease = ({ data }) => {
         <BestSeller
           isBlogItem={true}
           listBlog={data}
+          lang={lang}
         />
       </div>
       <div className='flex mt-[4vw] mb-[5.75vw] justify-center'>
