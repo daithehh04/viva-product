@@ -2,7 +2,7 @@ import icon from '@/assets/images/icon-style.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 
-function TravelStyleItem({ data }) {
+function TravelStyleItem({ data, lang }) {
   return (
     <div className='relative w-[26.25vw] travel-style z-10'>
       <Image

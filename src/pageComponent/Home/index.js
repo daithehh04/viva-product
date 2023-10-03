@@ -129,7 +129,7 @@ export default function Home({
       <Banner lang={lang} data={banner} dataFilter={dataFilter} />
       <div className='body-wrapper'>
         <div className='style-mb'>
-          <TravelStyleMb data={travelStyleList} title={travelStyleList?.title} />
+          <TravelStyleMb lang={lang} data={travelStyleList} title={travelStyleList?.title} />
         </div>
         <div className='survey-wrapper'>
           <Surveys data={survey} button={button} />
@@ -154,6 +154,7 @@ export default function Home({
             data={travelStyleList?.travelStyleList}
             title={travelStyleList?.title}
             desc={travelStyleList?.desc}
+            lang={lang}
           />
         </div>
         <div className='represent-wrapper'>
