@@ -3,7 +3,10 @@ import ReviewItem from '@/components/Common/ReviewItem'
 import { GET_All_CUSTOMERS_REVIEW } from '@/graphql/customersReview/queries'
 import { useQuery } from '@apollo/client'
 import { Skeleton, createTheme, useMediaQuery } from '@mui/material'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import AOS from 'aos'
+import Loading from '@/components/Common/Loading'
+
 const theme = createTheme({
   breakpoints: {
     values: {
@@ -12,6 +15,11 @@ const theme = createTheme({
   }
 })
 const Reviews = ({ lang, data }) => {
+  useEffect(() => {
+    AOS.init()
+    AOS.refetch
+  }, [])
+
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
   let totalPage = useRef(0)
   const [activePage, setActivePage] = useState(1)
@@ -37,25 +45,43 @@ const Reviews = ({ lang, data }) => {
   return (
     <section className='content py-[10vw] relative z-10'>
       <div className='md:w-[33.4375vw] w-full text-textColor md:mb-[2vw] mb-[13.07vw]'>
-        <h2 className='md:text-[4vw] text-[4.8vw] font-semibold capitalize md:leading-[110%] leading-[120%] font-optima md:mb-[1vw] mb-[2.13vw]'>
+        <h2
+          data-aos-once='true'
+          data-aos='fade-up'
+          data-aos-duration='1000'
+          className='md:text-[4vw] text-[4.8vw] font-semibold capitalize md:leading-[110%] leading-[120%] font-optima md:mb-[1vw] mb-[2.13vw]'
+        >
           {data?.heading}
         </h2>
-        <p className='md:text-[1.125vw] text-[3.73vw] leading-[150%] md:opacity-80 opacity-70'>{data?.desc}</p>
+        <p
+          data-aos-once='true'
+          data-aos='fade-up'
+          data-aos-duration='1200'
+          className='md:text-[1.125vw] text-[3.73vw] leading-[150%] md:opacity-80 opacity-70'
+        >
+          {data?.desc}
+        </p>
       </div>
 
       {/* reviews */}
-      <div className='md:grid md:grid-cols-2 w-full md:h-[98.0375vw] md:gap-[2.5vw] gap-[4.8vw] flex flex-col '>
-        {reviewData?.map((item, index) => {
-          return (
-            <div
-              key={index}
-              className={`${index === 0 && !onlySmallScreen && 'md:col-span-2 big-item md:gap-[2.5vw]'}`}
-            >
-              <ReviewItem data={item?.translation} />
-            </div>
-          )
-        })}
-      </div>
+      {!loading ? (
+        <div className='md:grid md:grid-cols-2 w-full md:h-[98.0375vw] md:gap-[2.5vw] gap-[4.8vw] flex flex-col '>
+          {reviewData?.map((item, index) => {
+            return (
+              <div
+                key={index}
+                className={`${index === 0 && !onlySmallScreen && 'md:col-span-2 big-item md:gap-[2.5vw]'}`}
+              >
+                <ReviewItem data={item?.translation} />
+              </div>
+            )
+          })}
+        </div>
+      ) : (
+        <div className='flex items-center justify-center flex-1 w-full text-center h-[60vh]'>
+          <Loading />
+        </div>
+      )}
 
       <div className='w-fit m-auto flex md:gap-[0.75vw] gap-[3.2vw] md:mt-[6.538vw] mt-[6.4vw]'>
         {paginations?.map((pagination, index) => {
