@@ -13,7 +13,7 @@ function AboutItem({ data, slug,onCloseMenu,lang }) {
         width={200}
         height={200}
         alt={data?.backgroundImage?.altText}
-        className='h-[19vw] w-full object-cover rounded-[0.625vw]'
+        className='h-[13.6875vw] w-full object-cover rounded-[0.625vw]'
       />
       <div className='absolute bottom-0 pb-[1.95vw] z-10 flex flex-col items-center justify-center w-full'>
         <Image

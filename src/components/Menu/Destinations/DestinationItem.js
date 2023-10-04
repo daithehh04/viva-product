@@ -5,7 +5,7 @@ function DestinationItem({ tour, lang,onCloseMenu }) {
   return (
     <Link
       href={`/${lang}/our-tours/${encodeURIComponent(tour?.slug)}`}
-      className='h-[19vw] relative'
+      className='h-[14vw] relative'
       onClick={onCloseMenu}
     >
       {tour?.country?.thumb?.sourceUrl ? (

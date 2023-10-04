@@ -1,7 +1,4 @@
 body {
-  padding: 0 !important;
-  margin: 0 !important;
-  overflow: visible !important;
   box-sizing: border-box;
   font-family: $font-helvetica !important;
   color: $textColorPrimary !important;
@@ -16,7 +13,6 @@ body {
 }
 
 //  css for scroll to transparent
-
 @include mobile {
   .content {
     width: 100%;

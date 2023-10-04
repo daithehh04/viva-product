@@ -151,12 +151,14 @@ export default function Navbar({
               <div className='relative flex-shrink-0'>
                 <div className='capitalize text-[1vw] nav-link'>
                   {dataHome?.nav1}
-                  <div className='menu-item'>
-                    <MenuDestinations
-                      data={dataMenuCountry}
-                      lang={lang}
-                      onCloseMenu={handleCloseMenu}
-                    />
+                  <div className='w-[83.75%]'>
+                    <div className='menu-item content'>
+                      <MenuDestinations
+                        data={dataMenuCountry}
+                        lang={lang}
+                        onCloseMenu={handleCloseMenu}
+                      />
+                    </div>
                   </div>
                 </div>
                 <span className='icon-hot absolute top-[-12px] right-[-6px] px-[10px] rounded-[99px] bg-primaryColor text-[12px]'>
@@ -165,12 +167,14 @@ export default function Navbar({
               </div>
               <div className='capitalize text-[1vw] nav-link'>
                 {dataHome?.nav2}
-                <div className='menu-item'>
-                  <MenuStyle
-                    travelStylesList={travelStylesList}
-                    lang={lang}
-                    onCloseMenu={handleCloseMenu}
-                  />
+                <div className='w-[83.75%]'>
+                  <div className='menu-item content'>
+                    <MenuStyle
+                      travelStylesList={travelStylesList}
+                      lang={lang}
+                      onCloseMenu={handleCloseMenu}
+                    />
+                  </div>
                 </div>
               </div>
               <Link
@@ -178,7 +182,8 @@ export default function Navbar({
                 className='capitalize text-[1vw] nav-link'
               >
                 {dataHome?.nav3}
-                <div className='hidden menu-item'>
+              <div className='w-[83.75%] '>
+                <div className='menu-item hidden content'>
                   <HotDeal
                     hotDeals={hotDeals}
                     listVoucher={listVoucher}
@@ -186,6 +191,7 @@ export default function Navbar({
                     lang={lang}
                   />
                 </div>
+              </div>
               </Link>
               <Link
                 href={`/${lang}/check-visa`}
@@ -195,7 +201,7 @@ export default function Navbar({
               </Link>
               <div className='capitalize text-[1vw] nav-link'>
                 {dataHome?.nav5}
-                <div className='menu-item'>
+                <div className='menu-item content'>
                   <MenuAbout
                     dataAboutUs={dataAboutUs}
                     onCloseMenu={handleCloseMenu}
@@ -205,12 +211,14 @@ export default function Navbar({
               </div>
               <div className='capitalize text-[1vw] nav-link'>
                 {dataHome?.nav6}
-                <div className='menu-item'>
+              <div className='w-[83.75%]'>
+                <div className='menu-item content'>
                   <MenuRcmService
                     rcmServicesList={rcmServicesList}
                     lang={lang}
                     onCloseMenu={handleCloseMenu}
                   />
+                </div>
                 </div>
               </div>
               <Link
