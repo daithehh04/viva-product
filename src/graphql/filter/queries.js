@@ -85,7 +85,6 @@ const DATA_BEST_TOUR = gql`
     }
   }
 `
-
 const DATA_BEST_TOUR_HOME_PAGE = gql`
   query GetFilterTour(
     $language: LanguageCodeEnum!
@@ -140,7 +139,7 @@ const DATA_BEST_TOUR_HOME_PAGE = gql`
   }
 `
 
-const DATA_SEARCH_TOUR = `
+const DATA_SEARCH_TEXT_TOUR = gql`
 query SearchTour($title: String){
   allTours(first: 50,where: {search: $title}) {
     nodes {
@@ -174,7 +173,7 @@ query SearchTour($title: String){
 `
 
 export {
-  DATA_SEARCH_TOUR,
+  DATA_SEARCH_TEXT_TOUR,
   DATA_TAXONOMIES_COUNTRY,
   DATA_BEST_TOUR_HOME_PAGE,
   DATA_TAXONOMIES_TOUR_STYLE,
