@@ -23,6 +23,7 @@ import Button from './Button'
 import { usePathname } from 'next/navigation'
 import logoMb from '@/assets/images/logoMb.svg'
 import { createTheme, useMediaQuery } from '@mui/material'
+import { DataProvider } from '../Menu/DataContextMenu'
 
 const theme = createTheme({
   breakpoints: {
@@ -40,8 +41,16 @@ export default function Navbar({
   hotDeals,
   listVoucher,
   dataAboutUs,
-  dataBookTour
+  dataBookTour,
+  dataTaxonomiesCountry,
+  dataTaxonomiesStyleTour,
+  dataTaxonomiesBudget,
+  dataTaxonomiesDuration
 }) {
+  const arrDataTaxonomiesBudget = dataTaxonomiesBudget?.data?.allBudget?.nodes
+  const arrDataTaxonomiesDuration = dataTaxonomiesDuration?.data?.allDuration?.nodes
+  const arrDataTaxonomiesCountry = dataTaxonomiesCountry?.data?.allCountries?.nodes
+  const arrDataTaxonomiesStyleTour = dataTaxonomiesStyleTour?.data?.allTourStyle?.nodes
   const refMb = useRef()
   const refMenu = useRef()
   const refBtnBookTour = useRef()
@@ -126,8 +135,28 @@ export default function Navbar({
     refMb.current.classList.remove('active')
   }
 
+  function handleTaxonomies(data) {
+    const newArrDataTaxonomies = []
+    data?.map((item) => {
+      newArrDataTaxonomies.push(item)
+    })
+    return newArrDataTaxonomies
+  }
+  const newArrDataTaxonomiesCountry = handleTaxonomies(arrDataTaxonomiesCountry)
+  const newArrDataTaxonomiesStyleTravel = handleTaxonomies(arrDataTaxonomiesStyleTour)
+  const newArrDataTaxonomiesBudget = handleTaxonomies(arrDataTaxonomiesBudget)
+  const newArrDataTaxonomiesDuration = handleTaxonomies(arrDataTaxonomiesDuration)
+  // ==============================================================
+  const dataFilter = {
+    countries: newArrDataTaxonomiesCountry,
+    style: newArrDataTaxonomiesStyleTravel,
+    budget: newArrDataTaxonomiesBudget,
+    duration: newArrDataTaxonomiesDuration
+  }
+
   return (
-    <div className=''>
+    <DataProvider>
+    <div className='nav-container'>
       <nav
         className={`${
           isTranparent ? 'md:bg-white border-b border-solid border-[#ffffff29] nav-mb-special' : 'bg-white'
@@ -242,7 +271,7 @@ export default function Navbar({
             <SelectLang lang={lang} />
           </div>
           <div className='flex-1 hidden max-lg:block'>
-            <InputSearchMb />
+            <InputSearchMb lang={lang} dataFilter={dataFilter}/>
           </div>
           <Image
             src={bars}
@@ -255,7 +284,7 @@ export default function Navbar({
         </div>
       </nav>
       <div
-        className='fixed inset-0 hidden overflow-y-auto w-full h-full bg-white nav-mobile max-lg:block !z-[199] nav-mobile'
+        className='menu-popup fixed inset-0 hidden overflow-x-hidden overflow-y-auto w-full h-full bg-white nav-mobile max-lg:block !z-[199] nav-mobile'
         ref={refMb}
       >
         <MenuMb
@@ -326,5 +355,6 @@ export default function Navbar({
         </ModalCustom>
       )}
     </div>
+    </DataProvider>
   )
 }
