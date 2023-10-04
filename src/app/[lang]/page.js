@@ -30,11 +30,13 @@ export default async function page({ params: { lang } }) {
   if (lang === 'fr') {
     data = await getDataPage(idFr, GET_HOME_PAGE)
   }
+
   const nextStep = await getDataPost(lang, GET_NEXT_STEP)
   const dataTaxonomiesCountry = await getDataPost(lang, DATA_TAXONOMIES_COUNTRY)
   const dataTaxonomiesStyleTour = await getDataPost(lang, DATA_TAXONOMIES_TOUR_STYLE)
   const dataTaxonomiesBudget = await getDataPost(lang, DATA_TAXONOMIES_BUDGET)
   const dataTaxonomiesDuration = await getDataPost(lang, DATA_TAXONOMIES_DURATION)
+
   return (
     <main>
       <Home

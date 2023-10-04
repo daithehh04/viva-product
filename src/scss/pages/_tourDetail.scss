@@ -31,10 +31,18 @@
       &:hover {
         filter: none;
       }
+
+      &:focus {
+        outline: none;
+      }
     }
 
     .slick-current {
       filter: none;
+    }
+
+    .slick-cloned {
+      border: none;
     }
   }
 
