@@ -11,7 +11,7 @@ import Select from '@mui/material/Select'
 import { useRef, useState } from 'react'
 import Button from '@/components/Common/Button'
 import { useRouter } from 'next/navigation'
-function FilterBanner({ lang, dataFilter }) {
+function FilterBanner({ lang, dataFilter,onClose }) {
   const refLink = useRef()
   const [destination, setDestination] = useState('')
   const [travelStyle, setTravelStyle] = useState('')
@@ -64,9 +64,12 @@ function FilterBanner({ lang, dataFilter }) {
     } else {
       router.push(`/${lang}/search`)
     }
+    if(onClose) {
+      onClose()
+    }
   }
   return (
-    <div className='flex gap-x-[1.75vw]'>
+    <div className='flex gap-x-[1.75vw] max-md:flex-col'>
       <div className='flex max-md:grid max-md:grid-cols-2 max-md:gap-[2.67vw] md:gap-x-[1.87vw] gap-y-[3.2vw] gap-x-[2.67vw] md:flex-nowrap flex-wrap md:justify-normal justify-between'>
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full'>
           <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Destination</span>
@@ -287,14 +290,14 @@ function FilterBanner({ lang, dataFilter }) {
       <Button
         ref={refLink}
         onClick={handleSearch}
-        className='btn-primary'
+        className='btn-primary max-md:w-max max-md:px-[7.37vw] max-md:mt-[6.4vw] max-md:ml-auto max-md:mr-auto'
       >
         <Image
           src={searchIcon}
           width={50}
           height={50}
           alt='search'
-          className='w-[1.25vw] h-[1.25vw]'
+          className='w-[1.25vw] h-[1.25vw] max-md:hidden'
         />
         Search
       </Button>

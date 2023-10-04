@@ -35,6 +35,7 @@ import Navbar from '@/components/Common/Navbar'
 import { Suspense } from 'react'
 import Loading from './loading'
 import { usePathname } from 'next/navigation'
+import { DATA_TAXONOMIES_BUDGET, DATA_TAXONOMIES_COUNTRY, DATA_TAXONOMIES_DURATION, DATA_TAXONOMIES_TOUR_STYLE } from '@/graphql/filter/queries'
 const idEnBook = 'cG9zdDoxNDIy'
 const idFrBook = 'cG9zdDoxNDIy'
 const idItBook = 'cG9zdDoxNDIy'
@@ -76,6 +77,11 @@ export default async function RootLayout({ children, params }) {
   const rtRes = await getAboutUsData(GET_DATA_MENU_RT, params.lang)
   const rvRes = await getAboutUsData(GET_DATA_MENU_RV, params.lang)
 
+  // 
+  const dataTaxonomiesCountry = await getDataPost(params.lang, DATA_TAXONOMIES_COUNTRY)
+  const dataTaxonomiesStyleTour = await getDataPost(params.lang, DATA_TAXONOMIES_TOUR_STYLE)
+  const dataTaxonomiesBudget = await getDataPost(params.lang, DATA_TAXONOMIES_BUDGET)
+  const dataTaxonomiesDuration = await getDataPost(params.lang, DATA_TAXONOMIES_DURATION)
   return (
     <html lang={params.lang}>
       <body suppressHydrationWarning={true}>
@@ -83,6 +89,10 @@ export default async function RootLayout({ children, params }) {
           <ThemeRegistry>
             <Suspense fallback={<Loading />}>
               <Navbar
+                dataTaxonomiesCountry={dataTaxonomiesCountry}
+                dataTaxonomiesStyleTour={dataTaxonomiesStyleTour}
+                dataTaxonomiesBudget={dataTaxonomiesBudget}
+                dataTaxonomiesDuration={dataTaxonomiesDuration}
                 travelStylesList={travelStylesList}
                 lang={params.lang}
                 dataHome={dataHome?.header}
