@@ -10,7 +10,7 @@ export default async function getTourDetail(query, slug, lang) {
         query: query,
         variables: { slug: slug, language: lang?.toUpperCase() }
       }),
-      //next: { revalidate: 60 } 
+      next: { revalidate: 60 } 
     },
   )
   if (!res.ok) {
