@@ -27,9 +27,9 @@ function FilterBlog({ handleDes, handleTopic, handleCate, metaTopic, metaDestina
   }
 
   return (
-    <div className='flex md:gap-[] gap-[3.2vw]  md:justify-normal justify-end md:mt-[3.5vw] ourBlog relative'>
-      <div className='background'></div>
-      <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[44.53333vw]'>
+    <div className='flex md:gap-[] gap-[3.2vw]  md:justify-normal justify-between md:mt-[3.5vw] ourBlog relative'>
+      <div className='background max-md:hidden'></div>
+      <div className='flex flex-col select md:rounded-0 justify-center rounded-[1.06667vw] flex-shrink-0 md:w-auto max-md:h-[10.67vw] w-[43.53333vw]'>
         <div className='bgFilterMobile'></div>
         <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>
           {metaDestination && metaDestination[0]?.taxonomyName}
@@ -85,7 +85,7 @@ function FilterBlog({ handleDes, handleTopic, handleCate, metaTopic, metaDestina
           </FormControl>
         </div>
       </div>
-      <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[44.53333vw] pl-0 md:pl-[1.87vw]'>
+      <div className='flex flex-col justify-center select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[43.53333vw] pl-0 md:pl-[1.87vw]'>
         <div className='bgFilterMobile'></div>
         <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden '>
           {metaTopic && metaTopic[0]?.taxonomyName}

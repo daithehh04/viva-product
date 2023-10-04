@@ -45,6 +45,7 @@ function BestTour({
         <h2
           className='heading-1 max-md:relative max-md:text-center'
           data-aos-once='true'
+          data-aos-disabled='true'
           data-aos='fade-up'
           data-aos-duration='1000'
         >

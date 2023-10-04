@@ -27,6 +27,7 @@ export default function SubBanner({ data = {}, className, lang }) {
           data-aos-once='true'
           data-aos='fade-up'
           data-aos-duration='1000'
+          data-aos-disabled='true'
           className={`${
             className || ''
           } max-md:text-[4.8vw] text-[4vw] font-optima font-semibold md:leading-[110%] leading-[120%] capitalize text-textColor`}
@@ -36,6 +37,7 @@ export default function SubBanner({ data = {}, className, lang }) {
         <p
           data-aos-once='true'
           data-aos='fade-up'
+          data-aos-disabled='true'
           data-aos-duration='1200'
           className='text-justify md:text-[1.125vw] text-[3.733vw] md:mt-[1vw] mt-[2.13vw] md:mb-[2vw] mb-[8.8vw] md:font-manrope font-medium leading-[150%] text-textColor opacity-80'
         >
