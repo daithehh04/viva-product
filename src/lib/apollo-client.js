@@ -9,6 +9,6 @@ const client = new ApolloClient({
     },
     next: { revalidate: 13 }
   }),
-  cache: new InMemoryCache(),
-});
+  cache: new InMemoryCache()
+})
 export default client
