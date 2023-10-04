@@ -66,6 +66,7 @@ export default function BookingProcessSteps({ data = {} }) {
         data-aos-once='true'
         data-aos='fade-up'
         data-aos-duration='1000'
+        data-aos-disabled='true'
       >
         {data?.heading}
       </h3>
