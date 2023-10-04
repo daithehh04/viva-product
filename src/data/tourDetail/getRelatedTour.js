@@ -12,8 +12,8 @@ export default async function getRelatedTour(taxonomyValue, taxonomyName, lang) 
         query: GET_RELATED_TOUR,
         variables: { taxonomyValue: taxonomyValue, taxonomyName: taxonomyName, language: lang?.toUpperCase() }
       })
-    },
-    { next: { revalidate: 60 } }
+    }
+    // {,next: { revalidate: 60 } }
   )
   if (!res.ok) {
     throw new Error('Failed to fetch data')

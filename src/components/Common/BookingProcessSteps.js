@@ -29,36 +29,11 @@ function ColorlibStepIcon(props) {
   const { className } = props
 
   const icons = {
-    1: (
-      <Image
-        src={stepIcon}
-        alt='stepIcon'
-      />
-    ),
-    2: (
-      <Image
-        src={stepIcon}
-        alt='stepIcon'
-      />
-    ),
-    3: (
-      <Image
-        src={stepIcon}
-        alt='stepIcon'
-      />
-    ),
-    4: (
-      <Image
-        src={stepIcon}
-        alt='stepIcon'
-      />
-    ),
-    5: (
-      <Image
-        src={stepIcon}
-        alt='stepIcon'
-      />
-    )
+    1: <Image src={stepIcon} alt='stepIcon' />,
+    2: <Image src={stepIcon} alt='stepIcon' />,
+    3: <Image src={stepIcon} alt='stepIcon' />,
+    4: <Image src={stepIcon} alt='stepIcon' />,
+    5: <Image src={stepIcon} alt='stepIcon' />
   }
 
   return <ColorlibStepIconRoot className={className}>{icons[String(props.icon)]}</ColorlibStepIconRoot>
@@ -86,48 +61,31 @@ const stepsBelow = ['01', '02', '03', '04', '05']
 export default function BookingProcessSteps({ data = {} }) {
   return (
     <section className='relative z-10 about-step-container'>
-      <h3 className='content md:text-[4vw] text-[4.8vw] font-semibold capitalize font-optima md:leading-[110%] leading-[120%] md:text-center w-fit md:mb-[3.375vw]' 
-            data-aos-once="true"
-            data-aos="fade-up"
-            data-aos-duration="1000">
+      <h3
+        className='content md:text-[4vw] text-[4.8vw] font-semibold capitalize font-optima md:leading-[110%] leading-[120%] md:text-center w-fit md:mb-[3.375vw]'
+        data-aos-once='true'
+        data-aos='fade-up'
+        data-aos-duration='1000'
+      >
         {data?.heading}
       </h3>
       <div className='overflow-x-auto overflow-y-hidden hidden-scroll md:overflow-hidden'>
         <div className='w-[185vw] md:w-full h-full'>
-          <Stack
-            sx={{ width: '100%' }}
-            spacing={4}
-          >
-            <Stepper
-              alternativeLabel
-              activeStep={5}
-            >
+          <Stack sx={{ width: '100%' }} spacing={4}>
+            <Stepper alternativeLabel activeStep={5}>
               {stepsAbove?.map((label, index) => (
                 <Step key={index}>
-                  <StepLabel
-                    StepIconProps={{ className: 'about-step-icon' }}
-                    className='about-step-above'
-                  >
-                    <Image
-                      src={label.icon}
-                      alt='stepIcon'
-                    />
+                  <StepLabel StepIconProps={{ className: 'about-step-icon' }} className='about-step-above'>
+                    <Image src={label.icon} alt='stepIcon' />
                     <div>{data?.step ? data?.step[index]?.title : ''}</div>
                   </StepLabel>
                 </Step>
               ))}
             </Stepper>
-            <Stepper
-              alternativeLabel
-              activeStep={5}
-              connector={<ColorlibConnector />}
-            >
+            <Stepper alternativeLabel activeStep={5} connector={<ColorlibConnector />}>
               {stepsBelow?.map((label, index) => (
                 <Step key={index}>
-                  <StepLabel
-                    StepIconComponent={ColorlibStepIcon}
-                    className='about-step-below'
-                  >
+                  <StepLabel StepIconComponent={ColorlibStepIcon} className='about-step-below'>
                     {label}
                   </StepLabel>
                 </Step>
