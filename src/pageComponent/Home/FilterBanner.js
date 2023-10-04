@@ -70,10 +70,10 @@ function FilterBanner({ lang, dataFilter,onClose }) {
   }
   return (
     <div className='flex gap-x-[1.75vw] max-md:flex-col'>
-      <div className='flex max-md:grid max-md:grid-cols-2 max-md:gap-[2.67vw] md:gap-x-[1.87vw] gap-y-[3.2vw] gap-x-[2.67vw] md:flex-nowrap flex-wrap md:justify-normal justify-between'>
+      <div className='max-md:w-[91.46%] max-md:m-auto flex max-md:grid max-md:grid-cols-2 max-md:gap-[2.67vw] md:gap-x-[1.87vw] gap-y-[3.2vw] gap-x-[2.67vw] md:flex-nowrap flex-wrap md:justify-normal justify-between'>
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full'>
           <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Destination</span>
-          <div className='flex items-center select-mobile'>
+          <div className='flex items-center select-mobile max-md:bg-[#F6F6F6] max-md:h-[10.67vw]'>
             <Image
               src={locationIcon}
               width={100}
@@ -127,7 +127,7 @@ function FilterBanner({ lang, dataFilter,onClose }) {
 
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
           <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Travel Style</span>
-          <div className='flex items-center select-mobile'>
+          <div className='flex items-center select-mobile max-md:bg-[#F6F6F6] max-md:h-[10.67vw]'>
             <Image
               src={styleIcon}
               width={100}
@@ -181,7 +181,7 @@ function FilterBanner({ lang, dataFilter,onClose }) {
 
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
           <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Duration</span>
-          <div className='flex items-center select-mobile'>
+          <div className='flex items-center select-mobile max-md:bg-[#F6F6F6] max-md:h-[10.67vw]'>
             <Image
               src={calendar}
               width={100}
@@ -235,7 +235,7 @@ function FilterBanner({ lang, dataFilter,onClose }) {
 
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
           <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Budget</span>
-          <div className='flex items-center select-mobile'>
+          <div className='flex items-center select-mobile max-md:bg-[#F6F6F6] max-md:h-[10.67vw]'>
             <Image
               src={wallet}
               width={100}
