@@ -1,32 +1,31 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react'
-// Import Swiper styles
-import 'swiper/css/free-mode'
-import 'swiper/css/thumbs'
-import 'swiper/css/effect-fade'
 // import required modules
-import { FreeMode, Thumbs, Autoplay, EffectFade } from 'swiper/modules'
 import Image from 'next/image'
 import locationIcon from '@/assets/images/location.svg'
 import star from '@/assets/images/tourDetail/star.svg'
 import btnDown2 from '@/assets/images/tourDetail/btnDown2.svg'
-import { Slider } from '@mui/material'
+import { Slider as SlideBar } from '@mui/material'
 import videoBG from '@/assets/images/about/videoBG.png'
 import smallPlayBtn from '@/assets/images/smallPlayBtn.svg'
 import TourDetailVideo from './TourDetailVideo'
+import playBtn from '@/assets/images/about/playBtn.svg'
+
+// import slick slider
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 export default function TourDetailBanner({ data = {}, headerData }) {
   const { gallery, price, location, rate, video, title } = data
   const icons = new Array(Math.ceil(data?.rate || 5)).fill(0)
   const outsideRef = useRef()
-  const swiperRef = useRef()
-  const thumbsSwiperRef = useRef()
   const [isPlay, setIsPlay] = useState(false)
-  const listGallery = gallery?.concat(gallery)
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [thumbActiveIndex, setThumbActiveIndex] = useState(0)
+  // const listGallery = gallery?.concat(gallery)
+  const videoRef = useRef()
+  const imageRef = useRef()
+  const [slider, setSlider] = useState()
+  const [thumbs, setThumbs] = useState()
 
   // scroll to next section
   const handleScrollDown = () => {
@@ -35,51 +34,46 @@ export default function TourDetailBanner({ data = {}, headerData }) {
     })
   }
 
-  useEffect(() => {
-    isPlay ? swiperRef.current?.autoplay.stop() : swiperRef.current?.autoplay.start()
-  }, [isPlay])
-
-  // console.log('activeIndex', activeIndex)
-  // console.log('thumbActiveIndex', thumbActiveIndex)
-
   return (
     <section className='tour-banner-wrapper relative overflow-hidden md:block hidden'>
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={0}
-        loop={true}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false
-        }}
-        onSlideChange={(swiper) => {
-          // console.log(swiper.realIndex)
-        }}
-        modules={[Autoplay]}
-        className='mySwiper2 banner-slide'
-        onBeforeInit={(swiper) => {
-          swiperRef.current = swiper
-        }}
+      <Slider
+        asNavFor={thumbs}
+        ref={(slide) => setSlider(slide)}
+        arrows={false}
+        fade={true}
+        speed={800}
+        autoplay={true}
+        autoplaySpeed={3000}
       >
-        <>
-          {video?.uploadVideo?.mediaItemUrl && (
-            <SwiperSlide className='relative w-full'>
-              <TourDetailVideo
-                className={{
-                  video: 'md:h-[53.125vw] z-0',
-                  button: 'md:w-[7.2vw] md:h-[8.4375vw] bottom-[40vh] left-[47vw]'
-                }}
-                vidLink={video?.uploadVideo?.mediaItemUrl}
-                overlayImg={video?.overlayImage || videoBG}
-                isPlay={isPlay}
-                setIsPlay={setIsPlay}
-              />
-            </SwiperSlide>
-          )}
-        </>
-        {listGallery?.map((img, index) => {
+        {video?.uploadVideo?.mediaItemUrl && (
+          <div className='w-full h-[100vh] relative'>
+            {!isPlay && (
+              <div className='w-full h-full'>
+                <Image
+                  src={video?.overlayImage?.sourceUrl || videoBG}
+                  alt={video?.overlayImage?.altText || 'Travel'}
+                  width={1000}
+                  height={1000}
+                  priority
+                  className='w-full h-full z-0 object-cover select-none cursor-pointer'
+                />
+                <Image
+                  src={playBtn}
+                  alt='playBtn'
+                  className={`cursor-pointer absolute z-[30] md:w-[7.2vw] md:h-[8.4375vw] bottom-[40vh] left-[47vw]`}
+                  onClick={() => {
+                    setIsPlay(true)
+                    videoRef.current?.play()
+                  }}
+                />
+                <div className='bg-[#00000033] w-full h-full absolute top-0 left-0 z-[20]'></div>
+              </div>
+            )}
+          </div>
+        )}
+        {gallery?.map((img, index) => {
           return (
-            <SwiperSlide key={index}>
+            <div key={index}>
               <div className='w-full h-[100vh] relative'>
                 <Image
                   src={img?.sourceUrl}
@@ -87,15 +81,38 @@ export default function TourDetailBanner({ data = {}, headerData }) {
                   width={1000}
                   height={1000}
                   priority
-                  className='w-full h-full object-cover select-none'
+                  className='w-full h-full object-cover select-none cursor-pointer'
                 />
-                <div className='bg-[#00000033] w-full h-full absolute top-0 left-0'></div>
+                <div className='bg-[#00000033] w-full h-full absolute top-0 left-0 cursor-pointer'></div>
               </div>
-            </SwiperSlide>
+            </div>
           )
         })}
-      </Swiper>
+      </Slider>
 
+      {isPlay && (
+        <video
+          controls={isPlay}
+          className={`object-fill w-full h-full z-[10] absolute top-0 left-0`}
+          width={2000}
+          height={1000}
+          ref={videoRef}
+          onEnded={() => {
+            setIsPlay(false)
+            slider.slickPlay()
+          }}
+          onPause={() => {
+            setIsPlay(false)
+            slider.slickPlay()
+          }}
+        >
+          <source
+            type='video/mp4'
+            className='w-full h-full'
+            src={video?.uploadVideo?.mediaItemUrl}
+          />
+        </video>
+      )}
       <div className='absolute bottom-[3.19vw] left-[8.12vw] z-10'>
         <div className='flex gap-[8px] items-center'>
           <Image
@@ -161,7 +178,7 @@ export default function TourDetailBanner({ data = {}, headerData }) {
             </div>
           </div>
 
-          <Slider
+          <SlideBar
             aria-label='picture'
             defaultValue={0}
             valueLabelDisplay='off'
@@ -171,27 +188,23 @@ export default function TourDetailBanner({ data = {}, headerData }) {
           />
         </div>
 
-        <Swiper
-          spaceBetween={14}
-          slidesPerView={4}
-          loop={true}
-          className='mySwiper sub-banner-slide'
-          onBeforeInit={(swiper) => {
-            thumbsSwiperRef.current = swiper
-          }}
-          onSlideChange={(swiper) => {
-            // console.log(swiper.realIndex)
-          }}
+        <Slider
+          asNavFor={slider}
+          ref={(slide) => setThumbs(slide)}
+          slidesToShow={4}
+          swipeToSlide={true}
+          focusOnSelect={true}
+          arrows={false}
         >
           {video?.uploadVideo?.mediaItemUrl && (
-            <SwiperSlide className='relative'>
+            <div className='relative'>
               <Image
                 src={video?.overlayImage.sourceUrl || videoBG}
                 alt={video?.overlayImage.altText || ''}
                 width={200}
                 height={200}
                 priority
-                className='w-[7.1875vw] h-[4.9375vw] object-cover rounded-lg select-none'
+                className='w-[7.1875vw] h-[4.9375vw] object-cover rounded-lg select-none cursor-pointer'
               />
               <Image
                 src={smallPlayBtn}
@@ -200,23 +213,23 @@ export default function TourDetailBanner({ data = {}, headerData }) {
                 height={30}
                 className='w-[0.75vw] h-[0.9375vw] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
               />
-            </SwiperSlide>
+            </div>
           )}
-          {listGallery?.map((img, index) => {
+          {gallery?.map((img, index) => {
             return (
-              <SwiperSlide key={index}>
+              <div key={index}>
                 <Image
                   src={img?.sourceUrl}
                   alt={img?.altText}
                   priority
                   width={1000}
                   height={1000}
-                  className='w-[7.1875vw] h-[4.9375vw] object-cover rounded-lg select-none'
+                  className='w-[7.1875vw] h-[4.9375vw] object-cover rounded-lg select-none cursor-pointer'
                 />
-              </SwiperSlide>
+              </div>
             )
           })}
-        </Swiper>
+        </Slider>
       </div>
 
       <div ref={outsideRef}></div>
