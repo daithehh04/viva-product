@@ -6,7 +6,7 @@ import commaRes from '@/assets/images/about/commaRes.svg'
 import sloganBg from '@/assets/images/sloganBg.png'
 import wave from '@/assets/images/wave.svg'
 import waveWhite from '@/assets/images/waveWhite.svg'
-
+import AOS from 'aos'
 import waveNormalWhite from '@/assets/images/waveNormalWhite.svg'
 import waveNormal from '@/assets/images/waveNormal.svg'
 import waveShort from '@/assets/images/waveShort.svg'
@@ -15,6 +15,10 @@ import { useEffect, useRef, useState } from 'react'
 import CountDown from '@/components/Common/CountDown'
 
 export default function Statistics({ data }) {
+  useEffect(() => {
+    AOS.init()
+    AOS.refresh()
+  }, [])
   const imgRef = useRef([])
   const [scrollPositions, setScrollPositions] = useState([
     {
@@ -64,6 +68,10 @@ export default function Statistics({ data }) {
       {/* description about company */}
       <div className='content relative md:mb-[3.125vw] mb-[6.4vw] md:mt-[4.6vw]'>
         <Image
+          data-aos-once='true'
+          data-aos-disabled='true'
+          data-aos='fade-up'
+          data-aos-duration='1000'
           src={comma}
           alt='comma'
           className='md:flex hidden md:w-[11.8125vw] md:h-[12.1875vw] w-[18.13vw] h-[13.33vw] absolute top-[-4.625vw]  left-[-2.1875vw]'
@@ -76,6 +84,10 @@ export default function Statistics({ data }) {
         />
 
         <div
+          data-aos-once='true'
+          data-aos-disabled='true'
+          data-aos='fade-up'
+          data-aos-duration='1000'
           className='statistic-desc md:w-[56.4375vw] w-full text-[#414141] font-optima font-semibold md:text-[2.5625vw] text-[6.4vw] leading-[150%] md:tracking-[-2.05px] tracking-[-1.2px]'
           dangerouslySetInnerHTML={{ __html: `${data?.description}` }}
         ></div>
@@ -85,13 +97,7 @@ export default function Statistics({ data }) {
 
       <div className='flex justify-between md:gap-[8.3125vw] gap-[4vw] overflow-hidden flex-wrap md:flex-nowrap px-[4.26vw]'>
         {data?.statistics?.map((item, index) => {
-          return (
-            <CountDown
-              key={index}
-              data={item}
-              time={2000}
-            />
-          )
+          return <CountDown key={index} data={item} time={2000} />
         })}
       </div>
 

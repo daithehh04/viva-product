@@ -11,7 +11,15 @@
   font-size: 3.2vw;
   color: #171717;
 }
-
+.home-search__mb {
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s;
+}
+.home-search__mb.show {
+  opacity: 1;
+  visibility: visible;
+}
 .banner {
   .wrapper-banner {
     padding-top: 5.375vw;
@@ -225,6 +233,19 @@
     }
     .swiper-slide.swiper-slide-next {
       opacity: 1;
+    }
+
+    .itemSlideTrip {
+      img {
+        transition: all 0.3s linear;
+      }
+    }
+    .itemSlideTrip:hover {
+      overflow: hidden;
+      will-change: transform;
+      img {
+        transform: scale(1.07) translateZ(0);
+      }
     }
   }
 }

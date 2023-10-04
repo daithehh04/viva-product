@@ -16,28 +16,14 @@ export default function StaffSlide({ staffData = [] }) {
   const btnPrevRef = useRef(null)
 
   return (
-    <div className='relative'>
+    <div className='relative staffSlide'>
       <div className='flex gap-[1vw] mb-[0.375vw] absolute top-[-5.625vw] right-0'>
-        <button
-          ref={btnPrevRef}
-          className='btn-prev p-[1vw] w-[3.625vw] h-[3.625vw] bg-primaryColor rounded-[100px]'
-        >
-          <Image
-            src={btnPrev}
-            alt='button'
-            className='w-[1.5vw] h-[1.5vw]'
-          />
+        <button ref={btnPrevRef} className='btn-prev p-[1vw] w-[3.625vw] h-[3.625vw] bg-primaryColor rounded-[100px]'>
+          <Image src={btnPrev} alt='button' className='w-[1.5vw] h-[1.5vw]' />
         </button>
 
-        <button
-          ref={btnNextRef}
-          className='btn-next p-[1vw] w-[3.625vw] h-[3.625vw] bg-primaryColor rounded-[100px]'
-        >
-          <Image
-            src={btnNext}
-            alt='button'
-            className='w-[1.5vw] h-[1.5vw]'
-          />
+        <button ref={btnNextRef} className='btn-next p-[1vw] w-[3.625vw] h-[3.625vw] bg-primaryColor rounded-[100px]'>
+          <Image src={btnNext} alt='button' className='w-[1.5vw] h-[1.5vw]' />
         </button>
       </div>
 
@@ -63,10 +49,7 @@ export default function StaffSlide({ staffData = [] }) {
       >
         {staffData.map((staff, index) => {
           return (
-            <SwiperSlide
-              key={index}
-              className='swiper-slide w-[19.375vw] cursor-pointer'
-            >
+            <SwiperSlide key={index} className='swiper-slide w-[19.375vw] cursor-pointer'>
               <StaffItem staff={staff} />
             </SwiperSlide>
           )

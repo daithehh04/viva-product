@@ -32,6 +32,19 @@
   }
 }
 
+.nav-container {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 0px;
+  }
+  .menu-popup {
+    ::-webkit-scrollbar {
+      width: 0px;
+      height: 0px;
+    }
+  }
+}
+
 .navbar {
   position: absolute;
   top: 0;
@@ -111,7 +124,7 @@
   }
 
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
     height: 4px;
   }
   ::-webkit-scrollbar-track {

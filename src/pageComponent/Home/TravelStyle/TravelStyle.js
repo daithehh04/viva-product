@@ -42,12 +42,19 @@ function TravelStyle({ data, title, desc, lang }) {
   return (
     <div className='pt-[10.62vw] pb-[4.87vw] relative max-md:hidden'>
       <div className='content'>
-        <h2 className='heading-1' data-aos-once='true' data-aos='fade-up' data-aos-duration='1000'>
+        <h2
+          className='heading-1'
+          data-aos-disabled='true'
+          data-aos-once='true'
+          data-aos='fade-up'
+          data-aos-duration='1000'
+        >
           {title}
         </h2>
         <p
           className='w-[36vw] text-[1.125vw] text-textColor text-justify opacity-80 leading-normal'
           data-aos-once='true'
+          data-aos-disabled='true'
           data-aos='fade-up'
           data-aos-duration='1000'
         >

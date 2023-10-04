@@ -5,8 +5,14 @@ import subBannerBg from '@/assets/images/about/subBannerBg.png'
 import subBannerBg2 from '@/assets/images/about/subBannerBg2.png'
 import Button from './Button'
 import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
+import Aos from 'aos'
 
 export default function SubBanner({ data = {}, className, lang }) {
+  useEffect(() => {
+    Aos.init()
+    Aos.refresh()
+  }, [])
   const router = useRouter()
   return (
     <section className='md:w-[83.81vw] w-full md:m-auto rounded-[10px] relative md:px-[4.375vw] px-0 md:pt-[7.9375vw] pt-0 md:pb-[13.25vw] pb-0 md:shadow-[0_0_2.5vw_0_rgba(0,0,0,0.08)]'>
@@ -18,13 +24,23 @@ export default function SubBanner({ data = {}, className, lang }) {
 
       <div className='relative z-20 md:w-[51.3%] md:px-0 px-[4.27vw] md:pt-0 pt-[12.8vw]'>
         <h3
+          data-aos-once='true'
+          data-aos='fade-up'
+          data-aos-duration='1000'
+          data-aos-disabled='true'
           className={`${
             className || ''
           } max-md:text-[4.8vw] text-[4vw] font-optima font-semibold md:leading-[110%] leading-[120%] capitalize text-textColor`}
         >
           {data?.header}
         </h3>
-        <p className='text-justify md:text-[1.125vw] text-[3.733vw] md:mt-[1vw] mt-[2.13vw] md:mb-[2vw] mb-[8.8vw] md:font-manrope font-medium leading-[150%] text-textColor opacity-80'>
+        <p
+          data-aos-once='true'
+          data-aos='fade-up'
+          data-aos-disabled='true'
+          data-aos-duration='1200'
+          className='text-justify md:text-[1.125vw] text-[3.733vw] md:mt-[1vw] mt-[2.13vw] md:mb-[2vw] mb-[8.8vw] md:font-manrope font-medium leading-[150%] text-textColor opacity-80'
+        >
           {data?.paragraph}
         </p>
         <Button

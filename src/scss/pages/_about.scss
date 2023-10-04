@@ -200,3 +200,24 @@ button:disabled {
     }
   }
 }
+
+.staffItem {
+  overflow: hidden;
+  & > img {
+    overflow: hidden;
+    transition: 0.3s all ease;
+  }
+  img:hover {
+    transform: scale(1.01);
+  }
+}
+.staffSlide {
+  .btn-prev,
+  .btn-next {
+    overflow: hidden;
+    transition: all 0.3s ease;
+    &:hover {
+      transform: scale(1.04);
+    }
+  }
+}

@@ -32,6 +32,7 @@ import getAboutUsData from '@/data/aboutUs/getAboutUsData'
 import { GET_DATA_MENU_RT } from '@/graphql/aboutUs/responsible-travel/queries'
 import { GET_DATA_MENU_RV } from '@/graphql/aboutUs/reviews/queries'
 import Navbar from '@/components/Common/Navbar'
+import { DATA_TAXONOMIES_BUDGET, DATA_TAXONOMIES_COUNTRY, DATA_TAXONOMIES_DURATION, DATA_TAXONOMIES_TOUR_STYLE } from '@/graphql/filter/queries'
 const idEnBook = 'cG9zdDoxNDIy'
 const idFrBook = 'cG9zdDoxNDIy'
 const idItBook = 'cG9zdDoxNDIy'
@@ -67,12 +68,15 @@ export default async function RootLayout({ children, params }) {
   //get header of hotDeal
   const result = await getHotDealHeader(params.lang)
   const hotDeals = result?.data?.page?.translation?.hotDeals
-
   // get data of menu - about-us
   const wwrRes = await getAboutUsData(GET_DATA_MENU_WWR, params.lang)
   const rtRes = await getAboutUsData(GET_DATA_MENU_RT, params.lang)
   const rvRes = await getAboutUsData(GET_DATA_MENU_RV, params.lang)
-
+  // 
+  const dataTaxonomiesCountry = await getDataPost(params.lang, DATA_TAXONOMIES_COUNTRY)
+  const dataTaxonomiesStyleTour = await getDataPost(params.lang, DATA_TAXONOMIES_TOUR_STYLE)
+  const dataTaxonomiesBudget = await getDataPost(params.lang, DATA_TAXONOMIES_BUDGET)
+  const dataTaxonomiesDuration = await getDataPost(params.lang, DATA_TAXONOMIES_DURATION)
   return (
     <html lang={params.lang}>
       <body suppressHydrationWarning={true}>
