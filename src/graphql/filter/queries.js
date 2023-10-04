@@ -140,10 +140,11 @@ const DATA_BEST_TOUR_HOME_PAGE = gql`
 `
 
 const DATA_SEARCH_TEXT_TOUR = gql`
-query SearchTour($title: String){
+query SearchTour($title: String,$language: LanguageCodeEnum!){
   allTours(first: 50,where: {search: $title}) {
     nodes {
-      title
+      translation(language: $language) {
+        title
       slug
       tourStyle {
         nodes {
@@ -166,6 +167,7 @@ query SearchTour($title: String){
           rate
           icons
         }
+      }
       }
     }
   }
