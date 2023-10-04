@@ -32,9 +32,6 @@ import getAboutUsData from '@/data/aboutUs/getAboutUsData'
 import { GET_DATA_MENU_RT } from '@/graphql/aboutUs/responsible-travel/queries'
 import { GET_DATA_MENU_RV } from '@/graphql/aboutUs/reviews/queries'
 import Navbar from '@/components/Common/Navbar'
-import { Suspense } from 'react'
-import Loading from './loading'
-import { usePathname } from 'next/navigation'
 const idEnBook = 'cG9zdDoxNDIy'
 const idFrBook = 'cG9zdDoxNDIy'
 const idItBook = 'cG9zdDoxNDIy'
@@ -81,24 +78,22 @@ export default async function RootLayout({ children, params }) {
       <body suppressHydrationWarning={true}>
         <ApolloClientProvider>
           <ThemeRegistry>
-            <Suspense fallback={<Loading />}>
-              <Navbar
-                travelStylesList={travelStylesList}
-                lang={params.lang}
-                dataHome={dataHome?.header}
-                dataMenuCountry={dataMenuCountry?.data?.allCountries?.nodes}
-                hotDeals={hotDeals}
-                rcmServicesList={recommendserviceList}
-                dataBookTour={dataBookTour}
-                dataAboutUs={{
-                  wwrRes: wwrRes?.data?.page?.translation,
-                  rtRes: rtRes?.data?.page?.translation,
-                  rvRes: rvRes?.data?.page?.translation
-                }}
-              />
-              {children}
-              <Footer lang={params.lang} />
-            </Suspense>
+            <Navbar
+              travelStylesList={travelStylesList}
+              lang={params.lang}
+              dataHome={dataHome?.header}
+              dataMenuCountry={dataMenuCountry?.data?.allCountries?.nodes}
+              hotDeals={hotDeals}
+              rcmServicesList={recommendserviceList}
+              dataBookTour={dataBookTour}
+              dataAboutUs={{
+                wwrRes: wwrRes?.data?.page?.translation,
+                rtRes: rtRes?.data?.page?.translation,
+                rvRes: rvRes?.data?.page?.translation
+              }}
+            />
+            {children}
+            <Footer lang={params.lang} />
           </ThemeRegistry>
         </ApolloClientProvider>
       </body>
