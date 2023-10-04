@@ -226,6 +226,19 @@
     .swiper-slide.swiper-slide-next {
       opacity: 1;
     }
+
+    .itemSlideTrip {
+      img {
+        transition: all 0.3s linear;
+      }
+    }
+    .itemSlideTrip:hover {
+      overflow: hidden;
+      will-change: transform;
+      img {
+        transform: scale(1.07) translateZ(0);
+      }
+    }
   }
 }
 

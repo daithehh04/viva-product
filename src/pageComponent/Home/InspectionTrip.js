@@ -8,7 +8,7 @@ import locationIcon from '@/assets/images/route-square.svg'
 import calendarIcon from '@/assets/images/calendarY.svg'
 import restaurantIcon from '@/assets/images/restauY.svg'
 
-function InspectionTrip({ data,lang }) {
+function InspectionTrip({ data, lang }) {
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()
   const handleNextSlide = () => {
@@ -24,9 +24,14 @@ function InspectionTrip({ data,lang }) {
   }
   return (
     <div className='inspection-trip mt-[-8.38vw] max-md:mt-[11.68vw]'>
-      <h2 className='text-center heading-1 max-md:text-start max-md:pl-[4.27vw]' data-aos-once="true"
-            data-aos="fade-up"
-            data-aos-duration="1000">{data?.title}</h2>
+      <h2
+        className='text-center heading-1 max-md:text-start max-md:pl-[4.27vw]'
+        data-aos-once='true'
+        data-aos='fade-up'
+        data-aos-duration='1000'
+      >
+        {data?.title}
+      </h2>
       <div className='relative mt-[3.5vw]'>
         <Swiper
           breakpoints={{
@@ -37,7 +42,7 @@ function InspectionTrip({ data,lang }) {
               loop: true
             }
           }}
-          initialSlide={Math.floor(data?.slideTrip.length/2)}
+          initialSlide={Math.floor(data?.slideTrip.length / 2)}
           slidesPerView={1.2}
           spaceBetween={0}
           loop={true}
@@ -55,7 +60,7 @@ function InspectionTrip({ data,lang }) {
               <SwiperSlide key={index}>
                 {({ isActive }) => (
                   <Link href={`${lang}/tours/${item?.slug}`}>
-                    <div className='h-[28.75vw] rounded-[1vw] max-md:rounded-[2.13vw] relative max-md:h-[53.33vw] max-md:ml-[3.2vw]'>
+                    <div className='h-[28.75vw] rounded-[1vw] itemSlideTrip tour-item max-md:rounded-[2.13vw] relative max-md:h-[53.33vw] max-md:ml-[3.2vw]'>
                       <Image
                         src={
                           item?.tourDetail?.banner?.gallery
@@ -68,7 +73,7 @@ function InspectionTrip({ data,lang }) {
                         className='rounded-[1vw] max-md:rounded-[2.13vw] h-full w-full object-cover'
                       />
                       <div className='info absolute bottom-0 px-[2vw] pb-[2vw] max-md:pb-[4.13vw] max-md:px-[4vw] z-10'>
-                        <h3 className='text-[1.5vw] text-[#fff] font-bold leading-[1.3] tracking-[-0.03rem] w-[30.3125vw] max-md:text-[2.93vw] max-md:w-[61.33vw]'>
+                        <h3 className='text-[1.5vw] title-tour text-[#fff] font-bold leading-[1.3] tracking-[-0.03rem] w-[30.3125vw] max-md:text-[2.93vw] max-md:w-[61.33vw]'>
                           {item?.tourDetail?.banner?.title}
                         </h3>
                         <div className='flex items-center gap-x-[1.19vw] mt-[1.03vw] max-md:gap-x-[4.27vw] max-md:mt-[1.6vw]'>
