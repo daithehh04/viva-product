@@ -7,8 +7,8 @@ export default async function getRandomTour(query, lang) {
     body: JSON.stringify({
       query: query,
       variables: { language: lang?.toUpperCase() }
-    })
-    // next: { revalidate: 60 }
+    }),
+    next: { revalidate: 60 }
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
