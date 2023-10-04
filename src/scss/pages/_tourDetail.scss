@@ -24,30 +24,17 @@
         }
       }
     }
-    .sub-banner-slide {
-      .swiper-slide {
-        cursor: pointer;
-        &:not(.swiper-slide-active) {
-          filter: grayscale(100%);
-        }
 
-        &:hover {
-          filter: unset;
-        }
+    .slick-slide {
+      filter: grayscale(100%);
+
+      &:hover {
+        filter: none;
       }
     }
-  }
 
-  .banner-slide {
-    .swiper-slide {
-      transition: opacity 0.5s;
-      opacity: 0.5;
-      z-index: 1000;
-    }
-
-    .swiper-slide.swiper-slide-active {
-      opacity: 1;
-      z-index: 1000;
+    .slick-current {
+      filter: none;
     }
   }
 

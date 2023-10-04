@@ -79,7 +79,7 @@ function Banner({ data, dataFilter, lang }) {
         </Button>
       </div>
       {popup && <div className='fixed left-0 top-0 flex items-center justify-center z-[99] w-full h-full transition-all'>
-        <PopupSearch/>
+        <PopupSearch lang={lang}/>
         <div
         onClick={handleClosePopup}
         className='absolute inset-0 max-md:block'
