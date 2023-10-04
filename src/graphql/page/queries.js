@@ -30,85 +30,167 @@ query homePage($id:ID!){
 }
 `
 
-const GET_DATA_CHECKVISA = `
+// const GET_DATA_CHECKVISA = `
+// query ($language: LanguageCodeEnum!) {
+//   page(id: "cG9zdDoxMTIx") {
+//     translation(language:$language){
+//       checkvisa {
+//       button
+//       banner {
+//         button
+//         heading
+//         nationalchoice
+//         countrychoice
+//         imagebanner {
+//           sourceUrl
+//         }
+//         imageuser {
+//           sourceUrl
+//         }
+//         imagebannermobile{
+//           sourceUrl
+//         }
+//       }
+//       bestseller {
+//         title
+//         bestsellertour {
+//           ... on Tours {
+//             translation(language:$language){
+//               slug
+//               id
+//               tourDetail {
+//               banner {
+//                 location
+//                 gallery{
+//                   sourceUrl
+//                 }
+//                 rate
+//                 title
+//                 price {
+//                   highestPrice
+//                   lowestPrice
+//                 }
+//                 icons
+//               }
+//             }
+// }
+
+//           }
+//         }
+//       }
+//       infodetail {
+//         button
+//         buttonapply
+//         contactus
+//         whyapply
+//         backgroundpc{
+//           sourceUrl
+//         }
+//         backgroundmb{
+//           sourceUrl
+//         }
+//         listreason{
+//           reason
+//         }
+//         listcontact{
+//           address
+//           email
+//           phone
+//         }
+//       }
+//       ready {
+//         desc
+//         title
+//         image {
+//           sourceUrl
+//         }
+//       }
+//     }
+//     slug
+//     content
+//     }
+//   }
+// }`
+
+const GET_DATA_CHECKVISA2 = `
 query ($language: LanguageCodeEnum!) {
   page(id: "cG9zdDoxMTIx") {
-    translation(language:$language){
+    translation(language: $language) {
       checkvisa {
-      button
-      banner {
         button
-        heading
-        nationalchoice
-        countrychoice
-        imagebanner {
-          sourceUrl
+        besttourtitle{
+          title
         }
-        imageuser {
-          sourceUrl
+        banner {
+          button
+          heading
+          nationalchoice
+          countrychoice
+          imagebanner {
+            sourceUrl
+          }
+          imageuser {
+            sourceUrl
+          }
+          imagebannermobile {
+            sourceUrl
+          }
         }
-        imagebannermobile{
-          sourceUrl
+        infodetail {
+          button
+          buttonapply
+          contactus
+          whyapply
+          backgroundpc {
+            sourceUrl
+          }
+          backgroundmb {
+            sourceUrl
+          }
+          listreason {
+            reason
+          }
+          listcontact {
+            address
+            email
+            phone
+          }
+        }
+        ready {
+          desc
+          title
+          image {
+            sourceUrl
+          }
         }
       }
-      bestseller {
-        title
-        bestsellertour {
-          ... on Tours {
-            translation(language:$language){
-              slug
-              id
-              tourDetail {
+      slug
+      content
+    }
+  }
+  bestSeller(id:"dGVybToyODU="){
+    tours{
+      nodes{
+        translation(language:$language){
+          slug
+          tourDetail {
               banner {
-                location
-                gallery{
+                gallery {
                   sourceUrl
                 }
-                rate
-                title
+                icons
+                location
                 price {
                   highestPrice
                   lowestPrice
                 }
-                icons
+                rate
+                title
               }
             }
-}
-            
-          }
         }
       }
-      infodetail {
-        button
-        buttonapply
-        contactus
-        whyapply
-        backgroundpc{
-          sourceUrl
-        }
-        backgroundmb{
-          sourceUrl
-        }
-        listreason{
-          reason
-        }
-        listcontact{
-          address
-          email
-          phone
-        }
-      }
-      ready {
-        desc
-        title
-        image {
-          sourceUrl
-        }
-      }
-    }
-    slug
-    content
     }
   }
 }`
-export { DATA_PAGE, GET_DATA_CHECKVISA }
+export { DATA_PAGE, GET_DATA_CHECKVISA2 }

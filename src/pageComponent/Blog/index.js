@@ -122,12 +122,14 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
               {data1?.data?.page?.translation?.ourblog?.heading2}
             </h2>
             <div className='md:px-[8.06vw]'>
-              <SlideTour data={data1?.data?.page?.translation?.ourblog?.bestseller} />
+              <SlideTour data={data1?.data?.bestSeller?.tours?.nodes} lang={lang} />
             </div>
-            <Button className='btn-secondary  m-auto md:mt-[3.5vw] mt-[10.01vw]'>
-              {' '}
-              {data1?.data?.page?.translation?.ourblog?.button}
-            </Button>
+            <Link href={`/${lang}/search`}>
+              <Button className='btn-secondary m-auto md:mt-[3.5vw] relative mt-[10.01vw]'>
+                {' '}
+                {data1?.data?.page?.translation?.ourblog?.button}
+              </Button>
+            </Link>
           </div>
         ) : (
           <div className='flex items-center justify-center flex-1 w-full text-center h-[60vh]'>

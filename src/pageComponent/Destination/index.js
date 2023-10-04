@@ -4,7 +4,12 @@ import SectionActions from './SectionActions'
 import CustomerReview from './CustomerReview'
 import OurBlog from './OurBlog'
 import FilterPopup from './FilterPopup'
-import { DATA_COUNTRY, DATA_SLIDE_OTHER_TOUR, DATA_SLIDE_TOUR } from '@/graphql/country/queries'
+import {
+  DATA_COUNTRY,
+  DATA_SLIDE_OTHER_TOUR,
+  DATA_SLIDE_TOUR,
+  GET_DATA_BEST_SELLER_OURTOUR
+} from '@/graphql/country/queries'
 import getDataWithTaxonomy from '@/data/getDataWithTaxonomy'
 import getDataPost from '@/data/getDataPost'
 import {
@@ -38,6 +43,7 @@ async function index({ lang, slug }) {
     DATA_SLIDE_OTHER_TOUR
   )
 
+  const dataBestSeller = await getDataPost(lang, GET_DATA_BEST_SELLER_OURTOUR)
   const data = dataCountry?.data?.countries?.translation
   // ==== Get name filter ====
   const dataTaxonomiesStyleTour = await getDataPost(lang, DATA_TAXONOMIES_TOUR_STYLE)
@@ -68,20 +74,12 @@ async function index({ lang, slug }) {
   }
   return (
     <div>
-      <Banner
-        data={data?.country?.banner}
-        slug={slug}
-        dataFilter={dataFilter}
-        lang={lang}
-      />
-      <FilterPopup
-        dataFilter={dataFilter}
-        slug={slug}
-        lang={lang}
-      />
+      <Banner data={data?.country?.banner} slug={slug} dataFilter={dataFilter} lang={lang} />
+      <FilterPopup dataFilter={dataFilter} slug={slug} lang={lang} />
       <SectionActions />
       <SlideDestination
-        data={dataOtherTrip?.data?.allTours?.nodes}
+        // data={dataOtherTrip?.data?.allTours?.nodes}
+        data={dataBestSeller?.data?.bestSeller?.tours?.nodes}
         dataOtherType={dataOtherTypeTrip?.data?.allTours?.nodes}
         dataTitle={data}
         lang={lang}

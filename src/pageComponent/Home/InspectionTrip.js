@@ -10,7 +10,6 @@ import restaurantIcon from '@/assets/images/restauY.svg'
 
 function InspectionTrip({ data,lang }) {
   const [indexSlider, setIndexSlider] = useState(0)
-  console.log(data)
   const swiperRef = useRef()
   const handleNextSlide = () => {
     swiperRef.current?.slideNext()

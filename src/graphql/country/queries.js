@@ -176,6 +176,34 @@ query getTourStyle($language: LanguageCodeEnum!, $taxonomyValue: String, $taxono
 }
 `
 
+const GET_DATA_BEST_SELLER_OURTOUR = `
+query($language:LanguageCodeEnum!){
+  bestSeller(id:"dGVybToyODU="){
+    tours{
+      nodes{
+        translation(language:$language){
+          slug
+          tourDetail {
+              banner {
+                gallery {
+                  sourceUrl
+                }
+                icons
+                location
+                price {
+                  highestPrice
+                  lowestPrice
+                }
+                rate
+                title
+              }
+            }
+        }
+      }
+    }
+  }
+}`
+
 const GET_META_DATA = `query ($slug: ID!, $language: LanguageCodeEnum!) {
   countries(id: $slug, idType: SLUG) {
     translation(language: $language) {
@@ -189,4 +217,11 @@ const GET_META_DATA = `query ($slug: ID!, $language: LanguageCodeEnum!) {
   }
 }`
 
-export { DATA_MENU_COUNTRY, DATA_COUNTRY, DATA_SLIDE_TOUR, DATA_SLIDE_OTHER_TOUR, GET_META_DATA }
+export {
+  DATA_MENU_COUNTRY,
+  DATA_COUNTRY,
+  DATA_SLIDE_TOUR,
+  DATA_SLIDE_OTHER_TOUR,
+  GET_META_DATA,
+  GET_DATA_BEST_SELLER_OURTOUR
+}
