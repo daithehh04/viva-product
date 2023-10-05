@@ -357,8 +357,8 @@ export default function AboutTour(props) {
 
                 {/*step when scroll down */}
                 <div
-                  className='max-md:hidden hidden py-[3.3vw] w-[4.125vw] h-[80vh] fixed left-0 top-1/2 -translate-y-1/2 rounded-lg'
-                  style={{ boxShadow: '0 0 5pt 5pt rgba(0,0,0,0.1)' }}
+                  className='max-md:hidden hidden py-[3.3vw] w-[4.125vw] h-[31vw] fixed left-0 top-1/2 -translate-y-1/2 rounded-lg'
+                  style={{ boxShadow: '0px 0px 2vw 0px rgba(0, 0, 0, 0.08)' }}
                   ref={stepIconRef}
                 >
                   <div className='w-full h-full flex flex-col justify-center gap-[1vw] items-center'>
@@ -388,10 +388,10 @@ export default function AboutTour(props) {
                   </div>
                 </div>
 
-                {/* {onlySmallScreen && (
+                {onlySmallScreen && (
                   <div
                     ref={stepIconMbRef}
-                    className='fixed top-[14.375vw] right-0 w-full h-[15vw] px-[5vw] text-[4vw] bg-amber-100 flex items-center justify-between gap-[2vw] shadow-lg shadow-amber-500/50 z-50'
+                    className='fixed top-[14.93vw] right-0 w-full h-[16vw] px-[4.53vw] text-[4vw] bg-[#FFFBE9] flex items-center justify-between z-50'
                   >
                     {stepData.map((step, index) => {
                       return (
@@ -417,7 +417,7 @@ export default function AboutTour(props) {
                       )
                     })}
                   </div>
-                )} */}
+                )}
               </>
             )}
 
@@ -613,7 +613,8 @@ export default function AboutTour(props) {
         <PriceMb
           data={{
             button: data?.map?.button,
-            price: { header: bannerHeaders?.priceHeader, value: banner?.price }
+            price: { header: bannerHeaders?.priceHeader, value: banner?.price },
+            map: data?.map?.image
           }}
           onClick={() => setOpenModal(true)}
         />
