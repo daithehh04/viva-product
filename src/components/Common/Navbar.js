@@ -117,7 +117,7 @@ export default function Navbar({
         // menuItems[index].style.display = 'none'
       })
     })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleCloseMenu = () => {
@@ -156,188 +156,134 @@ export default function Navbar({
 
   return (
     <DataProvider>
-    <div className='nav-container'>
-      <nav
-        className={`${
-          isTranparent ? 'md:bg-white border-b border-solid border-[#ffffff29] nav-mb-special' : 'bg-white'
-        } w-full navbar h-[5.375vw] max-lg:h-[14.93vw]`}
-      >
-        <div className='flex items-center h-full content '>
-          <div className='flex items-center gap-x-[2vw]'>
-            <Link href={`/${lang}`}>
-              <Image
-                src={logo}
-                width={100}
-                height={100}
-                alt='viva-travel'
-                className='nav-logo w-[3.5625vw] object-cover max-lg:w-[10.4vw]'
-              />
-            </Link>
-            <div
-              className='nav-list max-lg:hidden flex items-center gap-x-[2vw] mr-[6vw]'
-              ref={refMenu}
-            >
-              <div className='relative flex-shrink-0'>
+      <div className='nav-container'>
+        <nav
+          className={`${
+            isTranparent ? 'md:bg-white border-b border-solid border-[#ffffff29] nav-mb-special' : 'bg-white'
+          } w-full navbar h-[5.375vw] max-lg:h-[14.93vw]`}
+        >
+          <div className='flex items-center h-full content '>
+            <div className='flex items-center gap-x-[2vw]'>
+              <Link href={`/${lang}`}>
+                <Image
+                  src={logo}
+                  width={100}
+                  height={100}
+                  alt='viva-travel'
+                  className='nav-logo w-[3.5625vw] object-cover max-lg:w-[10.4vw]'
+                />
+              </Link>
+              <div className='nav-list max-lg:hidden flex items-center gap-x-[2vw] mr-[6vw]' ref={refMenu}>
+                <div className='relative flex-shrink-0'>
+                  <div className='capitalize text-[1vw] nav-link'>
+                    {dataHome?.nav1}
+                    <div className='w-[83.75%]'>
+                      <div className='menu-item menu-item1 content'>
+                        <MenuDestinations data={dataMenuCountry} lang={lang} onCloseMenu={handleCloseMenu} />
+                      </div>
+                    </div>
+                  </div>
+                  <span className='icon-hot absolute top-[-12px] right-[-6px] px-[10px] rounded-[99px] bg-primaryColor text-[12px]'>
+                    Hot
+                  </span>
+                </div>
                 <div className='capitalize text-[1vw] nav-link'>
-                  {dataHome?.nav1}
+                  {dataHome?.nav2}
                   <div className='w-[83.75%]'>
-                    <div className='menu-item content'>
-                      <MenuDestinations
-                        data={dataMenuCountry}
-                        lang={lang}
-                        onCloseMenu={handleCloseMenu}
-                      />
+                    <div className='menu-item menu-item2 content'>
+                      <MenuStyle travelStylesList={travelStylesList} lang={lang} onCloseMenu={handleCloseMenu} />
                     </div>
                   </div>
                 </div>
-                <span className='icon-hot absolute top-[-12px] right-[-6px] px-[10px] rounded-[99px] bg-primaryColor text-[12px]'>
-                  Hot
-                </span>
-              </div>
-              <div className='capitalize text-[1vw] nav-link'>
-                {dataHome?.nav2}
-                <div className='w-[83.75%]'>
+                <Link href={`/${lang}/hot-deals`} className='capitalize text-[1vw] nav-link'>
+                  {dataHome?.nav3}
+                  <div className='w-[83.75%] '>
+                    <div className='menu-item hidden content'>
+                      <HotDeal hotDeals={hotDeals} listVoucher={listVoucher} menu lang={lang} />
+                    </div>
+                  </div>
+                </Link>
+                <Link href={`/${lang}/check-visa`} className='capitalize text-[1vw] nav-link'>
+                  {dataHome?.nav4}
+                </Link>
+                <div className='capitalize text-[1vw] nav-link'>
+                  {dataHome?.nav5}
                   <div className='menu-item content'>
-                    <MenuStyle
-                      travelStylesList={travelStylesList}
-                      lang={lang}
-                      onCloseMenu={handleCloseMenu}
-                    />
+                    <MenuAbout dataAboutUs={dataAboutUs} onCloseMenu={handleCloseMenu} lang={lang} />
                   </div>
                 </div>
-              </div>
-              <Link
-                href={`/${lang}/hot-deals`}
-                className='capitalize text-[1vw] nav-link'
-              >
-                {dataHome?.nav3}
-              <div className='w-[83.75%] '>
-                <div className='menu-item hidden content'>
-                  <HotDeal
-                    hotDeals={hotDeals}
-                    listVoucher={listVoucher}
-                    menu
-                    lang={lang}
-                  />
+                <div className='capitalize text-[1vw] nav-link'>
+                  {dataHome?.nav6}
+                  <div className='w-[83.75%]'>
+                    <div className='menu-item content'>
+                      <MenuRcmService rcmServicesList={rcmServicesList} lang={lang} onCloseMenu={handleCloseMenu} />
+                    </div>
+                  </div>
                 </div>
+                <Link href={`/${lang}/blog`} className='capitalize text-[1vw] nav-link'>
+                  {dataHome?.nav7}
+                </Link>
               </div>
-              </Link>
-              <Link
-                href={`/${lang}/check-visa`}
-                className='capitalize text-[1vw] nav-link'
-              >
-                {dataHome?.nav4}
-              </Link>
-              <div className='capitalize text-[1vw] nav-link'>
-                {dataHome?.nav5}
-                <div className='menu-item content'>
-                  <MenuAbout
-                    dataAboutUs={dataAboutUs}
-                    onCloseMenu={handleCloseMenu}
-                    lang={lang}
-                  />
-                </div>
-              </div>
-              <div className='capitalize text-[1vw] nav-link'>
-                {dataHome?.nav6}
-              <div className='w-[83.75%]'>
-                <div className='menu-item content'>
-                  <MenuRcmService
-                    rcmServicesList={rcmServicesList}
-                    lang={lang}
-                    onCloseMenu={handleCloseMenu}
-                  />
-                </div>
-                </div>
-              </div>
-              <Link
-                href={`/${lang}/blog`}
-                className='capitalize text-[1vw] nav-link'
-              >
-                {dataHome?.nav7}
-              </Link>
             </div>
+            <div
+              className='flex ml-auto max-lg:hidden'
+              ref={refBtnBookTour}
+              // onClick={handleOpenPopup}
+              onClick={() => setOpenModal(true)}
+            >
+              <Button className='flex-shrink-0 btn-primary mr-[3.25vw]'>
+                <Image src={star} width={50} height={50} alt='img' className='w-[1.25vw] object-cover mr-[0.75vw]' />
+                Book tour
+              </Button>
+            </div>
+            <div className='flex-shrink-0 max-lg:hidden'>
+              <SelectLang lang={lang} />
+            </div>
+            <div className='flex-1 hidden max-lg:block'>
+              <InputSearchMb lang={lang} dataFilter={dataFilter} />
+            </div>
+            <Image
+              src={bars}
+              width={50}
+              height={50}
+              alt='bars'
+              className={`w-[4.8vw] h-[2.93vw] ml-auto object-cover cursor-pointer hidden max-lg:block`}
+              onClick={handleClickBars}
+            />
           </div>
-          <div
-            className='flex ml-auto max-lg:hidden'
-            ref={refBtnBookTour}
-            // onClick={handleOpenPopup}
-            onClick={() => setOpenModal(true)}
-          >
-            <Button className='flex-shrink-0 btn-primary mr-[3.25vw]'>
-              <Image
-                src={star}
-                width={50}
-                height={50}
-                alt='img'
-                className='w-[1.25vw] object-cover mr-[0.75vw]'
-              />
-              Book tour
-            </Button>
-          </div>
-          <div className='flex-shrink-0 max-lg:hidden'>
-            <SelectLang lang={lang} />
-          </div>
-          <div className='flex-1 hidden max-lg:block'>
-            <InputSearchMb lang={lang} dataFilter={dataFilter}/>
-          </div>
-          <Image
-            src={bars}
-            width={50}
-            height={50}
-            alt='bars'
-            className={`w-[4.8vw] h-[2.93vw] ml-auto object-cover cursor-pointer hidden max-lg:block`}
-            onClick={handleClickBars}
-          />
-        </div>
-      </nav>
-      <div
-        className='menu-popup fixed inset-0 hidden overflow-x-hidden overflow-y-auto w-full h-full bg-white nav-mobile max-lg:block !z-[199] nav-mobile'
-        ref={refMb}
-      >
-        <MenuMb
-          onCloseMenu={handleClickClose}
-          lang={lang}
-          hotDeals={hotDeals}
-          dataMenuCountry={dataMenuCountry}
-          travelStylesList={travelStylesList}
-          rcmServicesList={rcmServicesList}
-          menu
-        />
-      </div>
-      <div
-        className={`${
-          pathName.includes('tours') ? 'max-md:hidden' : ''
-        } books-footer h-[15.2vw] fixed bottom-0 left-0 right-0 z-[99] hidden max-md:flex`}
-      >
-        <Link
-          href='#'
-          className='flex items-center gap-[1.6vw] w-[50%] bg-[#fff] justify-center'
-        >
-          <Image
-            src={planeF}
-            width={50}
-            height={50}
-            alt='img'
-            className='w-[4.26vw] h-[4.26vw]'
-          />
-          <span className='text-[3.46vw] font-[500]'>Tours List</span>
-        </Link>
+        </nav>
         <div
-          onClick={() => setOpenModal(true)}
-          className='flex items-center gap-[1.6vw] w-[50%] bg-[#FFD220] justify-center'
+          className='menu-popup fixed inset-0 hidden overflow-x-hidden overflow-y-auto w-full h-full bg-white nav-mobile max-lg:block !z-[199] nav-mobile'
+          ref={refMb}
         >
-          <Image
-            src={starF}
-            width={50}
-            height={50}
-            alt='img'
-            className='w-[4.26vw] h-[4.26vw]'
+          <MenuMb
+            onCloseMenu={handleClickClose}
+            lang={lang}
+            hotDeals={hotDeals}
+            dataMenuCountry={dataMenuCountry}
+            travelStylesList={travelStylesList}
+            rcmServicesList={rcmServicesList}
+            menu
           />
-          <span className='text-[3.46vw] font-[500]'>Book tour</span>
         </div>
-      </div>
-      {/* <div
+        <div
+          className={`${
+            pathName.includes('tours') ? 'max-md:hidden' : ''
+          } books-footer h-[15.2vw] fixed bottom-0 left-0 right-0 z-[99] hidden max-md:flex`}
+        >
+          <Link href='#' className='flex items-center gap-[1.6vw] w-[50%] bg-[#fff] justify-center'>
+            <Image src={planeF} width={50} height={50} alt='img' className='w-[4.26vw] h-[4.26vw]' />
+            <span className='text-[3.46vw] font-[500]'>Tours List</span>
+          </Link>
+          <div
+            onClick={() => setOpenModal(true)}
+            className='flex items-center gap-[1.6vw] w-[50%] bg-[#FFD220] justify-center'
+          >
+            <Image src={starF} width={50} height={50} alt='img' className='w-[4.26vw] h-[4.26vw]' />
+            <span className='text-[3.46vw] font-[500]'>Book tour</span>
+          </div>
+        </div>
+        {/* <div
         className='absolute top-0 z-[999] w-full flex justify-center form-popup h-[100vh] overflow-auto'
         ref={refFormPopup}
       >
@@ -348,21 +294,18 @@ export default function Navbar({
         />
       </div> */}
 
-      {openModal && (
-        <ModalCustom
-          openModal={openModal}
-          setOpenModal={setOpenModal}
-          className='w-[91.46vw] md:w-[82.93vw] md:h-[90vh] h-[80vh]'
-        >
-          <div className='w-full h-full overflow-y-auto md:rounded-[16px] overflow-x-hidden'>
-            <BookTour
-              data={dataBookTour}
-              setOpenModal={setOpenModal}
-            />
-          </div>
-        </ModalCustom>
-      )}
-    </div>
+        {openModal && (
+          <ModalCustom
+            openModal={openModal}
+            setOpenModal={setOpenModal}
+            className='w-[91.46vw] md:w-[82.93vw] md:h-[90vh] h-[80vh]'
+          >
+            <div className='w-full h-full overflow-y-auto md:rounded-[16px] overflow-x-hidden'>
+              <BookTour data={dataBookTour} setOpenModal={setOpenModal} />
+            </div>
+          </ModalCustom>
+        )}
+      </div>
     </DataProvider>
   )
 }

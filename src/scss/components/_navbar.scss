@@ -93,7 +93,6 @@
       top: 0;
     }
     .menu-item {
-      // transform-origin: 30% top;
       border-bottom-right-radius: 0.5vw;
       border-bottom-left-radius: 0.5vw;
       transition: all 0.5s;
@@ -119,9 +118,22 @@
           rgba(255, 255, 255, 0.8),
           rgba(255, 255, 255, 0.8) 65.12%
         ),
-        url(../../assets/images/bg-menu.png), lightgray 0px -0.142px / 100% 100.029% no-repeat;
+        url(../../assets/images/Mega1.png), lightgray 0px -0.142px / 100% 100.029% no-repeat;
       background-size: cover;
       background-position: bottom;
+    }
+
+    .menu-item1 {
+      background-size: cover;
+      background-position: bottom;
+      background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.8),
+          rgba(255, 255, 255, 0.8),
+          rgba(255, 255, 255, 0.8) 65.12%
+        ),
+        url(../../assets/images/mega2.png), lightgray 0px -0.142px / 100% 100.029% no-repeat;
+      background: url(../../assets/images/mega1.png), lightgray -123.179px 1.662px / 140.936% 108.333% no-repeat, #fff;
     }
   }
 
@@ -221,4 +233,13 @@
 
 .menu-mb_item::-webkit-scrollbar {
   height: 2px;
+}
+
+.bgImg-MenuOurTour {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0.625vw;
+  height: 10vw;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.37) 41.89%, rgba(0, 0, 0, 0.81) 100%);
 }
