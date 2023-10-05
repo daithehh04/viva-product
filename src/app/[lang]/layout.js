@@ -83,6 +83,10 @@ export default async function RootLayout({ children, params }) {
         <ApolloClientProvider>
           <ThemeRegistry>
             <Navbar
+              dataTaxonomiesCountry={dataTaxonomiesCountry}
+              dataTaxonomiesStyleTour={dataTaxonomiesStyleTour}
+              dataTaxonomiesBudget={dataTaxonomiesBudget}
+              dataTaxonomiesDuration={dataTaxonomiesDuration}
               travelStylesList={travelStylesList}
               lang={params.lang}
               dataHome={dataHome?.header}
