@@ -57,7 +57,7 @@ export default function Navbar({
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
   //check pathName
   const pathName = usePathname()
-
+  const [openModal, setOpenModal] = useState(false)
   const isTranparent = useRef(false)
 
   useEffect(() => {
@@ -76,9 +76,6 @@ export default function Navbar({
       ? pathNameMb.some((item) => pathName.includes(item))
       : pathName.includes(pathNamePc) && !pathName.includes('our-tours')
   }, [pathName, onlySmallScreen])
-  console.log(isTranparent.current)
-  // const refFormPopup = useRef()
-  const [openModal, setOpenModal] = useState(false)
 
   useEffect(() => {
     const nav = document.querySelector('.navbar')
@@ -105,6 +102,7 @@ export default function Navbar({
       lastScrolledPos = window.scrollY
     }
     const menuItems = refMenu?.current?.querySelectorAll('.menu-item')
+
     const menuNavs = refMenu?.current?.querySelectorAll('.nav-link:has(.menu-item)')
     menuItems?.forEach((item, index) => {
       var distance = menuNavs[index].getBoundingClientRect().left + menuNavs[index].clientWidth / 2
@@ -126,6 +124,7 @@ export default function Navbar({
   const handleCloseMenu = () => {
     const menuLink = refMenu?.current?.querySelector('.nav-link.show')
     const menuItem = refMenu?.current?.querySelector('.nav-link.show .menu-item')
+
     if (menuItem && menuLink) {
       menuLink.classList.remove('show')
       menuItem.style.transition = 'none'
@@ -176,13 +175,20 @@ export default function Navbar({
                   className='nav-logo w-[3.5625vw] object-cover max-lg:w-[10.4vw]'
                 />
               </Link>
-              <div className='nav-list max-lg:hidden flex items-center gap-x-[2vw] mr-[6vw]' ref={refMenu}>
+              <div
+                className='nav-list max-lg:hidden flex items-center gap-x-[2vw] mr-[6vw]'
+                ref={refMenu}
+              >
                 <div className='relative flex-shrink-0'>
-                  <div className='capitalize text-[1vw] nav-link'>
+                  <div className='capitalize text-[1vw] nav-link cursor-pointer'>
                     {dataHome?.nav1}
                     <div className='w-[83.75%]'>
                       <div className='menu-item menu-item1 content'>
-                        <MenuDestinations data={dataMenuCountry} lang={lang} onCloseMenu={handleCloseMenu} />
+                        <MenuDestinations
+                          data={dataMenuCountry}
+                          lang={lang}
+                          onCloseMenu={handleCloseMenu}
+                        />
                       </div>
                     </div>
                   </div>
@@ -258,7 +264,13 @@ export default function Navbar({
               onClick={() => setOpenModal(true)}
             >
               <Button className='flex-shrink-0 btn-primary mr-[3.25vw]'>
-                <Image src={star} width={50} height={50} alt='img' className='w-[1.25vw] object-cover mr-[0.75vw]' />
+                <Image
+                  src={star}
+                  width={50}
+                  height={50}
+                  alt='img'
+                  className='w-[1.25vw] object-cover mr-[0.75vw]'
+                />
                 Book tour
               </Button>
             </div>
@@ -266,7 +278,10 @@ export default function Navbar({
               <SelectLang lang={lang} />
             </div>
             <div className='flex-1 hidden max-lg:block'>
-              <InputSearchMb lang={lang} dataFilter={dataFilter} />
+              <InputSearchMb
+                lang={lang}
+                dataFilter={dataFilter}
+              />
             </div>
             <Image
               src={bars}
@@ -297,15 +312,30 @@ export default function Navbar({
             pathName.includes('tours') ? 'max-md:hidden' : ''
           } books-footer h-[15.2vw] fixed bottom-0 left-0 right-0 z-[99] hidden max-md:flex`}
         >
-          <Link href='#' className='flex items-center gap-[1.6vw] w-[50%] bg-[#fff] justify-center'>
-            <Image src={planeF} width={50} height={50} alt='img' className='w-[4.26vw] h-[4.26vw]' />
+          <Link
+            href='#'
+            className='flex items-center gap-[1.6vw] w-[50%] bg-[#fff] justify-center'
+          >
+            <Image
+              src={planeF}
+              width={50}
+              height={50}
+              alt='img'
+              className='w-[4.26vw] h-[4.26vw]'
+            />
             <span className='text-[3.46vw] font-[500]'>Tours List</span>
           </Link>
           <div
             onClick={() => setOpenModal(true)}
             className='flex items-center gap-[1.6vw] w-[50%] bg-[#FFD220] justify-center'
           >
-            <Image src={starF} width={50} height={50} alt='img' className='w-[4.26vw] h-[4.26vw]' />
+            <Image
+              src={starF}
+              width={50}
+              height={50}
+              alt='img'
+              className='w-[4.26vw] h-[4.26vw]'
+            />
             <span className='text-[3.46vw] font-[500]'>Book tour</span>
           </div>
         </div>
@@ -327,8 +357,10 @@ export default function Navbar({
             className='w-[91.46vw] md:w-[82.93vw] md:h-[90vh] h-[80vh]'
           >
             <div className='w-full h-full overflow-y-auto md:rounded-[16px] overflow-x-hidden'>
-              <BookTour data={dataBookTour} setOpenModal={setOpenModal} />
-
+              <BookTour
+                data={dataBookTour}
+                setOpenModal={setOpenModal}
+              />
             </div>
           </ModalCustom>
         )}

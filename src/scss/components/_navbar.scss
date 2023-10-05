@@ -76,9 +76,9 @@
     display: inline-block;
     &.show {
       .menu-item {
-        transform: translateY(0);
         opacity: 1;
         overflow: auto;
+        height: fit-content;
       }
     }
     &:hover {
@@ -113,7 +113,6 @@
       border-bottom-right-radius: 0.5vw;
       border-bottom-left-radius: 0.5vw;
       transition: all 1s;
-      transform: translateY(-100%);
       opacity: 0;
       display: grid;
       position: fixed;
@@ -123,7 +122,7 @@
       top: 5.375vw;
       bottom: 0;
       z-index: -10;
-      height: fit-content;
+      height: 0;
       width: 83.75%;
       grid-template-rows: auto;
       box-shadow: 0px 0px 70px 0px rgba(0, 0, 0, 0.08);
@@ -148,7 +147,7 @@
           rgba(255, 255, 255, 0.8) 65.12%
         ),
         url(../../assets/images/mega2.png), lightgray 0px -0.142px / 100% 100.029% no-repeat;
-      background: url(../../assets/images/mega1.png), lightgray -123.179px 1.662px / 140.936% 108.333% no-repeat, #fff;
+      background: url(../../assets/images/Mega1.png), lightgray -123.179px 1.662px / 140.936% 108.333% no-repeat, #fff;
     }
   }
 
