@@ -18,6 +18,16 @@
     color: white;
   }
 
+  .nav-link {
+    &:hover {
+      color: $colorPrimary !important;
+    }
+
+    &::after {
+      background: $colorPrimary !important;
+    }
+  }
+
   .icon-hot {
     color: black;
   }
@@ -28,6 +38,14 @@
     }
     svg {
       color: white !important;
+    }
+  }
+}
+
+.nav-bar {
+  .nav-link {
+    &:hover {
+      color: yellow !important;
     }
   }
 }

@@ -57,25 +57,26 @@ export default function Navbar({
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
   //check pathName
   const pathName = usePathname()
-  const pathNameMb = [
-    'our-tours',
-    'travel-style',
-    'tours',
-    'who-we-are',
-    'responsible-travel',
-    'review',
-    'hot-deals',
-    'check-visa'
-  ]
-  const pathNamePc = ['tours']
 
   const isTranparent = useRef(false)
 
   useEffect(() => {
+    const pathNameMb = [
+      'our-tours',
+      'travel-style',
+      'tours',
+      'who-we-are',
+      'responsible-travel',
+      'review',
+      'hot-deals',
+      'check-visa'
+    ]
+    const pathNamePc = ['tours']
     isTranparent.current = onlySmallScreen
       ? pathNameMb.some((item) => pathName.includes(item))
       : pathName.includes(pathNamePc) && !pathName.includes('our-tours')
-  }, [pathName])
+  }, [pathName, onlySmallScreen])
+  console.log(isTranparent.current)
   // const refFormPopup = useRef()
   const [openModal, setOpenModal] = useState(false)
 
@@ -180,7 +181,7 @@ export default function Navbar({
                 ref={refMenu}
               >
                 <div className='relative flex-shrink-0'>
-                  <div className='capitalize text-[1vw] nav-link'>
+                  <div className='capitalize text-[1vw] nav-link cursor-pointer'>
                     {dataHome?.nav1}
                     <div className='w-[83.75%]'>
                       <div className='menu-item content'>
@@ -196,7 +197,7 @@ export default function Navbar({
                     Hot
                   </span>
                 </div>
-                <div className='capitalize text-[1vw] nav-link'>
+                <div className='capitalize text-[1vw] nav-link cursor-pointer'>
                   {dataHome?.nav2}
                   <div className='w-[83.75%]'>
                     <div className='menu-item content'>
@@ -227,7 +228,7 @@ export default function Navbar({
                 >
                   {dataHome?.nav4}
                 </Link>
-                <div className='capitalize text-[1vw] nav-link'>
+                <div className='capitalize text-[1vw] nav-link cursor-pointer'>
                   {dataHome?.nav5}
                   <div className='menu-item content'>
                     <MenuAbout
@@ -237,7 +238,7 @@ export default function Navbar({
                     />
                   </div>
                 </div>
-                <div className='capitalize text-[1vw] nav-link'>
+                <div className='capitalize text-[1vw] nav-link cursor-pointer'>
                   {dataHome?.nav6}
                   <div className='w-[83.75%]'>
                     <div className='menu-item content'>
@@ -251,7 +252,7 @@ export default function Navbar({
                 </div>
                 <Link
                   href={`/${lang}/blog`}
-                  className='capitalize text-[1vw] nav-link'
+                  className='capitalize text-[1vw] nav-link cursor-pointer'
                 >
                   {dataHome?.nav7}
                 </Link>
