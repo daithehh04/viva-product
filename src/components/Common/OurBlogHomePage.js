@@ -25,6 +25,7 @@ function OurBlogHomePage({ data, button, lang }) {
         data-aos-once='true'
         data-aos='fade-up'
         data-aos-duration='1000'
+        data-aos-disabled='true'
         className='heading-1 md:mb-[3vw] mb-[6.4vw] md:pl-0 pl-[4.27vw]'
       >
         {data?.title}

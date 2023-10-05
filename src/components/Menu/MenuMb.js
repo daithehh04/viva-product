@@ -3,11 +3,7 @@ import Image from 'next/image'
 import { useRef, useState } from 'react'
 import logo from '@/assets/images/logo.svg'
 import Link from 'next/link'
-import InputSearchMb from '../Common/InputSearchMb'
 import iconDropdown from '@/assets/images/arrow-up.svg'
-import iconVN from '@/assets/images/vietnam.png'
-import iconAll from '@/assets/images/all-mb.svg'
-import iconClassic from '@/assets/images/classic-mb.png'
 import VoucherItem from '../Common/VoucherItem'
 import TourItem from '../Common/TourItem'
 import Button from '../Common/Button'
@@ -18,6 +14,7 @@ import linkedIcon from '@/assets/images/linkedin.svg'
 import instarIcon from '@/assets/images/instar.svg'
 import ytbIcon from '@/assets/images/youtube.svg'
 import HotDeal from '../Common/HotDeal'
+import InputSearchMb from '../Common/InputSearchMb'
 
 function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList, rcmServicesList }) {
   const [selected, setSelected] = useState(null)
@@ -37,7 +34,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
     <div className='menu-mobile pb-[41.33vw]'>
       <div className='flex items-center justify-center h-[14.93vw] border-b border-solid border-textColor border-opacity-20'>
         <div className='flex items-center content'>
-          <Link href='#'>
+          <Link href={`/${lang}`}>
             <Image
               src={logo}
               width={100}
@@ -47,7 +44,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             />
           </Link>
           <div className='flex-1 hidden max-lg:block'>
-            <InputSearchMb />
+            <InputSearchMb lang={lang}/>
           </div>
           <div
             className='cursor-pointer close'

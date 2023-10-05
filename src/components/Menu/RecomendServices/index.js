@@ -2,7 +2,7 @@ import ServiceItem from './ServiceItem'
 function index({ rcmServicesList, lang,onCloseMenu }) {
   const data = rcmServicesList?.data?.categories?.nodes
   return (
-    <div className='grid grid-cols-3 grid-rows-[max-content] gap-[2.5vw] w-[64.375vw] ml-auto mr-auto pt-[6.25vw]'>
+    <div className='grid grid-cols-3 grid-rows-[max-content] gap-[2.5vw] content ml-auto mr-auto py-[2.81vw]'>
       {data?.map((item, index) => (
         <ServiceItem
           key={index}

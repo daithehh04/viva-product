@@ -9,7 +9,6 @@ import { GET_REVIEWS } from '@/graphql/customersReview/queries'
 import { GET_TOUR_META_DATA } from '@/graphql/metaData/queries'
 import { GET_RANDOM_TOUR, GET_TOUR_DETAIL } from '@/graphql/tourDetail/queries'
 import TourDetail from '@/pageComponent/TourDetail'
-import Loading from '../../loading'
 import getDataFormBookTour from '@/data/formBookTour/getDataFormBookTour'
 import { GET_DATA_FORM_BOOKTOUR } from '@/graphql/formBookTour/queries'
 
@@ -26,6 +25,7 @@ export default async function page({ params: { lang, slug } }) {
   const idEnBook = 'cG9zdDoxNDIy'
   const idFrBook = 'cG9zdDoxNDIy'
   const idItBook = 'cG9zdDoxNDIy'
+
   //get header data
   const headerData = await getTourDetailHeader(lang)
   // // get detail of tour
@@ -57,6 +57,7 @@ export default async function page({ params: { lang, slug } }) {
   if (lang === 'fr') {
     dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idFrBook, lang)
   }
+
   return (
     <TourDetail
       data={tourDetailData}

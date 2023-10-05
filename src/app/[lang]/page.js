@@ -39,11 +39,13 @@ export default async function page({ params: { lang } }) {
     data = await getDataPage(idFr, GET_HOME_PAGE)
     dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idFrBook, lang)
   }
+
   const nextStep = await getDataPost(lang, GET_NEXT_STEP)
   const dataTaxonomiesCountry = await getDataPost(lang, DATA_TAXONOMIES_COUNTRY)
   const dataTaxonomiesStyleTour = await getDataPost(lang, DATA_TAXONOMIES_TOUR_STYLE)
   const dataTaxonomiesBudget = await getDataPost(lang, DATA_TAXONOMIES_BUDGET)
   const dataTaxonomiesDuration = await getDataPost(lang, DATA_TAXONOMIES_DURATION)
+
   return (
     <main>
       <Home

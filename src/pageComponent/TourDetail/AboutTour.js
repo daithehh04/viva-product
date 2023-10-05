@@ -598,6 +598,7 @@ export default function AboutTour(props) {
         <SlideTour
           data={relatedTours}
           slug={type === 'promo' && 'hot-deals'}
+          lang={lang}
         />
         <Button
           className='btn-secondary mx-auto mt-[9.83vw] md:mt-[3.5vw]'

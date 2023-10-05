@@ -21,11 +21,13 @@ export default function Responsible({ data = {} }) {
             data-aos-once='true'
             data-aos='fade-up'
             data-aos-duration='1000'
+            data-aos-disabled='true'
           >
             {data?.title}
           </h2>
           <div
             data-aos-once='true'
+            data-aos-disabled='true'
             data-aos='fade-up'
             data-aos-duration='1200'
             className='md:w-[80%] md:font-manrope leading-[150%] md:text-[1.125vw] text-[3.733vw] opacity-80 text-center m-auto'
@@ -50,6 +52,7 @@ export default function Responsible({ data = {} }) {
                   data-aos-once='true'
                   data-aos-duration='1000'
                   data-aos='fade-right'
+                  data-aos-disabled='true'
                 >
                   <div className='text-primaryColor md:text-[6vw] text-[17.07vw] leading-[110%] font-optima font-semibold opacity-60'>
                     {index < 10 ? `0${index + 1}` : index}
@@ -71,6 +74,7 @@ export default function Responsible({ data = {} }) {
                   data-aos-once='true'
                   data-aos-duration='1000'
                   data-aos='fade-left'
+                  data-aos-disabled='true'
                 />
               </div>
             )
