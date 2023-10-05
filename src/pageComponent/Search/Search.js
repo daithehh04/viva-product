@@ -1,4 +1,5 @@
 'use client'
+import closeImg from '@/assets/images/close.svg'
 import { DATA_BEST_TOUR } from '@/graphql/filter/queries'
 import { useQuery } from '@apollo/client'
 import { useEffect, useState } from 'react'
@@ -7,6 +8,10 @@ import Sidebar from './Sidebar'
 import OtherTours from './OtherTours'
 import NewRelease from './NewRelease'
 import Loading from '@/components/Common/Loading'
+import ModalCustom from '@/components/Common/ModalCustom'
+import { Button, Drawer, Modal, SwipeableDrawer, useMediaQuery } from '@mui/material'
+import theme from '@/components/ThemeRegistry/theme'
+import Image from 'next/image'
 
 const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget, listBlog }) => {
   if (typeof window !== 'undefined') {
@@ -44,6 +49,8 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
   const [travelStyle, setTravelStyle] = useState(null)
   const [day, setDay] = useState(null)
   const [budget, setBudget] = useState(null)
+
+  console.log(destination, travelStyle, day, budget)
 
   useEffect(() => {
     const nameV = dataMenuCountry?.data?.allCountries?.nodes.filter((item) => item.slug === destinationParams)
@@ -94,6 +101,16 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
       return numTour >= +minDay && numTour <= +maxDay
     })
   }
+  const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
+  const [isOpenModal, setIsOpenModal] = useState(false)
+
+  const handleCloseFilter = () => {
+    setIsOpenModal(false)
+    setTravelStyle(null)
+    setBudget(null)
+    setDestination(null)
+    setDay(null)
+  }
 
   return (
     <div className='max-md:mt-[21.6vw] mt-[6.56vw] md:px-[8.13vw]'>
@@ -114,11 +131,22 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
             />
           </svg>
 
-          <p className='text-[3.73333vw] leading-[160%] text-textColor'>Filter</p>
+          <p className='text-[3.73333vw] leading-[160%] text-textColor' onClick={() => {setIsOpenModal(true)}}>Filter</p>
         </div>
       </div>
       <div className='search flex gap-[3.56vw]'>
-        <Sidebar
+      {onlySmallScreen ? <SwipeableDrawer sx={{height: '75vh'}} anchor={'bottom'}  open={isOpenModal} onClose={() => setIsOpenModal(false)}> 
+        <div className='bg-white'>
+          <Image
+              src={closeImg}
+              alt='close'
+              width={20}
+              height={20} className='md:hidden absolute md:top-[4.53vw] top-[2.5vw] right-[4.53vw] 
+              max-md:w-[4vw] max-md:right-[10vw] max-md:top-[5vw] max-md:h-[4vw]' onClick={handleCloseFilter} />
+        </div>
+        <Sidebar 
+          isOpenModal={isOpenModal}
+          setOpenModal={setIsOpenModal}
           params={params}
           lang={lang}
           travelStylesList={travelStylesList}
@@ -129,6 +157,25 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
           onTravelStyle={(data) => setTravelStyle(data)}
           onBudget={(data) => setBudget(data)}
         />
+        <div className='mx-[4.26vw] w-auto my-[8vw] bg-white md:hidden'>
+          <Button onClick={() => setIsOpenModal(false)} 
+            sx={{backgroundColor: '#FFD220',textTransform: 'capitalize' ,width: '89.48vw', borderRadius: '2.13vw', padding: '3.2vw', textAlign: 'center'}} 
+            color='primary' variant='contained'>Apply with us</Button>
+        </div>
+        </SwipeableDrawer> : 
+        <Sidebar
+          params={params}
+          lang={lang}
+          travelStylesList={travelStylesList}
+          dataMenuCountry={dataMenuCountry}
+          dataTaxonomiesBudget={dataTaxonomiesBudget}
+          onDay={(data) => setDay(data)}
+          onDestination={(data) => setDestination([data])}
+          onTravelStyle={(data) => setTravelStyle(data)}
+          onBudget={(data) => setBudget(data)}
+          isOpenModal={isOpenModal}
+        />
+        }
         {!loading ? (
           <div className='flex-1'>
             {allTours?.length !== 0 ? <ListTour data={allTours} lang={lang} /> : <OtherTours lang={lang} />}

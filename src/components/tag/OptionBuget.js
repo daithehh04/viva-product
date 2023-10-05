@@ -5,6 +5,8 @@ import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { useMediaQuery } from '@mui/material'
+import theme from '../ThemeRegistry/theme'
 
 const ITEM_HEIGHT = 48
 const ITEM_PADDING_TOP = 8
@@ -22,11 +24,11 @@ const Placeholder = ({ item, icon }) => (
       src={icon}
       alt='Money Image'
     />
-    <span className='text-[0.875vw] font-normal'>{item}</span>
+    <span className='text-[0.875vw] max-md:text-[3.73vw] font-normal'>{item}</span>
   </div>
 )
 
-export default function OptionBudget({ icon, list, defaultValue, onSelect }) {
+export default function OptionBudget({ icon, list, defaultValue, onSelect, isOpenModal }) {
   const [personName, setPersonName] = useState('Budget')
   useEffect(() => {
     if(defaultValue) {
@@ -40,12 +42,20 @@ export default function OptionBudget({ icon, list, defaultValue, onSelect }) {
     setPersonName(value)
     onSelect(value)
   }
+  const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
+  useEffect(() => {
+    if(isOpenModal) {
+      setPersonName('Budget')
+    }
+  }, [isOpenModal]);
   return (
     <div>
-      <FormControl className='mb-[0.94vw] bg-[#F0F0F0] rounded-[0.24913vw] flex justify-between items-center w-full outline-none'>
+      <FormControl className='mb-[0.94vw] max-md:rounded-[1.06vw] bg-[#F0F0F0] 
+      rounded-[0.24913vw] flex justify-between items-center w-full outline-none max-md:h-[13.33vw]'>
         <Select
           sx={{
             boxShadow: 'none',
+            height: onlySmallScreen ? '100%' : 'auto',
             '.MuiOutlinedInput-notchedOutline': { border: 0 },
             '&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
               border: 0
@@ -87,7 +97,7 @@ export default function OptionBudget({ icon, list, defaultValue, onSelect }) {
                   src={icon}
                   alt='Money Image'
                 />
-                <div className='px-2 py-[0.25vw] text-[0.875vw] font-normal'>{item?.name}</div>
+                <div className='px-2 py-[0.25vw] text-[0.875vw] font-normal max-md:text-[3.73vw]'>{item?.name}</div>
               </div>
             </MenuItem>
           ))}
