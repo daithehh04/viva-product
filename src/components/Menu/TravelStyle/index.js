@@ -8,7 +8,7 @@ export default function TravelStyle({ travelStylesList, lang,onCloseMenu }) {
   }
   return (
     <div>
-      <div className='grid grid-cols-3 gap-x-[7.91vw] gap-y-[2.88vw] content ml-auto mr-auto pt-[2.49vw] '>
+      <div className='grid grid-cols-3 gap-x-[7.91vw] gap-y-[2.88vw] content ml-auto mr-auto py-[2.49vw] '>
         {travelStyleList?.map((item, index) => (
           <StyleItem
             key={item?.id}
