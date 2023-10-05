@@ -10,6 +10,7 @@ const Banner = ({ data = {} }) => {
   const [isPlay, setIsPlay] = useState(false)
   const [openModal, setOpenModal] = useState(false)
   const video = data?.video
+  const listGallery = data?.gallery
 
   return (
     <div className='grid grid-cols-4 grid-rows-2 content gap-[1.25vw] overflow-hidden'>
@@ -34,9 +35,9 @@ const Banner = ({ data = {} }) => {
         />
       )}
 
-      {data?.gallery?.map((img, index) => {
+      {listGallery?.map((img, index) => {
         if (index >= 5 || index === 0) return
-        if (index === 4 && data?.gallery?.length > 5) {
+        if (index === 4 && listGallery?.length > 5) {
           return (
             <div
               className='w-full h-full relative cursor-pointer'
@@ -65,7 +66,7 @@ const Banner = ({ data = {} }) => {
                       className='w-[1.25vw]'
                     />
                   </span>
-                  <span>{video ? data?.gallery?.length - 4 : data?.gallery?.length - 5}</span>
+                  <span>{video ? listGallery?.length - 4 : listGallery?.length - 5}</span>
                 </p>
                 <p className='text-[1.5vw] font-normal leading-[50%] underline'>Other photos</p>
               </div>
@@ -89,7 +90,10 @@ const Banner = ({ data = {} }) => {
         setOpenModal={setOpenModal}
         className='w-[80vw] h-[80vh]'
       >
-        <ListImg data={data?.gallery} />
+        <ListImg
+          data={data?.gallery}
+          video={video}
+        />
       </ModalCustom>
     </div>
   )

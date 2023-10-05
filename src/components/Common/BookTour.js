@@ -122,7 +122,9 @@ function BookTour({ data, setOpenModal }) {
       }
     })
   }
-  useClickOutside(formRef, () => {
+  useClickOutside(formRef, (event) => {
+    // console.log(event.target)
+    //(!event.target.classList.contains('selectNation') && )
     if (!isDone) {
       setOpenNoti(true)
       setIsConfirm(true)
@@ -130,7 +132,12 @@ function BookTour({ data, setOpenModal }) {
   })
   return (
     <>
-      <Image alt='background' src={bgPc} quality={100} className='absolute top-0 left-0 w-full h-full' />
+      <Image
+        alt='background'
+        src={bgPc}
+        quality={100}
+        className='absolute top-0 left-0 w-full h-full'
+      />
       <div
         ref={formRef}
         className='md:w-[82.6875vw] md:h-[95.5vw] w-full h-full overflow-auto hidden-scroll relative booktour block'
@@ -148,8 +155,22 @@ function BookTour({ data, setOpenModal }) {
               setIsConfirm(true)
             }}
           >
-            <line x1='46.3438' y1='15.857' x2='18.0596' y2='44.1413' stroke='white' strokeWidth='2' />
-            <line x1='44.9296' y1='43.8575' x2='16.6453' y2='15.5732' stroke='white' strokeWidth='2' />
+            <line
+              x1='46.3438'
+              y1='15.857'
+              x2='18.0596'
+              y2='44.1413'
+              stroke='white'
+              strokeWidth='2'
+            />
+            <line
+              x1='44.9296'
+              y1='43.8575'
+              x2='16.6453'
+              y2='15.5732'
+              stroke='white'
+              strokeWidth='2'
+            />
           </svg>
           <Formik
             initialValues={{ ...INITAL_FORM_STATE }}
@@ -206,7 +227,10 @@ function BookTour({ data, setOpenModal }) {
                         </div>
                         <div className='flex flex-col md:gap-[0.5vw] inputField'>
                           <h4>{dataBooktourContact?.email?.labelemail}</h4>
-                          <TextFiledWrapper name='email' placeholder={dataBooktourContact?.email?.placeholderemail} />
+                          <TextFiledWrapper
+                            name='email'
+                            placeholder={dataBooktourContact?.email?.placeholderemail}
+                          />
                         </div>
                         <div className='flex flex-col md:gap-[0.5vw] inputField'>
                           <h4>{dataBooktourContact?.confirmemail?.labelconfirm}</h4>
@@ -305,7 +329,11 @@ function BookTour({ data, setOpenModal }) {
                           >
                             {data?.data?.allDestination?.nodes?.map((des, index) => (
                               <label key={index}>
-                                <Field type='checkbox' name='destination' value={des?.slug} />
+                                <Field
+                                  type='checkbox'
+                                  name='destination'
+                                  value={des?.slug}
+                                />
                                 <span className='md:text-[0.875vw] text-white font-[500] leading-[150%] whitespace-nowrap'>
                                   {des?.name}
                                 </span>
@@ -322,10 +350,18 @@ function BookTour({ data, setOpenModal }) {
                         {/* radio group */}
                         <div className='flex flex-col md:gap-[0.5vw] gap-[3.2vw] max-md:w-full'>
                           <h4 dangerouslySetInnerHTML={{ __html: `${dataParticipant?.accomodation?.labelaccom}` }}></h4>
-                          <div role='group' aria-labelledby='radio-group' className='radio-group'>
+                          <div
+                            role='group'
+                            aria-labelledby='radio-group'
+                            className='radio-group'
+                          >
                             {dataParticipant?.accomodation?.acommodationchoice?.map((choice, index) => (
                               <label key={index}>
-                                <Field type='radio' name='accommodation' value={choice?.listchoice} />
+                                <Field
+                                  type='radio'
+                                  name='accommodation'
+                                  value={choice?.listchoice}
+                                />
                                 {choice?.listchoice}
                               </label>
                             ))}
@@ -338,7 +374,10 @@ function BookTour({ data, setOpenModal }) {
                     {/* trip,note,budget */}
                     <div className='md:mt-[3vw] mt-[6.4vw] md:grid grid-cols-3 md:gap-[5.31vw] items-start trip flex flex-col gap-[6.4vw]'>
                       <div className='flex flex-col md:gap-[0.5vw] gap-[3.2vw] max-md:w-full'>
-                        <h4 className='' dangerouslySetInnerHTML={{ __html: `${dataParticipant?.typeoftrip}` }}></h4>
+                        <h4
+                          className=''
+                          dangerouslySetInnerHTML={{ __html: `${dataParticipant?.typeoftrip}` }}
+                        ></h4>
                         <div
                           role='group'
                           aria-labelledby='my-radio-group'
@@ -346,7 +385,11 @@ function BookTour({ data, setOpenModal }) {
                         >
                           {data?.data?.allTourStyle?.nodes?.map((tour, index) => (
                             <label key={index}>
-                              <Field type='radio' name='typeOfTrip' value={tour?.slug} />
+                              <Field
+                                type='radio'
+                                name='typeOfTrip'
+                                value={tour?.slug}
+                              />
                               {tour?.name}
                             </label>
                           ))}
@@ -356,7 +399,10 @@ function BookTour({ data, setOpenModal }) {
                       {/* note */}
                       <div className='flex flex-col md:gap-[0.5vw] gap-[3.2vw] message max-md:w-full'>
                         <h4 dangerouslySetInnerHTML={{ __html: `${dataParticipant?.message?.label}` }}></h4>
-                        <TextFiledWrapper name='message' placeholder={dataParticipant?.message?.placeholdermessage} />
+                        <TextFiledWrapper
+                          name='message'
+                          placeholder={dataParticipant?.message?.placeholdermessage}
+                        />
                       </div>
 
                       {/* Budget */}
@@ -368,7 +414,11 @@ function BookTour({ data, setOpenModal }) {
 
                     <div className='md:mt-[2.5vw] mt-[6.4vw] md:w-[25.8vw] '>
                       <h4 className='md:mb-[1.03vw] mb-[3.2vw]'>{dataParticipant?.ready?.label}</h4>
-                      <div role='group' aria-labelledby='my-radio-group' className='confirm'>
+                      <div
+                        role='group'
+                        aria-labelledby='my-radio-group'
+                        className='confirm'
+                      >
                         <label>
                           <Field
                             type='radio'
@@ -395,7 +445,10 @@ function BookTour({ data, setOpenModal }) {
                       />
                     </div>
                   </div>
-                  <Button disabled={loading} className='justify-center btn-primary max-md:w-full max-md:flex'>
+                  <Button
+                    disabled={loading}
+                    className='justify-center btn-primary max-md:w-full max-md:flex'
+                  >
                     {data?.data?.page?.booktour?.buttontext} {loading && '...'}
                   </Button>
                 </Form>

@@ -122,9 +122,12 @@ export default function TourDetailBannerMobile({ data = {} }) {
       <ModalCustom
         openModal={openModal}
         setOpenModal={setOpenModal}
-        className='w-[80vw] h-[70vh]'
+        className='w-[100vw] h-[100vh]'
       >
-        <Listimg data={gallery} />
+        <Listimg
+          data={gallery}
+          video={video}
+        />
       </ModalCustom>
     </section>
   )
