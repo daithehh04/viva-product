@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import img1 from '@/assets/images/restau.png'
 import img2 from '@/assets/images/accom.png'
 import img3 from '@/assets/images/activi.png'
@@ -10,6 +10,9 @@ import img6 from '@/assets/images/staff.png'
 import imgPerson from '@/assets/images/people-survey.png'
 import Button from '@/components/Common/Button'
 import AOS from 'aos'
+import Link from 'next/link'
+import ModalCustom from '@/components/Common/ModalCustom'
+import BookTour from '@/components/Common/BookTour'
 
 const arrImg = [
   {
@@ -37,7 +40,10 @@ const arrImg = [
     title: 'Staff'
   }
 ]
-function Surveys({ data, button }) {
+function Surveys({ data, button, lang, dataBookTour }) {
+  const [openModal, setOpenModal] = useState(false)
+  const refBtnBookTour = useRef()
+
   useEffect(() => {
     AOS.init()
     AOS.refresh()
@@ -88,8 +94,12 @@ function Surveys({ data, button }) {
             ))}
           </ul>
           <div className='flex gap-x-[1vw] mt-[3.25vw] max-md:gap-x-[2.67vw] max-md:mt-[8.53vw]'>
-            <Button className='btn-primary'>{button?.buttonbooktour}</Button>
-            <Button className='btn-secondary'>{button?.buttonseemore}</Button>
+            <div className='flex' ref={refBtnBookTour} onClick={() => setOpenModal(true)}>
+              <Button className='btn-primary'>{button?.buttonbooktour}</Button>
+            </div>
+            <Link href={`/${lang}/about-us/who-we-are`}>
+              <Button className='btn-secondary'>{button?.buttonseemore}</Button>
+            </Link>
           </div>
         </div>
         <div className='relative flex flex-col-reverse flex-1 max-md:mt-[20.08vw]'>
@@ -108,6 +118,17 @@ function Surveys({ data, button }) {
           ></div>
         </div>
       </div>
+      {openModal && (
+        <ModalCustom
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          className='w-[91.46vw] md:w-[82.93vw] md:h-[90vh] h-[80vh]'
+        >
+          <div className='w-full h-full overflow-y-auto md:rounded-[16px] overflow-x-hidden'>
+            <BookTour data={dataBookTour} setOpenModal={setOpenModal} />
+          </div>
+        </ModalCustom>
+      )}
     </div>
   )
 }

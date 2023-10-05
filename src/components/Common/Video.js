@@ -9,7 +9,7 @@ export default function AboutVideo({ data = {} }) {
 
   const [isPlay, setIsPlay] = useState(false)
   return (
-    <section className='relative w-full'>
+    <section className='relative videoReview w-full'>
       {/* video for PC */}
       <video
         controls={isPlay}
@@ -62,15 +62,38 @@ export default function AboutVideo({ data = {} }) {
           }}
         ></div>
         <div className='absolute bottom-[8.125vw] left-[8.125vw] z-10 flex gap-[2.3125vw] items-center'>
-          <Image
+          {/* <Image
             src={playBtn}
             alt=''
-            className='md:w-[8.75vw] w-[15.2vw] md:h-[10.25vw] h-[17.8vw] cursor-pointer'
+            className='md:w-[8.75vw] w-[15.2vw] md:h-[10.25vw] h-[17.8vw] cursor-pointer btnPauseVid'
             onClick={() => {
               videoRef.current?.play()
               setIsPlay(true)
             }}
-          />
+          /> */}
+          <svg
+            className='md:w-[8.75vw] w-[15.2vw] md:h-[10.25vw] h-[17.8vw] cursor-pointer btnPauseVid'
+            onClick={() => {
+              videoRef.current?.play()
+              setIsPlay(true)
+            }}
+            xmlns='http://www.w3.org/2000/svg'
+            width='140'
+            height='164'
+            viewBox='0 0 140 164'
+            fill='none'
+          >
+            <path
+              fill-rule='evenodd'
+              clip-rule='evenodd'
+              d='M140 24.0345C125.16 9.18528 104.652 0 82 0C36.7127 0 0 36.7127 0 82C0 127.287 36.7127 164 82 164C104.652 164 125.16 154.815 140 139.965V138.542C125.288 153.631 104.738 163 82 163C37.2649 163 1 126.735 1 82C1 37.2649 37.2649 1 82 1C104.738 1 125.288 10.3693 140 25.4579V24.0345Z'
+              fill='white'
+            />
+            <path
+              d='M73.16 64.882C69.7581 62.8134 67 64.508 67 68.6639V99.3331C67 103.493 69.7581 105.186 73.16 103.119L98.4477 87.7457C101.851 85.6764 101.851 82.3238 98.4477 80.255L73.16 64.882Z'
+              fill='white'
+            />
+          </svg>
           <div className='md:w-[31.9375vw] w-[49.87vw] font-optima md:text-[4vw] text-[6.4vw] leading-[110%] font-semibold text-white'>
             <div>{data?.label?.line1}</div>
             <div>{data?.label?.line2}</div>

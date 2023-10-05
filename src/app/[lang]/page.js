@@ -10,7 +10,12 @@ import {
   DATA_TAXONOMIES_TOUR_STYLE
 } from '@/graphql/filter/queries'
 import { GET_HOME_PAGE, GET_META_DATA, GET_NEXT_STEP } from '@/graphql/home/queries'
+import { GET_DATA_FORM_BOOKTOUR } from '@/graphql/formBookTour/queries'
+import getDataFormBookTour from '@/data/formBookTour/getDataFormBookTour'
 
+const idEnBook = 'cG9zdDoxNDIy'
+const idFrBook = 'cG9zdDoxNDIy'
+const idItBook = 'cG9zdDoxNDIy'
 export async function generateMetadata({ params: { lang } }) {
   const res = await getMetaDataPages(GET_META_DATA, lang)
 
@@ -21,14 +26,18 @@ export async function generateMetadata({ params: { lang } }) {
 }
 export default async function page({ params: { lang } }) {
   let data
+  let dataBookTour
   if (lang === 'en') {
     data = await getDataPage(idEn, GET_HOME_PAGE)
+    dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idEnBook, lang)
   }
   if (lang === 'it') {
     data = await getDataPage(idIt, GET_HOME_PAGE)
+    dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idItBook, lang)
   }
   if (lang === 'fr') {
     data = await getDataPage(idFr, GET_HOME_PAGE)
+    dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idFrBook, lang)
   }
 
   const nextStep = await getDataPost(lang, GET_NEXT_STEP)
@@ -47,6 +56,7 @@ export default async function page({ params: { lang } }) {
         dataTaxonomiesStyleTour={dataTaxonomiesStyleTour}
         dataTaxonomiesBudget={dataTaxonomiesBudget}
         dataTaxonomiesDuration={dataTaxonomiesDuration}
+        dataBookTour={dataBookTour}
       />
     </main>
   )
