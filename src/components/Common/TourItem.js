@@ -28,6 +28,7 @@ function TourItem({ data, menu, lang }) {
         alt='img tour'
         className='h-full object-cover w-full md:rounded-[1vw] rounded-[2.75vw] img-tour'
       />
+      <div className='absolute overlay'></div>
 
       <div className='absolute bottom-0 info md:pl-[1.5vw] md:pr-[0.94vw] px-[3.2vw] md:pb-[1.19vw] pb-[3.2vw] w-full'>
         <div className='flex items-center gap-x-[0.25vw]'>
@@ -56,13 +57,7 @@ function TourItem({ data, menu, lang }) {
                 key={index}
                 className='w-[4.8vw] h-[4.8vw] rounded-[6px] bg-[#FFF8DE] flex items-center justify-center'
               >
-                <Image
-                  src={iconsTour[icon]}
-                  alt={icon}
-                  className='w-[2.613vw] h-[2.613vw]'
-                  width={20}
-                  height={20}
-                />
+                <Image src={iconsTour[icon]} alt={icon} className='w-[2.613vw] h-[2.613vw]' width={20} height={20} />
               </div>
             )
           })}
