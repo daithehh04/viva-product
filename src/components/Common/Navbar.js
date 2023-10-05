@@ -58,22 +58,25 @@ export default function Navbar({
   //check pathName
   const pathName = usePathname()
 
-  const pathNameMb = [
-    'our-tours',
-    'travel-style',
-    'tours',
-    'who-we-are',
-    'responsible-travel',
-    'review',
-    'hot-deals',
-    'check-visa'
-  ]
+  const isTranparent = useRef(false)
 
-  const pathNamePc = ['tours']
-
-  const isTranparent = onlySmallScreen
-    ? pathNameMb.some((item) => pathName.includes(item))
-    : pathName.includes(pathNamePc) && !pathName.includes('our-tours')
+  useEffect(() => {
+    const pathNameMb = [
+      'our-tours',
+      'travel-style',
+      'tours',
+      'who-we-are',
+      'responsible-travel',
+      'review',
+      'hot-deals',
+      'check-visa'
+    ]
+    const pathNamePc = ['tours']
+    isTranparent.current = onlySmallScreen
+      ? pathNameMb.some((item) => pathName.includes(item))
+      : pathName.includes(pathNamePc) && !pathName.includes('our-tours')
+  }, [pathName, onlySmallScreen])
+  console.log(isTranparent.current)
   // const refFormPopup = useRef()
   const [openModal, setOpenModal] = useState(false)
 
@@ -87,7 +90,7 @@ export default function Navbar({
         nav.classList.remove('nav-mb-special')
       } else {
         nav.classList.remove('nav-active')
-        if (isTranparent) nav.classList.add('nav-mb-special')
+        if (isTranparent.current) nav.classList.add('nav-mb-special')
       }
     })
     // ===========================
@@ -159,7 +162,7 @@ export default function Navbar({
       <div className='nav-container'>
         <nav
           className={`${
-            isTranparent ? 'md:bg-white border-b border-solid border-[#ffffff29] nav-mb-special' : 'bg-white'
+            isTranparent.current ? 'md:bg-white border-b border-solid border-[#ffffff29] nav-mb-special' : 'bg-white'
           } w-full navbar h-[5.375vw] max-lg:h-[14.93vw]`}
         >
           <div className='flex items-center h-full content '>
@@ -187,40 +190,63 @@ export default function Navbar({
                     Hot
                   </span>
                 </div>
-                <div className='capitalize text-[1vw] nav-link'>
+                <div className='capitalize text-[1vw] nav-link cursor-pointer'>
                   {dataHome?.nav2}
                   <div className='w-[83.75%]'>
-                    <div className='menu-item menu-item2 content'>
-                      <MenuStyle travelStylesList={travelStylesList} lang={lang} onCloseMenu={handleCloseMenu} />
+                    <div className='menu-item content'>
+                      <MenuStyle
+                        travelStylesList={travelStylesList}
+                        lang={lang}
+                        onCloseMenu={handleCloseMenu}
+                      />
                     </div>
                   </div>
                 </div>
-                <Link href={`/${lang}/hot-deals`} className='capitalize text-[1vw] nav-link'>
-                  {dataHome?.nav3}
+                <div className='capitalize text-[1vw] nav-link cursor-pointer'>
+                  <Link href={`/${lang}/hot-deals`}>{dataHome?.nav3}</Link>
                   <div className='w-[83.75%] '>
                     <div className='menu-item hidden content'>
-                      <HotDeal hotDeals={hotDeals} listVoucher={listVoucher} menu lang={lang} />
+                      <HotDeal
+                        hotDeals={hotDeals}
+                        listVoucher={listVoucher}
+                        menu
+                        lang={lang}
+                      />
                     </div>
                   </div>
-                </Link>
-                <Link href={`/${lang}/check-visa`} className='capitalize text-[1vw] nav-link'>
+                </div>
+                <Link
+                  href={`/${lang}/check-visa`}
+                  className='capitalize text-[1vw] nav-link'
+                >
                   {dataHome?.nav4}
                 </Link>
-                <div className='capitalize text-[1vw] nav-link'>
+                <div className='capitalize text-[1vw] nav-link cursor-pointer'>
                   {dataHome?.nav5}
                   <div className='menu-item content'>
-                    <MenuAbout dataAboutUs={dataAboutUs} onCloseMenu={handleCloseMenu} lang={lang} />
+                    <MenuAbout
+                      dataAboutUs={dataAboutUs}
+                      onCloseMenu={handleCloseMenu}
+                      lang={lang}
+                    />
                   </div>
                 </div>
-                <div className='capitalize text-[1vw] nav-link'>
+                <div className='capitalize text-[1vw] nav-link cursor-pointer'>
                   {dataHome?.nav6}
                   <div className='w-[83.75%]'>
                     <div className='menu-item content'>
-                      <MenuRcmService rcmServicesList={rcmServicesList} lang={lang} onCloseMenu={handleCloseMenu} />
+                      <MenuRcmService
+                        rcmServicesList={rcmServicesList}
+                        lang={lang}
+                        onCloseMenu={handleCloseMenu}
+                      />
                     </div>
                   </div>
                 </div>
-                <Link href={`/${lang}/blog`} className='capitalize text-[1vw] nav-link'>
+                <Link
+                  href={`/${lang}/blog`}
+                  className='capitalize text-[1vw] nav-link cursor-pointer'
+                >
                   {dataHome?.nav7}
                 </Link>
               </div>
@@ -302,6 +328,7 @@ export default function Navbar({
           >
             <div className='w-full h-full overflow-y-auto md:rounded-[16px] overflow-x-hidden'>
               <BookTour data={dataBookTour} setOpenModal={setOpenModal} />
+
             </div>
           </ModalCustom>
         )}

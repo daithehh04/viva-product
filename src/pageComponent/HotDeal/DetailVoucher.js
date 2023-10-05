@@ -56,7 +56,9 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
   const [isDone, setIsDone] = useState(false) // check when successful noti or error noti appeared
 
   useClickOutside(itemRef, (e) => {
+    console.log(e.target)
     e.preventDefault()
+    e.stopPropagation()
     if (!isDone) {
       setOpenNoti(true)
       setIsConfirm(true)

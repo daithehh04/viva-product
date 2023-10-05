@@ -31,8 +31,12 @@ export default function TourDetailBanner({ data = {}, headerData }) {
     })
   }
 
+  useEffect(() => {
+    isPlay && slider.slickPause()
+  }, [isPlay])
+
   return (
-    <section className='tour-banner-wrapper relative overflow-hidden md:block hidden'>
+    <section className='tour-banner-wrapper relative overflow-hidden md:block hidden '>
       <Slider
         asNavFor={thumbs}
         ref={(slide) => setSlider(slide)}
@@ -66,6 +70,13 @@ export default function TourDetailBanner({ data = {}, headerData }) {
                   }}
                 />
                 <div className='bg-[#00000033] w-full h-full absolute top-0 left-0 z-[20]'></div>
+                <div
+                  className='w-full h-full absolute top-0 left-0 cursor-pointer'
+                  style={{
+                    background:
+                      'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 58.36%, rgba(0, 0, 0, 0.23) 71.19%, rgba(0, 0, 0, 0.34) 78.89%, rgba(0, 0, 0, 0.60) 96.15%), linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)'
+                  }}
+                ></div>
               </div>
             )}
           </div>
@@ -85,6 +96,13 @@ export default function TourDetailBanner({ data = {}, headerData }) {
                 className='w-full h-full object-cover select-none cursor-pointer'
               />
               <div className='bg-[#00000033] w-full h-full absolute top-0 left-0 cursor-pointer'></div>
+              <div
+                className='w-full h-full absolute top-0 left-0 cursor-pointer'
+                style={{
+                  background:
+                    'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 58.36%, rgba(0, 0, 0, 0.23) 71.19%, rgba(0, 0, 0, 0.34) 78.89%, rgba(0, 0, 0, 0.60) 96.15%), linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)'
+                }}
+              ></div>
             </div>
           )
         })}
@@ -233,6 +251,7 @@ export default function TourDetailBanner({ data = {}, headerData }) {
           })}
         </Slider>
       </div>
+      <div className='w-full h-[100vh] bg-[rgba(0,0,0,.5)] absolute top-0 left-0 z-[-10]'></div>
 
       <div ref={outsideRef}></div>
     </section>

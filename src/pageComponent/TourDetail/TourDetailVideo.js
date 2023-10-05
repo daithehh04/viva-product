@@ -7,7 +7,7 @@ export default function TourDetailVideo({ className, vidLink, overlayImg, isPlay
   const imageRef = useRef()
   const videoRef = useRef()
   return (
-    <div className='w-full h-full relative'>
+    <div className={`${className?.wrapper || ''} w-full h-full relative`}>
       <video
         controls={isPlay}
         className={`object-fill w-full h-full ${className?.video || ''}`}
@@ -25,14 +25,14 @@ export default function TourDetailVideo({ className, vidLink, overlayImg, isPlay
 
       <div
         ref={imageRef}
-        className={`${isPlay && 'hidden'} absolute top-0 left-0 w-full h-full`}
+        className={`${isPlay ? 'hidden' : ''} absolute top-0 left-0 w-full h-full`}
       >
         <Image
           src={overlayImg?.sourceUrl}
           alt={overlayImg?.altText}
           width={2000}
           height={1000}
-          className='object-cover w-full h-full'
+          className={`${className?.image || ''} object-cover w-full h-full`}
         />
 
         <Image
