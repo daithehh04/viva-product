@@ -12,6 +12,7 @@ import stepIcon2 from '@/assets/images/about/stepIcon2.svg'
 import stepIcon3 from '@/assets/images/about/stepIcon3.svg'
 import stepIcon4 from '@/assets/images/about/stepIcon4.svg'
 import stepIcon5 from '@/assets/images/about/stepIcon5.svg'
+import { useState } from 'react'
 
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`& .${stepConnectorClasses.line}`]: {
@@ -59,6 +60,10 @@ const stepsAbove = [
 const stepsBelow = ['01', '02', '03', '04', '05']
 
 export default function BookingProcessSteps({ data = {} }) {
+  const [activeIndex, setActiveIndex] = useState(-1)
+  const handleHover = (index) => {
+    setActiveIndex(index)
+  }
   return (
     <section className='relative z-10 about-step-container'>
       <h3
@@ -74,7 +79,7 @@ export default function BookingProcessSteps({ data = {} }) {
           <Stack sx={{ width: '100%' }} spacing={4}>
             <Stepper alternativeLabel activeStep={5}>
               {stepsAbove?.map((label, index) => (
-                <Step key={index}>
+                <Step onMouseOut={() => handleHover(-1)} onMouseOver={() => handleHover(index)} key={index}>
                   <StepLabel StepIconProps={{ className: 'about-step-icon' }} className='about-step-above'>
                     <Image src={label.icon} alt='stepIcon' />
                     <div>{data?.step ? data?.step[index]?.title : ''}</div>
@@ -84,7 +89,13 @@ export default function BookingProcessSteps({ data = {} }) {
             </Stepper>
             <Stepper alternativeLabel activeStep={5} connector={<ColorlibConnector />}>
               {stepsBelow?.map((label, index) => (
-                <Step key={index}>
+                <Step
+                  onMouseOut={() => handleHover(-1)}
+                  onMouseOver={() => handleHover(index)}
+                  key={index}
+                  sx={{ WebkitTextFillColor: index === activeIndex ? 'unset' : '' }}
+                  id={index === activeIndex ? 'active-step' : ''}
+                >
                   <StepLabel StepIconComponent={ColorlibStepIcon} className='about-step-below'>
                     {label}
                   </StepLabel>

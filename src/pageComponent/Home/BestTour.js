@@ -21,7 +21,6 @@ function BestTour({
   finalData,
   loading
 }) {
-  console.log(allTours)
   const [destination, setDestination] = useState('')
   const [travelStyle, setTravelStyle] = useState('')
   const [budget, setBudget] = useState('')

@@ -369,3 +369,13 @@
     }
   }
 }
+
+.btnPause2 {
+  transition: 0.3 all ease;
+}
+.btnPause2:hover {
+  // transform: scale(1.01);
+}
+.btnPause2:hover > path {
+  fill: #fdf220;
+}

@@ -1,0 +1,11 @@
+.videoReview {
+  .btnPauseVid {
+    transition: all 0.3s ease;
+  }
+  .btnPauseVid:hover {
+    transform: scale(1.02);
+  }
+  .btnPauseVid:hover > path {
+    fill: #fdf220;
+  }
+}

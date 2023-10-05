@@ -22,7 +22,8 @@ export default function Home({
   dataTaxonomiesStyleTour,
   nextStep,
   dataTaxonomiesBudget,
-  dataTaxonomiesDuration
+  dataTaxonomiesDuration,
+  dataBookTour
 }) {
   const arrDataTaxonomiesBudget = dataTaxonomiesBudget?.data?.allBudget?.nodes
   const arrDataTaxonomiesDuration = dataTaxonomiesDuration?.data?.allDuration?.nodes
@@ -142,7 +143,7 @@ export default function Home({
           <TravelStyleMb lang={lang} data={travelStyleList} title={travelStyleList?.title} />
         </div>
         <div className='survey-wrapper'>
-          <Surveys data={survey} button={button} />
+          <Surveys data={survey} lang={lang} button={button} dataBookTour={dataBookTour} />
         </div>
         <div className='trip-wrapper'>
           <InspectionTrip data={inspection} lang={lang} />
@@ -172,7 +173,7 @@ export default function Home({
         </div>
         <AboutVideo data={aboutVideo} />
         <div className='review-wrapper'>
-          <Review data={customerReview} button={button} />
+          <Review data={customerReview} button={button} lang={lang} />
         </div>
         <div className='relative bg-home67'>
           <div className='pt-[8.62vw]'>

@@ -81,7 +81,7 @@ function VideoReview({ data, videoInfo, className }) {
         <div className='absolute top-0 left-0 right-0 overlayReview-top h-[13.6875vw] rounded-[1vw] z-20'></div>
         <div className='absolute inset-0 overlayReview-bottom rounded-[1vw] z-20'></div>
       </div>
-      <Image
+      {/* <Image
         src={playIcon}
         width={100}
         height={100}
@@ -90,7 +90,23 @@ function VideoReview({ data, videoInfo, className }) {
           isPlay ? 'hidden' : ''
         }`}
         onClick={() => setIsPlay(true)}
-      />
+      /> */}
+      <svg
+        className={`w-[4vw] h-[4.75vw] btnPause2 object-cover absolute z-50 bottom-[50%] left-[50%] -translate-x-1/2 cursor-pointer ${
+          isPlay ? 'hidden' : ''
+        }`}
+        onClick={() => setIsPlay(true)}
+        xmlns='http://www.w3.org/2000/svg'
+        width='64'
+        height='76'
+        viewBox='0 0 64 76'
+        fill='none'
+      >
+        <path
+          d='M11.5953 1.67574C5.19164 -2.25456 0 0.965187 0 8.8615V67.1328C0 75.037 5.19164 78.2526 11.5953 74.326L59.1957 45.1168C65.6014 41.1851 65.6014 34.8152 59.1957 30.8844L11.5953 1.67574Z'
+          fill='white'
+        />
+      </svg>
     </div>
   )
 }

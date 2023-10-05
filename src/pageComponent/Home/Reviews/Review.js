@@ -1,8 +1,9 @@
 import VideoReview from './VideoReview'
 import SlideReview from './SlideReview'
 import Button from '@/components/Common/Button'
+import Link from 'next/link'
 
-function Review({ data, button }) {
+function Review({ data, button, lang }) {
   return (
     <>
       <div className='flex gap-x-[2vw] items-end overflow-hidden custom-review pt-[9.37vw]'>
@@ -25,7 +26,9 @@ function Review({ data, button }) {
         </div>
       </div>
       <div className='mt-[3.5vw] flex justify-center max-md:hidden'>
-        <Button className='btn-secondary'>{button?.buttonseemore}</Button>
+        <Link href={`/${lang}/about-us/reviews`}>
+          <Button className='btn-secondary'>{button?.buttonseemore}</Button>
+        </Link>
       </div>
     </>
   )

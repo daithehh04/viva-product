@@ -90,3 +90,11 @@
     }
   }
 }
+
+.about-step-container {
+  #active-step .about-step-below {
+    .MuiStepLabel-label {
+      -webkit-text-fill-color: unset !important;
+    }
+  }
+}
