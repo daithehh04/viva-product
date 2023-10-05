@@ -6,7 +6,7 @@ const NewRelease = ({ data, lang }) => {
   return (
     <div>
       <div className='mt-[6.69vw]'>
-        <h2 className='mb-[3vw] font-optima font-semibold leading-[4.4vw] capitalize text-[4vw]'>Related News</h2>
+        <h2 className='mb-[3vw] font-optima font-semibold leading-[4.4vw] capitalize text-[4vw] max-md:px-[4.27vw]'>Related News</h2>
         <BestSeller
           isBlogItem={true}
           listBlog={data}

@@ -2,13 +2,16 @@
 import * as React from 'react'
 import Box from '@mui/material/Box'
 import Slider from '@mui/material/Slider'
+import theme from '../ThemeRegistry/theme'
+import { useMediaQuery } from '@mui/material'
+import { useEffect } from 'react'
 
 function getValue(value) {
   return value
 }
 
 const minDistance = 1
-export default function RangeCustom({ onDay,day }) {
+export default function RangeCustom({ onDay,day, isOpenModal }) {
   const [value, setValue] = React.useState([1,50])
   React.useEffect(() => {
     if(day) {
@@ -16,6 +19,12 @@ export default function RangeCustom({ onDay,day }) {
       setValue(rangeArray)
     }
   },[day])
+  
+  useEffect(() => {
+    if(isOpenModal) {
+      setValue([0, 50])
+    }
+  }, [isOpenModal]);
   const handleChange = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
       return
@@ -27,6 +36,7 @@ export default function RangeCustom({ onDay,day }) {
     }
     onDay(newValue)
   }
+  const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
   return (
     <Box>
@@ -45,7 +55,7 @@ export default function RangeCustom({ onDay,day }) {
           '& .MuiSlider-active': {
             color: 'green'
           },
-          height: '0.4375vw'
+          height: onlySmallScreen ? '1.86vw' : '0.4375vw'
         }}
         getAriaLabel={() => 'Days range'}
         min={0}
