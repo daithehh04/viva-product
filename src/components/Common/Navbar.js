@@ -211,7 +211,7 @@ export default function Navbar({
                 <div className='capitalize text-[1vw] nav-link cursor-pointer'>
                   <Link href={`/${lang}/hot-deals`}>{dataHome?.nav3}</Link>
                   <div className='w-[83.75%] '>
-                    <div className='menu-item hidden content'>
+                    <div className='hidden menu-item content'>
                       <HotDeal
                         hotDeals={hotDeals}
                         listVoucher={listVoucher}
@@ -313,7 +313,7 @@ export default function Navbar({
           } books-footer h-[15.2vw] fixed bottom-0 left-0 right-0 z-[99] hidden max-md:flex`}
         >
           <Link
-            href='#'
+            href={`${lang}/search`}
             className='flex items-center gap-[1.6vw] w-[50%] bg-[#fff] justify-center'
           >
             <Image

@@ -10,13 +10,13 @@ import { DATA_SEARCH_TEXT_TOUR } from '@/graphql/filter/queries'
 import { useQuery } from '@apollo/client'
 import Loading from './Loading'
 import Link from 'next/link'
-import FilterTour from './FilterTour'
 import FilterBanner from '@/pageComponent/Home/FilterBanner'
 
 function InputSearchMb({lang, dataFilter}) {
   const { dataInput } = useData();
   const refMenu = useRef()
-  const handleOpen = () => {
+  const handleOpen = (e) => {
+    e.preventDefault()
     refMenu.current.classList.add('show')
   }
   const handleClose = () => {
