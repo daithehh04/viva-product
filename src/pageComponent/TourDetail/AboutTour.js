@@ -19,7 +19,6 @@ import { useRouter } from 'next/navigation'
 import PriceMb from './PriceMb'
 import ModalCustom from '@/components/Common/ModalCustom'
 import BookTour from '@/components/Common/BookTour'
-import vw from '@/helpers/convertToVw'
 
 export default function AboutTour(props) {
   const { type, data, headerData = {}, relatedTours = [], lang, dataBookTour } = props

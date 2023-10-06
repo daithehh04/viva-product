@@ -7,8 +7,10 @@ import tour from '@/assets/images/tourDetail/tourBg.png'
 import Image from 'next/image'
 import promoBg from '@/assets/images/promoBg.png'
 
-export default function Promotion({ data = {}, headerData = {}, relatedTours = [] }) {
-  const { banner, content, map, reviews } = data
+export default function Promotion({ data = {}, headerData = {}, relatedTours = [], reviewsList, slug, lang }) {
+  const { banner, content, map } = data
+
+  const reviews = reviewsList?.filter((item) => item?.customerReview?.tours?.slug === slug)
   const { bannerHeaders, content: contentHeader, relatedTour: relatedTourHeader } = headerData
   return (
     <div className='md:mt-[10.8125vw] relative'>
@@ -61,6 +63,7 @@ export default function Promotion({ data = {}, headerData = {}, relatedTours = [
             data={{ content, map, banner, reviews }}
             headerData={{ contentHeader, relatedTourHeader, bannerHeaders }}
             relatedTours={relatedTours}
+            lang={lang}
           />
         </main>
       </main>

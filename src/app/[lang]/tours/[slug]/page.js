@@ -46,7 +46,6 @@ export default async function page({ params: { lang, slug } }) {
     relatedTours = Array.from(new Set(resRmDup))
   }
   // get Default list Reviews
-
   const result4 = await getDataPost(lang, GET_ALL_REVIEWS)
   const reviewsList = result4?.data?.allCustomerReview?.nodes
 
