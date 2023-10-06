@@ -17,9 +17,9 @@ button:disabled {
     color: $colorPrimary;
   }
 
-  .banner-btn-down {
-    animation: scale 1.5s ease infinite;
-  }
+  // .banner-btn-down {
+  //   animation: scale 1.5s ease infinite;
+  // }
 
   .about-banner-mask {
     background: linear-gradient(0deg, #fff 0%, rgba(255, 255, 255, 0.49) 63.88%, rgba(255, 255, 255, 0) 100%);
@@ -219,5 +219,19 @@ button:disabled {
     &:hover {
       transform: scale(1.04);
     }
+  }
+}
+
+.arrow-down {
+  position: relative;
+  animation: arrowDown 0.7s infinite alternate;
+}
+@keyframes arrowDown {
+  0% {
+    bottom: 0;
+  }
+
+  100% {
+    bottom: 10px;
   }
 }

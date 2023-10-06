@@ -39,7 +39,7 @@ export default function Banner({ data = {} }) {
             width={22}
             height={22}
             alt=''
-            className='md:w-[1.375vw] md:h-[1.375vw] w-[4.26vw] h-[4.26vw]'
+            className='arrow-down md:w-[1.375vw] md:h-[1.375vw] w-[4.26vw] h-[4.26vw]'
           />
           <div className='hidden md:flex text-center text-[0.875vw] font-semibold leading-[1.125vw] uppercase tracking-[0.75px]'>
             {data?.button}

@@ -7,7 +7,6 @@ export default async function getDataDetail(lang, id, query) {
     body: JSON.stringify({
       query: query,
       variables: { language: lang, slug: id }
-
     }),
     next: { revalidate: process.env.NEXT_PUBLIC_REVALIDATE }
   })

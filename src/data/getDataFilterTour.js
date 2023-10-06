@@ -11,7 +11,6 @@ export default async function getDataFilterTour(data, query) {
         countrySlug: data?.countrySlug,
         styleTourSlug: data?.styleTourSlug
       }
-
     }),
     next: { revalidate: process.env.NEXT_PUBLIC_REVALIDATE }
   })
