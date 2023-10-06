@@ -77,4 +77,41 @@ const GET_META_DATA = `query ($language: LanguageCodeEnum!) {
     }
   }
 }`
-export { GET_TOUR_FILTER, DATA_ALL_TOUR, GET_META_DATA }
+
+const GET_SEARCH_INFO = `
+query getSearchInfo($language: LanguageCodeEnum!) {
+  page(id: "cG9zdDoxMzQ4") {
+    translation(language: $language) {
+      search {
+        newRelated
+        noResult {
+          content
+          fieldGroupName
+          title
+        }
+        foundResults
+        button
+        title
+        noResult {
+          content
+          title
+        }
+        navbar {
+          budget
+          destination
+          duration {
+            max
+            maxValue
+            min
+            minValue
+            title
+          }
+          selectYourInformation
+          title
+          travelStyles
+        }
+      }
+    }
+  }
+}`
+export { GET_TOUR_FILTER, DATA_ALL_TOUR, GET_META_DATA, GET_SEARCH_INFO }

@@ -28,8 +28,8 @@ const Placeholder = ({ item, icon }) => (
   </div>
 )
 
-export default function OptionBudget({ icon, list, defaultValue, onSelect, isOpenModal }) {
-  const [personName, setPersonName] = useState('Budget')
+export default function OptionBudget({ icon, list, defaultValue, onSelect, isOpenModal, budget}) {
+  const [personName, setPersonName] = useState(budget)
   useEffect(() => {
     if(defaultValue) {
       setPersonName(defaultValue)
@@ -45,7 +45,7 @@ export default function OptionBudget({ icon, list, defaultValue, onSelect, isOpe
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
   useEffect(() => {
     if(isOpenModal) {
-      setPersonName('Budget')
+      setPersonName(budget)
     }
   }, [isOpenModal]);
   return (

@@ -5,7 +5,6 @@ const CountDown = ({ data, time }) => {
   const [number, setNumber] = useState(0)
   const numberRef = useRef()
   const [isVisible, setIsVisible] = useState(false)
-  // console.log('count down', data)
   useEffect(() => {
     const onScroll = () => {
       if (numberRef.current) {

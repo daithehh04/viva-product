@@ -18,10 +18,17 @@ const TimeDown = ({ headerData = {}, data }) => {
     const hours = duration.hours() + duration.days() * 24
     const minutes = duration.minutes()
     const seconds = duration.seconds()
-    setHour(hours)
-    setMinute(minutes)
-    setSecond(seconds)
-  }, [data])
+    if(seconds > 0) {
+      setHour(hours)
+      setMinute(minutes)
+      setSecond(seconds)
+  
+    } else {
+      setHour(0)
+      setMinute(0)
+      setSecond(0)
+    }
+   }, [data])
 
   useEffect(() => {
     idInterval && clearInterval(idInterval)

@@ -5,17 +5,16 @@ import getMetaDataPages from '@/data/metaData/getMetaDataPages'
 import { DATA_MENU_COUNTRY } from '@/graphql/country/queries'
 import { DATA_TAXONOMIES_BUDGET } from '@/graphql/filter/queries'
 import { GET_ALL_POST } from '@/graphql/post/queries'
-import { GET_META_DATA } from '@/graphql/search/queries'
+import { GET_META_DATA, GET_SEARCH_INFO } from '@/graphql/search/queries'
 import { GET_LIST_TRAVEL_STYLE_NAME } from '@/graphql/travelStyle/queries'
 import Search from '@/pageComponent/Search/Search'
 
 export async function generateMetadata({ params: { lang } }) {
   const res = await getMetaDataPages(GET_META_DATA, lang)
 
-  const { featuredImage, search } = res?.data?.page?.translation
-  const title = search?.meta?.title
-  const excerpt = search?.meta?.description
-  return getMeta(title, excerpt, featuredImage)
+  const title = res?.data?.page?.translation?.meta?.title
+  const excerpt = res?.data?.page?.translation?.meta?.description
+  return getMeta(title, excerpt, res?.data?.page?.translation?.featuredImage)
 }
 async function page({ params: { lang } }) {
   const travelStylesList = await getDataWithTaxonomy({ lang: lang || 'EN' }, GET_LIST_TRAVEL_STYLE_NAME)
@@ -23,10 +22,14 @@ async function page({ params: { lang } }) {
   const dataMenuCountry = await getDataPost(lang, DATA_MENU_COUNTRY)
   const resListBlog = await getDataPost(lang, GET_ALL_POST)
   const listBlog = resListBlog?.data?.posts?.nodes
+  let searchInfo = await getDataPost(lang, GET_SEARCH_INFO)
 
+  searchInfo = searchInfo?.data?.page?.translation?.search
+  console.log(searchInfo)
   return (
     <div>
       <Search
+        searchInfo={searchInfo}
         lang={lang}
         travelStylesList={travelStylesList}
         dataTaxonomiesBudget={dataTaxonomiesBudget}

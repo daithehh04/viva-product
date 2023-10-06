@@ -14,7 +14,7 @@ import theme from '@/components/ThemeRegistry/theme'
 import Image from 'next/image'
 
 const tourBackup = new Array(6).fill(0)
-const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget, listBlog }) => {
+const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget, listBlog, searchInfo }) => {
   if (typeof window !== 'undefined') {
     const currentUrl = window?.location.href
     var urlParams = new URLSearchParams(currentUrl)
@@ -113,11 +113,11 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
     setDestination(null)
     setDay(null)
   }
-
+  
   return (
     <div className='max-md:mt-[21.6vw] mt-[6.56vw] md:px-[8.13vw]'>
       <div className='flex justify-between max-md:px-[4.27vw] items-center'>
-        <h1 className='text-[4vw] font-optima leading-[4.4vw] capitalize font-semibold md:mb-[3.44vw]'>our packages</h1>
+        <h1 className='text-[4vw] font-optima leading-[4.4vw] capitalize font-semibold md:mb-[3.44vw]'>{searchInfo?.title}</h1>
         <div className='flex md:hidden gap-[1.6vw] items-center'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -165,7 +165,7 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
             color='primary' variant='contained'>Apply with us</Button>
         </div>
         </SwipeableDrawer> : 
-        <Sidebar
+        <Sidebar searchInfo={searchInfo}
           params={params}
           lang={lang}
           travelStylesList={travelStylesList}
@@ -180,11 +180,11 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
         }
         {
           <div className='flex-1'>
-            {allTours?.length !== 0 ? <ListTour data={allTours} lang={lang} loading={loading}/> : <OtherTours lang={lang} />}
+            {allTours?.length !== 0 ? <ListTour results={searchInfo?.foundResults} data={allTours} lang={lang} loading={loading}/> : <OtherTours lang={lang} />}
           </div>
          }
       </div>
-      {allTours?.length !== 0 && <NewRelease lang={lang} data={listBlog} />}
+      {allTours?.length !== 0 && <NewRelease title={searchInfo?.newRelated} button={searchInfo?.button} lang={lang} data={listBlog} />}
     </div>
   )
 }

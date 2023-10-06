@@ -1,9 +1,9 @@
 import SearchResult from './SearchResult'
 
-function ListTour({ data,lang,loading }) {
+function ListTour({ data,lang,loading, results }) {
   return (
     <div>
-      <SearchResult
+      <SearchResult results={results}
         lang={lang}
         loading={loading}
         data={data}

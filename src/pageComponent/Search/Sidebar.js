@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from 'react'
 import theme from '@/components/ThemeRegistry/theme'
 
 export default function Sidebar({
+  searchInfo,
   params,
   travelStylesList,
   dataMenuCountry,
@@ -52,21 +53,23 @@ export default function Sidebar({
   return (
     <div className={`w-[20vw] flex flex-col max-md:overflow-y-scroll max-md:h-[70vh]
     max-md:w-auto max-md:rounded-t-[2vw] max-md:pt-[11.46vw]`}>
-      <h2 className='text-[1.375vw] leading-[1.5125vw] font-medium mb-[1vw] max-md:hidden'>Select your destination:</h2>
+      <h2 className='text-[1.375vw] leading-[1.5125vw] font-medium mb-[1vw] max-md:hidden'>{searchInfo?.navbar?.selectYourInformation}</h2>
       <div
         className='search-option mb-[1.88vw] pt-[1.5vw] pb-[2vw] w-full px-[1.8vw] border 
         max-md:px-[4.26vw] max-md:mx-[4.26vw] max-md:pt-[6.4vw] max-md:rounded-[2.66vw] max-md:w-auto max-md:pb-[5.2vw] max-md:mb-[8vw]'
         style={{ boxShadow: '0px 0px 30px 0px rgba(0, 0, 0, 0.08)' }}
       >
-        <h3 className='flex mb-[0.69vw] font-bold text-[1.25vw] leading-[1.64288vw] max-md:text-[5.33vw] max-md:leading-normal'>Duration</h3>
+        <h3 className='flex mb-[0.69vw] font-bold text-[1.25vw] leading-[1.64288vw] max-md:text-[5.33vw] max-md:leading-normal'>{
+          searchInfo?.navbar?.duration?.title
+        }</h3>
         <div className='flex justify-between mb-[0.94vw] max-md:mb-[2.93vw]'>
           <p className='text-[0.875vw] max-md:text-[3.73vw]'>
-            <span className='font-bold'>Min. </span>
-            <span className='font-normal'>1 day</span>
+            <span className='font-bold'>{searchInfo?.navbar?.duration?.min}</span>
+            <span className='font-normal'>{" "}{searchInfo?.navbar?.duration?.minValue}</span>
           </p>
           <p className='text-[0.875vw] leading-[1.4375vw] max-md:text-[3.73vw]'>
-            <span className='font-bold'>Max. </span>
-            <span className='font-normal'>50 days</span>
+            <span className='font-bold'>{searchInfo?.navbar?.duration?.max}</span>
+            <span className='font-normal'>{" "}{searchInfo?.navbar?.duration?.maxValue}</span>
           </p>
         </div>
         <RangeCustom isOpenModal={isOpenModal} day={params.day} onDay={(data) => onDay(data)} />
@@ -76,7 +79,7 @@ export default function Sidebar({
         max-md:mx-[4.26vw] max-md:pt-[7.46vw] max-md:px-[4.26vw] max-md:rounded-[2.66vw] max-md:w-auto max-md:mb-[8vw] max-md:pb-[8.53vw]'
         style={{ boxShadow: '0px 0px 30px 0px rgba(0, 0, 0, 0.08)' }}
       >
-        <h3 className='mb-[1.32vw] text-[1.25vw] font-bold max-md:text-[5.33vw] max-md:mb-[5.6vw]'>Travel styles</h3>
+        <h3 className='mb-[1.32vw] text-[1.25vw] font-bold max-md:text-[5.33vw] max-md:mb-[5.6vw]'>{searchInfo?.navbar?.travelStyles}</h3>
         <div className='flex flex-col justify-center gap-[0.75vw] max-md:gap-[3.2vw]' ref={refStyle}>
           {travelStylesList?.data?.allTourStyle?.nodes?.map((item) => (
             <div className='flex items-center justify-between' key={item?.id}>
@@ -111,9 +114,9 @@ export default function Sidebar({
         style={{ boxShadow: '0px 0px 30px 0px rgba(0, 0, 0, 0.08)' }}
       >
         <h3 className='font-medium leading-[1.375vw] mb-[1.05vw] text-[1.25vw] 
-        max-md:text-[5.33vw] max-md:leading-normal max-md:mb-[4.53vw]'>Select your information</h3>
+        max-md:text-[5.33vw] max-md:leading-normal max-md:mb-[4.53vw]'>{searchInfo?.navbar?.selectYourInformation}</h3>
         <div className='mb-[0.94vw] max-md:mb-[4vw]'>
-          <OptionCustomer isOpenModal={isOpenModal}
+          <OptionCustomer isOpenModal={isOpenModal} destination={searchInfo?.navbar?.destination}
             onSelect={(data) => onDestination(data)}
             icon={locationIcon}
             list={dataMenuCountry?.data?.allCountries?.nodes}
@@ -121,7 +124,7 @@ export default function Sidebar({
           />
         </div>
         <div className='mb-[0.94vw] max-md:mb-[7.29vw]'>
-          <OptionBudget isOpenModal={isOpenModal}
+          <OptionBudget isOpenModal={isOpenModal} budget={searchInfo?.navbar?.budget}
             onSelect={(data) => onBudget(data)}
             icon={moneyIcon}
             defaultValue={params?.budget}
