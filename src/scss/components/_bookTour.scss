@@ -70,6 +70,7 @@
     .MuiInputBase-root {
       background: rgba(255, 255, 255, 0.2);
       border-radius: 0.5vw;
+      overflow: hidden;
       // padding: 0 20px;
       color: #fff;
       height: 3.125vw;
@@ -174,6 +175,8 @@
           overflow: hidden;
           color: #fff;
           font-size: 1.125vw;
+          display: flex;
+          align-items: flex-end;
           @media screen and (max-width: 768px) {
             border-radius: 2.13333vw;
             font-size: 3.73333vw;
@@ -229,4 +232,8 @@
       }
     }
   }
+}
+
+.MuiSvgIcon-root {
+  color: #fff;
 }
