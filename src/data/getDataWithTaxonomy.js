@@ -11,8 +11,9 @@ export default async function getDataWithTaxonomy(data, query) {
         taxonomyValue: data?.taxonomyValue,
         taxonomyName: data?.taxonomyName
       }
-    })
-    //next: { revalidate: 60 }
+
+    }),
+    next: { revalidate: process.env.NEXT_PUBLIC_REVALIDATE }
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data')

@@ -8,7 +8,6 @@ import TourItem from '@/components/Common/TourItem'
 import TourItemMobile from '@/components/Common/TourItemMobile'
 import FilterTour from '@/components/Common/FilterTour'
 import { DATA_BEST_TOUR } from '@/graphql/filter/queries'
-import Loading from '@/components/Common/Loading'
 const tourAll = new Array(8).fill(0)
 const theme = createTheme({
   breakpoints: {
@@ -26,6 +25,7 @@ function TourSlide({
   dataTaxonomiesBudget,
   dataTaxonomiesDuration
 }) {
+  const eleRef = useRef()
   let totalPage = useRef(0)
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
@@ -109,12 +109,15 @@ function TourSlide({
   if(!allTours) {
     allTours = tourAll
   }
+  useEffect(() => {
+    eleRef?.current?.scrollIntoView({ behavior: "smooth" });
+}, [activePage]);
   const size = onlySmallScreen ? 12 : 8
   // console.log(allTours)
   totalPage.current = onlySmallScreen ? Math.ceil(allTours?.length / size) : Math.ceil(allTours?.length / size)
   const pagis = new Array(totalPage.current || 0).fill(0)
   return (
-    <div className='best-tours pt-[2.5vw] relative max-md:z-10 max-md:top-[-4vw] bg-white max-md:rounded-[4.27vw]'>
+    <div className='best-tours pt-[2.5vw] relative max-md:z-10 max-md:top-[-4vw] bg-white max-md:rounded-[4.27vw]' ref={eleRef}>
       <div className='max-md:pl-[4.27vw] pl-[8.125vw] max-md:pr-[4.27vw] '>
         <h2 className='heading-1'>{tourStyleName}</h2>
         <div className='bg-white mt-[1vw] w-max rounded-[1.125vw] px-[2.38vw] py-[1.19vw] max-md:mt-[4.27vw] max-md:p-0 max-md:bg-transparent max-md:w-full'>
