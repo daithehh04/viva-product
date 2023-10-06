@@ -25,10 +25,10 @@ const Placeholder = ({ item, icon }) => (
   </div>
 )
 
-export default function OptionCustomer({ icon, list, defaultValue, onSelect, isOpenModal }) {
+export default function OptionCustomer({ icon, list, defaultValue, onSelect, isOpenModal, destination }) {
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
-  const [personName, setPersonName] = useState('Destination')
+  const [personName, setPersonName] = useState(destination)
   useEffect(() => {
     if(defaultValue) {
       var nameV = list?.filter(item => item.slug === defaultValue)
@@ -38,7 +38,7 @@ export default function OptionCustomer({ icon, list, defaultValue, onSelect, isO
   },[list,defaultValue])
   useEffect(() => {
     if(isOpenModal) {
-      setPersonName('Destination')
+      setPersonName(destination)
     }
   }, [isOpenModal]);
   const handleChange = (event) => {
