@@ -7,7 +7,6 @@ async function getMetaDataPages(query, lang) {
     body: JSON.stringify({
       query: query,
       variables: { language: lang?.toUpperCase() }
-
     }),
     next: { revalidate: process.env.NEXT_PUBLIC_REVALIDATE }
   })

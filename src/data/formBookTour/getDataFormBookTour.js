@@ -7,7 +7,6 @@ export default async function getDataFormBookTour(query, id, lang) {
     body: JSON.stringify({
       query: query,
       variables: { id: id, language: lang?.toUpperCase() }
-
     }),
     next: { revalidate: process.env.NEXT_PUBLIC_REVALIDATE }
   })

@@ -1,13 +1,9 @@
 import Image from 'next/image'
-import icon from '@/assets/images/icon-style.svg'
+import icon from '@/assets/images/logoMega.svg'
 import Link from 'next/link'
-function AboutItem({ data, slug,onCloseMenu,lang }) {
+function AboutItem({ data, slug, onCloseMenu, lang }) {
   return (
-    <Link
-      href={`/${lang}/${slug}`}
-      className='relative h-max'
-      onClick={onCloseMenu}
-    >
+    <Link href={`/${lang}/${slug}`} className='relative h-max' onClick={onCloseMenu}>
       <Image
         src={data?.backgroundImage?.sourceUrl}
         width={200}
@@ -16,13 +12,7 @@ function AboutItem({ data, slug,onCloseMenu,lang }) {
         className='h-[13.6875vw] w-full object-cover rounded-[0.625vw]'
       />
       <div className='absolute bottom-0 pb-[1.95vw] z-10 flex flex-col items-center justify-center w-full'>
-        <Image
-          src={icon}
-          width={100}
-          height={100}
-          alt='img'
-          className='w-[3.56vw] h-[2.625vw] object-contain'
-        />
+        <Image src={icon} width={100} height={100} alt='img' className='w-[3.56vw] h-[2.625vw] object-contain' />
         <span className='text-[2vw] text-white uppercase font-optima mt-[0.68vw] block font-[600]'>{data?.title}</span>
       </div>
       <div

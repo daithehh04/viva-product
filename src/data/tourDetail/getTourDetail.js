@@ -7,7 +7,6 @@ export default async function getTourDetail(query, slug, lang) {
     body: JSON.stringify({
       query: query,
       variables: { slug: slug, language: lang?.toUpperCase() }
-
     }),
     next: { revalidate: process.env.NEXT_PUBLIC_REVALIDATE }
   })

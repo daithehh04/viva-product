@@ -6,7 +6,6 @@ const client = new ApolloClient({
     uri: process.env.NEXT_PUBLIC_API || 'https://viva-cms.okhub.tech/graphql',
     headers: {
       'Content-Type': 'application/json'
-
     },
     next: { revalidate: process.env.NEXT_PUBLIC_REVALIDATE }
   }),

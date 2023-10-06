@@ -9,7 +9,6 @@ export default async function getHotDealHeader(lang) {
     body: JSON.stringify({
       query: GET_HOT_DEAL_DATA,
       variables: { language: lang?.toUpperCase() }
-
     }),
     next: { revalidate: process.env.NEXT_PUBLIC_REVALIDATE }
   })
