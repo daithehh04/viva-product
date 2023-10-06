@@ -21,7 +21,7 @@ const TextFiledWrapper = ({ name, placeholder }) => {
     inputProps = {
       endAdornment: (
         <svg
-          className='md:w-[1.375vw] md:h-[1.375vw] opacity-70 absolute right-0'
+          className='md:w-[1.375vw] md:h-[1.375vw] opacity-70 absolute right-[1vw]'
           xmlns='http://www.w3.org/2000/svg'
           width='22'
           height='22'
