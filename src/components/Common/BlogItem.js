@@ -7,7 +7,7 @@ function BlogItem({ className, data, lang, heightImage }) {
   return (
     <Link
       href={`/${lang}/${data?.translation?.slug || data?.slug}`}
-      className={`md:!w-[19.0625vw] !h-auto w-[52.26667vw] max-md:flex flex-shrink-0 max-md:ml-[4.27vw] ${className}`}
+      className={`tour-item md:!w-[19.0625vw] !h-auto w-[52.26667vw] max-md:flex flex-shrink-0 max-md:ml-[4.27vw] ${className}`}
     >
       <div className={`w-full`}>
         <div className='relative image'>
@@ -34,7 +34,7 @@ function BlogItem({ className, data, lang, heightImage }) {
             {data?.blogdetail?.time || moment(data?.dateGmt)?.format('DD MMMM YYYY')}
           </span>
         </div>
-        <h4 className='md:text-[1.25vw] text-[3.73333vw] line-clamp-2 font-[700] leading-[1.4] md:mt-[0.78vw] mt-[1.07vw] title'>
+        <h4 className='title__ourBlog  md:text-[1.25vw] text-[3.73333vw] line-clamp-2 font-[700] leading-[1.4] md:mt-[0.78vw] mt-[1.07vw] title'>
           {data?.title}
         </h4>
         <p

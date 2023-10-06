@@ -10,12 +10,23 @@
     transition: background-size 350ms;
     background: linear-gradient(0deg, $colorPrimary, $colorPrimary) no-repeat right bottom/0 1px;
   }
+  .title__ourBlog {
+    cursor: pointer;
+    position: relative;
+    transition: background-size 350ms;
+    background: linear-gradient(0deg, green, green) no-repeat right bottom/0 1px;
+  }
   &:hover {
     .img-tour {
       scale: 1.1;
     }
     .title-tour {
       color: $colorPrimary;
+      background-size: 100% 1px;
+      background-position-x: left;
+    }
+    .title__ourBlog {
+      color: green;
       background-size: 100% 1px;
       background-position-x: left;
     }
