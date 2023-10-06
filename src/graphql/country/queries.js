@@ -56,27 +56,6 @@ query getInfoCountry($taxonomyValue: ID!,$language: LanguageCodeEnum!) {
           name
           desc
         }
-        customerReviews {
-          ... on CustomerReview {
-            title
-            customerReview {
-              image {
-                sourceUrl
-              }
-              title
-              content
-              authorInformation {
-                name
-                country
-                thumbnail {
-                  sourceUrl
-                }
-              }
-              location
-              time
-            }
-          }
-        }
         blogs {
           ... on Post {
             title

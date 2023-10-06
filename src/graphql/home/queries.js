@@ -132,13 +132,6 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
           customerReview {
             ... on CustomerReview {
               customerReview {
-                title
-                location
-                time
-                image {
-                  altText
-                  sourceUrl
-                }
                 authorInformation {
                   country
                   name
@@ -148,19 +141,35 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
                   }
                 }
                 content
+                tours {
+                  ... on Tours {
+                    slug
+                    tourDetail {
+                      banner {
+                        gallery {
+                          altText
+                          sourceUrl
+                        }
+                        location
+                        title
+                      }
+                      numberDay
+                    }
+                    countries {
+                      nodes {
+                        slug
+                      }
+                    }
+                  }
+                }
               }
+
+              
             }
           }
           listReview {
             ... on CustomerReview {
               customerReview {
-                title
-                location
-                time
-                image {
-                  altText
-                  sourceUrl
-                }
                 authorInformation {
                   country
                   name
@@ -170,6 +179,27 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
                   }
                 }
                 content
+                tours {
+                  ... on Tours {
+                    slug
+                    tourDetail {
+                      banner {
+                        gallery {
+                          altText
+                          sourceUrl
+                        }
+                        location
+                        title
+                      }
+                      numberDay
+                    }
+                    countries {
+                      nodes {
+                        slug
+                      }
+                    }
+                  }
+                }
               }
             }
           }

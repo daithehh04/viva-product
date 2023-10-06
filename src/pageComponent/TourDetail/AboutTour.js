@@ -23,11 +23,10 @@ import BookTour from '@/components/Common/BookTour'
 import vw from '@/helpers/convertToVw'
 
 export default function AboutTour(props) {
-  const { type, data, headerData = {}, relatedTours = [], defaultListReViews, lang, dataBookTour } = props
-
+  const { type, data, headerData = {}, relatedTours = [], lang, dataBookTour } = props
   const { contentHeader, relatedTourHeader, bannerHeaders } = headerData
   const { reviews, banner, content = {} } = data || []
-  const listReviews = reviews || defaultListReViews
+
   const { accommodation, brief, inclusionAndExclusion, overview, tourDetailed } = content
   const [activeIcon, setActiveIcon] = useState(0)
   //check mobile
@@ -568,21 +567,21 @@ export default function AboutTour(props) {
           className=' hidden-scroll overflow-auto md:overflow-hidden overflow-y-hidden mb-[13vw]'
           ref={reviewRef}
         >
-          <div className='md:w-[62.1875vw] md:h-[35.75vw] md:ml-[8.125vw] md:grid flex w-fit h-[121.33vw] grid-cols-2 grid-rows-2 md:gap-[2vw] gap-[4.44vw]'>
-            {listReviews?.map((item, index) => {
+          <div className='md:w-[62.1875vw] md:h-[35.75vw] md:ml-[8.125vw] md:grid flex w-fit h-[121.33vw] grid-cols-2 md:gap-[2vw] gap-[4.44vw]'>
+            {reviews?.map((item, index) => {
               return (
                 <div
                   key={index}
                   className={`${index === 0 && ' max-md:ml-[4.27vw]'} ${
-                    index === listReviews?.length - 1 && ' max-md:mr-[4.27vw]'
+                    index === reviews?.length - 1 && ' max-md:mr-[4.27vw]'
                   }`}
                 >
                   <ReviewItem
                     className='our-tours-item md:flex hidden'
-                    data={item?.translation}
+                    data={item}
                   />
                   <ReviewItem
-                    data={item?.translation}
+                    data={item}
                     className='md:hidden block our-tours-item-mobile w-[74.66vw]'
                   />
                 </div>

@@ -7,9 +7,10 @@ import calendarIcon from '@/assets/images/calendarY.svg'
 import quote from '@/assets/images/quote-review.png'
 import Image from 'next/image'
 import playIcon from '@/assets/images/play-video.png'
+import Link from 'next/link'
 
 const defaultVideo = 'https://viva-cms.okhub.tech/wp-content/uploads/2023/09/river_-_40012-1080p-2.mp4'
-function VideoReview({ data, videoInfo, className }) {
+function VideoReview({ data, videoInfo, className, lang }) {
   const [isPlay, setIsPlay] = useState(false)
   const videoRef = useRef()
   useEffect(() => {
@@ -22,11 +23,23 @@ function VideoReview({ data, videoInfo, className }) {
       className={`relative w-[35.1875vw] h-[47.5vw] rounded-[1vw] bg-[#ccc] ${className}`}
       onClick={() => setIsPlay(!isPlay)}
     >
-      <video width='100%' controls={isPlay} ref={videoRef} className={`w-full h-full ${className}`}>
-        <source src={defaultVideo} type='video/mp4' />
+      <video
+        width='100%'
+        controls={isPlay}
+        ref={videoRef}
+        className={`w-full h-full ${className}`}
+      >
+        <source
+          src={data || defaultVideo}
+          type='video/mp4'
+        />
       </video>
       <Image
-        src={img}
+        src={
+          (videoInfo?.tours?.tourDetail?.banner?.gallery &&
+            videoInfo?.tours?.tourDetail?.banner?.gallery[0]?.sourceUrl) ||
+          img
+        }
         width={500}
         height={500}
         alt='img'
@@ -35,15 +48,36 @@ function VideoReview({ data, videoInfo, className }) {
         }`}
       />
       <div className={`top absolute top-0 pt-[1.5vw] pl-[1.5vw] pr-[2.38vw] z-30 ${isPlay ? 'hidden' : ''}`}>
-        <h3 className='text-white text-[1.25vw] font-bold leading-[1.3] tracking-tight'>{videoInfo?.title}</h3>
+        <Link
+          href={`/${lang}/tours/${data?.customerReview?.tours?.slug}`}
+          className='text-white text-[1.25vw] font-bold leading-[1.3] tracking-tight'
+        >
+          {videoInfo?.tours?.tourDetail?.banner?.title}
+        </Link>
         <div className='flex items-center gap-x-[1.63vw] mt-[1vw]'>
           <div className='flex items-center gap-x-[0.25vw]'>
-            <Image src={locationIcon} width={50} height={50} alt='img' className='w-[1vw] h-[1vw] object-cover' />
-            <span className='text-white text-[0.875vw] leading-normal'>{videoInfo?.location}</span>
+            <Image
+              src={locationIcon}
+              width={50}
+              height={50}
+              alt='img'
+              className='w-[1vw] h-[1vw] object-cover'
+            />
+            <span className='text-white text-[0.875vw] leading-normal'>
+              {videoInfo?.tours?.tourDetail?.banner?.location}
+            </span>
           </div>
           <div className='flex items-center gap-x-[0.25vw]'>
-            <Image src={calendarIcon} width={50} height={50} alt='img' className='w-[1vw] h-[1vw] object-cover' />
-            <span className='text-white text-[0.875vw] leading-normal'>{videoInfo?.time}</span>
+            <Image
+              src={calendarIcon}
+              width={50}
+              height={50}
+              alt='img'
+              className='w-[1vw] h-[1vw] object-cover'
+            />
+            <span className='text-white text-[0.875vw] leading-normal'>
+              {videoInfo?.tours?.tourDetail?.numberDay} Day
+            </span>
           </div>
         </div>
       </div>
@@ -54,7 +88,7 @@ function VideoReview({ data, videoInfo, className }) {
               src={videoInfo?.authorInformation?.thumbnail?.sourceUrl}
               width={100}
               height={100}
-              alt='avatar'
+              alt={videoInfo?.authorInformation?.thumbnail?.altText || ''}
               className='object-cover w-full h-full rounded-full'
             />
           </div>
@@ -81,16 +115,6 @@ function VideoReview({ data, videoInfo, className }) {
         <div className='absolute top-0 left-0 right-0 overlayReview-top h-[13.6875vw] rounded-[1vw] z-20'></div>
         <div className='absolute inset-0 overlayReview-bottom rounded-[1vw] z-20'></div>
       </div>
-      {/* <Image
-        src={playIcon}
-        width={100}
-        height={100}
-        alt='img'
-        className={`w-[4vw] h-[4.75vw] object-cover absolute z-50 bottom-[50%] left-[50%] -translate-x-1/2 cursor-pointer ${
-          isPlay ? 'hidden' : ''
-        }`}
-        onClick={() => setIsPlay(true)}
-      /> */}
       <svg
         className={`w-[4vw] h-[4.75vw] btnPause2 object-cover absolute z-50 bottom-[50%] left-[50%] -translate-x-1/2 cursor-pointer ${
           isPlay ? 'hidden' : ''

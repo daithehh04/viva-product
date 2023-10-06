@@ -1,3 +1,5 @@
+'use client'
+
 import VideoReview from './VideoReview'
 import SlideReview from './SlideReview'
 import Button from '@/components/Common/Button'
@@ -16,7 +18,12 @@ function Review({ data, button, lang }) {
           className='max-md:hidden absolute md:w-[29.18vw] md:h-[26.54vw] top-[4%] right-0'
         />
         <div className='w-[35.1875vw] max-md:hidden'>
-          <VideoReview className='video__review' data={data?.video} videoInfo={data?.customerReview?.customerReview} />
+          <VideoReview
+            className='video__review'
+            data={data?.video}
+            videoInfo={data?.customerReview?.customerReview}
+            lang={lang}
+          />
         </div>
         <div className='w-[62vw] max-md:w-full'>
           <h2
@@ -37,7 +44,10 @@ function Review({ data, button, lang }) {
           >
             {data?.text}
           </p>
-          <SlideReview data={data?.listReview} />
+          <SlideReview
+            data={data?.listReview}
+            lang={lang}
+          />
         </div>
       </div>
       <div className='mt-[3.5vw] flex justify-center max-md:hidden'>

@@ -137,16 +137,32 @@ export default function Home({
   }
   return (
     <div>
-      <Banner lang={lang} data={banner} dataFilter={dataFilter} />
+      <Banner
+        lang={lang}
+        data={banner}
+        dataFilter={dataFilter}
+      />
       <div className='body-wrapper'>
         <div className='style-mb'>
-          <TravelStyleMb lang={lang} data={travelStyleList} title={travelStyleList?.title} />
+          <TravelStyleMb
+            lang={lang}
+            data={travelStyleList}
+            title={travelStyleList?.title}
+          />
         </div>
         <div className='survey-wrapper'>
-          <Surveys data={survey} lang={lang} button={button} dataBookTour={dataBookTour} />
+          <Surveys
+            data={survey}
+            lang={lang}
+            button={button}
+            dataBookTour={dataBookTour}
+          />
         </div>
         <div className='trip-wrapper'>
-          <InspectionTrip data={inspection} lang={lang} />
+          <InspectionTrip
+            data={inspection}
+            lang={lang}
+          />
         </div>
         <div className='bg-home34'>
           <BestTour
@@ -173,14 +189,22 @@ export default function Home({
         </div>
         <AboutVideo data={aboutVideo} />
         <div className='review-wrapper'>
-          <Review data={customerReview} button={button} lang={lang} />
+          <Review
+            data={customerReview}
+            button={button}
+            lang={lang}
+          />
         </div>
         <div className='relative bg-home67'>
           <div className='pt-[8.62vw]'>
             <BookingProcessSteps data={nextStepBookTour} />
           </div>
           <div className='pt-[7.31vw]'>
-            <OurBlogHomePage data={blog} button={button} lang={lang} />
+            <OurBlogHomePage
+              data={blog}
+              button={button}
+              lang={lang}
+            />
           </div>
           <div className='absolute bottom-0 left-0 right-0 bg-overlayBanner2 h-[6.62vw] max-md:hidden'></div>
         </div>

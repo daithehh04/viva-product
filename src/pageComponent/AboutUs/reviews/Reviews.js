@@ -35,7 +35,6 @@ const Reviews = ({ lang, data }) => {
       language: lang?.toUpperCase()
     }
   })
-
   // calculate total page of reviews
   if (reviewList) {
     totalPage.current = Math.ceil(reviewList?.allCustomerReview?.pageInfo?.offsetPagination?.total / 7)
@@ -74,7 +73,10 @@ const Reviews = ({ lang, data }) => {
                 key={index}
                 className={`${index === 0 && !onlySmallScreen && 'md:col-span-2 big-item md:gap-[2.5vw]'}`}
               >
-                <ReviewItem data={item?.translation} />
+                <ReviewItem
+                  data={item}
+                  lang={lang}
+                />
               </div>
             )
           })}
