@@ -74,6 +74,8 @@ export default function Navbar({
 
   useEffect(() => {
     const nav = document.querySelector('.navbar')
+    const menuItems = refMenu?.current?.querySelectorAll('.menu-item')
+    const menuNavs = refMenu?.current?.querySelectorAll('.nav-link:has(.menu-item)')
     // check header transpent or not
     const isTrans = onlySmallScreen
       ? pathNameMb.some((item) => pathName.includes(item))
@@ -91,6 +93,10 @@ export default function Navbar({
       if (scrollPosition >= 200) {
         nav.classList.add('nav-active')
         nav.classList.remove('nav-mb-special')
+
+        menuNavs.forEach((item, index) => {
+          item.classList.remove('show')
+        })
       } else {
         nav.classList.remove('nav-active')
         if (isTrans) {
@@ -111,9 +117,7 @@ export default function Navbar({
       }
       lastScrolledPos = window.scrollY
     }
-    const menuItems = refMenu?.current?.querySelectorAll('.menu-item')
 
-    const menuNavs = refMenu?.current?.querySelectorAll('.nav-link:has(.menu-item)')
     menuItems?.forEach((item, index) => {
       var distance = menuNavs[index].getBoundingClientRect().left + menuNavs[index].clientWidth / 2
       item.style.transformOrigin = `${distance}px top`
@@ -219,8 +223,11 @@ export default function Navbar({
                     </div>
                   </div>
                 </div>
-                <div className='capitalize text-[1vw] nav-link cursor-pointer'>
-                  <Link href={`/${lang}/hot-deals`}>{dataHome?.nav3}</Link>
+                <Link
+                  href={`/${lang}/hot-deals`}
+                  className='capitalize text-[1vw] nav-link cursor-pointer'
+                >
+                  {dataHome?.nav3}
                   <div className='w-[83.75%] '>
                     <div className='hidden menu-item content'>
                       <HotDeal
@@ -231,7 +238,7 @@ export default function Navbar({
                       />
                     </div>
                   </div>
-                </div>
+                </Link>
                 <Link
                   href={`/${lang}/check-visa`}
                   className='capitalize text-[1vw] nav-link'
