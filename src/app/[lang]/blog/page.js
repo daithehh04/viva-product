@@ -66,7 +66,8 @@ query($language : LanguageCodeFilterEnum!){
 export async function generateMetadata({ params: { lang } }) {
   const res = await getMetaDataPages(GET_META_DATA_BLOG, lang)
   if (!res) return
-  const { ourblog, featuredImage } = res?.data?.page?.translation
+  const { ourblog } = res?.data?.page?.translation
+  const featuredImage = res?.data?.page?.translation?.featuredImage
   const title = ourblog?.meta?.title
   const excerpt = ourblog?.meta?.description
   return getMeta(title, excerpt, featuredImage)

@@ -15,7 +15,8 @@ import { GET_DATA_FORM_BOOKTOUR } from '@/graphql/formBookTour/queries'
 export async function generateMetadata({ params: { slug, lang } }) {
   const res = await getMetaDataTour(GET_TOUR_META_DATA, lang, slug)
 
-  const { featuredImage, tourDetail } = res?.data?.tours?.translation
+  const tourDetail = res?.data?.tours?.translation?.tourDetail
+  const featuredImage = res?.data?.tours?.translation?.featuredImage
   const title = tourDetail?.meta?.title
   const excerpt = tourDetail?.meta?.description
   return getMeta(title, excerpt, featuredImage)
@@ -31,6 +32,7 @@ export default async function page({ params: { lang, slug } }) {
   // // get detail of tour
   const result = await getTourDetail(GET_TOUR_DETAIL, slug, lang)
   const tourDetailData = result?.data?.tours?.translation?.tourDetail || {}
+
   const tourId = result?.data?.tours?.translation?.id
   //get tour country
   const country = result?.data?.tours?.translation?.countries?.nodes[0]?.slug

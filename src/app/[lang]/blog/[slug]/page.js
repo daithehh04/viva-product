@@ -96,7 +96,9 @@ const GET_META_DATA_RCM_SERVICE = `
 export async function generateMetadata({ params: { lang } }) {
   const res = await getMetaDataPages(GET_META_DATA_RCM_SERVICE, lang)
   if (!res) return
-  const { recommendService, featuredImage } = res?.data?.page?.translation
+  const { recommendService } = res?.data?.page?.translation
+
+  const featuredImage = res?.data?.page?.translation?.featuredImage
   const title = recommendService?.meta?.title
   const excerpt = recommendService?.meta?.description
   return getMeta(title, excerpt, featuredImage)

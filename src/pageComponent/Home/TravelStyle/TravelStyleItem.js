@@ -1,3 +1,5 @@
+'use client'
+
 import icon from '@/assets/images/icon-style.svg'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -30,7 +32,7 @@ function TravelStyleItem({ data, lang }) {
           className='absolute w-[2.825vw] left-[-2.25vw] top-[-0.5vw]'
         />
         <Link
-          href='/'
+          href={`/${lang}/travel-style/${data?.slug}`}
           className='w-[5.9375vw] h-[5.9375vw] rounded-full bg-primaryColor text-textColor text-[0.875vw] font-[500] flex items-center justify-center'
         >
           View more

@@ -7,7 +7,9 @@ import { getMeta } from '@/data/metaData/getMeta'
 export async function generateMetadata({ params: { lang } }) {
   const res = await getMetaDataPages(GET_META_DATA, lang)
 
-  const { featuredImage, hotDeals } = res?.data?.page?.translation
+  const { hotDeals } = res?.data?.page?.translation
+  const featuredImage = res?.data?.page?.translation?.featuredImage
+
   const title = hotDeals?.meta?.title
   const excerpt = hotDeals?.meta?.description
   return getMeta(title, excerpt, featuredImage)

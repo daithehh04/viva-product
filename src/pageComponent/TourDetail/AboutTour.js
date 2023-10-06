@@ -4,7 +4,6 @@ import Image from 'next/image'
 import line from '@/assets/images/tourDetail/line.png'
 import inclusion from '@/assets/images/tourDetail/inclusion.svg'
 import exclusion from '@/assets/images/tourDetail/exclusion.svg'
-import viva from '@/assets/images/tourDetail/viva.svg'
 
 import TableData from './TableData'
 import ReviewItem from '@/components/Common/ReviewItem'

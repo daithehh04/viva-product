@@ -20,7 +20,8 @@ const idItBook = 'cG9zdDoxNDIy'
 export async function generateMetadata({ params: { lang } }) {
   const res = await getMetaDataPages(GET_META_DATA, lang)
 
-  const { featuredImage, home } = res?.data?.page?.translation
+  const { home } = res?.data?.page?.translation
+  const featuredImage = res?.data?.page?.translation?.featuredImage
   const title = home?.meta?.title
   const excerpt = home?.meta?.description
   return getMeta(title, excerpt, featuredImage)

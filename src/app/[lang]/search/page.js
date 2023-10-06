@@ -25,7 +25,7 @@ async function page({ params: { lang } }) {
   let searchInfo = await getDataPost(lang, GET_SEARCH_INFO)
 
   searchInfo = searchInfo?.data?.page?.translation?.search
-  console.log(searchInfo)
+
   return (
     <div>
       <Search
