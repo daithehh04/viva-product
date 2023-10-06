@@ -4,6 +4,7 @@ import Button from '@/components/Common/Button'
 import Link from 'next/link'
 
 function OtherArticle({ data, dataNews, lang, dataTitle }) {
+  console.log(dataTitle?.data?.postBy?.translation?.blogdetail?.transtitle)
   const otherArticle = data?.blogdetail?.otherarticle
   const otherArticleNew = dataNews?.data?.posts?.nodes
   return (

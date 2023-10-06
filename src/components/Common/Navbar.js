@@ -162,7 +162,7 @@ export default function Navbar({
         <nav
           className={`${
             isTranparent.current ? 'md:bg-white border-b border-solid border-[#ffffff29] nav-mb-special' : 'bg-white'
-          } w-full navbar h-[5.375vw] max-lg:h-[14.93vw]`}
+          } w-[100vw] navbar h-[5.375vw] max-lg:h-[14.93vw]`}
         >
           <div className='flex items-center h-full content '>
             <div className='flex items-center gap-x-[2vw]'>
