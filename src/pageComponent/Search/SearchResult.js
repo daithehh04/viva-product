@@ -4,6 +4,7 @@ import TourItem from '@/components/Common/TourItem'
 import TourItemMobile from '@/components/Common/TourItemMobile'
 import { Skeleton } from '@mui/material'
 
+
 const SearchResult = ({ data, quantity, lang, className,loading }) => {
   let totalPage = useRef(0)
   const eleRef = useRef()

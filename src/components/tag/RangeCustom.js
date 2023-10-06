@@ -34,7 +34,9 @@ export default function RangeCustom({ onDay,day, isOpenModal }) {
     } else {
       setValue([value[0], Math.max(newValue[1], value[0] + minDistance)])
     }
-    onDay(newValue)
+    setTimeout(() => {
+      onDay(newValue)
+    }, 500);
   }
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
