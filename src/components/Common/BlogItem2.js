@@ -37,8 +37,10 @@ function BlogItem2({ className, data, lang }) {
               {moment(data?.dateGmt)?.format('DD MMMM YYYY')}
             </span>
           </div>
-          <h4 className='md:text-[1vw] text-[3.73333vw] font-[700] line-clamp-2 leading-[1.4] md:mt-[0.47vw] mt-[2.4vw] text-[#fff] title'>
-            {data?.title}
+          <h4 className='line-clamp-2'>
+            <a className='md:text-[1vw] text-[3.73333vw] font-[700]  leading-[1.4] md:mt-[0.47vw] mt-[2.4vw] text-[#fff] title'>
+              {data?.title}
+            </a>
           </h4>
         </div>
       </div>
