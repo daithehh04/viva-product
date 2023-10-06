@@ -1,4 +1,26 @@
+.search__page {
+  .mui-1m9pwf3 {
+    opacity: 1 !important;
+    display: flex;
+    justify-content: start;
+  }
+  input[type="checkbox"] {
+    accent-color: #228B22 !important;
+    width: 2vw;
+    left: auto;
+  }
+}
+
 @media screen and (max-width :768px) {
+input[type="checkbox"] {
+  accent-color: #228B22 !important;
+  left: auto;
+}
+.mui-1m9pwf3 {
+  opacity: 1 !important;
+  display: flex;
+  justify-content: start;
+}
 .swiperSlideMb {
       .swiper-slide {
       margin-right: 0 !important;
@@ -8,3 +30,7 @@
     }
   }
 }
+
+
+
+

@@ -115,7 +115,7 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
   }
   
   return (
-    <div className='max-md:mt-[21.6vw] mt-[6.56vw] md:px-[8.13vw]'>
+    <div className='max-md:mt-[21.6vw] mt-[6.56vw] md:px-[8.13vw] search__page'>
       <div className='flex justify-between max-md:px-[4.27vw] items-center'>
         <h1 className='text-[4vw] font-optima leading-[4.4vw] capitalize font-semibold md:mb-[3.44vw]'>{searchInfo?.title}</h1>
         <div className='flex md:hidden gap-[1.6vw] items-center'>
@@ -146,7 +146,7 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
               height={20} className='md:hidden absolute md:top-[4.53vw] top-[2.5vw] right-[4.53vw] 
               max-md:w-[4vw] max-md:right-[10vw] max-md:top-[5vw] max-md:h-[4vw]' onClick={handleCloseFilter} />
         </div>
-        <Sidebar 
+        <Sidebar searchInfo={searchInfo} 
           isOpenModal={isOpenModal}
           setOpenModal={setIsOpenModal}
           params={params}
