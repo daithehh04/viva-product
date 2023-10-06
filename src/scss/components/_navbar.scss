@@ -8,6 +8,9 @@
 
 .nav-mb-special {
   background-color: transparent;
+  div {
+    background-color: transparent;
+  }
   .nav-logo {
     background-color: transparent;
     filter: brightness(0) invert(1);
@@ -78,7 +81,8 @@
       .menu-item {
         opacity: 1;
         overflow: auto;
-        height: fit-content;
+
+        transform: translateY(0);
       }
     }
     &:hover {
@@ -113,6 +117,7 @@
       border-bottom-right-radius: 0.5vw;
       border-bottom-left-radius: 0.5vw;
       transition: all 1s;
+      transform: translateY(-100%);
       opacity: 0;
       display: grid;
       position: fixed;
@@ -122,7 +127,7 @@
       top: 5.375vw;
       bottom: 0;
       z-index: -10;
-      height: 0;
+      height: fit-content;
       width: 83.75%;
       grid-template-rows: auto;
       box-shadow: 0px 0px 70px 0px rgba(0, 0, 0, 0.08);
