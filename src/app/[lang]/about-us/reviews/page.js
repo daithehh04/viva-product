@@ -7,7 +7,9 @@ import IndexAboutUs from '@/pageComponent/AboutUs'
 export async function generateMetadata({ params: { lang } }) {
   const res = await getMetaDataPages(GET_META_DATA, lang)
 
-  const { featuredImage, aboutUsReviews } = res?.data?.page?.translation
+  const { aboutUsReviews } = res?.data?.page?.translation
+
+  const featuredImage = res?.data?.page?.translation?.featuredImage
   const title = aboutUsReviews?.meta?.title
   const excerpt = aboutUsReviews?.meta?.description
   return getMeta(title, excerpt, featuredImage)

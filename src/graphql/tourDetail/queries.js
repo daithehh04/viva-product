@@ -85,31 +85,6 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
           }
           button
         }
-        reviews {
-          ... on CustomerReview {
-            id
-            translation(language: $language) {
-              customerReview {
-                image {
-                  sourceUrl
-                  altText
-                }
-                title
-                content
-                authorInformation {
-                  thumbnail {
-                    sourceUrl
-                    altText
-                  }
-                  name
-                  country
-                }
-                location
-                time
-              }
-            }
-          }
-        }
       }
       countries {
         nodes {

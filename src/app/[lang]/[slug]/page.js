@@ -26,7 +26,8 @@ query ($language: LanguageCodeEnum!, $slug: String!) {
 export async function generateMetadata({ params: { lang, slug } }) {
   const res = await getMetaDataTour(GET_META_DATA_BLOG_DETAIL, lang, slug)
   if (!res) return
-  const { excerpt, featuredImage, blogdetail } = res?.data?.postBy?.translation || ''
+  const { excerpt, blogdetail } = res?.data?.postBy?.translation || ''
+  const featuredImage = res?.data?.postBy?.translation?.featuredImage
   const title = blogdetail?.meta?.title
   return getMeta(title, excerpt, featuredImage)
 }

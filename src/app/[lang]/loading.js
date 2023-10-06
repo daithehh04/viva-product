@@ -14,14 +14,13 @@ export default function Loading() {
     //   ease: 'power4.inOut'
     // })
 
-    // gsap.to('.logo', 1, {
-    //   delay: 1,
-    //   y: -window.innerHeight,
-    //   ease: 'power4.inOut'
-    // })
-
-    gsap.to('.bar', 1, {
+    gsap.to('.logo', 1, {
       delay: 0,
+      y: -window.innerHeight,
+      ease: 'power4.inOut'
+    })
+    gsap.to('.bar', 1, {
+      delay: 1,
       height: 0,
       stagger: {
         amount: 0.5
@@ -39,7 +38,7 @@ export default function Loading() {
           ></div>
         )
       }, [])}
-      <div className='logo absolute top-1/2 left-1/2 -translate-x-1/4 -translate-y-1/2 flex items-center justify-center gap-[2vw]'>
+      <div className='logo absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center gap-[2vw]'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width={100}
@@ -162,9 +161,7 @@ export default function Loading() {
           </defs>
         </svg>
 
-        <div className='w-[20vw] h-[10vw] absolute top-0 left-0 bg-[#1a1a1a] -translate-x-[20vw] z-10'></div>
-
-        <div className='loading-title text-white -translate-x-[20vw] relative z-0 opacity-0'>Asia Viva Travel</div>
+        <div className='loading-title text-white relative z-0'>Asia Viva Travel</div>
       </div>
     </div>
   )

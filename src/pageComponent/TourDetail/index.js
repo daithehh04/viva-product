@@ -17,6 +17,7 @@ export default function TourDetail({
   slug
 }) {
   const { banner, content, map } = data
+
   const { bannerHeaders, content: contentHeader, relatedTour: relatedTourHeader, subBanner } = headerData
 
   const reviews = reviewsList?.filter((item) => item?.customerReview?.tours?.slug === slug)

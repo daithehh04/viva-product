@@ -27,7 +27,9 @@ const GET_META_DATA_CHECK_VISA = `
 export async function generateMetadata({ params: { lang } }) {
   const res = await getMetaDataPages(GET_META_DATA_CHECK_VISA, lang)
   if (!res) return
-  const { checkvisa, featuredImage } = res?.data?.page?.translation
+  const { checkvisa } = res?.data?.page?.translation
+  const featuredImage = res?.data?.page?.translation?.featuredImage
+
   const title = checkvisa?.meta?.title
   const excerpt = checkvisa?.meta?.description
   return getMeta(title, excerpt, featuredImage)

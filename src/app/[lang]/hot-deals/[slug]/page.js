@@ -10,7 +10,8 @@ import { getMeta } from '@/data/metaData/getMeta'
 export async function generateMetadata({ params: { slug, lang } }) {
   const res = await getMetaDataTour(GET_TOUR_META_DATA, lang, slug)
 
-  const { excerpt, featuredImage, tourDetail } = res?.data?.tours?.translation
+  const { excerpt, tourDetail } = res?.data?.tours?.translation
+  const featuredImage = res?.data?.page?.translation?.featuredImage
   const title = tourDetail?.meta?.title
   return getMeta(title, excerpt, featuredImage)
 }
