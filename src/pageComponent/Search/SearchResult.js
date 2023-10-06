@@ -4,7 +4,6 @@ import TourItem from '@/components/Common/TourItem'
 import TourItemMobile from '@/components/Common/TourItemMobile'
 
 const SearchResult = ({ data, quantity, lang, className }) => {
-  console.log(data)
   let totalPage = useRef(0)
   const [activePage, setActivePage] = useState(1)
   const size = quantity

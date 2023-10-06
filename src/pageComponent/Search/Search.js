@@ -50,8 +50,6 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
   const [day, setDay] = useState(null)
   const [budget, setBudget] = useState(null)
 
-  console.log(destination, travelStyle, day, budget)
-
   useEffect(() => {
     const nameV = dataMenuCountry?.data?.allCountries?.nodes.filter((item) => item.slug === destinationParams)
     if (nameV) {
