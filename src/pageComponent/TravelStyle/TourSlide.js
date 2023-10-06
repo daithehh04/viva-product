@@ -106,18 +106,21 @@ function TourSlide({
     duration: newArrDataTaxonomiesDuration
   }
 
-  if(!allTours) {
+  if (!allTours) {
     allTours = tourAll
   }
   useEffect(() => {
-    eleRef?.current?.scrollIntoView({ behavior: "smooth" });
-}, [activePage]);
+    eleRef?.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [activePage])
   const size = onlySmallScreen ? 12 : 8
-  // console.log(allTours)
+
   totalPage.current = onlySmallScreen ? Math.ceil(allTours?.length / size) : Math.ceil(allTours?.length / size)
   const pagis = new Array(totalPage.current || 0).fill(0)
   return (
-    <div className='best-tours pt-[2.5vw] relative max-md:z-10 max-md:top-[-4vw] bg-white max-md:rounded-[4.27vw]' ref={eleRef}>
+    <div
+      className='best-tours pt-[2.5vw] relative max-md:z-10 max-md:top-[-4vw] bg-white max-md:rounded-[4.27vw]'
+      ref={eleRef}
+    >
       <div className='max-md:pl-[4.27vw] pl-[8.125vw] max-md:pr-[4.27vw] '>
         <h2 className='heading-1'>{tourStyleName}</h2>
         <div className='bg-white mt-[1vw] w-max rounded-[1.125vw] px-[2.38vw] py-[1.19vw] max-md:mt-[4.27vw] max-md:p-0 max-md:bg-transparent max-md:w-full'>
@@ -139,29 +142,29 @@ function TourSlide({
         }`}
       >
         {/* {!dataBestTours.loading ? ( */}
-          {allTours?.length ? (
-            allTours?.slice(size * (activePage - 1), size * activePage).map((tour, index) => (
-              <div key={index}>
-                <div className='max-md:hidden'>
-                  <TourItem
-                    data={tour}
-                    lang={lang}
-                    loading={dataBestTours?.loading}
-                  />
-                </div>
-                <div className='hidden max-md:block'>
-                  <TourItemMobile
-                    data={tour}
-                    lang={lang}
-                  />
-                </div>
+        {allTours?.length ? (
+          allTours?.slice(size * (activePage - 1), size * activePage).map((tour, index) => (
+            <div key={index}>
+              <div className='max-md:hidden'>
+                <TourItem
+                  data={tour}
+                  lang={lang}
+                  loading={dataBestTours?.loading}
+                />
               </div>
-            ))
-          ) : (
-            <div className='text-center text-[3.5vw] w-full text-[#c23a3a] font-optima max-md:text-[5.67vw]'>
-              Not Found Tour !
+              <div className='hidden max-md:block'>
+                <TourItemMobile
+                  data={tour}
+                  lang={lang}
+                />
+              </div>
             </div>
-          )}
+          ))
+        ) : (
+          <div className='text-center text-[3.5vw] w-full text-[#c23a3a] font-optima max-md:text-[5.67vw]'>
+            Not Found Tour !
+          </div>
+        )}
         {/* ) : (
           <div className='flex justify-center w-full col-span-4'>
             <Loading />

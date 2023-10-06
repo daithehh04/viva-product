@@ -85,7 +85,6 @@ export default function Navbar({
       nav.classList.remove('nav-mb-special')
     }
 
-    console.log(isTrans)
     //-------------------------
     window.addEventListener('scroll', function () {
       var scrollPosition = window.pageYOffset || document.documentElement.scrollTop

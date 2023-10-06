@@ -11,13 +11,15 @@ export default function TourDetail({
   data = {},
   headerData = {},
   relatedTours,
-  defaultListReViews = [],
+  reviewsList = [],
   lang,
-  dataBookTour = {}
+  dataBookTour = {},
+  slug
 }) {
-  const { banner, content, map, reviews } = data
+  const { banner, content, map } = data
   const { bannerHeaders, content: contentHeader, relatedTour: relatedTourHeader, subBanner } = headerData
 
+  const reviews = reviewsList?.filter((item) => item?.customerReview?.tours?.slug === slug)
   return (
     <>
       <TourDetailBanner
@@ -45,10 +47,9 @@ export default function TourDetail({
         </div>
         <main className='relative z-20'>
           <AboutTour
-            data={{ content, map, banner, reviews }}
+            data={{ content, map, banner, reviews: reviews }}
             headerData={{ contentHeader, relatedTourHeader, bannerHeaders }}
             relatedTours={relatedTours}
-            defaultListReViews={defaultListReViews}
             lang={lang}
             dataBookTour={dataBookTour}
           />

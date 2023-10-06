@@ -4,7 +4,6 @@ import Button from '@/components/Common/Button'
 import Link from 'next/link'
 
 function OtherArticle({ data, dataNews, lang, dataTitle }) {
-  console.log(dataTitle?.data?.postBy?.translation?.blogdetail?.transtitle)
   const otherArticle = data?.blogdetail?.otherarticle
   const otherArticleNew = dataNews?.data?.posts?.nodes
   return (
@@ -14,16 +13,14 @@ function OtherArticle({ data, dataNews, lang, dataTitle }) {
       </h2>
       <div className='flex md:gap-[2.5vw] article-webkit  max-md:overflow-x-auto md:mb-[3.5vw] mb-[9.87vw]'>
         {otherArticle
-          ? otherArticle
-              ?.slice(0, 4)
-              ?.map((data, index) => (
-                <BlogItem
-                  key={index}
-                  lang={lang}
-                  data={data}
-                  className={`${otherArticle.length - 1 === index ? 'mr-[4.27vw]' : ''}`}
-                />
-              ))
+          ? otherArticle?.slice(0, 4)?.map((data, index) => (
+              <BlogItem
+                key={index}
+                lang={lang}
+                data={data}
+                className={`${otherArticle.length - 1 === index ? 'mr-[4.27vw]' : ''}`}
+              />
+            ))
           : otherArticleNew?.map((item, index) => (
               <BlogItem
                 key={index}

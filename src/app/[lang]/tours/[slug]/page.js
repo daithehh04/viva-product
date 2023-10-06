@@ -5,7 +5,7 @@ import getRandomTour from '@/data/tourDetail/getRandomTour'
 import getRelatedTour from '@/data/tourDetail/getRelatedTour'
 import getTourDetail from '@/data/tourDetail/getTourDetail'
 import getTourDetailHeader from '@/data/tourDetail/getTourDetailHeader'
-import { GET_REVIEWS } from '@/graphql/customersReview/queries'
+import { GET_ALL_REVIEWS, GET_REVIEWS } from '@/graphql/customersReview/queries'
 import { GET_TOUR_META_DATA } from '@/graphql/metaData/queries'
 import { GET_RANDOM_TOUR, GET_TOUR_DETAIL } from '@/graphql/tourDetail/queries'
 import TourDetail from '@/pageComponent/TourDetail'
@@ -44,8 +44,10 @@ export default async function page({ params: { lang, slug } }) {
     relatedTours = Array.from(new Set(resRmDup))
   }
   // get Default list Reviews
-  const result3 = await getDataPost(lang, GET_REVIEWS)
-  const defaultListReViews = result3?.data?.allCustomerReview?.nodes
+
+  const result4 = await getDataPost(lang, GET_ALL_REVIEWS)
+  const reviewsList = result4?.data?.allCustomerReview?.nodes
+
   let dataBookTour
   // get Data form book tour
   if (lang === 'en') {
@@ -64,9 +66,10 @@ export default async function page({ params: { lang, slug } }) {
       headerData={headerData?.data?.page?.translation?.tourDetailHeading}
       relatedTours={relatedTours}
       tourId={tourId}
-      defaultListReViews={defaultListReViews}
+      reviewsList={reviewsList}
       lang={lang}
       dataBookTour={dataBookTour}
+      slug={slug}
     />
   )
 }

@@ -7,8 +7,12 @@ import commaRes from '@/assets/images/about/commaRes.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 
-function ReviewItem({ className, data }) {
+function ReviewItem({ className, data, lang }) {
   // className prop is mush have a wrapper's class to overwrite css
+
+  const tourData = data?.customerReview?.tours?.tourDetail
+  const authorInfo = data?.customerReview?.authorInformation
+  const tourSlug = data?.customerReview?.tours?.slug
   return (
     <div
       className={`${
@@ -17,10 +21,10 @@ function ReviewItem({ className, data }) {
     >
       <div className='overflow-hidden md:rounded-lg'>
         <Image
-          src={data?.customerReview?.image?.sourceUrl || imgReview}
+          src={(tourData?.banner?.gallery && tourData?.banner?.gallery[0]?.sourceUrl) || imgReview}
+          alt={(tourData?.banner?.gallery && tourData?.banner?.gallery[0]?.altText) || 'img'}
           width={1000}
           height={1000}
-          alt={data?.customerReview?.image?.altText || 'img'}
           className={`review-item-img md:w-[18.0625vw] w-full md:h-[19.125vw] h-[60vw] rounded-[8px] object-cover`}
         />
       </div>
@@ -32,10 +36,10 @@ function ReviewItem({ className, data }) {
       >
         <div>
           <Link
-            href={'#'}
+            href={`/${lang}/tours/${tourSlug}`}
             className='md:text-[1.25vw] text-[3.733vw] md:leading-[1.35] leading-normal font-bold text-textColor tracking-[-0.4px] md:mb-[0.62vw]'
           >
-            {data?.customerReview?.title}
+            {tourData?.banner?.title}
           </Link>
 
           {/* location & calendar */}
@@ -48,9 +52,7 @@ function ReviewItem({ className, data }) {
                 alt='location'
                 className='md:w-[1vw] w-[3.2vw] md:h-[1vw] h-[3.2vw] object-cover'
               />
-              <span className='leading-normal ml-[0.25vw]'>
-                {data?.authorInformation?.country || data?.customerReview?.authorInformation?.country}
-              </span>
+              <span className='leading-normal ml-[0.25vw]'>{authorInfo?.country}</span>
             </div>
             <div className='md:ml-[1.75vw] ml-[4.26vw] flex items-center'>
               <Image
@@ -60,7 +62,7 @@ function ReviewItem({ className, data }) {
                 alt='calendar'
                 className='md:w-[0.75vw] w-[3.2vw] md:h-[0.83vw] h-[3.2vw] object-cover'
               />
-              <span className='leading-normal ml-[0.3vw]'>{data?.time || data?.customerReview?.time}</span>
+              <span className='leading-normal ml-[0.3vw]'>{tourData?.numberDay}</span>
             </div>
           </div>
 
@@ -78,18 +80,16 @@ function ReviewItem({ className, data }) {
         <div className='review-item-user'>
           <div className='flex items-center gap-x-[0.63vw]'>
             <Image
-              src={data?.customerReview?.thumbnail?.sourceUrl || avatar}
+              src={authorInfo?.thumbnail?.sourceUrl || avatar}
               width={100}
               height={100}
-              alt={data?.customerReview?.authorInformation?.thumbnail?.altText || 'avatar'}
+              alt={authorInfo?.thumbnail?.altText || 'avatar'}
               className='user-avatar md:w-[2.9375vw] w-[11.2vw] h-[11.2vw] md:h-[2.9375vw] rounded-full object-cover'
             />
             <div className='flex flex-col justify-center'>
-              <h4 className='md:text-[1vw] text-[3.73vw] font-bold capitalize'>
-                {data?.customerReview?.authorInformation?.name}
-              </h4>
+              <h4 className='md:text-[1vw] text-[3.73vw] font-bold capitalize'>{authorInfo?.name}</h4>
               <span className='md:text-[0.875vw] text-[3.73vw] opacity-60 md:opacity-100 leading-normal'>
-                {data?.customerReview?.authorInformation?.country}
+                {authorInfo?.country}
               </span>
             </div>
           </div>
@@ -105,7 +105,7 @@ function ReviewItem({ className, data }) {
                 className='md:w-[1vw] w-[3.2vw] md:h-[1vw] h-[3.2vw] object-cover'
               />
               <span className=' leading-normal ml-[0.25vw] text-textColor opacity-70'>
-                {data?.customerReview?.location}
+                {tourData?.banner?.location}
               </span>
             </div>
             <div className='ml-[1.75vw] flex items-center'>
@@ -116,7 +116,7 @@ function ReviewItem({ className, data }) {
                 alt='calendar'
                 className='md:w-[0.75vw] w-[3.2vw] md:h-[0.83vw] h-[3.2vw] object-cover'
               />
-              <span className='leading-normal ml-[0.3vw]'>{data?.customerReview?.time}</span>
+              <span className='leading-normal ml-[0.3vw]'>{tourData?.numberDay} Day</span>
             </div>
           </div>
         </div>

@@ -123,8 +123,6 @@ function BookTour({ data, setOpenModal }) {
     })
   }
   useClickOutside(formRef, (event) => {
-    // console.log(event.target)
-    //(!event.target.classList.contains('selectNation') && )
     if (!isDone) {
       setOpenNoti(true)
       setIsConfirm(true)
