@@ -58,28 +58,35 @@ export default function Navbar({
   //check pathName
   const pathName = usePathname()
   const [openModal, setOpenModal] = useState(false)
-  const isTranparent = useRef(false)
 
-  useEffect(() => {
-    const pathNameMb = [
-      'our-tours',
-      'travel-style',
-      'tours',
-      'who-we-are',
-      'responsible-travel',
-      'review',
-      'hot-deals',
-      'check-visa'
-    ]
-    const pathNamePc = ['tours']
-    isTranparent.current = onlySmallScreen
-      ? pathNameMb.some((item) => pathName.includes(item))
-      : pathName.includes(pathNamePc) && !pathName.includes('our-tours')
-  }, [pathName, onlySmallScreen])
+  const [isTransparent, setIsTransparent] = useState(false)
+  const pathNameMb = [
+    'our-tours',
+    'travel-style',
+    'tours',
+    'who-we-are',
+    'responsible-travel',
+    'review',
+    'hot-deals',
+    'check-visa'
+  ]
+  const pathNamePc = ['tours']
 
   useEffect(() => {
     const nav = document.querySelector('.navbar')
+    // check header transpent or not
+    const isTrans = onlySmallScreen
+      ? pathNameMb.some((item) => pathName.includes(item))
+      : pathName.includes(pathNamePc) && !pathName.includes('our-tours')
 
+    if (isTrans) {
+      nav.classList.add('nav-mb-special')
+    } else {
+      nav.classList.remove('nav-mb-special')
+    }
+
+    console.log(isTrans)
+    //-------------------------
     window.addEventListener('scroll', function () {
       var scrollPosition = window.pageYOffset || document.documentElement.scrollTop
       if (scrollPosition >= 200) {
@@ -87,7 +94,11 @@ export default function Navbar({
         nav.classList.remove('nav-mb-special')
       } else {
         nav.classList.remove('nav-active')
-        if (isTranparent.current) nav.classList.add('nav-mb-special')
+        if (isTrans) {
+          nav.classList.add('nav-mb-special')
+        } else {
+          nav.classList.remove('nav-mb-special')
+        }
       }
     })
     // ===========================
@@ -110,16 +121,21 @@ export default function Navbar({
     })
     menuNavs?.forEach((item, index) => {
       item.addEventListener('mouseover', function () {
+        nav.classList.remove('nav-mb-special')
         item.classList.add('show')
         menuItems[index].style.transition = 'all 0.5s'
       })
       item.addEventListener('mouseout', function () {
         item.classList.remove('show')
-        // menuItems[index].style.display = 'none'
+        if (pathName.includes('tours') && !pathName.includes('our-tours')) {
+          nav.classList.add('nav-mb-special')
+        } else {
+          nav.classList.remove('nav-mb-special')
+        }
       })
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [pathName, onlySmallScreen])
 
   const handleCloseMenu = () => {
     const menuLink = refMenu?.current?.querySelector('.nav-link.show')
@@ -159,12 +175,8 @@ export default function Navbar({
   return (
     <DataProvider>
       <div className='nav-container'>
-        <nav
-          className={`${
-            isTranparent.current ? 'md:bg-white border-b border-solid border-[#ffffff29] nav-mb-special' : 'bg-white'
-          } w-[100vw] navbar h-[5.375vw] max-lg:h-[14.93vw]`}
-        >
-          <div className='flex items-center h-full content '>
+        <nav className={`bg-white w-[100vw] navbar h-[5.375vw] max-lg:h-[14.93vw]`}>
+          <div className='flex items-center h-full content bg-white'>
             <div className='flex items-center gap-x-[2vw]'>
               <Link href={`/${lang}`}>
                 <Image
