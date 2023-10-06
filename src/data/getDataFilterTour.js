@@ -12,7 +12,7 @@ export default async function getDataFilterTour(data, query) {
         styleTourSlug: data?.styleTourSlug
       }
     }),
-    ,next: { revalidate: process.env.NEXT_PUBLIC_REVALIDATE }
+    next: { revalidate: process.env.NEXT_PUBLIC_REVALIDATE }
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
