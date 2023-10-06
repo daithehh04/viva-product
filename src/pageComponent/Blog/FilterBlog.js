@@ -8,10 +8,10 @@ import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import { useState } from 'react'
 
-function FilterBlog({ handleDes, handleTopic, handleCate, metaTopic, metaDestination, metaCategories }) {
+function FilterBlog({ handleDes, handleTopic, handleCate, metaTopic, metaDestination, metaCategories, slug }) {
   const [destination, SetDestination] = useState('')
   const [topic, SetTopic] = useState('')
-  const [category, SetCategory] = useState('')
+  const [category, SetCategory] = useState('' || slug)
 
   const handleChangeDestination = (event) => {
     SetDestination(event.target.value)

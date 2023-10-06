@@ -14,17 +14,8 @@ const DatePickerCustom = ({ name }) => {
     }
   }
 
-  const color = '#fff'
-  return (
-    <TextField
-      sx={{
-        svg: { color },
-        input: { color },
-        label: { color }
-      }}
-      {...configDatePicker}
-    />
-  )
+  // const color = '#fff'
+  return <TextField {...configDatePicker} />
 }
 
 export default DatePickerCustom
