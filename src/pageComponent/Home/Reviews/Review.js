@@ -2,11 +2,19 @@ import VideoReview from './VideoReview'
 import SlideReview from './SlideReview'
 import Button from '@/components/Common/Button'
 import Link from 'next/link'
+import Image from 'next/image'
+import tree from '@/assets/images/cayduaHome.png'
 
 function Review({ data, button, lang }) {
   return (
     <>
-      <div className='flex gap-x-[2vw] items-end overflow-hidden custom-review pt-[9.37vw]'>
+      <div className='flex gap-x-[2vw] items-end overflow-hidden relative custom-review pt-[9.37vw]'>
+        <Image
+          alt='tree'
+          src={tree}
+          quality={100}
+          className='max-md:hidden absolute md:w-[29.18vw] md:h-[26.54vw] top-[4%] right-0'
+        />
         <div className='w-[35.1875vw] max-md:hidden'>
           <VideoReview className='video__review' data={data?.video} videoInfo={data?.customerReview?.customerReview} />
         </div>

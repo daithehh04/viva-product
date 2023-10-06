@@ -74,9 +74,9 @@ function InspectionTrip({ data, lang }) {
                         className='rounded-[1vw] max-md:rounded-[2.13vw] h-full w-full object-cover'
                       />
                       <div className='info absolute bottom-0 px-[2vw] pb-[2vw] max-md:pb-[4.13vw] max-md:px-[4vw] z-10'>
-                        <h3 className='text-[1.5vw] title-tour text-[#fff] font-bold leading-[1.3] tracking-[-0.03rem] w-[30.3125vw] max-md:text-[2.93vw] max-md:w-[61.33vw]'>
+                        <a className='text-[1.5vw] title-tour text-[#fff] font-bold leading-[1.3] tracking-[-0.03rem] w-[20.3125vw] max-md:text-[2.93vw] max-md:w-[61.33vw]'>
                           {item?.tourDetail?.banner?.title}
-                        </h3>
+                        </a>
                         <div className='flex items-center gap-x-[1.19vw] mt-[1.03vw] max-md:gap-x-[4.27vw] max-md:mt-[1.6vw]'>
                           {/* Icon 1 */}
                           <div className='flex items-center gap-x-[0.37vw] max-md:gap-x-[0.53vw]'>
