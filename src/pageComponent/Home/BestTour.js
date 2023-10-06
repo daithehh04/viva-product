@@ -7,8 +7,8 @@ import imgTour from '@/assets/images/img-more.png'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import Loading from '@/components/Common/Loading'
 import Button from '@/components/Common/Button'
+const tourAll = new Array(7).fill(0)
 function BestTour({
   dataFilter,
   onDestination,
@@ -21,6 +21,9 @@ function BestTour({
   finalData,
   loading
 }) {
+  if(!allTours) {
+    allTours = tourAll
+  }
   const [destination, setDestination] = useState('')
   const [travelStyle, setTravelStyle] = useState('')
   const [budget, setBudget] = useState('')
@@ -62,7 +65,7 @@ function BestTour({
         </div>
       </div>
 
-      {!loading ? (
+      {/* {!loading ? ( */}
         <div
           className={`${
             allTours?.length === 0
@@ -75,7 +78,7 @@ function BestTour({
             allTours?.slice(0, 7).map((tour, index) => (
               <div key={index}>
                 <div className='max-md:hidden'>
-                  <TourItem data={tour} lang={lang} />
+                  <TourItem data={tour} lang={lang} loading={loading}/>
                 </div>
                 <div className='hidden max-md:block'>
                   <TourItemMobile data={tour} lang={lang} />
@@ -87,7 +90,7 @@ function BestTour({
               Not Found Tour !
             </div>
           )}
-          {allTours?.length > 7 ? (
+          {allTours?.length > 7 && !loading ? (
             <div className='h-[24.5vw] rounded-[1vw] relative hidden md:flex  justify-center items-center lastItem'>
               <Image src={imgTour} alt='img-tour' fill className='object-cover h-full ' />
               <div className='absolute flex flex-col items-center justify-center'>
@@ -109,11 +112,11 @@ function BestTour({
             ''
           )}
         </div>
-      ) : (
+      {/* ) : (
         <div className='flex items-center justify-center flex-1 w-full text-center h-[60vh]'>
           <Loading />
         </div>
-      )}
+      )} */}
       <div className='flex justify-center md:hidden mt-[8.53vw]'>
         <Link href={`/${lang}/search`}>
           <Button className='btn-secondary'>{button?.buttonseemore}</Button>

@@ -2,8 +2,9 @@
 import React, { useRef, useState } from 'react'
 import TourItem from '@/components/Common/TourItem'
 import TourItemMobile from '@/components/Common/TourItemMobile'
+import { Skeleton } from '@mui/material'
 
-const SearchResult = ({ data, quantity, lang, className }) => {
+const SearchResult = ({ data, quantity, lang, className,loading }) => {
   console.log(data)
   let totalPage = useRef(0)
   const [activePage, setActivePage] = useState(1)
@@ -12,18 +13,17 @@ const SearchResult = ({ data, quantity, lang, className }) => {
   const pagination = new Array(totalPage.current || 0).fill(0)
   return (
     <div>
-      <h2 className={`text-[2vw] font-medium leading-[2.2vw] mb-[1.5vw] max-md:hidden ${className}`}>
+      {!loading ? <h2 className={`text-[2vw] font-medium leading-[2.2vw] mb-[1.5vw] max-md:hidden ${className}`}>
         Found {data?.length} results
-      </h2>
+      </h2> : <Skeleton variant="rectangular" width={'40%'} height={50} style={{marginBottom:'1.75vw'}}/>}
 
       <div className='grid md:grid-cols-3 grid-cols-1 md:gap-[1.5vw] gap-[4.27vw] relative'>
         <div className='absolute inset-0 z-[-1] bg-[#F3F6FB] md:hidden'></div>
         {data?.slice(size * (activePage - 1), size * activePage).map((tour, index) => (
           <div key={index}>
             <div className='max-md:hidden'>
-              <TourItem data={tour} lang={lang} />
+              <TourItem data={tour} lang={lang} loading={loading}/>
             </div>
-
             <div className='md:hidden'>
               <TourItemMobile data={tour} lang={lang} />
             </div>

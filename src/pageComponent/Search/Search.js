@@ -13,6 +13,7 @@ import { Button, Drawer, Modal, SwipeableDrawer, useMediaQuery } from '@mui/mate
 import theme from '@/components/ThemeRegistry/theme'
 import Image from 'next/image'
 
+const tourBackup = new Array(6).fill(0)
 const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget, listBlog }) => {
   if (typeof window !== 'undefined') {
     const currentUrl = window?.location.href
@@ -49,8 +50,6 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
   const [travelStyle, setTravelStyle] = useState(null)
   const [day, setDay] = useState(null)
   const [budget, setBudget] = useState(null)
-
-  console.log(destination, travelStyle, day, budget)
 
   useEffect(() => {
     const nameV = dataMenuCountry?.data?.allCountries?.nodes.filter((item) => item.slug === destinationParams)
@@ -100,6 +99,9 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
       const maxDay = day[1]
       return numTour >= +minDay && numTour <= +maxDay
     })
+  }
+  if(!allTours) {
+    allTours = tourBackup
   }
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
   const [isOpenModal, setIsOpenModal] = useState(false)
@@ -176,15 +178,11 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
           isOpenModal={isOpenModal}
         />
         }
-        {!loading ? (
+        {
           <div className='flex-1'>
-            {allTours?.length !== 0 ? <ListTour data={allTours} lang={lang} /> : <OtherTours lang={lang} />}
+            {allTours?.length !== 0 ? <ListTour data={allTours} lang={lang} loading={loading}/> : <OtherTours lang={lang} />}
           </div>
-        ) : (
-          <div className='flex items-center justify-center flex-1 w-full text-center h-[80vh]'>
-            <Loading />
-          </div>
-        )}
+         }
       </div>
       {allTours?.length !== 0 && <NewRelease lang={lang} data={listBlog} />}
     </div>

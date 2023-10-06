@@ -6,13 +6,10 @@ import { createTheme, useMediaQuery } from '@mui/material'
 import { useQuery } from '@apollo/client'
 import TourItem from '@/components/Common/TourItem'
 import TourItemMobile from '@/components/Common/TourItemMobile'
-import Button from '@/components/Common/Button'
 import FilterTour from '@/components/Common/FilterTour'
-import imgTour from '@/assets/images/img-more.png'
 import { DATA_BEST_TOUR } from '@/graphql/filter/queries'
-import OtherTours from '../Search/OtherTours'
 import Loading from '@/components/Common/Loading'
-
+const tourAll = new Array(8).fill(0)
 const theme = createTheme({
   breakpoints: {
     values: {
@@ -109,6 +106,9 @@ function TourSlide({
     duration: newArrDataTaxonomiesDuration
   }
 
+  if(!allTours) {
+    allTours = tourAll
+  }
   const size = onlySmallScreen ? 12 : 8
   // console.log(allTours)
   totalPage.current = onlySmallScreen ? Math.ceil(allTours?.length / size) : Math.ceil(allTours?.length / size)
@@ -135,14 +135,15 @@ function TourSlide({
             : 'grid grid-cols-4 gap-[2.5vw] mt-[1.88vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'
         }`}
       >
-        {!dataBestTours.loading ? (
-          allTours?.length ? (
+        {/* {!dataBestTours.loading ? ( */}
+          {allTours?.length ? (
             allTours?.slice(size * (activePage - 1), size * activePage).map((tour, index) => (
               <div key={index}>
                 <div className='max-md:hidden'>
                   <TourItem
                     data={tour}
                     lang={lang}
+                    loading={dataBestTours?.loading}
                   />
                 </div>
                 <div className='hidden max-md:block'>
@@ -157,12 +158,12 @@ function TourSlide({
             <div className='text-center text-[3.5vw] w-full text-[#c23a3a] font-optima max-md:text-[5.67vw]'>
               Not Found Tour !
             </div>
-          )
-        ) : (
+          )}
+        {/* ) : (
           <div className='flex justify-center w-full col-span-4'>
             <Loading />
           </div>
-        )}
+        )} */}
       </div>
       <div className='flex md:gap-[0.75vw] gap-[3.2vw] justify-center items-center relative md:mt-[4.5vw] mt-[8.53vw]'>
         {totalPage.current > 1 &&
