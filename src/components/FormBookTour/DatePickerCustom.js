@@ -8,14 +8,23 @@ const DatePickerCustom = ({ name }) => {
     ...field,
     type: 'date',
     variant: 'outlined',
-    fullWidth: true
+    fullWidth: true,
+    InputLabelProps: {
+      shrink: true
+    }
   }
 
-  //   if (meta && meta.touched && meta.error) {
-  //     configDatePicker.error = true
-  //     configDatePicker.helperText = meta.error
-  //   }
-  return <TextField {...configDatePicker} />
+  const color = '#fff'
+  return (
+    <TextField
+      sx={{
+        svg: { color },
+        input: { color },
+        label: { color }
+      }}
+      {...configDatePicker}
+    />
+  )
 }
 
 export default DatePickerCustom
