@@ -91,9 +91,8 @@ const Reviews = ({ lang, data }) => {
       <div className='w-fit m-auto flex md:gap-[0.75vw] gap-[3.2vw] md:mt-[6.538vw] mt-[6.4vw]'>
         {paginations?.map((pagination, index) => {
           return (
-            <Link href={'#about-us__review'}>
+            <Link key={index} href={'#about-us__review'}>
               <span
-                key={index}
                 className={`${
                   index + 1 === activePage ? 'bg-textColor text-white' : 'bg-primaryColor text-textColor opacity-10 '
                 }   rounded-full md:w-[2.125vw] w-[9.07vw] md:h-[2.125vw] h-[9.07vw] text-center md:text-[1.125vw] text-[4.27vw] font-manrope leading-[150%] font-semibold flex justify-center items-center cursor-pointer`}
