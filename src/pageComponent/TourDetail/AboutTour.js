@@ -388,7 +388,7 @@ export default function AboutTour(props) {
                 {onlySmallScreen && (
                   <div
                     ref={stepIconMbRef}
-                    className='fixed top-[14.93vw] right-0 w-full h-[16vw] px-[4.53vw] text-[4vw] bg-[#FFFBE9] flex items-center justify-between z-50'
+                    className='hidden fixed top-[14.93vw] right-0 w-full h-[16vw] px-[4.53vw] text-[4vw] bg-[#FFFBE9] flex items-center justify-between z-50'
                   >
                     {stepData.map((step, index) => {
                       return (
@@ -577,10 +577,12 @@ export default function AboutTour(props) {
                   <ReviewItem
                     className='our-tours-item md:flex hidden'
                     data={item}
+                    lang={lang}
                   />
                   <ReviewItem
                     data={item}
                     className='md:hidden block our-tours-item-mobile w-[74.66vw]'
+                    lang={lang}
                   />
                 </div>
               )

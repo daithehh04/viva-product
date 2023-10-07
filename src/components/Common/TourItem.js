@@ -18,8 +18,8 @@ function TourItem({ data, menu, lang, loading }) {
     <Link
       href={`/${lang}/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
       className={`${
-        menu ? 'md:h-[14.5vw] w-[52.5vw]' : 'md:h-[24.5vw]'
-      } flex w-full h-[67.23vw] md:rounded-[1vw] rounded-[2.75vw] relative max-md:flex-shrink-0  tour-item cursor-pointer`}
+        menu ? 'md:h-[14.5vw] w-[52.5vw]' : 'md:h-[24.5vw] w-full'
+      } flex h-[67.23vw] md:rounded-[1vw] rounded-[2.75vw] relative max-md:flex-shrink-0  tour-item cursor-pointer`}
     >
       {!loading ? (
         <Image
@@ -31,7 +31,11 @@ function TourItem({ data, menu, lang, loading }) {
           className='h-full object-cover w-full md:rounded-[1vw] rounded-[2.75vw] img-tour'
         />
       ) : (
-        <Skeleton variant='rounded' width={'100%'} height={'100%'} />
+        <Skeleton
+          variant='rounded'
+          width={'100%'}
+          height={'100%'}
+        />
       )}
       {!loading ? <div className='absolute overlay'></div> : ''}
       <div className='absolute bottom-0 info md:pl-[1.5vw] md:pr-[0.94vw] px-[3.2vw] md:pb-[1.19vw] pb-[3.2vw] w-full'>
@@ -49,7 +53,10 @@ function TourItem({ data, menu, lang, loading }) {
             </span>
           </div>
         ) : (
-          <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
+          <Skeleton
+            variant='text'
+            sx={{ fontSize: '1rem' }}
+          />
         )}
 
         <h3 className='line-clamp-2 '>
@@ -61,7 +68,14 @@ function TourItem({ data, menu, lang, loading }) {
               !loading ? 'title-tour' : ''
             } md:text-[1.125vw] text-[2.93vw] font-bold tracking-tight leading-[1.2] mt-[0.25vw]`}
           >
-            {!loading ? tourData?.title : <Skeleton variant='text' sx={{ fontSize: '2rem' }} />}
+            {!loading ? (
+              tourData?.title
+            ) : (
+              <Skeleton
+                variant='text'
+                sx={{ fontSize: '2rem' }}
+              />
+            )}
           </Link>
         </h3>
         {/* icons*/}
@@ -72,7 +86,13 @@ function TourItem({ data, menu, lang, loading }) {
                 key={index}
                 className='w-[4.8vw] h-[4.8vw] rounded-[6px] bg-[#FFF8DE] flex items-center justify-center'
               >
-                <Image src={iconsTour[icon]} alt={icon} className='w-[2.613vw] h-[2.613vw]' width={20} height={20} />
+                <Image
+                  src={iconsTour[icon]}
+                  alt={icon}
+                  className='w-[2.613vw] h-[2.613vw]'
+                  width={20}
+                  height={20}
+                />
               </div>
             )
           })}
@@ -83,7 +103,11 @@ function TourItem({ data, menu, lang, loading }) {
               ${tourData?.price?.highestPrice} - ${tourData?.price?.lowestPrice}
             </span>
           ) : (
-            <Skeleton variant='rectangular' width={'80%'} height={50} />
+            <Skeleton
+              variant='rectangular'
+              width={'80%'}
+              height={50}
+            />
           )}
           {!loading ? (
             <div className='text-[#434447] md:gap-x-[0.2vw] gap-x-[0.8vw] flex items-center md:text-[0.75vw] text-[2.67vw] bg-white md:py-[0.19vw] md:px-[0.5vw] px-[1.28vw] py-[0.5vw] rounded-full w-fit'>
@@ -97,7 +121,11 @@ function TourItem({ data, menu, lang, loading }) {
               />
             </div>
           ) : (
-            <Skeleton variant='circular' width={50} height={50} />
+            <Skeleton
+              variant='circular'
+              width={50}
+              height={50}
+            />
           )}
         </div>
       </div>

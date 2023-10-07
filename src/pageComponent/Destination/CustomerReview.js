@@ -34,12 +34,14 @@ function CustomerReview({ data, dataInfo, lang }) {
               <ReviewItem
                 className='hidden md:flex'
                 data={item}
+                lang={lang}
               />
               <ReviewItem
                 className={`md:hidden block our-tours-item-mobile w-[74.66vw] ${
                   index === data.length - 1 ? 'mr-[4.27vw]' : ''
                 }`}
                 data={item}
+                lang={lang}
               />
             </div>
           ))}

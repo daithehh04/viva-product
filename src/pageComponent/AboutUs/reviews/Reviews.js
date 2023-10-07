@@ -43,7 +43,10 @@ const Reviews = ({ lang, data }) => {
   const paginations = new Array(totalPage.current).fill(0)
   const reviewData = reviewList?.allCustomerReview?.nodes?.filter((item) => item.translation !== null)
   return (
-    <section className='content py-[10vw] relative z-10' id='about-us__review'>
+    <section
+      className='content py-[10vw] relative z-10'
+      id='about-us__review'
+    >
       <div className='md:w-[33.4375vw] w-full text-textColor md:mb-[2vw] mb-[13.07vw]'>
         <h2
           data-aos-once='true'
@@ -91,7 +94,10 @@ const Reviews = ({ lang, data }) => {
       <div className='w-fit m-auto flex md:gap-[0.75vw] gap-[3.2vw] md:mt-[6.538vw] mt-[6.4vw]'>
         {paginations?.map((pagination, index) => {
           return (
-            <Link key={index} href={'#about-us__review'}>
+            <Link
+              key={index}
+              href={'#about-us__review'}
+            >
               <span
                 className={`${
                   index + 1 === activePage ? 'bg-textColor text-white' : 'bg-primaryColor text-textColor opacity-10 '
