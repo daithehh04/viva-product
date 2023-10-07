@@ -31,7 +31,7 @@ function Banner({ data }) {
           <span className='text-center md:text-[1.94vw] text-[3.2vw] md:font-bold font-medium leading-normal text-[#fff] md:mb-[0.62vw] mb-[1.07vw] font-sans '>
             {data?.title}
           </span>
-          <span className='md:w-[70vw] w-[67vw] font-optima text-[#fff] md:text-[4.5vw] text-[6.4vw] text-center font-semibold leading-[120%] uppercase '>
+          <span className='md:w-[70vw] w-[67vw] font-optima  max-md:line-clamp-1 text-[#fff] md:text-[4.5vw] text-[6.4vw] text-center font-semibold leading-[120%] uppercase '>
             {data?.heading}
           </span>
           <span className='md:w-[43vw] w-[66.27vw] text-center font-sans md:text-[1.5vw] text-[2.67vw] font-medium leading-[151%] text-[#fff] pb-[2.5vw]'>

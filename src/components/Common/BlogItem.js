@@ -34,8 +34,8 @@ function BlogItem({ className, data, lang, heightImage }) {
             {data?.blogdetail?.time || moment(data?.dateGmt)?.format('DD MMMM YYYY')}
           </span>
         </div>
-        <h4 className='title__ourBlog  md:text-[1.25vw] text-[3.73333vw] line-clamp-2 font-[700] leading-[1.4] md:mt-[0.78vw] mt-[1.07vw] title'>
-          {data?.title}
+        <h4 className='  md:text-[1.25vw] text-[3.73333vw] line-clamp-2 font-[700] leading-[1.4] md:mt-[0.78vw] mt-[1.07vw] title'>
+          <a className='title__ourBlog'>{data?.title}</a>
         </h4>
         <p
           className='md:text-[0.875vw] text-ellipsis line-clamp-2 opacity-60 text-[2.66667vw] font-[500] desc leading-normal md:mt-[0.5vw] mt-[1.07vw]'

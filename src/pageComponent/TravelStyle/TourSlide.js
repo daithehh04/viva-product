@@ -122,7 +122,7 @@ function TourSlide({
       ref={eleRef}
     >
       <div className='max-md:pl-[4.27vw] pl-[8.125vw] max-md:pr-[4.27vw] '>
-        <h2 className='heading-1'>{tourStyleName}</h2>
+        <h2 className='heading-1 max-md:mt-[9.12vw]'>{tourStyleName}</h2>
         <div className='bg-white mt-[1vw] w-max rounded-[1.125vw] px-[2.38vw] py-[1.19vw] max-md:mt-[4.27vw] max-md:p-0 max-md:bg-transparent max-md:w-full'>
           <FilterTour
             dataFilter={dataFilter}
@@ -131,6 +131,7 @@ function TourSlide({
             onSelectBudget={(data) => setBudget(data)}
             onSelectDuration={(data) => setDuration(data)}
             travelStyleSlug={slug}
+            className={'travelStyle-Mb'}
           />
         </div>
       </div>
@@ -138,7 +139,7 @@ function TourSlide({
         className={`${
           allTours?.length === 0
             ? `w-full block mt-[1.88vw]`
-            : 'grid grid-cols-4 gap-[2.5vw] mt-[1.88vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full'
+            : 'grid grid-cols-4 gap-[2.5vw] mt-[1.88vw] max-md:grid-cols-1 w-[83.75%] ml-auto mr-auto max-md:w-full max-md:bg-[#f3f6fb]'
         }`}
       >
         {/* {!dataBestTours.loading ? ( */}
@@ -171,7 +172,7 @@ function TourSlide({
           </div>
         )} */}
       </div>
-      <div className='flex md:gap-[0.75vw] gap-[3.2vw] justify-center items-center relative md:mt-[4.5vw] mt-[8.53vw]'>
+      <div className={`${totalPage.current > 1 ? 'flex md:gap-[0.75vw] gap-[3.2vw] justify-center items-center relative md:mt-[4.5vw] mt-[8.53vw]' : 'hidden'}`}>
         {totalPage.current > 1 &&
           pagis?.map((page, index) => (
             <div

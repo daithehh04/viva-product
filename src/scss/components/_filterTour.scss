@@ -42,3 +42,18 @@
     border-radius: 1.06667vw;
   }
 }
+
+
+.travelStyle-Mb{
+  .select{
+    .bg-mobile{
+      @media screen and (max-width : 768px) {
+        background: #171717;
+        opacity: 0.04;
+        position: absolute;
+        inset: 0;
+        border-radius: 1.06667vw;
+      }
+    }
+  }
+}

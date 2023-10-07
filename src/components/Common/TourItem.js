@@ -34,7 +34,7 @@ function TourItem({ data, menu, lang, loading }) {
         <Skeleton variant='rounded' width={'100%'} height={'100%'} />
       )}
       {!loading ? <div className='absolute overlay'></div> : ''}
-      <div className='absolute bottom-0 info md:pl-[1.5vw] md:pr-[0.94vw] px-[3.2vw] md:pb-[1.19vw] pb-[3.2vw]     w-full'>
+      <div className='absolute bottom-0 info md:pl-[1.5vw] md:pr-[0.94vw] px-[3.2vw] md:pb-[1.19vw] pb-[3.2vw] w-full'>
         {!loading ? (
           <div className='flex items-center gap-x-[0.25vw]'>
             <Image
@@ -65,7 +65,7 @@ function TourItem({ data, menu, lang, loading }) {
           </Link>
         </h3>
         {/* icons*/}
-        <div className='flex md:hidden gap-[1vw] md:mt-[1.33vw]'>
+        <div className='flex md:hidden gap-[1vw] mt-[1.33vw]'>
           {tourData?.icons?.map((icon, index) => {
             return (
               <div
