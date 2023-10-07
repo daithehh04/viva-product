@@ -66,6 +66,7 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
   const pageInfo = data?.posts?.pageInfo?.offsetPagination?.total
   const totalPage = Math.ceil(pageInfo / 12)
 
+
   return (
     <div>
       <div className='content'>
@@ -99,11 +100,12 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
             </div>
 
             <div className='flex md:gap-[0.75vw] gap-[3.2vw] justify-center items-center relative md:mt-[4.5vw] mt-[8.53vw]'>
+              
               {Array.from({ length: totalPage }, (_, index) => (
                 <div
                   key={index}
                   onClick={() => handleChangePage(index)}
-                  className={`cursor-pointer md:w-[2.125vw] md:h-[2.125vw] w-[9.07vw] h-[9.07vw] rounded-[50%] flex justify-center items-center bg-primaryColor ${
+                  className={`${totalPage > 1 ? 'cursor-pointer md:w-[2.125vw] md:h-[2.125vw] w-[9.07vw] h-[9.07vw] rounded-[50%] flex justify-center items-center bg-primaryColor' : 'hidden'}  ${
                     activePage === index ? 'bg-textColor  opacity-[1]' : ' opacity-[0.1]'
                   }`}
                 >

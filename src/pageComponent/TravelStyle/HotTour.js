@@ -3,7 +3,8 @@
 import TourSlides from '@/components/Common/SlideTour'
 import Reason from './Reason'
 import Button from '@/components/Common/Button'
-function HotTour({ hotTour, reason, data }) {
+import Link from 'next/link'
+function HotTour({ hotTour, reason, data,lang }) {
   return (
     <div className='w-[87.5%] ml-auto mr-auto max-md:w-full'>
       <div className='md:mt-[3.12vw] mt-[14.67vw]'>
@@ -12,7 +13,9 @@ function HotTour({ hotTour, reason, data }) {
           <TourSlides data={hotTour?.hotTour} />
         </div>
         <div className='flex justify-center'>
+          <Link href={`/${lang}/search`}>
           <Button className='btn-secondary'>{data}</Button>
+          </Link>
         </div>
       </div>
       <div className='mt-[8.62vw] flex flex-col max-md:px-[4.27vw] md:mb-[6.25vw] mb-[16.21vw] '>

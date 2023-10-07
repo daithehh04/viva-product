@@ -37,6 +37,7 @@ async function index({ lang, slug }) {
         dataTaxonomiesDuration={dataTaxonomiesDuration}
       />
       <HotTour
+        lang={lang}
         hotTour={getPageInfo?.data?.tourStyle?.translation?.banner?.hotTour}
         reason={getPageInfo?.data?.tourStyle?.translation?.banner?.travelReason}
         data={getPageInfo?.data?.tourStyle?.translation?.banner?.groupbutton?.buttonseemore}
