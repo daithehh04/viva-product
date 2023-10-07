@@ -155,6 +155,18 @@
   }
 }
 
+@media (max-width: 768px) {
+  .tourist-representative {
+    .slide-represent {
+      .swiper-3d .swiper-slide-shadow-left,
+      .swiper-3d .swiper-slide-shadow-right {
+        border-radius: 1.6vw;
+        background-image: none;
+      }
+    }
+  }
+}
+
 @media (min-width: 768px) {
   .tourist-representative {
     .presentative-item {

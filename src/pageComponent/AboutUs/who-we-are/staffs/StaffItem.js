@@ -9,7 +9,7 @@ export default function StaffItem({ staff = {} }) {
         alt={staff?.image?.altText}
         width={1000}
         height={1000}
-        className='h-[22vw] w-full'
+        className='h-[22vw] w-full max-md:h-auto'
       />
       <div className='md:pl-[1.359vw] pl-[3.677vw] md:pr-[1.43vw] pr-[3.32vw] md:pt-[1.92vw] pt-[5.18vw] md:pb-[2.125vw] pb-[5.05vw]'>
         <div className='flex w-full justify-between items-center g-[2vw] md:mb-[0.75vw] mb-[2vw]'>
