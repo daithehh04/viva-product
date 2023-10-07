@@ -16,7 +16,7 @@ import ytbIcon from '@/assets/images/youtube.svg'
 import HotDeal from '../Common/HotDeal'
 import InputSearchMb from '../Common/InputSearchMb'
 
-function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList, rcmServicesList }) {
+function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList, rcmServicesList, menu }) {
   const [selected, setSelected] = useState(null)
   const contentEle = useRef()
   const contentEle2 = useRef()
@@ -44,7 +44,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             />
           </Link>
           <div className='flex-1 hidden max-lg:block'>
-            <InputSearchMb lang={lang}/>
+            <InputSearchMb lang={lang} />
           </div>
           <div
             className='cursor-pointer close'
@@ -222,7 +222,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
                   key={index}
                   data={item}
                   lang={lang}
-                  menu
+                  menu={menu}
                 />
               ))}
             </div>

@@ -6,8 +6,20 @@ import TourDetailBannerMobile from '@/pageComponent/TourDetail/TourDetailBannerM
 import tour from '@/assets/images/tourDetail/tourBg.png'
 import Image from 'next/image'
 import promoBg from '@/assets/images/promoBg.png'
+import { useState } from 'react'
+import ModalCustom from '@/components/Common/ModalCustom'
+import BookTour from '@/components/Common/BookTour'
 
-export default function Promotion({ data = {}, headerData = {}, relatedTours = [], reviewsList, slug, lang }) {
+export default function Promotion({
+  data = {},
+  headerData = {},
+  relatedTours = [],
+  reviewsList,
+  slug,
+  lang,
+  dataBookTour
+}) {
+  const [openModal, setOpenModal] = useState(false)
   const { banner, content, map } = data
 
   const reviews = reviewsList?.filter((item) => item?.customerReview?.tours?.slug === slug)
@@ -24,6 +36,7 @@ export default function Promotion({ data = {}, headerData = {}, relatedTours = [
               button: map?.button,
               price: { header: bannerHeaders?.priceHeader, value: banner?.price }
             }}
+            onClick={() => setOpenModal(true)}
           />
         </div>
         <div className='md:block hidden z-10 relative pt-[3.75vw] pb-[7.44vw]'>
@@ -57,16 +70,32 @@ export default function Promotion({ data = {}, headerData = {}, relatedTours = [
             }}
           ></div>
         </div>
-        <main className='relative z-20'>
+        <div className='relative z-20'>
           <AboutTour
             type='promo'
             data={{ content, map, banner, reviews }}
             headerData={{ contentHeader, relatedTourHeader, bannerHeaders }}
             relatedTours={relatedTours}
             lang={lang}
+            dataBookTour={dataBookTour}
           />
-        </main>
+        </div>
       </main>
+
+      {openModal && (
+        <ModalCustom
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          className='w-[91.46vw] md:w-[82.93vw] md:h-[90vh] h-[80vh]'
+        >
+          <div className='w-full h-full overflow-y-auto md:rounded-[16px] overflow-x-hidden'>
+            <BookTour
+              data={dataBookTour}
+              setOpenModal={setOpenModal}
+            />
+          </div>
+        </ModalCustom>
+      )}
     </div>
   )
 }

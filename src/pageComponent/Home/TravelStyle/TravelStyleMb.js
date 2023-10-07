@@ -9,7 +9,10 @@ function TravelStyleMb({ data, title, lang }) {
       <div className='grid menu-mb_item grid-cols-3 gap-x-[12.27vw] gap-y-[5.6vw] mt-[5.33vw] px-[4.27vw] '>
         {data?.travelStyleList?.map((item, index) => (
           <div key={index}>
-            <Link href={`/${lang}/${item?.slug}`} className='flex flex-col items-center'>
+            <Link
+              href={`/${lang}/travel-style/${item?.slug}`}
+              className='flex flex-col items-center'
+            >
               <div className='w-[17.3vw] h-[17.3vw] rounded-full border border-solid border-primaryColor flex items-center justify-center bg-[#FFFBE9]'>
                 <Image
                   src={item?.banner?.travelStyleInfo?.travelStyleImage?.sourceUrl}

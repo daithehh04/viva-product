@@ -327,7 +327,9 @@ export default function Navbar({
         </div>
         <div
           className={`${
-            pathName.includes('tours') ? 'max-md:hidden' : ''
+            (pathName.includes('tours') && !pathName.includes('our-tours')) || pathName.includes('hot-deals/')
+              ? 'max-md:hidden'
+              : ''
           } books-footer h-[15.2vw] fixed bottom-0 left-0 right-0 z-[99] hidden max-md:flex`}
         >
           <Link
@@ -357,16 +359,6 @@ export default function Navbar({
             <span className='text-[3.46vw] font-[500]'>Book tour</span>
           </div>
         </div>
-        {/* <div
-        className='absolute top-0 z-[999] w-full flex justify-center form-popup h-[100vh] overflow-auto'
-        ref={refFormPopup}
-      >
-        <BookTour
-          data={dataBookTour}
-          onClose={handleClosePopup}
-          refFormPopup={refFormPopup}
-        />
-      </div> */}
 
         {openModal && (
           <ModalCustom

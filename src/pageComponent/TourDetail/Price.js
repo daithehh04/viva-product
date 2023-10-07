@@ -1,9 +1,12 @@
 'use client'
 
 import triangle from '@/assets/images/triangle.svg'
+import BookTour from '@/components/Common/BookTour'
+import ModalCustom from '@/components/Common/ModalCustom'
 import Image from 'next/image'
+import { useState } from 'react'
 
-export default function Price({ type, className, data, onClick }) {
+export default function Price({ type, className, data, onClick, dataBookTour }) {
   return (
     <div>
       <div
