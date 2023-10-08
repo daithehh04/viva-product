@@ -116,7 +116,7 @@
     .menu-item {
       border-bottom-right-radius: 0.5vw;
       border-bottom-left-radius: 0.5vw;
-      transition: all 1s;
+      transition: all 2s;
       transform: translateY(-100%);
       opacity: 0;
       display: grid;
@@ -127,8 +127,8 @@
       top: 5.375vw;
       bottom: 0;
       z-index: -10;
-      height: fit-content;
-      width: 83.75%;
+      height: 100%;
+      width: 100%;
       grid-template-rows: auto;
       box-shadow: 0px 0px 70px 0px rgba(0, 0, 0, 0.08);
       background: linear-gradient(

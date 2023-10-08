@@ -3,7 +3,7 @@ import Link from 'next/link'
 function ServiceItem({ data, lang,onCloseMenu }) {
   return (
     <Link href={`/${lang}/blog/${data?.slug}`} onClick={onCloseMenu}>
-      <div className='relative h-[13.6875vw] max-md:h-[36vw] max-md:w-[52.53vw] max-md:flex-shrink-0'>
+      <div className='relative h-[19vw] max-md:h-[36vw] max-md:w-[52.53vw] max-md:flex-shrink-0'>
         {data?.recommendservice?.recommendservice?.image && (
           <Image
             src={data?.recommendservice?.recommendservice?.image?.sourceUrl}

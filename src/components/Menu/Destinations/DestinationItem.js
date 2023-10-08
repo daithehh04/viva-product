@@ -5,7 +5,7 @@ function DestinationItem({ tour, lang, onCloseMenu }) {
   return (
     <Link
       href={`/${lang}/our-tours/${encodeURIComponent(tour?.slug)}`}
-      className='h-[14vw] relative'
+      className='h-[16vw] relative'
       onClick={onCloseMenu}
     >
       <div className='bgImg-MenuOurTour absolute z-[1]'></div>
