@@ -15,7 +15,7 @@ import instarIcon from '@/assets/images/instar.svg'
 import ytbIcon from '@/assets/images/youtube.svg'
 import InputSearchMb from '../Common/InputSearchMb'
 
-function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList, rcmServicesList, menu, dataHome,titleAboutUs, contactInfo }) {
+function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList, rcmServicesList, menu, dataHome,titleAboutUs, contactInfo, socialMobile }) {
   const [selected, setSelected] = useState(null)
   const contentEle = useRef()
   const contentEle2 = useRef()
