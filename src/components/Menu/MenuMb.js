@@ -13,10 +13,9 @@ import fbIcon from '@/assets/images/facebook.svg'
 import linkedIcon from '@/assets/images/linkedin.svg'
 import instarIcon from '@/assets/images/instar.svg'
 import ytbIcon from '@/assets/images/youtube.svg'
-import HotDeal from '../Common/HotDeal'
 import InputSearchMb from '../Common/InputSearchMb'
 
-function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList, rcmServicesList, menu }) {
+function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList, rcmServicesList, menu, dataHome,titleAboutUs, contactInfo }) {
   const [selected, setSelected] = useState(null)
   const contentEle = useRef()
   const contentEle2 = useRef()
@@ -85,13 +84,13 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             className={`flex items-center justify-between ${selected === 1 ? 'active' : ''}`}
             onClick={() => handleSelect(1)}
           >
-            <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>Our tours</h3>
+            <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>{dataHome?.nav1}</h3>
             <Image
               src={iconDropdown}
               width={11}
               height={8}
               alt='img'
-              className='drop-down'
+              className='drop-down max-lg:w-[3vw]'
             />
           </div>
           <div
@@ -133,13 +132,13 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             className={`flex items-center justify-between mt-[3.73vw] ${selected === 2 ? 'active' : ''}`}
             onClick={() => handleSelect(2)}
           >
-            <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>Travel Style</h3>
+            <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>{dataHome?.nav2}</h3>
             <Image
               src={iconDropdown}
               width={11}
               height={8}
               alt='img'
-              className='drop-down'
+              className='drop-down max-lg:w-[3vw]'
             />
           </div>
           <div
@@ -167,7 +166,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
                       width={50}
                       height={50}
                       alt='img'
-                      className='w-[10.8vw] h-[10.8vw] rounded-full object-cover'
+                      className='w-[10.8vw] h-[10.8vw]  object-contain object-center'
                     />
                   </div>
                   <span className='uppercase text-[2.67vw] mt-[1.6vw] block whitespace-nowrap'>{item?.name}</span>
@@ -182,13 +181,13 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             className={`flex items-center justify-between mt-[3.73vw] ${selected === 3 ? 'active' : ''}`}
             onClick={() => handleSelect(3)}
           >
-            <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>Hot deals</h3>
+            <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>{dataHome?.nav3}</h3>
             <Image
               src={iconDropdown}
               width={11}
               height={8}
               alt='img'
-              className='drop-down'
+              className='drop-down max-lg:w-[3vw]'
             />
           </div>
           <div
@@ -204,7 +203,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             }
           >
             <span className='text-[3.73vw] opacity-40  font-[500] block'>{hotDeals?.voucherHeader?.listHeader}</span>
-            <div className='hidden-scroll flex overflow-x-auto gap-[3.73vw] mt-[3.2vw] '>
+            <div className='hidden-scroll flex overflow-x-auto gap-[3.73vw] mt-[3.2vw] max-lg:flex-col max-lg:w-full'>
               {hotDeals?.voucherHeader?.listVoucher?.map((item, index) => (
                 <VoucherItem
                   key={index}
@@ -244,22 +243,22 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             className={`flex items-center justify-between mt-[3.73vw] ${selected === 4 ? 'active' : ''}`}
             onClick={() => handleSelect(4)}
           >
-            <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>Recommended Services</h3>
+            <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>{dataHome?.nav6}</h3>
             <Image
               src={iconDropdown}
               width={11}
               height={8}
               alt='img'
-              className='drop-down'
+              className='drop-down max-lg:w-[3vw]'
             />
           </div>
           <div
-            className='flex overflow-x-auto gap-[3.2vw] mt-[3.73vw] menu-mb_item'
+            className={`flex overflow-x-auto gap-[3.2vw] mt-[3.73vw] menu-mb_item ${selected === 4 ? 'h-[42vw]' : ''}`}
             ref={contentEle4}
             style={
               selected === 4
                 ? {
-                    height: '42vw',
+                    height: '22vw',
                     overflow: 'auto'
                   }
                 : { height: '0px', overflow: 'hidden' }
@@ -282,7 +281,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             className='text-[4.267vw] opacity-60 capitalize leading-[1.2]'
             onClick={onCloseMenu}
           >
-            Check visa
+            {dataHome?.nav4}
           </Link>
           <SelectLang />
         </div>
@@ -292,13 +291,13 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             className={`flex items-center justify-between mt-[3.73vw] w-max ${selected === 5 ? 'active' : ''}`}
             onClick={() => handleSelect(5)}
           >
-            <h3 className='text-[4.26vw] leading-[1.2] capitalize opacity-60 mr-[3.2vw]'>About us</h3>
+            <h3 className='text-[4.26vw] leading-[1.2] capitalize opacity-60 mr-[3.2vw]'>{dataHome?.nav5}</h3>
             <Image
               src={iconDropdown}
               width={11}
               height={8}
               alt='img'
-              className='drop-down'
+              className='drop-down max-lg:w-[3vw]'
             />
           </div>
           <div
@@ -318,21 +317,21 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
               className='text-[3.2vw] capitalize'
               onClick={onCloseMenu}
             >
-              Who we are
+              {titleAboutUs?.whoWeAre}
             </Link>
             <Link
               href='/about-us/responsible-travel'
               className='text-[3.2vw] capitalize'
               onClick={onCloseMenu}
             >
-              responsible travel
+              {titleAboutUs?.ResTravel}
             </Link>
             <Link
               href='/about-us/reviews'
               className='text-[3.2vw] capitalize'
               onClick={onCloseMenu}
             >
-              Reviews
+              {titleAboutUs?.AboutUs}
             </Link>
           </div>
         </div>
@@ -343,12 +342,12 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             className='text-[4.267vw] opacity-60 capitalize leading-[1.2]'
             onClick={onCloseMenu}
           >
-            Blog
+            {dataHome?.nav7}
           </Link>
         </div>
-        <span className='text-[3.2vw] opacity-80 mt-[20.8vw] block text-center'>Email: asiatravel@gmai.com</span>
+        <span className='text-[3.2vw] opacity-80 mt-[20.8vw] block text-center'>{contactInfo && `${contactInfo[1]?.title}: ${contactInfo[1]?.content}`}</span>
         <Button className='btn-primary mt-[1.6vw] w-full items-center justify-center'>
-          Contact hotline: (+84) 254 3526981{' '}
+          <span className='max-lg:py-[2vw] max-lg:text-[2vw]'>{contactInfo && `${contactInfo[0]?.title}: ${contactInfo[0]?.content}`}</span>
         </Button>
         {/* Socials */}
         <div className='flex items-center gap-[4.27vw] mt-[3.2vw] justify-center'>
