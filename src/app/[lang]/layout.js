@@ -23,7 +23,7 @@ import { GET_LIST_TRAVEL_STYLE_NAME } from '@/graphql/travelStyle/queries'
 import getDataWithTaxonomy from '@/data/getDataWithTaxonomy'
 import ApolloClientProvider from '../apolloProvider'
 import getHotDealHeader from '@/data/hotDeal'
-import { DATA_HEADER } from '@/graphql/home/queries'
+import { DATA_HEADER, GET_INFO_CONTACT } from '@/graphql/home/queries'
 import GET_SERVICE_BY_CATEGORY from '@/data/getDataRcmServices'
 import getDataFormBookTour from '@/data/formBookTour/getDataFormBookTour'
 import { GET_DATA_FORM_BOOKTOUR } from '@/graphql/formBookTour/queries'
@@ -84,6 +84,9 @@ export default async function RootLayout({ children, params }) {
   const dataTaxonomiesStyleTour = await getDataPost(params.lang, DATA_TAXONOMIES_TOUR_STYLE)
   const dataTaxonomiesBudget = await getDataPost(params.lang, DATA_TAXONOMIES_BUDGET)
   const dataTaxonomiesDuration = await getDataPost(params.lang, DATA_TAXONOMIES_DURATION)
+  let contactInfo = await getDataPost(params.lang, GET_INFO_CONTACT)
+  contactInfo = contactInfo?.data?.page?.translation?.home?.footer?.column1?.contact
+  
   return (
     <html lang={params.lang}>
       <body suppressHydrationWarning={true}>
@@ -101,6 +104,7 @@ export default async function RootLayout({ children, params }) {
               hotDeals={hotDeals}
               rcmServicesList={recommendserviceList}
               dataBookTour={dataBookTour}
+              contactInfo={contactInfo}
               dataAboutUs={{
                 wwrRes: wwrRes?.data?.page?.translation,
                 rtRes: rtRes?.data?.page?.translation,

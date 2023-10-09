@@ -23,19 +23,23 @@ function VoucherItem({ className, headerData = {}, data = {} }) {
           <span className='text-[3.75vw] font-[700] leading-none max-md:text-[4.8vw]'>
             {voucherData?.content?.value}%
           </span>
-          <span className='text-[0.875vw] mt-[1vw] max-md:text-[2.66vw]'>Max</span>
-          <span className='text-[1.5vw] font-bold tracking-[0.48px] leading-none mt-[0.31vw] max-md:text-[2.93vw]'>
+          <span className='text-[0.875vw] mt-[1vw] max-md:text-[2.66vw] max-lg:text-[1.3vw]'>Max</span>
+          <span className='text-[1.5vw] font-bold tracking-[0.48px] leading-none mt-[0.31vw] max-md:text-[2.93vw] max-lg:text-[2vw]'>
             ${voucherData?.content?.max}
           </span>
         </div>
-        <div className='voucher-expire-info flex flex-col pt-[1.25vw] pr-[0.63vw] pb-[1.25vw] pl-[1.62vw] bg-[#fff] max-md:w-[33vw] max-md:p-[3.19vw] overflow-auto'>
-          <h4 className='text-[0.875vw] font-[700] leading-[1.35] text-textColor max-md:text-[2.66vw] max-md:font-[500] uppercase max-md:normal-case'>
+        <div className='voucher-expire-info flex flex-col pt-[1.25vw] pr-[0.63vw] pb-[1.25vw] pl-[1.62vw] bg-[#fff]
+         max-md:w-[33vw] max-md:p-[3.19vw] overflow-auto max-lg:pb-0'>
+          <h4 className='text-[0.875vw] font-[700] leading-[1.35] text-textColor max-md:text-[2.66vw] max-md:font-[500] uppercase max-md:normal-case
+          max-lg:text-[2vw]'>
             {voucherData?.content?.title}
           </h4>
-          <span className='text-[0.75vw] leading-[1.16] mt-[0.5vw] text-textColor max-md:text-[2.66vw] max-md:mt-[2.13vw]'>
+          <span className='text-[0.75vw] leading-[1.16] mt-[0.5vw] text-textColor max-md:text-[2.66vw] max-md:mt-[2.13vw] max-lg:text-[1.8vw]'>
             Date: {expireDate}
           </span>
-          <button className='bg-primaryColor max-md:font-medium flex items-center justify-center rounded-[0.25vw] px-[4vw] py-[0.5vw] max-md:mt-[3.2vw] text-[1vw] leading-[1.25] mt-auto text-textColor max-md:text-[2.66vw] max-md:py-[1.89vw] max-md:rounded-[1.26vw]'>
+          <button className='bg-primaryColor max-md:font-medium flex items-center justify-center rounded-[0.25vw] 
+          px-[4vw] py-[0.5vw] max-md:mt-[3.2vw] text-[1vw] leading-[1.25] 
+          mt-auto text-textColor max-md:text-[2.66vw] max-md:py-[1.89vw] max-md:rounded-[1.26vw] max-lg:text-[1.8vw] max-lg:py-[1vw]'>
             {headerData?.voucherButton}
           </button>
         </div>
