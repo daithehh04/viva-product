@@ -1,9 +1,6 @@
 'use client'
 import Image from 'next/image'
 import { useState } from 'react'
-import banner from '@/assets/images/checkVisa_Banner.png'
-import bannerMobile from '@/assets/images/checkVisa_Banner_mobile.png'
-import useBanner from '@/assets/images/checkVisa_UserBanner.png'
 import { createTheme, FormControl, MenuItem, Select, useMediaQuery } from '@mui/material'
 import { Button } from '@mui/base'
 import { CHECK_VISA } from '@/graphql/checkVisa/queries'
@@ -87,7 +84,7 @@ function Banner({ data, dataFilter, lang }) {
           {dataBanner?.heading}
         </h2>
 
-        <p className='text-white md:text-[1vw] text-[3.73333vw] leading-[1.5] md:mb-[1vw] mb-[2.13333vw]'>
+        <p className='text-white xl:text-[1vw] md:text-[2.5vw] text-[3.73333vw] leading-[1.5] md:mb-[1vw] mb-[2.13333vw]'>
           {dataBanner?.nationalchoice}
         </p>
         <FormControl
@@ -104,16 +101,16 @@ function Banner({ data, dataFilter, lang }) {
         >
           <Select value={nationality} onChange={handleChangeNation} className='text-white' displayEmpty>
             <MenuItem value=''>
-              <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>Country</span>
+              <span className='xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5] '>Country</span>
             </MenuItem>
             {dataFilter?.countryFrom?.map((item, index) => (
               <MenuItem value={item?.slug} key={index}>
-                <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>{item?.name}</span>
+                <span className='xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5] '>{item?.name}</span>
               </MenuItem>
             ))}
           </Select>
         </FormControl>
-        <p className='text-white md:text-[1vw] text-[3.73333vw] leading-[1.5] md:mb-[1vw] md:mt-[1.5vw] mb-[2.13333vw] mt-[6.4vw]'>
+        <p className='text-white xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5]  leading-[1.5] md:mb-[1vw] md:mt-[1.5vw] mb-[2.13333vw] mt-[6.4vw]'>
           {dataBanner?.countrychoice}
         </p>
         <FormControl
@@ -130,11 +127,15 @@ function Banner({ data, dataFilter, lang }) {
         >
           <Select onChange={handleChangeCountry} value={country} className='text-white' displayEmpty>
             <MenuItem value=''>
-              <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>Country</span>
+              <span className='xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5]  leading-[1.5] '>
+                Country
+              </span>
             </MenuItem>
             {dataFilter?.countryTo?.map((item, index) => (
               <MenuItem value={item?.slug} key={index}>
-                <span className='md:text-[1vw] text-[3.73333vw] leading-[1.5] '>{item?.name}</span>
+                <span className='xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5]  leading-[1.5] '>
+                  {item?.name}
+                </span>
               </MenuItem>
             ))}
           </Select>
@@ -144,7 +145,9 @@ function Banner({ data, dataFilter, lang }) {
           className='bg-primaryColor md:rounded-[0.75vw] rounded-[2.13333vw] w-fit md:mt-[3.13vw] mt-[8.53vw] px-[7.73vw] py-[3.2vw] md:px-[2.88vw] md:py-[1.25vw]'
           onClick={handleCheck}
         >
-          <span className='md:text-[1vw] text-[3.2vw] font-medium text-textColor '>{dataBanner?.button}</span>
+          <span className='md:text-[1.4vw] xl:text-[1vw]  text-[3.2vw] font-medium text-textColor '>
+            {dataBanner?.button}
+          </span>
         </Button>
       </div>
     </div>

@@ -11,11 +11,9 @@ import { GET_RANDOM_TOUR, GET_TOUR_DETAIL } from '@/graphql/tourDetail/queries'
 import TourDetail from '@/pageComponent/TourDetail'
 import getDataFormBookTour from '@/data/formBookTour/getDataFormBookTour'
 import { GET_DATA_FORM_BOOKTOUR } from '@/graphql/formBookTour/queries'
-import Loading from '@/components/Common/Loader'
 
 export async function generateMetadata({ params: { slug, lang } }) {
   const res = await getMetaDataTour(GET_TOUR_META_DATA, lang, slug)
-
   const tourDetail = res?.data?.tours?.translation?.tourDetail
   const featuredImage = res?.data?.tours?.translation?.featuredImage
   const title = tourDetail?.meta?.title
@@ -28,45 +26,39 @@ export default async function page({ params: { lang, slug } }) {
   const idFrBook = 'cG9zdDoxNDIy'
   const idItBook = 'cG9zdDoxNDIy'
 
-  //get header data
-  const headerData = await getTourDetailHeader(lang)
-  // // get detail of tour
-  const result = await getTourDetail(GET_TOUR_DETAIL, slug, lang)
+  const headerReq = await getTourDetailHeader(lang)
+  const tourReq = await getTourDetail(GET_TOUR_DETAIL, slug, lang)
+  const randomTourReq = await getRandomTour(GET_RANDOM_TOUR, lang)
+  const reviewReq = await getDataPost(lang, GET_ALL_REVIEWS)
+  const booktourReq =
+    lang === 'en'
+      ? await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idEnBook, lang)
+      : lang === 'it'
+      ? await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idItBook, lang)
+      : await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idFrBook, lang)
+
+  const [headerData, result, res, result4, dataBookTour] = await Promise.all([
+    headerReq,
+    tourReq,
+    randomTourReq,
+    reviewReq,
+    booktourReq
+  ])
+
   const tourDetailData = result?.data?.tours?.translation?.tourDetail || {}
-
   const tourId = result?.data?.tours?.translation?.id
-  //get tour country
   const country = result?.data?.tours?.translation?.countries?.nodes[0]?.slug
-
-  // get tours which have the same country
-  const result2 = await getRelatedTour(country, 'COUNTRIES', lang)
-  let relatedTours = result2?.data?.allTours?.nodes?.filter((item) => item.translation.id !== tourId)
-  if (!relatedTours || relatedTours?.length <= 0) {
-    const res = await getRandomTour(GET_RANDOM_TOUR, lang)
-    let resRmDup = res?.data?.allTours?.nodes.filter((item, index) => item.translation.id !== tourId)
-    relatedTours = Array.from(new Set(resRmDup))
-  }
-  // get Default list Reviews
-  const result4 = await getDataPost(lang, GET_ALL_REVIEWS)
   const reviewsList = result4?.data?.allCustomerReview?.nodes
+  const randomTour = res?.data?.allTours?.nodes.filter((item, index) => item.translation.id !== tourId)
 
-  let dataBookTour = null
-  // get Data form book tour
-  if (lang === 'en') {
-    dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idEnBook, lang)
-  }
-  if (lang === 'it') {
-    dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idItBook, lang)
-  }
-  if (lang === 'fr') {
-    dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idFrBook, lang)
-  }
+  const result2 = await getRelatedTour(country, 'COUNTRIES', lang)
+  const relatedTours = result2?.data?.allTours?.nodes?.filter((item) => item.translation.id !== tourId)
 
   return (
     <TourDetail
       data={tourDetailData}
       headerData={headerData?.data?.page?.translation?.tourDetailHeading}
-      relatedTours={relatedTours}
+      relatedTours={!relatedTours || relatedTours?.length === 0 ? relatedTours : randomTour}
       tourId={tourId}
       reviewsList={reviewsList}
       lang={lang}

@@ -32,6 +32,7 @@ const theme = createTheme({
   }
 })
 export default function Navbar({
+  socialMobile,
   lang,
   dataHome,
   dataMenuCountry,
@@ -53,6 +54,7 @@ export default function Navbar({
   const arrDataTaxonomiesStyleTour = dataTaxonomiesStyleTour?.data?.allTourStyle?.nodes
   const refMb = useRef()
   const refMenu = useRef()
+  const refNav = useRef()
   const refBtnBookTour = useRef()
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
   const titleAboutUs = {
@@ -98,7 +100,6 @@ export default function Navbar({
       if (scrollPosition >= 200) {
         nav.classList.add('nav-active')
         nav.classList.remove('nav-mb-special')
-
         menuNavs.forEach((item, index) => {
           item.classList.remove('show')
         })
@@ -117,8 +118,18 @@ export default function Navbar({
     function headerSticky() {
       if (lastScrolledPos >= window.scrollY) {
         nav.classList.remove('header-hide')
+        if(menuItems) {
+          menuItems.forEach((item) => {
+            item.style.display = 'block'
+          })
+        }
       } else {
         nav.classList.add('header-hide')
+        if(menuItems) {
+          menuItems.forEach((item) => {
+            item.style.display = 'none'
+          })
+        }
       }
       lastScrolledPos = window.scrollY
     }
@@ -135,7 +146,7 @@ export default function Navbar({
       })
       item.addEventListener('mouseout', function () {
         item.classList.remove('show')
-        if (pathName.includes('tours') && !pathName.includes('our-tours')) {
+        if (pathName.includes('tours') && !pathName.includes('our-tours') && window.pageYOffset === 0) {
           nav.classList.add('nav-mb-special')
         } else {
           nav.classList.remove('nav-mb-special')
@@ -180,10 +191,19 @@ export default function Navbar({
     duration: newArrDataTaxonomiesDuration
   }
 
+  const handleCloseNav = () => {
+    if (refNav.current.classList.contains('nav-mb-special') && onlySmallScreen) {
+      refNav.current.classList.remove('nav-mb-special')
+    }
+  }
+
   return (
     <DataProvider>
       <div className='nav-container'>
-        <nav className={`bg-white w-[100vw] navbar h-[5.375vw] max-lg:h-[14.93vw]`}>
+        <nav
+          className={`bg-white w-[100vw] navbar h-[5.375vw] max-lg:h-[14.93vw]`}
+          ref={refNav}
+        >
           <div className='bg-trans flex items-center h-full w-full px-[8.125%] bg-white'>
             <div className='flex items-center gap-x-[2vw]'>
               <Link href={`/${lang}`}>
@@ -236,6 +256,7 @@ export default function Navbar({
                       listVoucher={listVoucher}
                       menu
                       lang={lang}
+                      onCloseMenu={handleCloseMenu}
                     />
                   </div>
                 </Link>
@@ -297,6 +318,7 @@ export default function Navbar({
               <InputSearchMb
                 lang={lang}
                 dataFilter={dataFilter}
+                onCloseNav={handleCloseNav}
               />
             </div>
             <Image
@@ -314,6 +336,7 @@ export default function Navbar({
           ref={refMb}
         >
           <MenuMb dataHome={dataHome}
+            socialMobile={socialMobile}
             onCloseMenu={handleClickClose}
             lang={lang}
             titleAboutUs={titleAboutUs}

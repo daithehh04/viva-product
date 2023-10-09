@@ -29,26 +29,18 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
       setSelected(num)
     }
   }
+
   return (
     <div className='menu-mobile pb-[41.33vw]'>
       <div className='flex items-center justify-center h-[14.93vw] border-b border-solid border-textColor border-opacity-20'>
         <div className='flex items-center content'>
           <Link href={`/${lang}`}>
-            <Image
-              src={logo}
-              width={100}
-              height={100}
-              alt='viva-travel'
-              className='w-[10.4vw] object-cover'
-            />
+            <Image src={logo} width={100} height={100} alt='viva-travel' className='w-[10.4vw] object-cover' />
           </Link>
           <div className='flex-1 hidden max-lg:block'>
             <InputSearchMb lang={lang} />
           </div>
-          <div
-            className='cursor-pointer close'
-            onClick={onCloseMenu}
-          >
+          <div className='cursor-pointer close' onClick={onCloseMenu}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='26'
@@ -57,22 +49,8 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
               fill='none'
               className='w-[6.93vw] h-[6.93vw] object-cover'
             >
-              <line
-                x1='20.0581'
-                y1='7.17899'
-                x2='7.04918'
-                y2='20.188'
-                stroke='#000'
-                strokeWidth='1.2265'
-              />
-              <line
-                x1='19.1909'
-                y1='20.0576'
-                x2='6.18192'
-                y2='7.04863'
-                stroke='#000'
-                strokeWidth='1.2265'
-              />
+              <line x1='20.0581' y1='7.17899' x2='7.04918' y2='20.188' stroke='#000' strokeWidth='1.2265' />
+              <line x1='19.1909' y1='20.0576' x2='6.18192' y2='7.04863' stroke='#000' strokeWidth='1.2265' />
             </svg>
           </div>
         </div>
@@ -205,11 +183,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             <span className='text-[3.73vw] opacity-40  font-[500] block'>{hotDeals?.voucherHeader?.listHeader}</span>
             <div className='hidden-scroll flex overflow-x-auto gap-[3.73vw] mt-[3.2vw] max-lg:flex-col max-lg:w-full'>
               {hotDeals?.voucherHeader?.listVoucher?.map((item, index) => (
-                <VoucherItem
-                  key={index}
-                  data={item}
-                  headerData={hotDeals?.voucherHeader?.detailHeader}
-                />
+                <VoucherItem key={index} data={item} headerData={hotDeals?.voucherHeader?.detailHeader} />
               ))}
             </div>
             <span className='text-[3.73vw] opacity-40 font-[500] block mt-[6.4vw]'>
@@ -217,21 +191,12 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             </span>
             <div className='hidden-scroll flex overflow-x-auto gap-[4.27vw] mt-[3.2vw]'>
               {hotDeals?.promotionList?.map((item, index) => (
-                <TourItem
-                  key={index}
-                  data={item}
-                  lang={lang}
-                  menu={menu}
-                />
+                <TourItem key={index} data={item} lang={lang} menu={menu} />
               ))}
             </div>
 
             <div className='flex items-center justify-center mt-[6.4vw]'>
-              <Link
-                href={`${lang}/hot-deals`}
-                onClick={onCloseMenu}
-                className='btn-secondary'
-              >
+              <Link href={`${lang}/hot-deals`} onClick={onCloseMenu} className='btn-secondary'>
                 See all
               </Link>
             </div>
@@ -265,12 +230,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             }
           >
             {rcmServicesList?.data?.categories?.nodes?.map((item, index) => (
-              <ServiceItem
-                key={index}
-                data={item}
-                lang={lang}
-                onCloseMenu={onCloseMenu}
-              />
+              <ServiceItem key={index} data={item} lang={lang} onCloseMenu={onCloseMenu} />
             ))}
           </div>
         </div>
@@ -351,7 +311,10 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
         </Button>
         {/* Socials */}
         <div className='flex items-center gap-[4.27vw] mt-[3.2vw] justify-center'>
-          <div className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] fb'>
+          <Link
+            href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkFb}
+            className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] fb'
+          >
             <Image
               src={fbIcon}
               width={100}
@@ -359,8 +322,12 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
               alt='img'
               className='object-cover max-md:w-[1.875vw] max-md:h-[3.5vw]'
             />
-          </div>
-          <div className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] linked'>
+          </Link>
+
+          <Link
+            href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkLinked}
+            className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] linked'
+          >
             <Image
               src={linkedIcon}
               width={100}
@@ -368,8 +335,11 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
               alt='img'
               className='max-md:w-[3.36vw] max-md:h-[3.36vw] object-cover'
             />
-          </div>
-          <div className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] instar'>
+          </Link>
+          <Link
+            href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkInstargram}
+            className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] instar'
+          >
             <Image
               src={instarIcon}
               width={100}
@@ -377,8 +347,11 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
               alt='img'
               className='max-md:w-[3.84vw] max-md:h-[3.84vw] object-cover'
             />
-          </div>
-          <div className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] ytb'>
+          </Link>
+          <Link
+            href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkYoutube}
+            className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] ytb'
+          >
             <Image
               src={ytbIcon}
               width={100}
@@ -386,7 +359,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
               alt='img'
               className='object-contain max-md:w-[4.28vw] max-md:h-[3.5vw]'
             />
-          </div>
+          </Link>
         </div>
       </div>
     </div>
