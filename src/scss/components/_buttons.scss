@@ -13,6 +13,9 @@
   &:hover {
     scale: 1.03;
   }
+  @media screen and (min-width: 769px) and (max-width: 1280px) {
+    font-size: 1.5vw;
+  }
 }
 
 .btn-secondary {
@@ -33,21 +36,24 @@
   &:hover {
     scale: 1.03;
   }
+  @media screen and (min-width: 769px) and (max-width: 1280px) {
+    font-size: 1.5vw;
+  }
 }
 
 .btn-secondary::before {
-    content: '';
-    z-index: -1;
-    position: absolute;
-    bottom: 100%;
-    left: 100%;
-    width: 2vw;
-    height: 2vw;
-    border-radius: 50%;
-    background-color: $colorPrimary;
-    transform-origin: center;
-    transform: translate3d(-50%, 50%, 0) scale3d(0, 0, 0);
-    transition: transform 0.45s ease-in-out;
+  content: '';
+  z-index: -1;
+  position: absolute;
+  bottom: 100%;
+  left: 100%;
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  background-color: $colorPrimary;
+  transform-origin: center;
+  transform: translate3d(-50%, 50%, 0) scale3d(0, 0, 0);
+  transition: transform 0.45s ease-in-out;
 }
 
 .btn-secondary:hover {
@@ -58,7 +64,7 @@
   transform: translate3d(-50%, 50%, 0) scale3d(15, 15, 15);
 }
 
-@include mobile {
+@media screen and (max-width: 767px) {
   .btn-secondary,
   .btn-primary {
     font-size: 3.2vw;
