@@ -32,7 +32,7 @@ async function Footer({ lang }) {
           />
           <div className='mt-[1.25vw] max-md:mt-[6.63vw]'></div>
           {col1?.contact?.map((item, index) => (
-            <div key={index} className='text-[1vw] max-md:text-[3.73vw] mt-[0.5vw] max-md:mt-[1.07vw]'>
+            <div key={index} className='text-[1vw] max-lg:whitespace-nowrap max-lg:text-[1.4vw] max-md:text-[3.73vw] mt-[0.5vw] max-md:mt-[1.07vw]'>
               <strong>{item?.title}: </strong>
               {item?.content}
             </div>
@@ -122,7 +122,7 @@ async function Footer({ lang }) {
         </div>
         {/* column 2 */}
         <div className='w-[20.9375vw] pr-[2.4vw] max-md:w-full max-md:text-center'>
-          <h4 className='text-[1.375vw] max-md:text-[4.8vw] font-[700] leading-normal opacity-60 max-md:pb-[3.2vw] max-md:border-b max-md:border-solid max-md:border-[#171717] max-md:border-opacity-20 max-md:pt-[8.53vw]'>
+          <h4 className='text-[1.375vw] max-lg:text-[1.6vw] max-md:text-[4.8vw] font-[700] leading-normal opacity-60 max-md:pb-[3.2vw] max-md:border-b max-md:border-solid max-md:border-[#171717] max-md:border-opacity-20 max-md:pt-[8.53vw]'>
             {col2?.title}
           </h4>
           <ul className='mt-[1.5vw] flex flex-col gap-y-[1.25vw] max-md:mt-[3.2vw] max-md:gap-y-[3.2vw]'>
@@ -136,9 +136,9 @@ async function Footer({ lang }) {
                     alt='location'
                     className='w-[1vw] h-[1vw] object-cover max-md:w-[4.267vw] max-md:h-[4.267vw]'
                   />
-                  <span className='text-[1vw] font-[700] max-md:text-[4.267vw]'>{item?.title}</span>
+                  <span className='text-[1vw] max-lg:text-[1.4vw] font-[700] max-md:text-[4.267vw]'>{item?.title}</span>
                 </div>
-                <p className='text-[0.9375vw] font-[400] max-md:text-[3.73vw] mt-[0.5vw] max-md:mt-[2.13vw]'>
+                <p className='text-[0.9375vw] max-lg:text-[1.2vw] font-[400] max-md:text-[3.73vw] mt-[0.5vw] max-md:mt-[2.13vw]'>
                   {item?.content}
                 </p>
               </li>
@@ -147,7 +147,7 @@ async function Footer({ lang }) {
         </div>
         {/* column 3 */}
         <div className='w-[20.5vw] max-md:w-full max-md:text-center'>
-          <h4 className='text-[1.375vw] max-md:text-[4.8vw] font-[700] leading-normal opacity-60 max-md:pb-[3.2vw] max-md:border-b max-md:border-solid max-md:border-[#171717] max-md:border-opacity-20 max-md:pt-[8.53vw]'>
+          <h4 className='text-[1.375vw] max-lg:text-[1.6vw] max-md:text-[4.8vw] font-[700] leading-normal opacity-60 max-md:pb-[3.2vw] max-md:border-b max-md:border-solid max-md:border-[#171717] max-md:border-opacity-20 max-md:pt-[8.53vw]'>
             {col3?.title}
           </h4>
           <ul className='mt-[1.5vw] flex flex-col gap-y-[1.25vw] max-md:mt-[3.2vw] max-md:gap-y-[3.2vw]'>
@@ -161,9 +161,9 @@ async function Footer({ lang }) {
                     alt='location'
                     className='w-[1vw] h-[1vw] object-cover max-md:w-[4.267vw] max-md:h-[4.267vw]'
                   />
-                  <span className='text-[1vw] font-[700] max-md:text-[4.267vw]'>{item?.title}</span>
+                  <span className='text-[1vw] max-lg:text-[1.4vw] font-[700] max-md:text-[4.267vw]'>{item?.title}</span>
                 </div>
-                <p className='text-[0.9375vw] font-[400] max-md:text-[3.73vw] mt-[0.5vw] max-md:mt-[2.13vw]'>
+                <p className='text-[0.9375vw] max-lg:text-[1.2vw] font-[400] max-md:text-[3.73vw] mt-[0.5vw] max-md:mt-[2.13vw]'>
                   {item?.content}
                 </p>
               </li>
@@ -172,7 +172,7 @@ async function Footer({ lang }) {
         </div>
         {/* Column 4 */}
         <div className='w-[19.8vw] max-md:w-full max-md:text-center'>
-          <h4 className='text-[1.375vw] max-md:text-[4.8vw] font-[700] leading-normal opacity-60 max-md:pb-[3.2vw] max-md:border-b max-md:border-solid max-md:border-[#171717] max-md:border-opacity-20 max-md:pt-[8.53vw]'>
+          <h4 className='text-[1.375vw] max-lg:text-[1.6vw] max-md:text-[4.8vw] font-[700] leading-normal opacity-60 max-md:pb-[3.2vw] max-md:border-b max-md:border-solid max-md:border-[#171717] max-md:border-opacity-20 max-md:pt-[8.53vw]'>
             {col4?.titlePayment}
           </h4>
           <div className='flex items-center flex-wrap pay-method mt-[1.25vw] gap-[1.5vw] max-md:gap-[6.4vw] max-md:mt-[3.73vw] max-md:justify-center'>
@@ -187,7 +187,7 @@ async function Footer({ lang }) {
               />
             ))}
           </div>
-          <h4 className='text-[1.375vw] max-md:text-[4.8vw] font-[700] leading-normal opacity-60 max-md:pb-[3.2vw] max-md:border-b max-md:border-solid max-md:border-[#171717] max-md:border-opacity-20 mt-[4.25vw] max-md:pt-[8.53vw]'>
+          <h4 className='text-[1.375vw] max-lg:text-[1.6vw] max-md:text-[4.8vw] font-[700] leading-normal opacity-60 max-md:pb-[3.2vw] max-md:border-b max-md:border-solid max-md:border-[#171717] max-md:border-opacity-20 mt-[4.25vw] max-md:pt-[8.53vw]'>
             {col4?.titleForum}
           </h4>
           <div className='flex items-center mt-[1.25vw] gap-[1.5vw] max-md:gap-[8.53vw] max-md:mt-[3.73vw] max-md:justify-center'>

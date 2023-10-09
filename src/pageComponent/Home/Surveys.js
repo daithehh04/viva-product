@@ -71,7 +71,7 @@ function Surveys({ data, button, lang, dataBookTour }) {
             data-aos='fade-up'
             data-aos-disabled='true'
             data-aos-duration='1000'
-            className='mt-[1.5vw] text-[1.125vw] text-textColor opacity-70 leading-[150%] max-md:text-[3.73vw]'
+            className='mt-[1.5vw] text-[1.125vw] text-textColor opacity-70 leading-[150%] max-md:text-[3.73vw] max-lg:text-[1.6vw]'
           >
             {data?.text}
           </p>
@@ -92,7 +92,7 @@ function Surveys({ data, button, lang, dataBookTour }) {
                   alt='img'
                   className='w-[4.375vw] h-[4.375vw] object-contain max-md:w-[14.99vw] max-md:h-[14.99vw]'
                 />
-                <span className='text-[1vw] capitalize mt-[0.62vw] font-[500] text-textColor leading-normal max-md:text-[3.2vw]'>
+                <span className='text-[1vw] capitalize mt-[0.62vw] font-[500] text-textColor leading-normal max-md:text-[3.2vw] max-lg:text-[1.4vw]'>
                   {item?.title}
                 </span>
               </li>

@@ -17,7 +17,7 @@ function TouristRepresentative({ data }) {
     <div className='tourist-representative pt-[4.69vw] pb-[8.42vw] max-md:pt-[13.81vw]'>
       <div className='flex md:flex-row flex-col items-center content mb-[6.4vw] md:mb-0'>
         <h2
-          className='heading-1 md:w-[28.9375vw] w-full'
+          className='heading-1 md:w-[28.9375vw] w-full '
           data-aos-once='true'
           data-aos-disabled='true'
           data-aos='fade-up'
@@ -26,7 +26,7 @@ function TouristRepresentative({ data }) {
           {data?.title}
         </h2>
         <p
-          className='md:text-[1.125vw] text-[3.73vw] leading-normal text-justify md:w-[36vw] w-full ml-auto opacity-70 md:opacity-80 text-textColor'
+          className='text-[1.125vw] max-md:text-[3.73vw] leading-normal text-justify md:w-[36vw] w-full ml-auto max-md:opacity-70 opacity-80 text-textColor max-lg:text-[1.6vw]'
           data-aos-once='true'
           data-aos-disabled='true'
           data-aos='fade-up'
