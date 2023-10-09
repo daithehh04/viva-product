@@ -69,6 +69,8 @@ export default async function RootLayout({ children, params }) {
     recommendserviceList = await getDataPost('FR', GET_SERVICE_BY_CATEGORY)
     dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idFrBook, params.lang)
   }
+
+  
   const dataHome = data?.data?.page?.home
   const travelStylesList = await getDataWithTaxonomy({ lang: params.lang || 'EN' }, GET_LIST_TRAVEL_STYLE_NAME)
 

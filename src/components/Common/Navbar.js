@@ -21,7 +21,6 @@ import BookTour from './BookTour'
 import ModalCustom from './ModalCustom'
 import Button from './Button'
 import { usePathname } from 'next/navigation'
-import logoMb from '@/assets/images/logoMb.svg'
 import { createTheme, useMediaQuery } from '@mui/material'
 import { DataProvider } from '../Menu/DataContextMenu'
 
@@ -224,7 +223,7 @@ export default function Navbar({
                   className='capitalize text-[1vw] nav-link cursor-pointer'
                 >
                   {dataHome?.nav3}
-                    <div className='hidden menu-item'>
+                    <div className='hidden menu-item menu-item3'>
                       <HotDeal
                         hotDeals={hotDeals}
                         listVoucher={listVoucher}
