@@ -20,7 +20,7 @@ function TravelStyleItem({ data, lang }) {
         </h3>
         <p
           dangerouslySetInnerHTML={{ __html: data?.banner?.travelStyleInfo?.textHomePage }}
-          className='text-white desc text-[1.125vw] font-[500] mt-[0.75vw] leading-normal'
+          className='text-white desc text-[1.125vw] font-[500] mt-[0.75vw] leading-normal max-lg:text-[1.6vw]'
         ></p>
       </div>
       <div className='btn absolute bottom-0 right-[1.81vw] pb-[1.81vw] z-10'>
@@ -33,7 +33,7 @@ function TravelStyleItem({ data, lang }) {
         />
         <Link
           href={`/${lang}/travel-style/${data?.slug}`}
-          className='w-[5.9375vw] h-[5.9375vw] rounded-full bg-primaryColor text-textColor text-[0.875vw] font-[500] flex items-center justify-center'
+          className='w-[5.9375vw] h-[5.9375vw] rounded-full bg-primaryColor text-textColor text-[0.875vw] font-[500] flex items-center justify-center max-lg:max-lg:text-[1.1vw]'
         >
           View more
         </Link>
