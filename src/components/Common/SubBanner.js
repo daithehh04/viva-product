@@ -6,11 +6,11 @@ import subBannerBg2 from '@/assets/images/about/subBannerBg2.png'
 import Button from './Button'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
-import Aos from 'aos'
+import AOS from 'aos'
 
 export default function SubBanner({ data = {}, className, lang }) {
   useEffect(() => {
-    AOS.init({disable: 'mobile'})
+    AOS.init({ disable: 'mobile' })
     AOS.refresh()
   }, [])
   const router = useRouter()

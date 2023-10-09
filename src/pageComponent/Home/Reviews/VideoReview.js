@@ -11,7 +11,6 @@ import Link from 'next/link'
 
 const defaultVideo = 'https://viva-cms.okhub.tech/wp-content/uploads/2023/09/river_-_40012-1080p-2.mp4'
 function VideoReview({ data, videoInfo, className, lang }) {
-  console.log(videoInfo)
   const [isPlay, setIsPlay] = useState(false)
   const videoRef = useRef()
   useEffect(() => {
