@@ -5,7 +5,7 @@ import { useQuery } from '@apollo/client'
 import { Skeleton, createTheme, useMediaQuery } from '@mui/material'
 import { useEffect, useRef, useState } from 'react'
 import AOS from 'aos'
-import Loading from '@/components/Common/Loading'
+import Loading from '@/components/Common/Loader'
 import Link from 'next/link'
 
 const theme = createTheme({

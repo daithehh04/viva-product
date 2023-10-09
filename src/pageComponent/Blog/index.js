@@ -3,7 +3,7 @@ import BlogItem from '@/components/Common/BlogItem'
 import Button from '@/components/Common/Button'
 import SlideTour from '@/components/Common/SlideTour'
 import Image from 'next/image'
-import Loading from '@/components/Common/Loading'
+import Loading from '@/components/Common/Loader'
 import { useEffect, useRef, useState } from 'react'
 import FilterBlog from './FilterBlog'
 import background from '@/assets/images/ourBlog_background.png'
@@ -66,7 +66,6 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
   const pageInfo = data?.posts?.pageInfo?.offsetPagination?.total
   const totalPage = Math.ceil(pageInfo / 12)
 
-
   return (
     <div>
       <div className='content'>
@@ -85,7 +84,12 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
       </div>
 
       <div className='relative'>
-        <Image alt='banner' src={background} fill quality={100} />
+        <Image
+          alt='banner'
+          src={background}
+          fill
+          quality={100}
+        />
         {!loading ? (
           <div>
             <div className='grid md:grid-cols-4 md:px-[8.06vw] px-[4.27vw] grid-cols-2 md:gap-x-[2.5vw] md:gap-y-[3vw] gap-x-[4.27vw] gap-y-[6.4vw] md:mt-[4vw] mt-[7.73vw]'>
@@ -100,14 +104,15 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
             </div>
 
             <div className='flex md:gap-[0.75vw] gap-[3.2vw] justify-center items-center relative md:mt-[4.5vw] mt-[8.53vw]'>
-              
               {Array.from({ length: totalPage }, (_, index) => (
                 <div
                   key={index}
                   onClick={() => handleChangePage(index)}
-                  className={`${totalPage > 1 ? 'cursor-pointer md:w-[2.125vw] md:h-[2.125vw] w-[9.07vw] h-[9.07vw] rounded-[50%] flex justify-center items-center bg-primaryColor' : 'hidden'}  ${
-                    activePage === index ? 'bg-textColor  opacity-[1]' : ' opacity-[0.1]'
-                  }`}
+                  className={`${
+                    totalPage > 1
+                      ? 'cursor-pointer md:w-[2.125vw] md:h-[2.125vw] w-[9.07vw] h-[9.07vw] rounded-[50%] flex justify-center items-center bg-primaryColor'
+                      : 'hidden'
+                  }  ${activePage === index ? 'bg-textColor  opacity-[1]' : ' opacity-[0.1]'}`}
                 >
                   <span className={`${activePage === index ? 'text-white' : 'text-textColor'}`}>{index + 1}</span>
                 </div>
@@ -125,7 +130,10 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
               {data1?.data?.page?.translation?.ourblog?.heading2}
             </h2>
             <div className='md:px-[8.06vw]'>
-              <SlideTour data={data1?.data?.bestSeller?.tours?.nodes} lang={lang} />
+              <SlideTour
+                data={data1?.data?.bestSeller?.tours?.nodes}
+                lang={lang}
+              />
             </div>
             <Link href={`/${lang}/search`}>
               <Button className='btn-secondary m-auto md:mb-[6.25vw] md:mt-[3.5vw] relative mt-[10.01vw]'>

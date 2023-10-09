@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import Image from 'next/image'
 
 import searchIcon from '@/assets/images/search-mb.svg'
@@ -8,12 +8,12 @@ import { useRef } from 'react'
 import { useData } from '../Menu/DataContextMenu'
 import { DATA_SEARCH_TEXT_TOUR } from '@/graphql/filter/queries'
 import { useQuery } from '@apollo/client'
-import Loading from './Loading'
+import Loading from './Loader'
 import Link from 'next/link'
 import FilterBanner from '@/pageComponent/Home/FilterBanner'
 
-function InputSearchMb({lang, dataFilter}) {
-  const { dataInput } = useData();
+function InputSearchMb({ lang, dataFilter }) {
+  const { dataInput } = useData()
   const refMenu = useRef()
   const handleOpen = (e) => {
     e.preventDefault()
@@ -22,7 +22,7 @@ function InputSearchMb({lang, dataFilter}) {
   const handleClose = () => {
     refMenu.current.classList.remove('show')
   }
-  const {data,loading} = useQuery(DATA_SEARCH_TEXT_TOUR, {
+  const { data, loading } = useQuery(DATA_SEARCH_TEXT_TOUR, {
     variables: {
       title: dataInput,
       language: lang?.toUpperCase()
@@ -55,22 +55,42 @@ function InputSearchMb({lang, dataFilter}) {
           onClick={handleOpen}
         />
       </div>
-      <div className='fixed inset-0 bg-white home-search__mb !z-[200] overflow-hidden w-full' ref={refMenu}>
-        <HomeSearch onClose= {handleClose} lang={lang}/>
+      <div
+        className='fixed inset-0 bg-white home-search__mb !z-[200] overflow-hidden w-full'
+        ref={refMenu}
+      >
+        <HomeSearch
+          onClose={handleClose}
+          lang={lang}
+        />
         <div className='mt-[6.4vw]'>
-          {loading ? <div className="flex items-center justify-center w-full">
-            <Loading/>
-          </div> : 
-          <div className="flex flex-col gap-[3.2vw] max-h-[54.4vw] overflow-y-auto content">
-            {allTours?.length === 0 ? <h4 className="text-[3.2vw]">No result for this search !!</h4> : (allTours?.map((tour,index) => (
-              <Link href={`${lang}/tours/${encodeURIComponent(tour?.translation?.slug)}`} key={index}>
-                <h3 className='text-[3.2vw] pb-[3.2vw]'>{tour?.translation?.tourDetail?.banner?.title}</h3>
-                <hr/>
-              </Link>
-            )))}
-          </div>}
+          {loading ? (
+            <div className='flex items-center justify-center w-full'>
+              <Loading />
+            </div>
+          ) : (
+            <div className='flex flex-col gap-[3.2vw] max-h-[54.4vw] overflow-y-auto content'>
+              {allTours?.length === 0 ? (
+                <h4 className='text-[3.2vw]'>No result for this search !!</h4>
+              ) : (
+                allTours?.map((tour, index) => (
+                  <Link
+                    href={`${lang}/tours/${encodeURIComponent(tour?.translation?.slug)}`}
+                    key={index}
+                  >
+                    <h3 className='text-[3.2vw] pb-[3.2vw]'>{tour?.translation?.tourDetail?.banner?.title}</h3>
+                    <hr />
+                  </Link>
+                ))
+              )}
+            </div>
+          )}
           <div className='mt-[6.4vw]'>
-            <FilterBanner dataFilter={dataFilter} lang={lang} onClose={handleClose}/>
+            <FilterBanner
+              dataFilter={dataFilter}
+              lang={lang}
+              onClose={handleClose}
+            />
           </div>
         </div>
       </div>
