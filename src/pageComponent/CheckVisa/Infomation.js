@@ -5,9 +5,15 @@ import plane from '@/assets/images/checkVisa_Plane.png'
 import ExemptVisa from './ExemptVisa'
 import { createTheme, useMediaQuery } from '@mui/material'
 import { useData } from './DataContext'
+import Link from 'next/link'
+import { useRef, useState } from 'react'
+import ModalCustom from '@/components/Common/ModalCustom'
+import BookTour from '@/components/Common/BookTour'
 
-function Infomation({ data }) {
+function Infomation({ data,lang,dataBookTour }) {
   const { dataB } = useData()
+  const [openModal, setOpenModal] = useState(false)
+  const refBtnBookTour = useRef()
   const isFreeVisa = dataB?.isFreeVisa
   const dataInfo = data?.checkvisa?.infodetail
   const theme = createTheme({
@@ -142,8 +148,10 @@ function Infomation({ data }) {
             </p>
 
             <div className='md:mt-[3.75vw] mt-[6.4vw] flex md:gap-[1.88vw] gap-[2.67vw]'>
+              <div className='flex' ref={refBtnBookTour} onClick={() => setOpenModal(true)}>
               <Button className='btn-primary w-fit'>{dataInfo?.buttonapply}</Button>
-              <Button className='btn-secondary w-fit'>{dataInfo?.button}</Button>
+            </div>
+              <Link href={`/${lang}/search`}><Button className='btn-secondary w-fit'>{dataInfo?.button}</Button></Link>
             </div>
           </div>
 
@@ -159,6 +167,17 @@ function Infomation({ data }) {
           </div>
         </div>
       </div>
+      {openModal && (
+        <ModalCustom
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          className='w-[91.46vw] md:w-[82.93vw] md:h-[90vh] h-[80vh]'
+        >
+          <div className='w-full h-full overflow-y-auto md:rounded-[16px] overflow-x-hidden'>
+            <BookTour data={dataBookTour} setOpenModal={setOpenModal} />
+          </div>
+        </ModalCustom>
+      )}
     </div>
   )
 }
