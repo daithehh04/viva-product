@@ -16,7 +16,6 @@ export default function TourDetail({
   dataBookTour = {},
   slug
 }) {
-  console.log(!data)
   const { banner, content, map, priceTour } = data
 
   const { bannerHeaders, content: contentHeader, relatedTour: relatedTourHeader, subBanner } = headerData
@@ -24,23 +23,11 @@ export default function TourDetail({
   const reviews = reviewsList?.filter((item) => item?.customerReview?.tours?.slug === slug)
   return (
     <>
-      <TourDetailBanner
-        data={banner || {}}
-        headerData={bannerHeaders}
-        price={priceTour}
-      />
-      <TourDetailBannerMobile
-        data={banner || {}}
-        headerData={bannerHeaders}
-        price={priceTour}
-      />
+      <TourDetailBanner data={banner || {}} headerData={bannerHeaders} price={priceTour} />
+      <TourDetailBannerMobile data={banner || {}} headerData={bannerHeaders} price={priceTour} />
       <div className='md:my-[7.5vw] relative'>
         <div className='md:block hidden'>
-          <Image
-            src={tour}
-            alt='tour'
-            className='absolute top-0 left-0 w-full h-[150vw] opacity-5 z-0'
-          />
+          <Image src={tour} alt='tour' className='absolute top-0 left-0 w-full h-[150vw] opacity-5 z-0' />
           <div
             className='w-full h-[150vw] absolute left-0 top-0 z-10'
             style={{
@@ -58,11 +45,7 @@ export default function TourDetail({
             dataBookTour={dataBookTour}
             price={priceTour}
           />
-          <SubBanner
-            data={subBanner}
-            className={'md:text-[2.75vw]'}
-            lang={lang}
-          />
+          <SubBanner data={subBanner} className={'md:text-[2.75vw]'} lang={lang} />
         </main>
       </div>
     </>

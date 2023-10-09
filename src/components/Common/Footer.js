@@ -4,6 +4,7 @@ import Image from 'next/image'
 import SlidePartners from './SlidePartners'
 import getDataPost from '@/data/getDataPost'
 import { GET_FOOTER } from '@/graphql/home/queries'
+import Link from 'next/link'
 
 async function Footer({ lang }) {
   const data = await getDataPost(lang?.toUpperCase(), GET_FOOTER)
@@ -37,7 +38,10 @@ async function Footer({ lang }) {
             </div>
           ))}
           <div className='flex items-center gap-[0.89vw] mt-[1.25vw] max-md:gap-[4.27vw] max-md:mt-[3.2vw]'>
-            <div className='w-[2.67vw] h-[2.67vw] max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border  fb'>
+            <Link
+              href={col1?.linkFb}
+              className='w-[2.67vw] h-[2.67vw] max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border  fb'
+            >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 className='md:w-[2.67vw] md:h-[2.67vw]'
@@ -52,8 +56,11 @@ async function Footer({ lang }) {
                   fill='#171717'
                 />
               </svg>
-            </div>
-            <div className='w-[2.67vw] h-[2.67vw] max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] linked'>
+            </Link>
+            <Link
+              href={col1?.linkLinked}
+              className='w-[2.67vw] h-[2.67vw] max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] linked'
+            >
               <svg
                 className='w-[0.9375vw] h-[0.9375vw] max-md:w-[3.36vw] max-md:h-[3.36vw] object-cover'
                 xmlns='http://www.w3.org/2000/svg'
@@ -74,8 +81,11 @@ async function Footer({ lang }) {
                   </clipPath>
                 </defs>
               </svg>
-            </div>
-            <div className='w-[2.67vw] h-[2.67vw] max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] instar'>
+            </Link>
+            <Link
+              href={col1?.linkInstargram}
+              className='w-[2.67vw] h-[2.67vw] max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] instar'
+            >
               <svg
                 className='w-[1.07vw] h-[1.07vw] max-md:w-[3.84vw] max-md:h-[3.84vw] object-cover'
                 xmlns='http://www.w3.org/2000/svg'
@@ -89,8 +99,11 @@ async function Footer({ lang }) {
                   fill='#171717'
                 />
               </svg>
-            </div>
-            <div className='w-[2.67vw] h-[2.67vw] max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] ytb'>
+            </Link>
+            <Link
+              href={col1?.linkYoutube}
+              className='w-[2.67vw] h-[2.67vw] max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] ytb'
+            >
               <svg
                 className='w-[1.1vw] h-[0.86vw] object-contain max-md:w-[4.28vw] max-md:h-[3.5vw]'
                 xmlns='http://www.w3.org/2000/svg'
@@ -104,7 +117,7 @@ async function Footer({ lang }) {
                   fill='black'
                 />
               </svg>
-            </div>
+            </Link>
           </div>
         </div>
         {/* column 2 */}

@@ -23,7 +23,7 @@ import { GET_LIST_TRAVEL_STYLE_NAME } from '@/graphql/travelStyle/queries'
 import getDataWithTaxonomy from '@/data/getDataWithTaxonomy'
 import ApolloClientProvider from '../apolloProvider'
 import getHotDealHeader from '@/data/hotDeal'
-import { DATA_HEADER } from '@/graphql/home/queries'
+import { DATA_HEADER, GET_SOCIAL_MOBILE } from '@/graphql/home/queries'
 import GET_SERVICE_BY_CATEGORY from '@/data/getDataRcmServices'
 import getDataFormBookTour from '@/data/formBookTour/getDataFormBookTour'
 import { GET_DATA_FORM_BOOKTOUR } from '@/graphql/formBookTour/queries'
@@ -50,23 +50,27 @@ export default async function RootLayout({ children, params }) {
   let dataBookTour
   let dataMenuCountry
   let recommendserviceList
+  let socialMobile
   if (params.lang === 'en') {
     data = await getDataPage(idEn, DATA_HEADER)
     dataMenuCountry = await getDataPost('EN', DATA_MENU_COUNTRY)
     recommendserviceList = await getDataPost('EN', GET_SERVICE_BY_CATEGORY)
     dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idEnBook, params.lang)
+    socialMobile = await getDataPost('EN', GET_SOCIAL_MOBILE)
   }
   if (params.lang === 'it') {
     data = await getDataPage(idIt, DATA_HEADER)
     dataMenuCountry = await getDataPost('IT', DATA_MENU_COUNTRY)
     recommendserviceList = await getDataPost('IT', GET_SERVICE_BY_CATEGORY)
     dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idItBook, params.lang)
+    socialMobile = await getDataPost('IT', GET_SOCIAL_MOBILE)
   }
   if (params.lang === 'fr') {
     data = await getDataPage(idFr, DATA_HEADER)
     dataMenuCountry = await getDataPost('FR', DATA_MENU_COUNTRY)
     recommendserviceList = await getDataPost('FR', GET_SERVICE_BY_CATEGORY)
     dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idFrBook, params.lang)
+    socialMobile = await getDataPost('FR', GET_SOCIAL_MOBILE)
   }
 
   const dataHome = data?.data?.page?.home
@@ -90,6 +94,7 @@ export default async function RootLayout({ children, params }) {
         <ApolloClientProvider>
           <ThemeRegistry>
             <Navbar
+              socialMobile={socialMobile}
               dataTaxonomiesCountry={dataTaxonomiesCountry}
               dataTaxonomiesStyleTour={dataTaxonomiesStyleTour}
               dataTaxonomiesBudget={dataTaxonomiesBudget}

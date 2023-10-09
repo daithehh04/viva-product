@@ -8,7 +8,12 @@ import { useEffect } from 'react'
 
 function OurBlogHomePage({ data, button, lang }) {
   useEffect(() => {
-    AOS.init({disable: 'mobile'})
+    AOS.init({
+      disable: function () {
+        var maxWidth = 769
+        return window.innerWidth < maxWidth
+      }
+    })
     AOS.refresh()
   }, [])
   const theme = createTheme({
@@ -59,10 +64,7 @@ function OurBlogHomePage({ data, button, lang }) {
         })}
       </div>
       <div className='flex justify-center md:mb-[7.37vw] md:mt-[3.5vw] mt-[7.47vw]'>
-        <Link
-          href={`/${lang}/blog`}
-          className='btn-secondary'
-        >
+        <Link href={`/${lang}/blog`} className='btn-secondary'>
           {button?.buttonseemore}
         </Link>
       </div>

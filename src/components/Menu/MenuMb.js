@@ -13,10 +13,18 @@ import fbIcon from '@/assets/images/facebook.svg'
 import linkedIcon from '@/assets/images/linkedin.svg'
 import instarIcon from '@/assets/images/instar.svg'
 import ytbIcon from '@/assets/images/youtube.svg'
-import HotDeal from '../Common/HotDeal'
 import InputSearchMb from '../Common/InputSearchMb'
 
-function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList, rcmServicesList, menu }) {
+function MenuMb({
+  socialMobile,
+  onCloseMenu,
+  hotDeals,
+  lang,
+  dataMenuCountry,
+  travelStylesList,
+  rcmServicesList,
+  menu
+}) {
   const [selected, setSelected] = useState(null)
   const contentEle = useRef()
   const contentEle2 = useRef()
@@ -30,26 +38,18 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
       setSelected(num)
     }
   }
+
   return (
     <div className='menu-mobile pb-[41.33vw]'>
       <div className='flex items-center justify-center h-[14.93vw] border-b border-solid border-textColor border-opacity-20'>
         <div className='flex items-center content'>
           <Link href={`/${lang}`}>
-            <Image
-              src={logo}
-              width={100}
-              height={100}
-              alt='viva-travel'
-              className='w-[10.4vw] object-cover'
-            />
+            <Image src={logo} width={100} height={100} alt='viva-travel' className='w-[10.4vw] object-cover' />
           </Link>
           <div className='flex-1 hidden max-lg:block'>
             <InputSearchMb lang={lang} />
           </div>
-          <div
-            className='cursor-pointer close'
-            onClick={onCloseMenu}
-          >
+          <div className='cursor-pointer close' onClick={onCloseMenu}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='26'
@@ -58,22 +58,8 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
               fill='none'
               className='w-[6.93vw] h-[6.93vw] object-cover'
             >
-              <line
-                x1='20.0581'
-                y1='7.17899'
-                x2='7.04918'
-                y2='20.188'
-                stroke='#000'
-                strokeWidth='1.2265'
-              />
-              <line
-                x1='19.1909'
-                y1='20.0576'
-                x2='6.18192'
-                y2='7.04863'
-                stroke='#000'
-                strokeWidth='1.2265'
-              />
+              <line x1='20.0581' y1='7.17899' x2='7.04918' y2='20.188' stroke='#000' strokeWidth='1.2265' />
+              <line x1='19.1909' y1='20.0576' x2='6.18192' y2='7.04863' stroke='#000' strokeWidth='1.2265' />
             </svg>
           </div>
         </div>
@@ -86,13 +72,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             onClick={() => handleSelect(1)}
           >
             <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>Our tours</h3>
-            <Image
-              src={iconDropdown}
-              width={11}
-              height={8}
-              alt='img'
-              className='drop-down'
-            />
+            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down' />
           </div>
           <div
             className='list menu-mb_item flex items-center gap-[7.47vw] !overflow-x-auto mt-[3.73vw] '
@@ -134,13 +114,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             onClick={() => handleSelect(2)}
           >
             <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>Travel Style</h3>
-            <Image
-              src={iconDropdown}
-              width={11}
-              height={8}
-              alt='img'
-              className='drop-down'
-            />
+            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down' />
           </div>
           <div
             className='grid menu-mb_item grid-cols-3 gap-x-[15.2vw] gap-y-[7.47vw] mt-[4.27vw] px-[2.67vw] '
@@ -183,13 +157,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             onClick={() => handleSelect(3)}
           >
             <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>Hot deals</h3>
-            <Image
-              src={iconDropdown}
-              width={11}
-              height={8}
-              alt='img'
-              className='drop-down'
-            />
+            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down' />
           </div>
           <div
             className='mt-[3.73vw] menu-mb_item '
@@ -206,11 +174,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             <span className='text-[3.73vw] opacity-40  font-[500] block'>{hotDeals?.voucherHeader?.listHeader}</span>
             <div className='hidden-scroll flex overflow-x-auto gap-[3.73vw] mt-[3.2vw] '>
               {hotDeals?.voucherHeader?.listVoucher?.map((item, index) => (
-                <VoucherItem
-                  key={index}
-                  data={item}
-                  headerData={hotDeals?.voucherHeader?.detailHeader}
-                />
+                <VoucherItem key={index} data={item} headerData={hotDeals?.voucherHeader?.detailHeader} />
               ))}
             </div>
             <span className='text-[3.73vw] opacity-40 font-[500] block mt-[6.4vw]'>
@@ -218,21 +182,12 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             </span>
             <div className='hidden-scroll flex overflow-x-auto gap-[4.27vw] mt-[3.2vw]'>
               {hotDeals?.promotionList?.map((item, index) => (
-                <TourItem
-                  key={index}
-                  data={item}
-                  lang={lang}
-                  menu={menu}
-                />
+                <TourItem key={index} data={item} lang={lang} menu={menu} />
               ))}
             </div>
 
             <div className='flex items-center justify-center mt-[6.4vw]'>
-              <Link
-                href={`${lang}/hot-deals`}
-                onClick={onCloseMenu}
-                className='btn-secondary'
-              >
+              <Link href={`${lang}/hot-deals`} onClick={onCloseMenu} className='btn-secondary'>
                 See all
               </Link>
             </div>
@@ -245,13 +200,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             onClick={() => handleSelect(4)}
           >
             <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>Recommended Services</h3>
-            <Image
-              src={iconDropdown}
-              width={11}
-              height={8}
-              alt='img'
-              className='drop-down'
-            />
+            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down' />
           </div>
           <div
             className='flex overflow-x-auto gap-[3.2vw] mt-[3.73vw] menu-mb_item'
@@ -266,12 +215,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             }
           >
             {rcmServicesList?.data?.categories?.nodes?.map((item, index) => (
-              <ServiceItem
-                key={index}
-                data={item}
-                lang={lang}
-                onCloseMenu={onCloseMenu}
-              />
+              <ServiceItem key={index} data={item} lang={lang} onCloseMenu={onCloseMenu} />
             ))}
           </div>
         </div>
@@ -293,13 +237,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             onClick={() => handleSelect(5)}
           >
             <h3 className='text-[4.26vw] leading-[1.2] capitalize opacity-60 mr-[3.2vw]'>About us</h3>
-            <Image
-              src={iconDropdown}
-              width={11}
-              height={8}
-              alt='img'
-              className='drop-down'
-            />
+            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down' />
           </div>
           <div
             className='flex flex-col gap-[3.2vw] mt-[5.07vw] menu-mb_item'
@@ -313,25 +251,13 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
                 : { height: '0px', overflow: 'hidden' }
             }
           >
-            <Link
-              href='/about-us/who-we-are'
-              className='text-[3.2vw] capitalize'
-              onClick={onCloseMenu}
-            >
+            <Link href='/about-us/who-we-are' className='text-[3.2vw] capitalize' onClick={onCloseMenu}>
               Who we are
             </Link>
-            <Link
-              href='/about-us/responsible-travel'
-              className='text-[3.2vw] capitalize'
-              onClick={onCloseMenu}
-            >
+            <Link href='/about-us/responsible-travel' className='text-[3.2vw] capitalize' onClick={onCloseMenu}>
               responsible travel
             </Link>
-            <Link
-              href='/about-us/reviews'
-              className='text-[3.2vw] capitalize'
-              onClick={onCloseMenu}
-            >
+            <Link href='/about-us/reviews' className='text-[3.2vw] capitalize' onClick={onCloseMenu}>
               Reviews
             </Link>
           </div>
@@ -352,7 +278,10 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
         </Button>
         {/* Socials */}
         <div className='flex items-center gap-[4.27vw] mt-[3.2vw] justify-center'>
-          <div className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] fb'>
+          <Link
+            href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkFb}
+            className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] fb'
+          >
             <Image
               src={fbIcon}
               width={100}
@@ -360,8 +289,12 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
               alt='img'
               className='object-cover max-md:w-[1.875vw] max-md:h-[3.5vw]'
             />
-          </div>
-          <div className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] linked'>
+          </Link>
+
+          <Link
+            href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkLinked}
+            className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] linked'
+          >
             <Image
               src={linkedIcon}
               width={100}
@@ -369,8 +302,11 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
               alt='img'
               className='max-md:w-[3.36vw] max-md:h-[3.36vw] object-cover'
             />
-          </div>
-          <div className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] instar'>
+          </Link>
+          <Link
+            href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkInstargram}
+            className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] instar'
+          >
             <Image
               src={instarIcon}
               width={100}
@@ -378,8 +314,11 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
               alt='img'
               className='max-md:w-[3.84vw] max-md:h-[3.84vw] object-cover'
             />
-          </div>
-          <div className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] ytb'>
+          </Link>
+          <Link
+            href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkYoutube}
+            className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] ytb'
+          >
             <Image
               src={ytbIcon}
               width={100}
@@ -387,7 +326,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
               alt='img'
               className='object-contain max-md:w-[4.28vw] max-md:h-[3.5vw]'
             />
-          </div>
+          </Link>
         </div>
       </div>
     </div>

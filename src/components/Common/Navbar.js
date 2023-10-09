@@ -32,6 +32,7 @@ const theme = createTheme({
   }
 })
 export default function Navbar({
+  socialMobile,
   lang,
   dataHome,
   dataMenuCountry,
@@ -196,19 +197,12 @@ export default function Navbar({
                   className='nav-logo w-[3.5625vw] object-cover max-lg:w-[10.4vw]'
                 />
               </Link>
-              <div
-                className='nav-list max-lg:hidden flex items-center gap-x-[2vw] mr-[6vw]'
-                ref={refMenu}
-              >
+              <div className='nav-list max-lg:hidden flex items-center gap-x-[2vw] mr-[6vw]' ref={refMenu}>
                 <div className='relative flex-shrink-0'>
                   <div className='capitalize text-[1vw] nav-link cursor-pointer'>
                     {dataHome?.nav1}
                     <div className='menu-item'>
-                      <MenuDestinations
-                        data={dataMenuCountry}
-                        lang={lang}
-                        onCloseMenu={handleCloseMenu}
-                      />
+                      <MenuDestinations data={dataMenuCountry} lang={lang} onCloseMenu={handleCloseMenu} />
                     </div>
                   </div>
                   <span className='icon-hot absolute top-[-12px] right-[-6px] px-[10px] rounded-[99px] bg-primaryColor text-[12px]'>
@@ -218,17 +212,10 @@ export default function Navbar({
                 <div className='capitalize text-[1vw] nav-link cursor-pointer'>
                   {dataHome?.nav2}
                   <div className='menu-item '>
-                    <MenuStyle
-                      travelStylesList={travelStylesList}
-                      lang={lang}
-                      onCloseMenu={handleCloseMenu}
-                    />
+                    <MenuStyle travelStylesList={travelStylesList} lang={lang} onCloseMenu={handleCloseMenu} />
                   </div>
                 </div>
-                <Link
-                  href={`/${lang}/hot-deals`}
-                  className='capitalize text-[1vw] nav-link cursor-pointer'
-                >
+                <Link href={`/${lang}/hot-deals`} className='capitalize text-[1vw] nav-link cursor-pointer'>
                   {dataHome?.nav3}
 
                   <div className='hidden menu-item menu-item3'>
@@ -241,36 +228,22 @@ export default function Navbar({
                     />
                   </div>
                 </Link>
-                <Link
-                  href={`/${lang}/check-visa`}
-                  className='capitalize text-[1vw] nav-link'
-                >
+                <Link href={`/${lang}/check-visa`} className='capitalize text-[1vw] nav-link'>
                   {dataHome?.nav4}
                 </Link>
                 <div className='capitalize text-[1vw] nav-link cursor-pointer'>
                   {dataHome?.nav5}
                   <div className='menu-item'>
-                    <MenuAbout
-                      dataAboutUs={dataAboutUs}
-                      onCloseMenu={handleCloseMenu}
-                      lang={lang}
-                    />
+                    <MenuAbout dataAboutUs={dataAboutUs} onCloseMenu={handleCloseMenu} lang={lang} />
                   </div>
                 </div>
                 <div className='capitalize text-[1vw] nav-link cursor-pointer'>
                   {dataHome?.nav6}
                   <div className='menu-item'>
-                    <MenuRcmService
-                      rcmServicesList={rcmServicesList}
-                      lang={lang}
-                      onCloseMenu={handleCloseMenu}
-                    />
+                    <MenuRcmService rcmServicesList={rcmServicesList} lang={lang} onCloseMenu={handleCloseMenu} />
                   </div>
                 </div>
-                <Link
-                  href={`/${lang}/blog`}
-                  className='capitalize text-[1vw] nav-link cursor-pointer'
-                >
+                <Link href={`/${lang}/blog`} className='capitalize text-[1vw] nav-link cursor-pointer'>
                   {dataHome?.nav7}
                 </Link>
               </div>
@@ -282,13 +255,7 @@ export default function Navbar({
               onClick={() => setOpenModal(true)}
             >
               <Button className='flex-shrink-0 btn-primary mr-[3.25vw]'>
-                <Image
-                  src={star}
-                  width={50}
-                  height={50}
-                  alt='img'
-                  className='w-[1.25vw] object-cover mr-[0.75vw]'
-                />
+                <Image src={star} width={50} height={50} alt='img' className='w-[1.25vw] object-cover mr-[0.75vw]' />
                 Book tour
               </Button>
             </div>
@@ -317,6 +284,7 @@ export default function Navbar({
           ref={refMb}
         >
           <MenuMb
+            socialMobile={socialMobile}
             onCloseMenu={handleClickClose}
             lang={lang}
             hotDeals={hotDeals}
@@ -333,30 +301,15 @@ export default function Navbar({
               : ''
           } books-footer h-[15.2vw] fixed bottom-0 left-0 right-0 z-[99] hidden max-md:flex`}
         >
-          <Link
-            href={`/${lang}/search`}
-            className='flex items-center gap-[1.6vw] w-[50%] bg-[#fff] justify-center'
-          >
-            <Image
-              src={planeF}
-              width={50}
-              height={50}
-              alt='img'
-              className='w-[4.26vw] h-[4.26vw]'
-            />
+          <Link href={`/${lang}/search`} className='flex items-center gap-[1.6vw] w-[50%] bg-[#fff] justify-center'>
+            <Image src={planeF} width={50} height={50} alt='img' className='w-[4.26vw] h-[4.26vw]' />
             <span className='text-[3.46vw] font-[500]'>Tours List</span>
           </Link>
           <div
             onClick={() => setOpenModal(true)}
             className='flex items-center gap-[1.6vw] w-[50%] bg-[#FFD220] justify-center'
           >
-            <Image
-              src={starF}
-              width={50}
-              height={50}
-              alt='img'
-              className='w-[4.26vw] h-[4.26vw]'
-            />
+            <Image src={starF} width={50} height={50} alt='img' className='w-[4.26vw] h-[4.26vw]' />
             <span className='text-[3.46vw] font-[500]'>Book tour</span>
           </div>
         </div>
@@ -368,10 +321,7 @@ export default function Navbar({
             className='w-[91.46vw] md:w-[82.93vw] md:h-[90vh] h-[80vh]'
           >
             <div className='w-full h-full overflow-y-auto md:rounded-[16px] overflow-x-hidden'>
-              <BookTour
-                data={dataBookTour}
-                setOpenModal={setOpenModal}
-              />
+              <BookTour data={dataBookTour} setOpenModal={setOpenModal} />
             </div>
           </ModalCustom>
         )}
