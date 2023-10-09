@@ -16,7 +16,7 @@ export default function TourDetail({
   dataBookTour = {},
   slug
 }) {
-  const { banner, content, map } = data
+  const { banner, content, map, priceTour } = data
 
   const { bannerHeaders, content: contentHeader, relatedTour: relatedTourHeader, subBanner } = headerData
 
@@ -26,10 +26,12 @@ export default function TourDetail({
       <TourDetailBanner
         data={banner || {}}
         headerData={bannerHeaders}
+        price={priceTour}
       />
       <TourDetailBannerMobile
         data={banner || {}}
         headerData={bannerHeaders}
+        price={priceTour}
       />
       <div className='md:my-[7.5vw] relative'>
         <div className='md:block hidden'>
@@ -53,6 +55,7 @@ export default function TourDetail({
             relatedTours={relatedTours}
             lang={lang}
             dataBookTour={dataBookTour}
+            price={priceTour}
           />
           <SubBanner
             data={subBanner}

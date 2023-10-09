@@ -40,10 +40,7 @@ export default function PriceMb({ data, onClick }) {
       <div className='px-[4.27vw] pt-[4.2vw] pb-[3.2vw] w-[100vw] bg-[#fff]'>
         <div className='flex justify-between items-center mb-[2.27vw] text-[#171717]'>
           <div className='text-[3.73vw] font-medium'>{data?.price?.header}:</div>
-          <div className='text-[4.26vw] capitalize leading-[1.5] font-bold'>
-            {' '}
-            ${data?.price?.value?.lowestPrice} - ${data?.price?.value?.highestPrice}
-          </div>
+          <div className='text-[4.26vw] capitalize leading-[1.5] font-bold'>${data?.price?.value}</div>
         </div>
 
         <Button

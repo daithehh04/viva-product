@@ -11,8 +11,8 @@ import ModalCustom from '@/components/Common/ModalCustom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 
-export default function TourDetailBannerMobile({ data = {} }) {
-  const { gallery, price, location, rate, video, title } = data
+export default function TourDetailBannerMobile({ data = {}, price }) {
+  const { gallery, location, rate, video, title } = data
   const starIcons = new Array(Math.ceil(rate || 5)).fill(0)
   const [isPlay, setIsPlay] = useState(false)
 
@@ -113,9 +113,7 @@ export default function TourDetailBannerMobile({ data = {} }) {
               })}
             </span>
           </div>
-          <div className='w-full text-[5.33vw] font-bold leading-normal'>
-            {`$${price?.lowestPrice || ''} - $${price?.highestPrice || ''}`}
-          </div>
+          <div className='w-full text-[5.33vw] font-bold leading-normal'>${price}</div>
         </div>
       </div>
 

@@ -72,10 +72,6 @@ const DATA_BEST_TOUR = gql`
                 sourceUrl
               }
               location
-              price {
-                lowestPrice
-                highestPrice
-              }
               rate
               icons
             }
@@ -125,10 +121,6 @@ const DATA_BEST_TOUR_HOME_PAGE = gql`
                 sourceUrl
               }
               location
-              price {
-                lowestPrice
-                highestPrice
-              }
               rate
               icons
             }
@@ -140,38 +132,34 @@ const DATA_BEST_TOUR_HOME_PAGE = gql`
 `
 
 const DATA_SEARCH_TEXT_TOUR = gql`
-query SearchTour($title: String,$language: LanguageCodeEnum!){
-  allTours(first: 50,where: {search: $title}) {
-    nodes {
-      translation(language: $language) {
-        title
-      slug
-      tourStyle {
-        nodes {
-          slug
-        }
-      }
-      tourDetail {
-        priceTour
-        numberDay
-        banner {
+  query SearchTour($title: String, $language: LanguageCodeEnum!) {
+    allTours(first: 50, where: { search: $title }) {
+      nodes {
+        translation(language: $language) {
           title
-          gallery {
-            sourceUrl
+          slug
+          tourStyle {
+            nodes {
+              slug
+            }
           }
-          location
-          price {
-            lowestPrice
-            highestPrice
+          tourDetail {
+            priceTour
+            numberDay
+            banner {
+              title
+              gallery {
+                sourceUrl
+              }
+              location
+              rate
+              icons
+            }
           }
-          rate
-          icons
         }
-      }
       }
     }
   }
-}
 `
 
 export {

@@ -72,13 +72,10 @@ export const GET_HOT_DEAL_DATA = `query ($language: LanguageCodeEnum!) {
               id
               slug
               tourDetail {
+                priceTour
                 banner {
                   title
                   rate
-                  price {
-                    highestPrice
-                    lowestPrice
-                  }
                   location
                   gallery {
                     altText
@@ -104,13 +101,10 @@ export const GET_LIST_PROMOTION_TOUR = `query ($language: LanguageCodeEnum!) {
                 id
                 slug
                 tourDetail {
+                  priceTour
                   banner {
                     title
                     rate
-                    price {
-                      highestPrice
-                      lowestPrice
-                    }
                     location
                     gallery {
                       altText

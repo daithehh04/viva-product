@@ -10,6 +10,7 @@ import { Skeleton } from '@mui/material'
 
 function TourItem({ data, menu, lang, loading }) {
   const tourData = data?.translation?.tourDetail?.banner || data?.tourDetail?.banner
+  const price = data?.translation?.tourDetail?.priceTour
   let icons = null
   if (tourData?.rate) icons = new Array(Math.round(tourData?.rate)).fill(0)
   const pathName = usePathname()
@@ -99,9 +100,7 @@ function TourItem({ data, menu, lang, loading }) {
         </div>
         <div className='flex items-center justify-between md:mt-[0.81vw] mt-[2.13vw]'>
           {!loading ? (
-            <span className='text-primaryColor text-[2.67vw] md:text-[1vw]'>
-              ${tourData?.price?.highestPrice} - ${tourData?.price?.lowestPrice}
-            </span>
+            <span className='text-primaryColor text-[2.67vw] md:text-[1vw]'>${price}</span>
           ) : (
             <Skeleton
               variant='rectangular'

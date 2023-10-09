@@ -40,14 +40,11 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
               id
               slug
               tourDetail {
+                priceTour
                 banner {
                   gallery {
                     altText
                     sourceUrl
-                  }
-                  price {
-                    highestPrice
-                    lowestPrice
                   }
                   rate
                   title

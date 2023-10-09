@@ -5,11 +5,8 @@ query getTour($language: LanguageCodeFilterEnum) {
     allTours(where: {language: $language}) {
       nodes {
         tourDetail {
+          priceTour
           banner {
-            price {
-              highestPrice
-              lowestPrice
-            }
             gallery {
               altText
               sourceUrl
@@ -46,10 +43,6 @@ const DATA_ALL_TOUR = gql`
                 sourceUrl
               }
               location
-              price {
-                lowestPrice
-                highestPrice
-              }
               rate
             }
           }

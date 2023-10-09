@@ -15,8 +15,8 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-export default function TourDetailBanner({ data = {}, headerData }) {
-  const { gallery, price, location, rate, video, title } = data
+export default function TourDetailBanner({ data = {}, headerData, price }) {
+  const { gallery, location, rate, video, title } = data
   const icons = new Array(Math.ceil(data?.rate || 5)).fill(0)
   const outsideRef = useRef()
   const [isPlay, setIsPlay] = useState(false)
@@ -119,10 +119,6 @@ export default function TourDetailBanner({ data = {}, headerData }) {
             setIsPlay(false)
             slider.slickPlay()
           }}
-          onPause={() => {
-            setIsPlay(false)
-            slider.slickPlay()
-          }}
         >
           <source
             type='video/mp4'
@@ -155,9 +151,7 @@ export default function TourDetailBanner({ data = {}, headerData }) {
             <div>
               <div className='flex gap-[10px] items-center font-bold leading-normal'>
                 <span className='text-[1.25vw]'>{headerData?.priceHeader}:</span>
-                <span className=' max-w-[20vw] text-[1.875vw] capitalize line-clamp-1'>{`$${
-                  price?.lowestPrice || ''
-                } - $${price?.highestPrice || ''}`}</span>
+                <span className=' max-w-[20vw] text-[1.875vw] capitalize line-clamp-1'>${price}</span>
               </div>
               <div className='flex gap-2 items-center'>
                 <span className='text-[1.25vw] font-medium leading-normal'>{rate || 5}</span>
@@ -214,6 +208,10 @@ export default function TourDetailBanner({ data = {}, headerData }) {
           arrows={false}
           infinite={true}
           speed={800}
+          onSwipe={() => {
+            setIsPlay(false)
+            slider.slickPlay()
+          }}
         >
           {video?.uploadVideo?.mediaItemUrl && (
             <div className='relative'>
