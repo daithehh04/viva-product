@@ -81,8 +81,8 @@ export default function BookingProcessSteps({ data = {} }) {
             <Stepper alternativeLabel activeStep={5}>
               {stepsAbove?.map((label, index) => (
                 <Step onMouseOut={() => handleHover(-1)} onMouseOver={() => handleHover(index)} key={index}>
-                  <StepLabel StepIconProps={{ className: 'about-step-icon' }} className='about-step-above'>
-                    <Image src={label.icon} alt='stepIcon' />
+                  <StepLabel StepIconProps={{ className: 'about-step-icon' }} className='about-step-above cursor-pointer'>
+                    <Image src={label.icon} alt='stepIcon'/>
                     <div>{data?.step ? data?.step[index]?.title : ''}</div>
                   </StepLabel>
                 </Step>

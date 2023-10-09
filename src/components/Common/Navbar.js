@@ -45,7 +45,8 @@ export default function Navbar({
   dataTaxonomiesCountry,
   dataTaxonomiesStyleTour,
   dataTaxonomiesBudget,
-  dataTaxonomiesDuration
+  dataTaxonomiesDuration,
+  contactInfo
 }) {
   const arrDataTaxonomiesBudget = dataTaxonomiesBudget?.data?.allBudget?.nodes
   const arrDataTaxonomiesDuration = dataTaxonomiesDuration?.data?.allDuration?.nodes
@@ -56,6 +57,11 @@ export default function Navbar({
   const refNav = useRef()
   const refBtnBookTour = useRef()
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
+  const titleAboutUs = {
+    whoWeAre: dataAboutUs?.wwrRes?.who_we_are?.banner?.title,
+    ResTravel: dataAboutUs?.rtRes?.responsibleTravel?.banner?.title,
+    AboutUs: dataAboutUs?.rvRes?.aboutUsReviews?.banner?.title
+  }
   //check pathName
   const pathName = usePathname()
   const [openModal, setOpenModal] = useState(false)
@@ -329,15 +335,17 @@ export default function Navbar({
           className='menu-popup fixed inset-0 hidden overflow-x-hidden overflow-y-auto w-full h-full bg-white nav-mobile max-lg:block !z-[199] nav-mobile'
           ref={refMb}
         >
-          <MenuMb
+          <MenuMb dataHome={dataHome}
             socialMobile={socialMobile}
             onCloseMenu={handleClickClose}
             lang={lang}
+            titleAboutUs={titleAboutUs}
             hotDeals={hotDeals}
             dataMenuCountry={dataMenuCountry}
             travelStylesList={travelStylesList}
             rcmServicesList={rcmServicesList}
             menu
+            contactInfo={contactInfo}
           />
         </div>
         <div

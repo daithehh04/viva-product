@@ -287,9 +287,9 @@ const GET_NEXT_STEP = `query ($language: LanguageCodeEnum!) {
   }
 }`
 
-const GET_FOOTER = `query getHomePageData {
+const GET_FOOTER = `query getHomePageData($language: LanguageCodeEnum!) {
   page(id: "cG9zdDoxOQ==") {
-    translation(language: EN) {
+    translation(language: $language) {
       home {
         footer {
           logoPartner {
@@ -375,4 +375,21 @@ const GET_META_DATA = `query ($language: LanguageCodeEnum!) {
     }
   }
 }`
-export { DATA_HEADER, GET_HOME_PAGE, GET_NEXT_STEP, GET_FOOTER, GET_META_DATA, GET_SOCIAL_MOBILE }
+
+const GET_INFO_CONTACT = `query getInfoContact($language: LanguageCodeEnum!) {
+  page(id: "cG9zdDoxOQ==") {
+    translation(language: $language) {
+      home {
+        footer {
+          column1 {
+            contact {
+              title
+              content
+            }
+          }
+        }
+      }
+    }
+  }
+}`
+export { DATA_HEADER, GET_HOME_PAGE, GET_NEXT_STEP, GET_FOOTER, GET_META_DATA, GET_SOCIAL_MOBILE, GET_INFO_CONTACT }

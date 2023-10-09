@@ -1,9 +1,10 @@
-import calendar from '@/assets/images/calendarW.svg'
+import calendarY from '@/assets/images/calendarY.svg'
+import calendarW from '@/assets/images/calendarW.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 import moment from 'moment'
 
-function BlogItem2({ className, data, lang }) {
+function BlogItem2({ className, data, lang, isHomePage }) {
   return (
     <Link
       href={`/${lang}/${data?.slug}`}
@@ -27,18 +28,19 @@ function BlogItem2({ className, data, lang }) {
         <div className='absolute bottom-0 md:pb-[1vw] pb-[5.3vw] md:pl-[1.13vw] pl-[4.8vw] md:pr-[2vw] pr-[2.4vw] info'>
           <div className='flex items-center gap-x-[0.64vw]'>
             <Image
-              src={calendar}
-              width={100}
-              height={100}
+              src={isHomePage ? calendarY : calendarW}
+              width={300}
+              height={300}
               alt='calendar'
-              className='md:w-[0.84375vw] w-[4.26667vw] md:h-[0.9375vw] h-[4.26667vw] object-cover'
+              className='max-lg:scale-150 w-[0.84375vw] max-md:w-[4.26667vw] md:h-[0.9375vw] h-[4.26667vw] object-cover'
             />
             <span className='md:text-[0.875vw] text-[3.2vw] leading-none text-[#fff]'>
               {moment(data?.dateGmt)?.format('DD MMMM YYYY')}
             </span>
           </div>
           <h4 className='line-clamp-2'>
-            <a className='md:text-[1vw] text-[3.73333vw] font-[700]  leading-[1.4] md:mt-[0.47vw] mt-[2.4vw] text-[#fff] title'>
+            <a className='text-[1vw] max-md:text-[3.73333vw] font-[700] leading-[1.4] mt-[0.47vw] max-md:mt-[2.4vw] text-[#fff] title 
+            max-lg:leading-[0.2px]'>
               {data?.title}
             </a>
           </h4>

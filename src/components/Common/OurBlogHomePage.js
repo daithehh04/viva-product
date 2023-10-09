@@ -37,7 +37,7 @@ function OurBlogHomePage({ data, button, lang }) {
       </span>
       <div className='grid md:grid-cols-4 max-md:px-[4.27vw] max-md:gap-x-[4.27vw] max-md:gap-y-[8.53vw] grid-rows-2 md:gap-[2.5vw] grid-cols-2 md:overflow-x-visible overflow-x-auto gap-0 listBlog '>
         <div className='hidden md:flex flex-shrink-0 md:col-span-2 md:row-span-2 h-full md:pl-0 pl-[4.27vw]'>
-          <BlogItem2
+          <BlogItem2 isHomePage={true}
             data={data?.listBlog ? data?.listBlog[4] : null}
             className={`max-md:hidden ${onlySmallScreen ? '' : 'bigger'}`}
             lang={lang}
@@ -47,13 +47,13 @@ function OurBlogHomePage({ data, button, lang }) {
           if (index < 4)
             return (
               <div key={index}>
-                <BlogItem2
+                <BlogItem2 isHomePage={true}
                   lang={lang}
                   data={blog}
                   className='max-md:hidden flex flex-shrink-0 blogItem max-md:pl-[4.27vw] '
                 />
 
-                <BlogItem
+                <BlogItem isHomePage={true}
                   className='md:hidden !ml-0 !w-[43vw]'
                   heightImage={'!h-[43.73333vw]'}
                   data={blog}

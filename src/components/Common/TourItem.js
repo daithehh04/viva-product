@@ -21,7 +21,7 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
       href={`/${lang}/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
       className={`${
         menu ? 'md:h-[14.5vw] w-[52.5vw]' : 'md:h-[24.5vw] w-full'
-      } flex h-[67.23vw] md:rounded-[1vw] rounded-[2.75vw] relative max-md:flex-shrink-0  tour-item cursor-pointer`}
+      } flex h-[67.23vw] md:rounded-[1vw] rounded-[2.75vw] relative max-md:flex-shrink-0 tour-item cursor-pointer`}
     >
       {!loading ? (
         <Image
