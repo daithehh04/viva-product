@@ -325,7 +325,7 @@ export default function Navbar({
           } books-footer h-[15.2vw] fixed bottom-0 left-0 right-0 z-[99] hidden max-md:flex`}
         >
           <Link
-            href={`${lang}/search`}
+            href={`/${lang}/search`}
             className='flex items-center gap-[1.6vw] w-[50%] bg-[#fff] justify-center'
           >
             <Image

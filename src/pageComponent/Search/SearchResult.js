@@ -45,6 +45,7 @@ const SearchResult = ({ data, quantity, lang, className, loading, results }) => 
               <TourItemMobile
                 data={tour}
                 lang={lang}
+                loading={loading}
               />
             </div>
           </div>

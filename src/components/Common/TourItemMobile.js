@@ -6,8 +6,9 @@ import imgStar from '@/assets/images/star_yellow.svg'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { iconsTour } from '@/lib/Icons'
+import { Skeleton } from '@mui/material'
 
-function TourItemMobile({ data, lang }) {
+function TourItemMobile({ data, lang, loading }) {
   const tourData = data?.translation?.tourDetail?.banner
   const price = data?.translation?.tourDetail?.priceTour
   let listRate = null
@@ -20,7 +21,7 @@ function TourItemMobile({ data, lang }) {
       className={` p-[4.27vw] h-[46.4vw] flex gap-[4.27vw] bg-white`}
     >
       <div className='h-full w-[45%] rounded-[1.067vw]'>
-        <Image
+        {!loading ? <Image
           alt='tour data'
           src={
             tourData?.gallery
@@ -30,11 +31,16 @@ function TourItemMobile({ data, lang }) {
           width={1000}
           height={1000}
           className='h-[100%] w-[100%] object-cover rounded-[1.067vw]'
-        />
+        /> : <Skeleton
+        variant='rounded'
+        width={'100%'}
+        height={'100%'}
+      />}
+        
       </div>
 
       <div className='flex flex-col flex-1'>
-        <div className='flex gap-[0.5736vw] items-center mb-[0.53vw]'>
+        {!loading ? <div className='flex gap-[0.5736vw] items-center mb-[0.53vw]'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             className='w-[2.66667vw] h-[2.66667vw]'
@@ -54,11 +60,12 @@ function TourItemMobile({ data, lang }) {
           <span className='text-justify font-sans text-[2.67vw] text-textColor leading-[150%]'>
             {tourData?.location}
           </span>
-        </div>
-
-        <span className=' font-sans text-[#171717] line-clamp-2 text-[3.2vw] font-bold leading-[120%] tracking-[-0.064vw] '>
+        </div> : <Skeleton variant='text' sx={{ fontSize: '1rem' }} />}
+        
+          {!loading ? <span className=' font-sans text-[#171717] line-clamp-2 text-[3.2vw] font-bold leading-[120%] tracking-[-0.064vw] '>
           {tourData?.title}
-        </span>
+        </span> : <Skeleton variant='text' sx={{ fontSize: '1rem' }} />}
+        
         <div className='flex gap-[0.53333vw] items-center mt-[2.13vw]'>
           <span className='text-[#171717] text-[2.67vw] text-justify font-medium leading-[150%] opacity-70 '>
             {tourData?.rate}
@@ -73,12 +80,11 @@ function TourItemMobile({ data, lang }) {
             ))}
           </div>
         </div>
-
-        <span className='text-[#171717] text-justify font-sans text-[4.27vw] font-bold leading-[150%] capitalize mb-[6.4vw]'>
+        {!loading ? <span className='text-[#171717] text-justify font-sans text-[4.27vw] font-bold leading-[150%] capitalize mb-[6.4vw]'>
           ${price}
-        </span>
+        </span>: <Skeleton variant='text' sx={{ fontSize: '1rem' }} />}
 
-        <div className='flex gap-[1.448vw]'>
+        {!loading ? <div className='flex gap-[1.448vw]'>
           {tourData?.icons?.map((icon, index) => (
             <div
               key={index}
@@ -93,7 +99,13 @@ function TourItemMobile({ data, lang }) {
               />
             </div>
           ))}
-        </div>
+        </div> : <Skeleton
+              style={{marginTop: '3vw'}}
+              variant='rectangular'
+              width={'100%'}
+              height={30}
+            />}
+        
       </div>
     </Link>
   )

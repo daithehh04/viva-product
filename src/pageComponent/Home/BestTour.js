@@ -81,7 +81,7 @@ function BestTour({
                   <TourItem data={tour} lang={lang} loading={loading}/>
                 </div>
                 <div className='hidden max-md:block'>
-                  <TourItemMobile data={tour} lang={lang} />
+                  <TourItemMobile data={tour} lang={lang} loading={loading}/>
                 </div>
               </div>
             ))
