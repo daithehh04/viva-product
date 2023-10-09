@@ -25,7 +25,7 @@ function OtherTours({ lang }) {
         {allTours?.length !== 0 ? (
           <div>
             <h3 className='text-[2.5vw] font-[500] max-md:text-[3.2vw] max-md:px-[4.27vw]'>You may also like:</h3>
-            <SearchResult data={allTours} quantity={6} text={'You may also like:'} className='hidden' />
+            <SearchResult data={allTours} quantity={6} text={'You may also like:'} className='hidden' loading = {dataAllTours?.loading}/>
           </div>
         ) : (
           ''
