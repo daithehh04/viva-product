@@ -129,16 +129,13 @@ query ($language: LanguageCodeEnum!) {
         translation(language:$language){
           slug
           tourDetail {
+            priceTour
               banner {
                 gallery {
                   sourceUrl
                 }
                 icons
                 location
-                price {
-                  highestPrice
-                  lowestPrice
-                }
                 rate
                 title
               }

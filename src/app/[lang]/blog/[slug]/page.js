@@ -42,6 +42,7 @@ query($language : LanguageCodeFilterEnum!){
           slug
           title
           tourDetail {
+            priceTour
             banner {
               gallery {
                 sourceUrl
@@ -50,10 +51,6 @@ query($language : LanguageCodeFilterEnum!){
               location
               rate
               title
-              price {
-                highestPrice
-                lowestPrice
-              }
             }
           }
         }

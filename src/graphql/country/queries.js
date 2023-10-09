@@ -97,16 +97,13 @@ query getTourStyle($language: LanguageCodeEnum!, $taxonomyValue: String, $taxono
             }
           }
           tourDetail {
+            priceTour
             banner {
               location
               rate
               title
               gallery {
                 sourceUrl
-              }
-              price {
-                highestPrice
-                lowestPrice
               }
               icons
             }
@@ -136,6 +133,7 @@ query getTourStyle($language: LanguageCodeEnum!, $taxonomyValue: String, $taxono
             }
           }
           tourDetail {
+            priceTour
             banner {
               location
               rate
@@ -143,10 +141,6 @@ query getTourStyle($language: LanguageCodeEnum!, $taxonomyValue: String, $taxono
             gallery {
               sourceUrl
             }
-              price {
-                highestPrice
-                lowestPrice
-              }
             }
           }
         }
@@ -163,16 +157,13 @@ query($language:LanguageCodeEnum!){
         translation(language:$language){
           slug
           tourDetail {
+            priceTour
               banner {
                 gallery {
                   sourceUrl
                 }
                 icons
                 location
-                price {
-                  highestPrice
-                  lowestPrice
-                }
                 rate
                 title
               }

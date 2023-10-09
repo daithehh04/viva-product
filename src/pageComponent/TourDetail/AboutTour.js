@@ -21,7 +21,8 @@ import ModalCustom from '@/components/Common/ModalCustom'
 import BookTour from '@/components/Common/BookTour'
 
 export default function AboutTour(props) {
-  const { type, data, headerData = {}, relatedTours = [], lang, dataBookTour } = props
+  const { type, data, headerData = {}, relatedTours = [], lang, dataBookTour, price } = props
+  console.log(data)
   const { contentHeader, relatedTourHeader, bannerHeaders } = headerData
   const { reviews, banner, content = {} } = data || []
 
@@ -545,7 +546,7 @@ export default function AboutTour(props) {
               <Price
                 data={{
                   button: data?.map?.button,
-                  price: { header: bannerHeaders?.priceHeader, value: banner?.price }
+                  price: { header: bannerHeaders?.priceHeader, value: price }
                 }}
                 onClick={() => setOpenModal(true)}
               />
@@ -612,7 +613,7 @@ export default function AboutTour(props) {
         <PriceMb
           data={{
             button: data?.map?.button,
-            price: { header: bannerHeaders?.priceHeader, value: banner?.price },
+            price: { header: bannerHeaders?.priceHeader, value: price },
             map: data?.map?.image
           }}
           onClick={() => setOpenModal(true)}

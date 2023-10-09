@@ -20,7 +20,7 @@ export default function Promotion({
   dataBookTour
 }) {
   const [openModal, setOpenModal] = useState(false)
-  const { banner, content, map } = data
+  const { banner, content, map, priceTour } = data
 
   const reviews = reviewsList?.filter((item) => item?.customerReview?.tours?.slug === slug)
   const { bannerHeaders, content: contentHeader, relatedTour: relatedTourHeader } = headerData
@@ -34,7 +34,7 @@ export default function Promotion({
             className={'w-[19.0625vw] px-[1.88vw] pb-[1.19vw] pt-[3.19vw]'}
             data={{
               button: map?.button,
-              price: { header: bannerHeaders?.priceHeader, value: banner?.price }
+              price: { header: bannerHeaders?.priceHeader, value: priceTour }
             }}
             onClick={() => setOpenModal(true)}
           />
@@ -46,6 +46,7 @@ export default function Promotion({
           <TourDetailBannerMobile
             data={banner || {}}
             headerData={bannerHeaders}
+            price={priceTour}
           />
         </div>
         <Image
@@ -78,6 +79,7 @@ export default function Promotion({
             relatedTours={relatedTours}
             lang={lang}
             dataBookTour={dataBookTour}
+            price={priceTour}
           />
         </div>
       </main>

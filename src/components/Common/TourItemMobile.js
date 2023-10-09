@@ -9,6 +9,7 @@ import { iconsTour } from '@/lib/Icons'
 
 function TourItemMobile({ data, lang }) {
   const tourData = data?.translation?.tourDetail?.banner
+  const price = data?.translation?.tourDetail?.priceTour
   let listRate = null
   if (tourData?.rate) listRate = new Array(Math.round(tourData?.rate)).fill(0)
   const pathName = usePathname()
@@ -74,7 +75,7 @@ function TourItemMobile({ data, lang }) {
         </div>
 
         <span className='text-[#171717] text-justify font-sans text-[4.27vw] font-bold leading-[150%] capitalize mb-[6.4vw]'>
-          ${tourData?.price?.highestPrice} - ${tourData?.price?.lowestPrice}
+          ${price}
         </span>
 
         <div className='flex gap-[1.448vw]'>

@@ -4,6 +4,7 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
       id
       slug
       tourDetail {
+        priceTour
         banner {
           rate
           title
@@ -17,10 +18,6 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
             }
           }
           location
-          price {
-            highestPrice
-            lowestPrice
-          }
           gallery {
             altText
             sourceUrl
@@ -29,7 +26,7 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
         }
         content {
           overview {
-              text
+            text
           }
           brief {
             row {
@@ -43,7 +40,6 @@ export const GET_TOUR_DETAIL = `query GetTourDetail($slug: ID!, $language: Langu
             content {
               heading
               desc
-              
               place {
                 placeName
                 image {
@@ -156,6 +152,7 @@ export const GET_RELATED_TOUR = `query($language: LanguageCodeEnum!, $taxonomyVa
         id
         slug
           tourDetail {
+            priceTour
             banner {
               location
               rate
@@ -164,10 +161,7 @@ export const GET_RELATED_TOUR = `query($language: LanguageCodeEnum!, $taxonomyVa
               altText
               sourceUrl
             }
-            price {
-              highestPrice
-              lowestPrice
-            }
+           
             icons
             }
           }
@@ -181,7 +175,8 @@ export const GET_RANDOM_TOUR = `query ($language: LanguageCodeEnum!) {
     nodes {
       translation(language: $language) {
         slug
-        tourDetail {  
+        tourDetail {
+          priceTour
           banner {
             gallery {
               altText
@@ -189,10 +184,6 @@ export const GET_RANDOM_TOUR = `query ($language: LanguageCodeEnum!) {
             }
             icons
             location
-            price {
-              highestPrice
-              lowestPrice
-            }
             rate
             title
           }

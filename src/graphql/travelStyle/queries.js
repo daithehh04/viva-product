@@ -28,14 +28,11 @@ const GET_INFO_PAGE_TRAVEL_STYLE = `query getInfoPageTravelStyle($taxonomyValue:
                 id
                 slug
                 tourDetail {
+                  priceTour
                   banner {
                     gallery {
                       altText
                       sourceUrl
-                    }
-                    price {
-                      highestPrice
-                      lowestPrice
                     }
                     rate
                     title
@@ -108,16 +105,13 @@ const GET_LIST_TOUR_TRAVEL_STYLE_CLIENT = gql`
         node {
           translation(language: $language) {
             tourDetail {
+              priceTour
               banner {
                 location
                 rate
                 title
                 gallery {
                   sourceUrl
-                }
-                price {
-                  highestPrice
-                  lowestPrice
                 }
               }
             }
