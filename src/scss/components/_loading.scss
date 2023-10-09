@@ -74,3 +74,15 @@ $s-footer-height: 3rem;
       transform: rotate(360deg);
   }
 }
+
+@include mobile {
+  .loading {
+    width: 40px;
+    height: 40px;
+    &::after {
+      width: 32px;
+      height: 32px;
+      border-width: 3px;
+    }
+  }
+}
