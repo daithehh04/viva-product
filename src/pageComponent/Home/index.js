@@ -76,7 +76,7 @@ export default function Home({
     })
   }
   useEffect(() => {
-    AOS.init()
+    AOS.init({disable: 'mobile'})
     AOS.refresh()
   }, [])
   // AOS.init({

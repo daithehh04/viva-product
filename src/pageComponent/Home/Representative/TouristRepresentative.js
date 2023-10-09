@@ -5,7 +5,7 @@ import AOS from 'aos'
 
 function TouristRepresentative({ data }) {
   useEffect(() => {
-    AOS.init()
+    AOS.init({disable: 'mobile'})
     AOS.refresh()
   }, [])
   return (

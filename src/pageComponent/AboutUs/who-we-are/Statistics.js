@@ -16,7 +16,7 @@ import CountDown from '@/components/Common/CountDown'
 
 export default function Statistics({ data }) {
   useEffect(() => {
-    AOS.init()
+    AOS.init({disable: 'mobile'})
     AOS.refresh()
   }, [])
   const imgRef = useRef([])
