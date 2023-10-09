@@ -36,13 +36,7 @@ export default function Home({
   const [budget, setBudget] = useState(null)
   const [duration, setDuration] = useState(null)
   const lng = lang?.toUpperCase()
-  const dataBestTours = useQuery(DATA_BEST_TOUR, {
-    variables: {
-      language: lng,
-      countrySlug: !destination ? arrSlugTaxonomiesCountry : destination,
-      styleTourSlug: !travelStyle || travelStyle.length === 0 ? arrSlugTaxonomiesStyleTravel : travelStyle
-    }
-  })
+
   const dataBestToursHomePage = useQuery(DATA_BEST_TOUR_HOME_PAGE, {
     variables: {
       language: lng,
@@ -52,9 +46,8 @@ export default function Home({
     }
   })
 
-  const allToursBestSeller = dataBestToursHomePage?.data?.allTours?.nodes
-  const loading = dataBestTours?.loading
-  var allTours = dataBestTours?.data?.allTours?.nodes
+  const loading = dataBestToursHomePage?.loading
+  var allTours = dataBestToursHomePage?.data?.allTours?.nodes
   if (budget) {
     allTours = allTours?.filter((tour) => {
       let priceTour = tour?.translation?.tourDetail?.priceTour
