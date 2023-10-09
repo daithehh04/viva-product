@@ -8,7 +8,7 @@ import InputSearchHome from './InputSearchHome'
 function HomeSearch({onClose,lang}) {
   return (
     <div className='bg-[#138140] flex items-center px-[4.27vw] h-[14.93vw]'>
-      <Link href={`/`}>
+      <Link href={`/${lang}`} onClick={onClose}>
         <Image
           src={logo}
           width={100}
