@@ -6,18 +6,18 @@ import AOS from 'aos'
 
 export default function Responsible({ data = {} }) {
   useEffect(() => {
-    AOS.init()
+    AOS.init({disable: 'mobile'})
     AOS.refresh()
   }, [])
   return (
     <section className='relative pb-[7.5vw] rounded-2xl md:rounded-none mt-[-7.2vw] bg-white z-10 md:mt-0'>
-      <Image src={responsibleBg} alt='Responsible Travel' className='absolute top-0 left-0 w-full h-full' />
+      <Image src={responsibleBg} alt='Responsible Travel' className='absolute top-0 left-0 w-full h-full z-[-1]' />
 
       <div className='content'>
         {/* title */}
-        <div className='text-textColor md:w-[65vw] m-auto md:mb-[5.25vw] mb-[21.87vw] md:pt-[6.125vw] pt-[13.6vw] text-center'>
+        <div className='text-textColor md:w-[65vw] m-auto mb-[0.6vw] md:mb-[5.25vw] md:pt-[6.125vw] pt-[13.6vw] text-center'>
           <h2
-            className='md:text-[4vw] text-[4.8vw] font-optima font-semibold md:leading-[110%] leading-[120%] capitalize mb-[1vw]'
+            className='md:text-[4vw] text-[5.86667vw] font-optima font-semibold md:leading-[110%] leading-[120%] capitalize mb-[1vw]'
             data-aos-once='true'
             data-aos='fade-up'
             data-aos-duration='1000'

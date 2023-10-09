@@ -7,8 +7,8 @@ import StaffSlideMobile from './StaffSlideMobile'
 
 export default function Staffs({ data }) {
   useEffect(() => {
-    Aos.init()
-    Aos.refresh()
+    AOS.init({disable: 'mobile'})
+    AOS.refresh()
   }, [])
   return (
     <section className='pb-[7.5vw] mt-[14.93vw] md:mt-[5vw]'>
