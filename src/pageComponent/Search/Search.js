@@ -7,7 +7,7 @@ import ListTour from './ListTour'
 import Sidebar from './Sidebar'
 import OtherTours from './OtherTours'
 import NewRelease from './NewRelease'
-import Loading from '@/components/Common/Loading'
+import Loading from '@/components/Common/Loader'
 import ModalCustom from '@/components/Common/ModalCustom'
 import { Button, Drawer, Modal, SwipeableDrawer, useMediaQuery } from '@mui/material'
 import theme from '@/components/ThemeRegistry/theme'
@@ -100,7 +100,7 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
       return numTour >= +minDay && numTour <= +maxDay
     })
   }
-  if(!allTours) {
+  if (!allTours) {
     allTours = tourBackup
   }
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
@@ -113,11 +113,13 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
     setDestination(null)
     setDay(null)
   }
-  
+
   return (
     <div className='max-md:mt-[21.6vw] mt-[6.56vw] md:px-[8.13vw] search__page'>
       <div className='flex justify-between max-md:px-[4.27vw] items-center'>
-        <h1 className='text-[4vw] font-optima leading-[4.4vw] capitalize font-semibold md:mb-[3.44vw]'>{searchInfo?.title}</h1>
+        <h1 className='text-[4vw] font-optima leading-[4.4vw] capitalize font-semibold md:mb-[3.44vw]'>
+          {searchInfo?.title}
+        </h1>
         <div className='flex md:hidden gap-[1.6vw] items-center'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -133,58 +135,105 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
             />
           </svg>
 
-          <p className='text-[3.73333vw] leading-[160%] text-textColor' onClick={() => {setIsOpenModal(true)}}>Filter</p>
+          <p
+            className='text-[3.73333vw] leading-[160%] text-textColor'
+            onClick={() => {
+              setIsOpenModal(true)
+            }}
+          >
+            Filter
+          </p>
         </div>
       </div>
       <div className='search flex gap-[3.56vw]'>
-      {onlySmallScreen ? <SwipeableDrawer sx={{height: '75vh'}} anchor={'bottom'}  open={isOpenModal} onClose={() => setIsOpenModal(false)}> 
-        <div className='bg-white'>
-          <Image
-              src={closeImg}
-              alt='close'
-              width={20}
-              height={20} className='md:hidden absolute md:top-[4.53vw] top-[2.5vw] right-[4.53vw] 
-              max-md:w-[4vw] max-md:right-[10vw] max-md:top-[5vw] max-md:h-[4vw]' onClick={handleCloseFilter} />
-        </div>
-        <Sidebar searchInfo={searchInfo} 
-          isOpenModal={isOpenModal}
-          setOpenModal={setIsOpenModal}
-          params={params}
-          lang={lang}
-          travelStylesList={travelStylesList}
-          dataMenuCountry={dataMenuCountry}
-          dataTaxonomiesBudget={dataTaxonomiesBudget}
-          onDay={(data) => setDay(data)}
-          onDestination={(data) => setDestination([data])}
-          onTravelStyle={(data) => setTravelStyle(data)}
-          onBudget={(data) => setBudget(data)}
-        />
-        <div className='mx-[4.26vw] w-auto my-[8vw] bg-white md:hidden'>
-          <Button onClick={() => setIsOpenModal(false)} 
-            sx={{backgroundColor: '#FFD220',textTransform: 'capitalize' ,width: '89.48vw', borderRadius: '2.13vw', padding: '3.2vw', textAlign: 'center'}} 
-            color='primary' variant='contained'>Apply with us</Button>
-        </div>
-        </SwipeableDrawer> : 
-        <Sidebar searchInfo={searchInfo}
-          params={params}
-          lang={lang}
-          travelStylesList={travelStylesList}
-          dataMenuCountry={dataMenuCountry}
-          dataTaxonomiesBudget={dataTaxonomiesBudget}
-          onDay={(data) => setDay(data)}
-          onDestination={(data) => setDestination([data])}
-          onTravelStyle={(data) => setTravelStyle(data)}
-          onBudget={(data) => setBudget(data)}
-          isOpenModal={isOpenModal}
-        />
-        }
+        {onlySmallScreen ? (
+          <SwipeableDrawer
+            sx={{ height: '75vh' }}
+            anchor={'bottom'}
+            open={isOpenModal}
+            onClose={() => setIsOpenModal(false)}
+          >
+            <div className='bg-white'>
+              <Image
+                src={closeImg}
+                alt='close'
+                width={20}
+                height={20}
+                className='md:hidden absolute md:top-[4.53vw] top-[2.5vw] right-[4.53vw] 
+              max-md:w-[4vw] max-md:right-[10vw] max-md:top-[5vw] max-md:h-[4vw]'
+                onClick={handleCloseFilter}
+              />
+            </div>
+            <Sidebar
+              searchInfo={searchInfo}
+              isOpenModal={isOpenModal}
+              setOpenModal={setIsOpenModal}
+              params={params}
+              lang={lang}
+              travelStylesList={travelStylesList}
+              dataMenuCountry={dataMenuCountry}
+              dataTaxonomiesBudget={dataTaxonomiesBudget}
+              onDay={(data) => setDay(data)}
+              onDestination={(data) => setDestination([data])}
+              onTravelStyle={(data) => setTravelStyle(data)}
+              onBudget={(data) => setBudget(data)}
+            />
+            <div className='mx-[4.26vw] w-auto my-[8vw] bg-white md:hidden'>
+              <Button
+                onClick={() => setIsOpenModal(false)}
+                sx={{
+                  backgroundColor: '#FFD220',
+                  textTransform: 'capitalize',
+                  width: '89.48vw',
+                  borderRadius: '2.13vw',
+                  padding: '3.2vw',
+                  textAlign: 'center'
+                }}
+                color='primary'
+                variant='contained'
+              >
+                Apply with us
+              </Button>
+            </div>
+          </SwipeableDrawer>
+        ) : (
+          <Sidebar
+            searchInfo={searchInfo}
+            params={params}
+            lang={lang}
+            travelStylesList={travelStylesList}
+            dataMenuCountry={dataMenuCountry}
+            dataTaxonomiesBudget={dataTaxonomiesBudget}
+            onDay={(data) => setDay(data)}
+            onDestination={(data) => setDestination([data])}
+            onTravelStyle={(data) => setTravelStyle(data)}
+            onBudget={(data) => setBudget(data)}
+            isOpenModal={isOpenModal}
+          />
+        )}
         {
           <div className='flex-1'>
-            {allTours?.length !== 0 ? <ListTour results={searchInfo?.foundResults} data={allTours} lang={lang} loading={loading}/> : <OtherTours lang={lang} />}
+            {allTours?.length !== 0 ? (
+              <ListTour
+                results={searchInfo?.foundResults}
+                data={allTours}
+                lang={lang}
+                loading={loading}
+              />
+            ) : (
+              <OtherTours lang={lang} />
+            )}
           </div>
-         }
+        }
       </div>
-      {allTours?.length !== 0 && <NewRelease title={searchInfo?.newRelated} button={searchInfo?.button} lang={lang} data={listBlog} />}
+      {allTours?.length !== 0 && (
+        <NewRelease
+          title={searchInfo?.newRelated}
+          button={searchInfo?.button}
+          lang={lang}
+          data={listBlog}
+        />
+      )}
     </div>
   )
 }
