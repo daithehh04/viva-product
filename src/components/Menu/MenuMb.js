@@ -15,16 +15,7 @@ import instarIcon from '@/assets/images/instar.svg'
 import ytbIcon from '@/assets/images/youtube.svg'
 import InputSearchMb from '../Common/InputSearchMb'
 
-function MenuMb({
-  socialMobile,
-  onCloseMenu,
-  hotDeals,
-  lang,
-  dataMenuCountry,
-  travelStylesList,
-  rcmServicesList,
-  menu
-}) {
+function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList, rcmServicesList, menu, dataHome,titleAboutUs, contactInfo }) {
   const [selected, setSelected] = useState(null)
   const contentEle = useRef()
   const contentEle2 = useRef()
@@ -71,8 +62,14 @@ function MenuMb({
             className={`flex items-center justify-between ${selected === 1 ? 'active' : ''}`}
             onClick={() => handleSelect(1)}
           >
-            <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>Our tours</h3>
-            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down' />
+            <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>{dataHome?.nav1}</h3>
+            <Image
+              src={iconDropdown}
+              width={11}
+              height={8}
+              alt='img'
+              className='drop-down max-lg:w-[3vw]'
+            />
           </div>
           <div
             className='list menu-mb_item flex items-center gap-[7.47vw] !overflow-x-auto mt-[3.73vw] '
@@ -113,8 +110,14 @@ function MenuMb({
             className={`flex items-center justify-between mt-[3.73vw] ${selected === 2 ? 'active' : ''}`}
             onClick={() => handleSelect(2)}
           >
-            <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>Travel Style</h3>
-            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down' />
+            <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>{dataHome?.nav2}</h3>
+            <Image
+              src={iconDropdown}
+              width={11}
+              height={8}
+              alt='img'
+              className='drop-down max-lg:w-[3vw]'
+            />
           </div>
           <div
             className='grid menu-mb_item grid-cols-3 gap-x-[15.2vw] gap-y-[7.47vw] mt-[4.27vw] px-[2.67vw] '
@@ -141,7 +144,7 @@ function MenuMb({
                       width={50}
                       height={50}
                       alt='img'
-                      className='w-[10.8vw] h-[10.8vw] rounded-full object-cover'
+                      className='w-[10.8vw] h-[10.8vw]  object-contain object-center'
                     />
                   </div>
                   <span className='uppercase text-[2.67vw] mt-[1.6vw] block whitespace-nowrap'>{item?.name}</span>
@@ -156,8 +159,14 @@ function MenuMb({
             className={`flex items-center justify-between mt-[3.73vw] ${selected === 3 ? 'active' : ''}`}
             onClick={() => handleSelect(3)}
           >
-            <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>Hot deals</h3>
-            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down' />
+            <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>{dataHome?.nav3}</h3>
+            <Image
+              src={iconDropdown}
+              width={11}
+              height={8}
+              alt='img'
+              className='drop-down max-lg:w-[3vw]'
+            />
           </div>
           <div
             className='mt-[3.73vw] menu-mb_item '
@@ -172,7 +181,7 @@ function MenuMb({
             }
           >
             <span className='text-[3.73vw] opacity-40  font-[500] block'>{hotDeals?.voucherHeader?.listHeader}</span>
-            <div className='hidden-scroll flex overflow-x-auto gap-[3.73vw] mt-[3.2vw] '>
+            <div className='hidden-scroll flex overflow-x-auto gap-[3.73vw] mt-[3.2vw] max-lg:flex-col max-lg:w-full'>
               {hotDeals?.voucherHeader?.listVoucher?.map((item, index) => (
                 <VoucherItem key={index} data={item} headerData={hotDeals?.voucherHeader?.detailHeader} />
               ))}
@@ -199,16 +208,22 @@ function MenuMb({
             className={`flex items-center justify-between mt-[3.73vw] ${selected === 4 ? 'active' : ''}`}
             onClick={() => handleSelect(4)}
           >
-            <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>Recommended Services</h3>
-            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down' />
+            <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>{dataHome?.nav6}</h3>
+            <Image
+              src={iconDropdown}
+              width={11}
+              height={8}
+              alt='img'
+              className='drop-down max-lg:w-[3vw]'
+            />
           </div>
           <div
-            className='flex overflow-x-auto gap-[3.2vw] mt-[3.73vw] menu-mb_item'
+            className={`flex overflow-x-auto gap-[3.2vw] mt-[3.73vw] menu-mb_item ${selected === 4 ? 'h-[42vw]' : ''}`}
             ref={contentEle4}
             style={
               selected === 4
                 ? {
-                    height: '42vw',
+                    height: '22vw',
                     overflow: 'auto'
                   }
                 : { height: '0px', overflow: 'hidden' }
@@ -226,7 +241,7 @@ function MenuMb({
             className='text-[4.267vw] opacity-60 capitalize leading-[1.2]'
             onClick={onCloseMenu}
           >
-            Check visa
+            {dataHome?.nav4}
           </Link>
           <SelectLang />
         </div>
@@ -236,8 +251,14 @@ function MenuMb({
             className={`flex items-center justify-between mt-[3.73vw] w-max ${selected === 5 ? 'active' : ''}`}
             onClick={() => handleSelect(5)}
           >
-            <h3 className='text-[4.26vw] leading-[1.2] capitalize opacity-60 mr-[3.2vw]'>About us</h3>
-            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down' />
+            <h3 className='text-[4.26vw] leading-[1.2] capitalize opacity-60 mr-[3.2vw]'>{dataHome?.nav5}</h3>
+            <Image
+              src={iconDropdown}
+              width={11}
+              height={8}
+              alt='img'
+              className='drop-down max-lg:w-[3vw]'
+            />
           </div>
           <div
             className='flex flex-col gap-[3.2vw] mt-[5.07vw] menu-mb_item'
@@ -251,14 +272,26 @@ function MenuMb({
                 : { height: '0px', overflow: 'hidden' }
             }
           >
-            <Link href='/about-us/who-we-are' className='text-[3.2vw] capitalize' onClick={onCloseMenu}>
-              Who we are
+            <Link
+              href='/about-us/who-we-are'
+              className='text-[3.2vw] capitalize'
+              onClick={onCloseMenu}
+            >
+              {titleAboutUs?.whoWeAre}
             </Link>
-            <Link href='/about-us/responsible-travel' className='text-[3.2vw] capitalize' onClick={onCloseMenu}>
-              responsible travel
+            <Link
+              href='/about-us/responsible-travel'
+              className='text-[3.2vw] capitalize'
+              onClick={onCloseMenu}
+            >
+              {titleAboutUs?.ResTravel}
             </Link>
-            <Link href='/about-us/reviews' className='text-[3.2vw] capitalize' onClick={onCloseMenu}>
-              Reviews
+            <Link
+              href='/about-us/reviews'
+              className='text-[3.2vw] capitalize'
+              onClick={onCloseMenu}
+            >
+              {titleAboutUs?.AboutUs}
             </Link>
           </div>
         </div>
@@ -269,12 +302,12 @@ function MenuMb({
             className='text-[4.267vw] opacity-60 capitalize leading-[1.2]'
             onClick={onCloseMenu}
           >
-            Blog
+            {dataHome?.nav7}
           </Link>
         </div>
-        <span className='text-[3.2vw] opacity-80 mt-[20.8vw] block text-center'>Email: asiatravel@gmai.com</span>
+        <span className='text-[3.2vw] opacity-80 mt-[20.8vw] block text-center'>{contactInfo && `${contactInfo[1]?.title}: ${contactInfo[1]?.content}`}</span>
         <Button className='btn-primary mt-[1.6vw] w-full items-center justify-center'>
-          Contact hotline: (+84) 254 3526981{' '}
+          <span className='max-lg:py-[2vw] max-lg:text-[2vw]'>{contactInfo && `${contactInfo[0]?.title}: ${contactInfo[0]?.content}`}</span>
         </Button>
         {/* Socials */}
         <div className='flex items-center gap-[4.27vw] mt-[3.2vw] justify-center'>
