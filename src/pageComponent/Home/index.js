@@ -86,6 +86,7 @@ export default function Home({
   //     },
   // });
 
+  console.log('allTours',allTours);
   if (!data) {
     return <p>Loading....</p>
   }
@@ -173,7 +174,7 @@ export default function Home({
             onTravelStyle={(data) => setTravelStyle(data)}
             onBudget={(data) => setBudget(data)}
             onDuration={(data) => setDuration(data)}
-            allTours={allToursBestSeller}
+            allTours={allTours}
             lang={lang}
             button={button}
           />
