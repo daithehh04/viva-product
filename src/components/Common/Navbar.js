@@ -94,7 +94,6 @@ export default function Navbar({
       if (scrollPosition >= 200) {
         nav.classList.add('nav-active')
         nav.classList.remove('nav-mb-special')
-
         menuNavs.forEach((item, index) => {
           item.classList.remove('show')
         })
@@ -113,8 +112,18 @@ export default function Navbar({
     function headerSticky() {
       if (lastScrolledPos >= window.scrollY) {
         nav.classList.remove('header-hide')
+        if(menuItems) {
+          menuItems.forEach((item) => {
+            item.style.display = 'block'
+          })
+        }
       } else {
         nav.classList.add('header-hide')
+        if(menuItems) {
+          menuItems.forEach((item) => {
+            item.style.display = 'none'
+          })
+        }
       }
       lastScrolledPos = window.scrollY
     }
