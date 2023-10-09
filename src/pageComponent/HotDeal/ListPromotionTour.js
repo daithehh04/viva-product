@@ -1,7 +1,7 @@
 import TourItem from '@/components/Common/TourItem'
 import TourItemMobile from '@/components/Common/TourItemMobile'
 
-const ListPromotionTour = ({ promotionList, menu, lang, quantity }) => {
+const ListPromotionTour = ({ promotionList, menu, lang, quantity,onCloseMenu }) => {
   const list = menu ? promotionList?.slice(0, 4) : promotionList?.slice(0, 4)
   return (
     <div className='relative best-tours md:overflow-hidden'>
@@ -14,6 +14,7 @@ const ListPromotionTour = ({ promotionList, menu, lang, quantity }) => {
           <div key={index}>
             <div className='hidden md:flex'>
               <TourItem
+                onCloseMenu={onCloseMenu}
                 data={item}
                 menu={menu}
                 lang={lang}

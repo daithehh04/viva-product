@@ -240,6 +240,7 @@ export default function Navbar({
                       listVoucher={listVoucher}
                       menu
                       lang={lang}
+                      onCloseMenu={handleCloseMenu}
                     />
                   </div>
                 </Link>
