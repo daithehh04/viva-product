@@ -6,7 +6,12 @@ import AOS from 'aos'
 
 export default function Responsible({ data = {} }) {
   useEffect(() => {
-    AOS.init({disable: 'mobile'})
+    AOS.init({
+      disable: function () {
+        var maxWidth = 769
+        return window.innerWidth < maxWidth
+      }
+    })
     AOS.refresh()
   }, [])
   return (

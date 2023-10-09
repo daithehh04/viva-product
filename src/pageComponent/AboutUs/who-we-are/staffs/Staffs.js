@@ -1,13 +1,13 @@
 'use client'
 
-import Aos from 'aos'
+import AOS from 'aos'
 import { useEffect } from 'react'
 import StaffSlide from './StaffSlide'
 import StaffSlideMobile from './StaffSlideMobile'
 
 export default function Staffs({ data }) {
   useEffect(() => {
-    AOS.init({disable: 'mobile'})
+    AOS.init({ disable: 'mobile' })
     AOS.refresh()
   }, [])
   return (

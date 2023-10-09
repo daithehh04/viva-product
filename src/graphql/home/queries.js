@@ -339,6 +339,24 @@ const GET_FOOTER = `query getHomePageData($language: LanguageCodeEnum!) {
 }
 `
 
+const GET_SOCIAL_MOBILE = `query getHomePageData {
+  page(id: "cG9zdDoxOQ==") {
+    translation(language: EN) {
+      home {
+        footer {
+          column1 {
+            linkFb
+            linkLinked
+            linkInstargram
+            linkYoutube
+          }
+        }
+      }
+    }
+  }
+}
+`
+
 const GET_META_DATA = `query ($language: LanguageCodeEnum!) {
   page(id: "cG9zdDoxOQ==") {
     translation(language: $language) {
@@ -374,4 +392,4 @@ const GET_INFO_CONTACT = `query getInfoContact($language: LanguageCodeEnum!) {
     }
   }
 }`
-export { DATA_HEADER, GET_HOME_PAGE, GET_NEXT_STEP, GET_FOOTER, GET_META_DATA, GET_INFO_CONTACT }
+export { DATA_HEADER, GET_HOME_PAGE, GET_NEXT_STEP, GET_FOOTER, GET_META_DATA, GET_SOCIAL_MOBILE, GET_INFO_CONTACT }

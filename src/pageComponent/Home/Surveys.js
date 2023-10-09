@@ -45,7 +45,12 @@ function Surveys({ data, button, lang, dataBookTour }) {
   const refBtnBookTour = useRef()
 
   useEffect(() => {
-    AOS.init({disable: 'mobile'})
+    AOS.init({
+      disable: function () {
+        var maxWidth = 769
+        return window.innerWidth < maxWidth
+      }
+    })
     AOS.refresh()
   }, [])
   return (
