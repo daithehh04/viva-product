@@ -13,12 +13,13 @@ import Link from 'next/link'
 import FilterBanner from '@/pageComponent/Home/FilterBanner'
 import Loading from './Loading'
 
-function InputSearchMb({ lang, dataFilter }) {
-  const { dataInput } = useData()
+function InputSearchMb({lang, dataFilter,onCloseNav}) {
+  const { dataInput } = useData();
   const refMenu = useRef()
   const handleOpen = (e) => {
     e.preventDefault()
     refMenu.current.classList.add('show')
+    onCloseNav()
   }
   const handleClose = () => {
     refMenu.current.classList.remove('show')
@@ -76,7 +77,8 @@ function InputSearchMb({ lang, dataFilter }) {
               ) : (
                 allTours?.map((tour, index) => (
                   <Link
-                    href={`${lang}/tours/${encodeURIComponent(tour?.translation?.slug)}`}
+                    onClick={handleClose}
+                    href={`/${lang}/tours/${encodeURIComponent(tour?.translation?.slug)}`}
                     key={index}
                   >
                     <h3 className='text-[3.2vw] pb-[3.2vw]'>{tour?.translation?.tourDetail?.banner?.title}</h3>

@@ -16,6 +16,7 @@
 }
 
 .btn-secondary {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.5vw;
@@ -28,9 +29,33 @@
   border: 1px solid rgba(46, 46, 46, 0.6);
   background: #fff;
   transition: all 0.3s ease;
+  overflow: hidden;
   &:hover {
     scale: 1.03;
   }
+}
+
+.btn-secondary::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    bottom: 100%;
+    left: 100%;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+    background-color: $colorPrimary;
+    transform-origin: center;
+    transform: translate3d(-50%, 50%, 0) scale3d(0, 0, 0);
+    transition: transform 0.45s ease-in-out;
+}
+
+.btn-secondary:hover {
+  border-color: $colorPrimary;
+}
+
+.btn-secondary:hover::before {
+  transform: translate3d(-50%, 50%, 0) scale3d(15, 15, 15);
 }
 
 @include mobile {

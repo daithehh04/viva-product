@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation'
 import { iconsTour } from '@/lib/Icons'
 import { Skeleton } from '@mui/material'
 
-function TourItem({ data, menu, lang, loading,className }) {
+function TourItem({ data, menu, lang, loading,className,onCloseMenu }) {
   const tourData = data?.translation?.tourDetail?.banner || data?.tourDetail?.banner
   const price = data?.translation?.tourDetail?.priceTour
   let icons = null
@@ -17,6 +17,7 @@ function TourItem({ data, menu, lang, loading,className }) {
   const isPromotion = pathName.includes('hot-deals')
   return (
     <Link
+      onClick={onCloseMenu}
       href={`/${lang}/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
       className={`${
         menu ? 'md:h-[14.5vw] w-[52.5vw]' : 'md:h-[24.5vw] w-full'

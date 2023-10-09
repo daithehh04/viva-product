@@ -53,6 +53,7 @@ export default function Navbar({
   const arrDataTaxonomiesStyleTour = dataTaxonomiesStyleTour?.data?.allTourStyle?.nodes
   const refMb = useRef()
   const refMenu = useRef()
+  const refNav = useRef()
   const refBtnBookTour = useRef()
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
   //check pathName
@@ -175,10 +176,16 @@ export default function Navbar({
     duration: newArrDataTaxonomiesDuration
   }
 
+  const handleCloseNav = () => {
+    if(refNav.current.classList.contains('nav-mb-special')) {
+      refNav.current.classList.remove('nav-mb-special')
+    }
+  }
+
   return (
     <DataProvider>
       <div className='nav-container'>
-        <nav className={`bg-white w-[100vw] navbar h-[5.375vw] max-lg:h-[14.93vw]`}>
+        <nav className={`bg-white w-[100vw] navbar h-[5.375vw] max-lg:h-[14.93vw]`} ref={refNav}>
           <div className='bg-trans flex items-center h-full w-full px-[8.125%] bg-white'>
             <div className='flex items-center gap-x-[2vw]'>
               <Link href={`/${lang}`}>
@@ -212,7 +219,13 @@ export default function Navbar({
                   {dataHome?.nav3}
 
                   <div className='hidden menu-item menu-item3'>
-                    <HotDeal hotDeals={hotDeals} listVoucher={listVoucher} menu lang={lang} />
+                    <HotDeal
+                      hotDeals={hotDeals}
+                      listVoucher={listVoucher}
+                      menu
+                      lang={lang}
+                      onCloseMenu={handleCloseMenu}
+                    />
                   </div>
                 </Link>
                 <Link href={`/${lang}/check-visa`} className='capitalize text-[1vw] nav-link'>
@@ -250,7 +263,11 @@ export default function Navbar({
               <SelectLang lang={lang} />
             </div>
             <div className='flex-1 hidden max-lg:block'>
-              <InputSearchMb lang={lang} dataFilter={dataFilter} />
+              <InputSearchMb
+                lang={lang}
+                dataFilter={dataFilter}
+                onCloseNav = {handleCloseNav}
+              />
             </div>
             <Image
               src={bars}
