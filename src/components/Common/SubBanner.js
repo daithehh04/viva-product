@@ -10,8 +10,8 @@ import Aos from 'aos'
 
 export default function SubBanner({ data = {}, className, lang }) {
   useEffect(() => {
-    Aos.init()
-    Aos.refresh()
+    AOS.init({disable: 'mobile'})
+    AOS.refresh()
   }, [])
   const router = useRouter()
   return (

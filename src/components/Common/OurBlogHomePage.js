@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 
 function OurBlogHomePage({ data, button, lang }) {
   useEffect(() => {
-    AOS.init()
+    AOS.init({disable: 'mobile'})
     AOS.refresh()
   }, [])
   const theme = createTheme({

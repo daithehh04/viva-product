@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation'
 import { iconsTour } from '@/lib/Icons'
 import { Skeleton } from '@mui/material'
 
-function TourItem({ data, menu, lang, loading }) {
+function TourItem({ data, menu, lang, loading,className }) {
   const tourData = data?.translation?.tourDetail?.banner || data?.tourDetail?.banner
   const price = data?.translation?.tourDetail?.priceTour
   let icons = null
@@ -67,7 +67,7 @@ function TourItem({ data, menu, lang, loading }) {
             )}`}
             className={`text-white ${
               !loading ? 'title-tour' : ''
-            } md:text-[1.125vw] text-[2.93vw] font-bold tracking-tight leading-[1.2] mt-[0.25vw]`}
+            } md:text-[1.125vw] text-[2.93vw] font-bold tracking-tight leading-[1.2] mt-[0.25vw] ${className}`}
           >
             {!loading ? (
               tourData?.title
