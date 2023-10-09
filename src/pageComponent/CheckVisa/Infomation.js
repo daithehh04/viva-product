@@ -10,7 +10,7 @@ import { useRef, useState } from 'react'
 import ModalCustom from '@/components/Common/ModalCustom'
 import BookTour from '@/components/Common/BookTour'
 
-function Infomation({ data,lang,dataBookTour }) {
+function Infomation({ data, lang, dataBookTour }) {
   const { dataB } = useData()
   const [openModal, setOpenModal] = useState(false)
   const refBtnBookTour = useRef()
@@ -143,15 +143,17 @@ function Infomation({ data,lang,dataBookTour }) {
             <h2 className='md:text-[2.875vw] font-optima text-[5.86667vw] md:leading-[120%] capitalize md:mb-[1.5vw] mb-[2.1333vw] md:w-[44.625vw] w-[74.66667vw] font-semibold'>
               {data?.checkvisa?.ready?.title}
             </h2>
-            <p className='font-optima md:text-[1vw] text-[3.73333vw] font-normal max-md:w-[91.46667vw] leading-[150%] opacity-80 text-textColor'>
+            <p className='font-optima xl:text-[1vw] md:text-[2vw] text-[3.73333vw] font-normal max-md:w-[91.46667vw] leading-[150%] opacity-80 text-textColor'>
               {data?.checkvisa?.ready?.desc}
             </p>
 
             <div className='md:mt-[3.75vw] mt-[6.4vw] flex md:gap-[1.88vw] gap-[2.67vw]'>
               <div className='flex' ref={refBtnBookTour} onClick={() => setOpenModal(true)}>
-              <Button className='btn-primary w-fit'>{dataInfo?.buttonapply}</Button>
-            </div>
-              <Link href={`/${lang}/search`}><Button className='btn-secondary w-fit'>{dataInfo?.button}</Button></Link>
+                <Button className='btn-primary w-fit'>{dataInfo?.buttonapply}</Button>
+              </div>
+              <Link href={`/${lang}/search`}>
+                <Button className='btn-secondary w-fit'>{dataInfo?.button}</Button>
+              </Link>
             </div>
           </div>
 

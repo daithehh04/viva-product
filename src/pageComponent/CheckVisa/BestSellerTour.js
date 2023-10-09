@@ -1,10 +1,8 @@
 import Button from '@/components/Common/Button'
-import SlideTour from '@/components/Common/SlideTour'
 import TourItem from '@/components/Common/TourItem'
 import Link from 'next/link'
 
 function BestSellerTour({ data, lang, dataCheckVisa }) {
-  // const dataTour = data?.checkvisa?.bestseller?.bestsellertour
   const dataTour = data?.data?.bestSeller?.tours?.nodes
   return (
     <div className='w-full md:mt-[6.87vw]'>
@@ -24,7 +22,9 @@ function BestSellerTour({ data, lang, dataCheckVisa }) {
         ))}
       </div>
       <Link href={`/${lang}/search`}>
-        <Button className='btn-secondary mb-[8.77vw] md:mb-[6.25vw] m-auto md:mt-[3.5vw] mt-[8.77vw]'>{dataCheckVisa?.checkvisa?.button}</Button>
+        <Button className='btn-secondary mb-[8.77vw] md:mb-[6.25vw] m-auto md:mt-[3.5vw] mt-[8.77vw]'>
+          {dataCheckVisa?.checkvisa?.button}
+        </Button>
       </Link>
     </div>
   )
