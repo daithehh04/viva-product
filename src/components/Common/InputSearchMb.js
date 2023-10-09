@@ -77,7 +77,8 @@ function InputSearchMb({lang, dataFilter,onCloseNav}) {
               ) : (
                 allTours?.map((tour, index) => (
                   <Link
-                    href={`${lang}/tours/${encodeURIComponent(tour?.translation?.slug)}`}
+                    onClick={handleClose}
+                    href={`/${lang}/tours/${encodeURIComponent(tour?.translation?.slug)}`}
                     key={index}
                   >
                     <h3 className='text-[3.2vw] pb-[3.2vw]'>{tour?.translation?.tourDetail?.banner?.title}</h3>

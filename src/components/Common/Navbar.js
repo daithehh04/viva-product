@@ -181,9 +181,6 @@ export default function Navbar({
     }
   }
 
-  const handleOpenNav = () => {
-      refNav.current.classList.add('nav-mb-special')
-  }
   return (
     <DataProvider>
       <div className='nav-container'>
