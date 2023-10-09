@@ -8,9 +8,10 @@ import { useRef } from 'react'
 import { useData } from '../Menu/DataContextMenu'
 import { DATA_SEARCH_TEXT_TOUR } from '@/graphql/filter/queries'
 import { useQuery } from '@apollo/client'
-import Loading from './Loader'
+
 import Link from 'next/link'
 import FilterBanner from '@/pageComponent/Home/FilterBanner'
+import Loading from './Loading'
 
 function InputSearchMb({ lang, dataFilter }) {
   const { dataInput } = useData()

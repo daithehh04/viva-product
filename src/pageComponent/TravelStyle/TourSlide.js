@@ -173,7 +173,13 @@ function TourSlide({
           </div>
         )} */}
       </div>
-      <div className={`${totalPage.current > 1 ? 'flex md:gap-[0.75vw] gap-[3.2vw] justify-center items-center relative md:mt-[4.5vw] mt-[8.53vw]' : 'hidden'}`}>
+      <div
+        className={`${
+          totalPage.current > 1
+            ? 'flex md:gap-[0.75vw] gap-[3.2vw] justify-center items-center relative md:mt-[4.5vw] mt-[8.53vw]'
+            : 'hidden'
+        }`}
+      >
         {totalPage.current > 1 &&
           pagis?.map((page, index) => (
             <div
