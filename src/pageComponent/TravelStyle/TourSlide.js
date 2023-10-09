@@ -157,6 +157,7 @@ function TourSlide({
                 <TourItemMobile
                   data={tour}
                   lang={lang}
+                  loading={dataBestTours?.loading}
                 />
               </div>
             </div>
