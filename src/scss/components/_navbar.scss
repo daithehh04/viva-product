@@ -258,6 +258,21 @@
   }
 }
 
+@include tablet {
+  .nav-mb-special {
+    filter: brightness(0) invert(1);
+    -webkit-filter: brightness(0) invert(1);
+
+    .search-mb {
+      background-color: transparent;
+    }
+
+    .search-mb-btn {
+      background-color: rgba(255, 255, 255, 0.2) !important;
+    }
+  }
+}
+
 .menu-mb_item::-webkit-scrollbar {
   height: 2px;
 }

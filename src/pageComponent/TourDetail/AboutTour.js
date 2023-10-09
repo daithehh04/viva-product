@@ -389,7 +389,7 @@ export default function AboutTour(props) {
                 {onlySmallScreen && (
                   <div
                     ref={stepIconMbRef}
-                    className='hidden fixed top-[14.93vw] right-0 w-full h-[16vw] px-[4.53vw] text-[4vw] bg-[#FFFBE9] flex items-center justify-between z-50'
+                    className='fixed top-[14.93vw] right-0 w-full h-[16vw] px-[4.53vw] text-[4vw] bg-[#FFFBE9] flex items-center justify-between z-50'
                   >
                     {stepData.map((step, index) => {
                       return (
@@ -423,7 +423,7 @@ export default function AboutTour(props) {
             <div ref={overviewRef}>
               <h4 className='tour-detail-header '>01 - {contentHeader?.sectionHeader?.overviewHeader}</h4>
 
-              <div className='text-textColor md:text-[1vw] text-[3.73vw] text-justify leading-normal opacity-80 flex flex-col md:gap-[0.5vw] gap-[4.27vw]'>
+              <div className='text-textColor lg:text-[1vw] md:text-[14px] text-[3.73vw] text-justify leading-normal opacity-80 flex flex-col md:gap-[0.5vw] gap-[4.27vw]'>
                 {overview?.map((item, index) => {
                   return (
                     <p
@@ -466,12 +466,12 @@ export default function AboutTour(props) {
                 {`${contentHeader?.sectionHeader?.inclusionExclusionHeader?.inclusionHeader} & ${contentHeader?.sectionHeader?.inclusionExclusionHeader?.exclusionHeader}`}
               </h4>
               <div className='md:w-full md:m-auto w-[100vw]'>
-                <div className='flex md:flex-row flex-col text-textColor md:text-[1vw] text-[3.2vw] leading-normal mb-[4.5vw] ml-[-4.267vw] md:ml-[0] md:border border-solid border-[#2e2e2e1a] md:rounded-[10px]'>
+                <div className='flex md:flex-row flex-col text-textColor lg:text-[1vw] md:text-[1.2vw] text-[3.2vw] leading-normal mb-[4.5vw] ml-[-4.267vw] md:ml-[0] md:border border-solid border-[#2e2e2e1a] md:rounded-[10px]'>
                   {/* inclusion */}
                   <div className='md:w-1/2 w-full md:border-r border-solid border-[#2e2e2e0f]'>
                     <div
                       className={`
-                        md:rounded-tl-[10px] text-[3.73vw] md:text-[1vw] text-center font-bold bg-[#FFECA2] md:py-[1.25vw] py-[3.73vw]`}
+                        md:rounded-tl-[10px] text-[3.73vw] lg:text-[1vw] md:text-[1.5vw] text-center font-bold bg-[#FFECA2] md:py-[1.25vw] py-[3.73vw]`}
                     >
                       {contentHeader?.sectionHeader?.inclusionExclusionHeader?.inclusionHeader}
                     </div>
@@ -500,7 +500,7 @@ export default function AboutTour(props) {
                     <div
                       className={`
                        md:rounded-tr-[10px]
-                       text-[3.73vw] md:text-[1vw] text-center font-bold bg-[#FFECA2] md:py-[1.25vw] py-[3.73vw]`}
+                       text-[3.73vw] lg:text-[1vw] md:text-[1.5vw] text-center font-bold bg-[#FFECA2] md:py-[1.25vw] py-[3.73vw]`}
                     >
                       {contentHeader?.sectionHeader?.inclusionExclusionHeader?.exclusionHeader}
                     </div>
@@ -566,13 +566,13 @@ export default function AboutTour(props) {
           className=' hidden-scroll overflow-auto md:overflow-hidden overflow-y-hidden mb-[13vw]'
           ref={reviewRef}
         >
-          <div className='md:w-[62.1875vw] md:h-[35.75vw] md:ml-[8.125vw] md:grid flex w-fit h-[121.33vw] grid-cols-2 md:gap-[2vw] gap-[4.44vw]'>
+          <div className='md:w-[62.1875vw] lg:h-[35.75vw] md:h-[40vw] md:ml-[8.125vw] md:grid flex w-fit h-[121.33vw] grid-cols-2 md:gap-[2vw] gap-[4.44vw]'>
             {reviews?.map((item, index) => {
               return (
                 <div
                   key={index}
-                  className={`${index === 0 && ' max-md:ml-[4.27vw]'} ${
-                    index === reviews?.length - 1 && ' max-md:mr-[4.27vw]'
+                  className={`${(index === 0 && ' max-md:ml-[4.27vw]') || ''} ${
+                    (index === reviews?.length - 1 && ' max-md:mr-[4.27vw]') || ''
                   }`}
                 >
                   <ReviewItem

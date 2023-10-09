@@ -27,7 +27,7 @@ import { DataProvider } from '../Menu/DataContextMenu'
 const theme = createTheme({
   breakpoints: {
     values: {
-      sm: 768
+      sm: 1024
     }
   }
 })
@@ -182,7 +182,7 @@ export default function Navbar({
             <div className='flex items-center gap-x-[2vw]'>
               <Link href={`/${lang}`}>
                 <Image
-                src={logo}
+                  src={logo}
                   width={100}
                   height={100}
                   alt='viva-travel'
@@ -196,13 +196,13 @@ export default function Navbar({
                 <div className='relative flex-shrink-0'>
                   <div className='capitalize text-[1vw] nav-link cursor-pointer'>
                     {dataHome?.nav1}
-                      <div className='menu-item'>
-                        <MenuDestinations
-                          data={dataMenuCountry}
-                          lang={lang}
-                          onCloseMenu={handleCloseMenu}
-                        />
-                      </div>
+                    <div className='menu-item'>
+                      <MenuDestinations
+                        data={dataMenuCountry}
+                        lang={lang}
+                        onCloseMenu={handleCloseMenu}
+                      />
+                    </div>
                   </div>
                   <span className='icon-hot absolute top-[-12px] right-[-6px] px-[10px] rounded-[99px] bg-primaryColor text-[12px]'>
                     Hot
@@ -210,19 +210,20 @@ export default function Navbar({
                 </div>
                 <div className='capitalize text-[1vw] nav-link cursor-pointer'>
                   {dataHome?.nav2}
-                    <div className='menu-item '>
-                      <MenuStyle
-                        travelStylesList={travelStylesList}
-                        lang={lang}
-                        onCloseMenu={handleCloseMenu}
-                      />
-                    </div>
+                  <div className='menu-item '>
+                    <MenuStyle
+                      travelStylesList={travelStylesList}
+                      lang={lang}
+                      onCloseMenu={handleCloseMenu}
+                    />
+                  </div>
                 </div>
                 <Link
                   href={`/${lang}/hot-deals`}
                   className='capitalize text-[1vw] nav-link cursor-pointer'
                 >
                   {dataHome?.nav3}
+
                     <div className='hidden menu-item menu-item3'>
                       <HotDeal
                         hotDeals={hotDeals}
@@ -250,13 +251,13 @@ export default function Navbar({
                 </div>
                 <div className='capitalize text-[1vw] nav-link cursor-pointer'>
                   {dataHome?.nav6}
-                    <div className='menu-item'>
-                      <MenuRcmService
-                        rcmServicesList={rcmServicesList}
-                        lang={lang}
-                        onCloseMenu={handleCloseMenu}
-                      />
-                    </div>
+                  <div className='menu-item'>
+                    <MenuRcmService
+                      rcmServicesList={rcmServicesList}
+                      lang={lang}
+                      onCloseMenu={handleCloseMenu}
+                    />
+                  </div>
                 </div>
                 <Link
                   href={`/${lang}/blog`}

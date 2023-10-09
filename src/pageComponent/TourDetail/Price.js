@@ -15,11 +15,11 @@ export default function Price({ type, className, data, onClick }) {
         } relative hidden md:block w-full px-[5.5vw] py-[1.75vw] shadow-[0_2px_50px_0_rgba(0,0,0,0.03)] bg-white rounded-lg`}
       >
         <div className='flex mb-[1vw] gap-[0.62vw] font-bold leading-normal items-center'>
-          <span className='text-[1vw]'>{data?.price?.header}:</span>
-          <span className='capitalize text-[1.5vw]'>${data?.price?.value}</span>
+          <span className='text-[1vw] max-lg:text-[1.5vw]'>{data?.price?.header}:</span>
+          <span className='capitalize text-[1.5vw] max-lg:text-[2.25vw]'>${data?.price?.value}</span>
         </div>
         <button
-          className=' w-[15.375vw] h-[3.6875vw] flex items-center text-[1vw] px-[2.62vw] py-[1.25vw] bg-primaryColor rounded-xl cursor-pointer'
+          className=' w-[15.375vw] max-lg:w-[17vw] h-[3.6875vw] flex items-center text-[1vw] max-lg:text-[1.25vw] px-[2.62vw] py-[1.25vw] bg-primaryColor rounded-xl max-lg:rounded cursor-pointer'
           onClick={onClick}
         >
           {data?.button}
