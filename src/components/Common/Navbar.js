@@ -178,7 +178,7 @@ export default function Navbar({
     <DataProvider>
       <div className='nav-container'>
         <nav className={`bg-white w-[100vw] navbar h-[5.375vw] max-lg:h-[14.93vw]`}>
-          <div className='flex items-center h-full w-full px-[8.125%] bg-white'>
+          <div className='bg-trans flex items-center h-full w-full px-[8.125%] bg-white'>
             <div className='flex items-center gap-x-[2vw]'>
               <Link href={`/${lang}`}>
                 <Image
@@ -224,14 +224,14 @@ export default function Navbar({
                 >
                   {dataHome?.nav3}
 
-                    <div className='hidden menu-item menu-item3'>
-                      <HotDeal
-                        hotDeals={hotDeals}
-                        listVoucher={listVoucher}
-                        menu
-                        lang={lang}
-                      />
-                    </div>
+                  <div className='hidden menu-item menu-item3'>
+                    <HotDeal
+                      hotDeals={hotDeals}
+                      listVoucher={listVoucher}
+                      menu
+                      lang={lang}
+                    />
+                  </div>
                 </Link>
                 <Link
                   href={`/${lang}/check-visa`}

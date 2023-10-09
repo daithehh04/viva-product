@@ -22,7 +22,6 @@ import BookTour from '@/components/Common/BookTour'
 
 export default function AboutTour(props) {
   const { type, data, headerData = {}, relatedTours = [], lang, dataBookTour, price } = props
-  console.log(data)
   const { contentHeader, relatedTourHeader, bannerHeaders } = headerData
   const { reviews, banner, content = {} } = data || []
 

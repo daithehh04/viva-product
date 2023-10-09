@@ -11,6 +11,7 @@ import { GET_RANDOM_TOUR, GET_TOUR_DETAIL } from '@/graphql/tourDetail/queries'
 import TourDetail from '@/pageComponent/TourDetail'
 import getDataFormBookTour from '@/data/formBookTour/getDataFormBookTour'
 import { GET_DATA_FORM_BOOKTOUR } from '@/graphql/formBookTour/queries'
+import Loading from '@/components/Common/Loading'
 
 export async function generateMetadata({ params: { slug, lang } }) {
   const res = await getMetaDataTour(GET_TOUR_META_DATA, lang, slug)
@@ -49,7 +50,7 @@ export default async function page({ params: { lang, slug } }) {
   const result4 = await getDataPost(lang, GET_ALL_REVIEWS)
   const reviewsList = result4?.data?.allCustomerReview?.nodes
 
-  let dataBookTour
+  let dataBookTour = null
   // get Data form book tour
   if (lang === 'en') {
     dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idEnBook, lang)

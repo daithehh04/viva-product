@@ -38,8 +38,7 @@ import {
   DATA_TAXONOMIES_DURATION,
   DATA_TAXONOMIES_TOUR_STYLE
 } from '@/graphql/filter/queries'
-import { Suspense } from 'react'
-import Loading from './loading'
+
 const idEnBook = 'cG9zdDoxNDIy'
 const idFrBook = 'cG9zdDoxNDIy'
 const idItBook = 'cG9zdDoxNDIy'
@@ -70,7 +69,6 @@ export default async function RootLayout({ children, params }) {
     dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idFrBook, params.lang)
   }
 
-  
   const dataHome = data?.data?.page?.home
   const travelStylesList = await getDataWithTaxonomy({ lang: params.lang || 'EN' }, GET_LIST_TRAVEL_STYLE_NAME)
 
@@ -91,28 +89,26 @@ export default async function RootLayout({ children, params }) {
       <body suppressHydrationWarning={true}>
         <ApolloClientProvider>
           <ThemeRegistry>
-            <Suspense fallback={<Loading />}>
-              <Navbar
-                dataTaxonomiesCountry={dataTaxonomiesCountry}
-                dataTaxonomiesStyleTour={dataTaxonomiesStyleTour}
-                dataTaxonomiesBudget={dataTaxonomiesBudget}
-                dataTaxonomiesDuration={dataTaxonomiesDuration}
-                travelStylesList={travelStylesList}
-                lang={params.lang}
-                dataHome={dataHome?.header}
-                dataMenuCountry={dataMenuCountry?.data?.allCountries?.nodes}
-                hotDeals={hotDeals}
-                rcmServicesList={recommendserviceList}
-                dataBookTour={dataBookTour}
-                dataAboutUs={{
-                  wwrRes: wwrRes?.data?.page?.translation,
-                  rtRes: rtRes?.data?.page?.translation,
-                  rvRes: rvRes?.data?.page?.translation
-                }}
-              />
-              {children}
-              <Footer lang={params.lang} />
-            </Suspense>
+            <Navbar
+              dataTaxonomiesCountry={dataTaxonomiesCountry}
+              dataTaxonomiesStyleTour={dataTaxonomiesStyleTour}
+              dataTaxonomiesBudget={dataTaxonomiesBudget}
+              dataTaxonomiesDuration={dataTaxonomiesDuration}
+              travelStylesList={travelStylesList}
+              lang={params.lang}
+              dataHome={dataHome?.header}
+              dataMenuCountry={dataMenuCountry?.data?.allCountries?.nodes}
+              hotDeals={hotDeals}
+              rcmServicesList={recommendserviceList}
+              dataBookTour={dataBookTour}
+              dataAboutUs={{
+                wwrRes: wwrRes?.data?.page?.translation,
+                rtRes: rtRes?.data?.page?.translation,
+                rvRes: rvRes?.data?.page?.translation
+              }}
+            />
+            {children}
+            <Footer lang={params.lang} />
           </ThemeRegistry>
         </ApolloClientProvider>
       </body>

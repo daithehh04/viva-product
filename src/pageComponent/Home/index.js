@@ -76,17 +76,9 @@ export default function Home({
     })
   }
   useEffect(() => {
-    AOS.init({disable: 'mobile'})
+    AOS.init({ disable: 'mobile' })
     AOS.refresh()
   }, [])
-  // AOS.init({
-  //     disable: function () {
-  //         var maxWidth = 768;
-  //         return window?.innerWidth < maxWidth;
-  //     },
-  // });
-
-  console.log('allTours',allTours);
   if (!data) {
     return <p>Loading....</p>
   }
