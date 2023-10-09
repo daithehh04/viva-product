@@ -17,9 +17,9 @@ export default function TourDetailStep({ data: tourDetailData, icons }) {
                 <div className='bg-primaryColor md:h-[2.375vw] h-[5.86vw] md:w-[2.375vw] w-[10vw] md:text-[1vw] text-[2.66vw] rounded-full flex items-center justify-center mt-[1vw] md:mt-0'>
                   {index + 1}
                 </div>
-                <div className='md:text-[1.125vw] text-[3.733vw]'>{tour?.heading}</div>
+                <div className='lg:text-[1.125vw] md:text-[1.4vw] text-[3.733vw]'>{tour?.heading}</div>
               </div>
-              <div className='md:text-[1vw] text-[3.733vw] leading-normal md:pl-[3.75vw] pl-[5.6vw] md:pb-[3.125vw] md:pt-0 pt-[5.2vw] pb-[8.53vw] md:ml-[1.1875vw] ml-[2.93vw] md:my-[0.75vw] my-[-2vw] border-l border-dashed border-primaryColor flex flex-col md:gap-[1.5vw] gap-[5.6vw]'>
+              <div className='lg:text-[1vw] md:text-[1.4vw] text-[3.733vw] leading-normal md:pl-[3.75vw] pl-[5.6vw] md:pb-[3.125vw] md:pt-0 pt-[5.2vw] pb-[8.53vw] md:ml-[1.1875vw] ml-[2.93vw] md:my-[0.75vw] my-[-2vw] border-l border-dashed border-primaryColor flex flex-col md:gap-[1.5vw] gap-[5.6vw]'>
                 <div className='text-justify opacity-80'>{tour?.desc}</div>
 
                 {/* image */}

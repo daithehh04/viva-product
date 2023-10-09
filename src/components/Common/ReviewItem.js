@@ -34,10 +34,10 @@ function ReviewItem({ className, data, lang }) {
       <div
         className={`review-item-content relative flex flex-1 md:flex-col flex-col-reverse justify-between md:pt-[0.5vw] gap-[2.93vw] md:gap-0`}
       >
-        <div>
+        <div className='md:mb-[0.5vw] lg:mb-0'>
           <Link
             href={`/${lang}/tours/${tourSlug}`}
-            className='md:text-[1.25vw] text-[3.733vw] md:leading-[1.35] leading-normal font-bold text-textColor tracking-[-0.4px] md:mb-[0.62vw]'
+            className='lg:text-[1.25vw] md:text-[1.4vw] text-[3.733vw] md:leading-[1.35] leading-normal font-bold text-textColor tracking-[-0.4px] md:mb-[0.62vw]'
           >
             {tourData?.banner?.title}
           </Link>
@@ -67,7 +67,7 @@ function ReviewItem({ className, data, lang }) {
           </div>
 
           <div className='relative'>
-            <p className='md:text-[0.875vw] text-[3.73vw] opacity-60 md:opacity-70 leading-normal mt-[3.2vw] md:mt-0 md:line-clamp-4 line-clamp-3'>
+            <p className='lg:text-[0.875vw] md:text-[1.1vw] text-[3.73vw] opacity-60 md:opacity-70 leading-normal mt-[3.2vw] md:mt-0 lg:line-clamp-4 line-clamp-3'>
               {data?.customerReview?.content}
             </p>
             <Image
@@ -87,7 +87,7 @@ function ReviewItem({ className, data, lang }) {
               className='user-avatar md:w-[2.9375vw] w-[11.2vw] h-[11.2vw] md:h-[2.9375vw] rounded-full object-cover'
             />
             <div className='flex flex-col justify-center'>
-              <h4 className='md:text-[1vw] text-[3.73vw] font-bold capitalize'>{authorInfo?.name}</h4>
+              <h4 className='lg:text-[1vw] md:text-[1.2vw] text-[3.73vw] font-bold capitalize'>{authorInfo?.name}</h4>
               <span className='md:text-[0.875vw] text-[3.73vw] opacity-60 md:opacity-100 leading-normal'>
                 {authorInfo?.country}
               </span>

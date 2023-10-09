@@ -7,6 +7,21 @@
 }
 
 .tour-banner-wrapper {
+  .slick-slider {
+    height: 100%;
+
+    .slick-slide,
+    .slick-list,
+    .slick-track {
+      height: 100%;
+    }
+
+    .slick-slide {
+      & div {
+        height: 100%;
+      }
+    }
+  }
   .tour-banner {
     position: absolute;
     bottom: 3vw;
@@ -150,6 +165,54 @@
   .tour-detail-main {
     .sticky {
       position: unset;
+    }
+  }
+}
+
+@include tablet {
+  .tour-detail-header {
+    font-size: 1.75vw;
+  }
+  .tour-banner-wrapper {
+    .slick-slider {
+      height: 100%;
+
+      .slick-slide,
+      .slick-list,
+      .slick-track {
+        height: 100%;
+      }
+
+      .slick-slide {
+        & div {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .our-tours-item {
+    .review-item-content {
+      a {
+        font-size: 1.4vw;
+        background: none;
+        display: block;
+      }
+
+      .review-item-user {
+        h4 {
+          font-size: 1.2vw;
+        }
+
+        .user-avatar {
+          width: 3vw;
+          height: 3vw;
+        }
+
+        span {
+          font-size: 1.2vw;
+        }
+      }
     }
   }
 }
