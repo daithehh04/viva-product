@@ -52,6 +52,7 @@ export default function Navbar({
   const arrDataTaxonomiesStyleTour = dataTaxonomiesStyleTour?.data?.allTourStyle?.nodes
   const refMb = useRef()
   const refMenu = useRef()
+  const refNav = useRef()
   const refBtnBookTour = useRef()
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
   //check pathName
@@ -174,10 +175,19 @@ export default function Navbar({
     duration: newArrDataTaxonomiesDuration
   }
 
+  const handleCloseNav = () => {
+    if(refNav.current.classList.contains('nav-mb-special')) {
+      refNav.current.classList.remove('nav-mb-special')
+    }
+  }
+
+  const handleOpenNav = () => {
+      refNav.current.classList.add('nav-mb-special')
+  }
   return (
     <DataProvider>
       <div className='nav-container'>
-        <nav className={`bg-white w-[100vw] navbar h-[5.375vw] max-lg:h-[14.93vw]`}>
+        <nav className={`bg-white w-[100vw] navbar h-[5.375vw] max-lg:h-[14.93vw]`} ref={refNav}>
           <div className='bg-trans flex items-center h-full w-full px-[8.125%] bg-white'>
             <div className='flex items-center gap-x-[2vw]'>
               <Link href={`/${lang}`}>
@@ -291,6 +301,7 @@ export default function Navbar({
               <InputSearchMb
                 lang={lang}
                 dataFilter={dataFilter}
+                onCloseNav = {handleCloseNav}
               />
             </div>
             <Image

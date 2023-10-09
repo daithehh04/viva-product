@@ -13,12 +13,13 @@ import Link from 'next/link'
 import FilterBanner from '@/pageComponent/Home/FilterBanner'
 import Loading from './Loading'
 
-function InputSearchMb({ lang, dataFilter }) {
-  const { dataInput } = useData()
+function InputSearchMb({lang, dataFilter,onCloseNav}) {
+  const { dataInput } = useData();
   const refMenu = useRef()
   const handleOpen = (e) => {
     e.preventDefault()
     refMenu.current.classList.add('show')
+    onCloseNav()
   }
   const handleClose = () => {
     refMenu.current.classList.remove('show')
