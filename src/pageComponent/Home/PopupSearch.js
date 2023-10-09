@@ -1,6 +1,6 @@
 'use client'
 
-import Loading from '@/components/Common/Loader'
+import Loading from '@/components/Common/Loading'
 import { DATA_SEARCH_TEXT_TOUR } from '@/graphql/filter/queries'
 import { useQuery } from '@apollo/client'
 import { useState } from 'react'
