@@ -561,34 +561,36 @@ export default function AboutTour(props) {
           </div>
         </div>
         {/* review */}
-        <div
-          className=' hidden-scroll overflow-auto md:overflow-hidden overflow-y-hidden mb-[13vw]'
-          ref={reviewRef}
-        >
-          <div className='md:w-[62.1875vw] lg:h-[35.75vw] md:h-[40vw] md:ml-[8.125vw] md:grid flex w-fit h-[121.33vw] grid-cols-2 md:gap-[2vw] gap-[4.44vw]'>
-            {reviews?.map((item, index) => {
-              return (
-                <div
-                  key={index}
-                  className={`${(index === 0 && ' max-md:ml-[4.27vw]') || ''} ${
-                    (index === reviews?.length - 1 && ' max-md:mr-[4.27vw]') || ''
-                  }`}
-                >
-                  <ReviewItem
-                    className='our-tours-item md:flex hidden'
-                    data={item}
-                    lang={lang}
-                  />
-                  <ReviewItem
-                    data={item}
-                    className='md:hidden block our-tours-item-mobile w-[74.66vw]'
-                    lang={lang}
-                  />
-                </div>
-              )
-            })}
+        {reviews && (
+          <div
+            className=' hidden-scroll overflow-auto md:overflow-hidden overflow-y-hidden mb-[13vw]'
+            ref={reviewRef}
+          >
+            <div className='md:w-[62.1875vw] lg:h-[35.75vw] md:h-[40vw] md:ml-[8.125vw] md:grid flex w-fit h-[121.33vw] grid-cols-2 md:gap-[2vw] gap-[4.44vw]'>
+              {reviews?.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    className={`${(index === 0 && ' max-md:ml-[4.27vw]') || ''} ${
+                      (index === reviews?.length - 1 && ' max-md:mr-[4.27vw]') || ''
+                    }`}
+                  >
+                    <ReviewItem
+                      className='our-tours-item md:flex hidden'
+                      data={item}
+                      lang={lang}
+                    />
+                    <ReviewItem
+                      data={item}
+                      className='md:hidden block our-tours-item-mobile w-[74.66vw]'
+                      lang={lang}
+                    />
+                  </div>
+                )
+              })}
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Tour Slide */}
