@@ -61,7 +61,7 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
             )}`}
             className={`text-white ${
               !loading ? 'title-tour' : ''
-            } max-lg:text-[1.6vw] text-[1.4vw] max-md:text-[2.93vw] font-bold tracking-tight leading-[1.2] mt-[0.25vw] ${className}`}
+            } max-lg:text-[1.6vw] text-[1.125vw] max-md:text-[2.93vw] font-bold tracking-tight leading-[1.2] mt-[0.25vw] ${className}`}
           >
             {!loading ? tourData?.title : <Skeleton variant='text' sx={{ fontSize: '2rem' }} />}
           </Link>
@@ -81,7 +81,7 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
         </div>
         <div className='flex items-center justify-between md:mt-[0.81vw] mt-[2.13vw]'>
           {!loading ? (
-            <span className='text-primaryColor max-lg:text-[1.2vw] text-[1.4vw] max-md:text-[2.67vw]'>${price}</span>
+            <span className='text-primaryColor max-lg:text-[1.2vw] text-[1vw] max-md:text-[2.67vw]'>${price}</span>
           ) : (
             <Skeleton variant='rectangular' width={'80%'} height={50} />
           )}
