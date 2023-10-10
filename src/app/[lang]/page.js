@@ -19,10 +19,10 @@ const idEnBook = 'cG9zdDoxNDIy'
 const idFrBook = 'cG9zdDoxNDIy'
 const idItBook = 'cG9zdDoxNDIy'
 
-const HomeDynamic = dynamic(() => import('../../pageComponent/Home'), {
-  loading: () => <Loader />,
-  ssr: false
-})
+// const HomeDynamic = dynamic(() => import('../../pageComponent/Home'), {
+//   loading: () => <Loader />,
+//   ssr: false
+// })
 export async function generateMetadata({ params: { lang } }) {
   const res = await getMetaDataPages(GET_META_DATA, lang)
 
@@ -56,7 +56,7 @@ export default async function page({ params: { lang } }) {
 
   return (
     <main>
-      <HomeDynamic
+      <Home
         nextStep={nextStep}
         lang={lang}
         data={data}

@@ -74,7 +74,7 @@ export default function Navbar({
     'who-we-are',
     'responsible-travel',
     'review',
-    'hot-deals',
+    'hot-deals/',
     'check-visa'
   ]
   const pathNamePc = ['tours']
@@ -118,14 +118,14 @@ export default function Navbar({
     function headerSticky() {
       if (lastScrolledPos >= window.scrollY) {
         nav.classList.remove('header-hide')
-        if(menuItems) {
+        if (menuItems) {
           menuItems.forEach((item) => {
             item.style.display = 'block'
           })
         }
       } else {
         nav.classList.add('header-hide')
-        if(menuItems) {
+        if (menuItems) {
           menuItems.forEach((item) => {
             item.style.display = 'none'
           })
@@ -335,7 +335,8 @@ export default function Navbar({
           className='menu-popup fixed inset-0 hidden overflow-x-hidden overflow-y-auto w-full h-full bg-white nav-mobile max-lg:block !z-[199] nav-mobile'
           ref={refMb}
         >
-          <MenuMb dataHome={dataHome}
+          <MenuMb
+            dataHome={dataHome}
             socialMobile={socialMobile}
             onCloseMenu={handleClickClose}
             lang={lang}
