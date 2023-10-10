@@ -1,5 +1,6 @@
 'use client'
 import BlogItem2 from '@/components/Common/BlogItem2'
+import Button from '@/components/Common/Button'
 import { createTheme, useMediaQuery } from '@mui/material'
 import Link from 'next/link'
 
@@ -27,8 +28,8 @@ function OurBlog({ data, lang }) {
         ))}
       </div>
       <div className='flex justify-center md:mb-[7.37vw] md:mt-[3.5vw] mt-[7.47vw]'>
-        <Link href='/blog' className='btn-secondary'>
-          {data?.ourTour?.btn}
+        <Link href='/blog'>
+            <Button className='btn-secondary' content={data?.ourTour?.btn}><span>{data?.ourTour?.btn}</span></Button>
         </Link>
       </div>
     </div>

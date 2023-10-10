@@ -14,7 +14,7 @@ function HotTour({ hotTour, reason, data,lang }) {
         </div>
         <div className='flex justify-center'>
           <Link href={`/${lang}/search`}>
-          <Button className='btn-secondary'>{data}</Button>
+          <Button className='btn-secondary' content={data}><span>{data}</span></Button>
           </Link>
         </div>
       </div>

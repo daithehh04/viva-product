@@ -90,13 +90,14 @@ const TimeDown = ({ headerData = {}, data }) => {
       />
       <div
         className='absolute h-[1.6875vw] w-fit top-0 -left-[0.375vw] bg-[#f22] text-white text-[0.75vw] leading-[1.8vw] px-[1vw] rounded-r-[0.25vw]
-      max-md:text-[12px] max-md:h-[7.2vw] max-md:w-[31.2vw] max-md:top-[6.67vw] max-md:leading-[7.2vw] max-md:text-center max-md:-left-2'
+      max-md:text-[12px] max-md:h-[7.2vw] max-md:w-[31.2vw] max-md:top-[6.67vw] max-md:leading-[7.2vw] max-md:text-center max-md:-left-2 max-lg:text-[1vw]
+      '
       >
         {headerData?.timeRemaining}
       </div>
       <div
         className='absolute top-[1.6875vw] -left-[0.375vw] triangle 
-       max-md:top-[13.9vw] max-md:-left-2'
+       max-md:top-[13.9vw] max-md:-left-2 ' 
       ></div>
     </div>
   )
