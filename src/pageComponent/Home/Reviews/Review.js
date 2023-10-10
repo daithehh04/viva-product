@@ -6,8 +6,14 @@ import Button from '@/components/Common/Button'
 import Link from 'next/link'
 import Image from 'next/image'
 import tree from '@/assets/images/cayduaHome.png'
+import AOS from 'aos'
+import { useEffect } from 'react'
 
 function Review({ data, button, lang }) {
+  useEffect(() => {
+    AOS.init({ disable: 'mobile' })
+    AOS.refresh()
+  }, [])
   return (
     <>
       <div className='flex gap-x-[2vw] items-end overflow-hidden relative custom-review pt-[9.37vw]'>

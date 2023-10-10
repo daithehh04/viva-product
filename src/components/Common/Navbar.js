@@ -27,7 +27,7 @@ import { DataProvider } from '../Menu/DataContextMenu'
 const theme = createTheme({
   breakpoints: {
     values: {
-      sm: 1024
+      sm: 1023
     }
   }
 })
@@ -226,7 +226,10 @@ export default function Navbar({
                 ref={refMenu}
               >
                 <div className='relative flex-shrink-0'>
-                  <div className='capitalize text-[1vw] nav-link cursor-pointer' menu={dataHome?.nav1}>
+                  <div
+                    className='capitalize text-[1vw] nav-link cursor-pointer'
+                    menu={dataHome?.nav1}
+                  >
                     <span>{dataHome?.nav1}</span>
                     <div className='menu-item'>
                       <MenuDestinations
@@ -240,7 +243,10 @@ export default function Navbar({
                     Hot
                   </span>
                 </div>
-                <div className='capitalize text-[1vw] nav-link cursor-pointer' menu={dataHome?.nav2}>
+                <div
+                  className='capitalize text-[1vw] nav-link cursor-pointer'
+                  menu={dataHome?.nav2}
+                >
                   <span>{dataHome?.nav2}</span>
                   <div className='menu-item '>
                     <MenuStyle
@@ -275,7 +281,10 @@ export default function Navbar({
                 >
                   <span>{dataHome?.nav4}</span>
                 </Link>
-                <div className='capitalize text-[1vw] nav-link cursor-pointer'  menu={dataHome?.nav5}>
+                <div
+                  className='capitalize text-[1vw] nav-link cursor-pointer'
+                  menu={dataHome?.nav5}
+                >
                   <span>{dataHome?.nav5}</span>
                   <div className='menu-item'>
                     <MenuAbout
@@ -285,7 +294,10 @@ export default function Navbar({
                     />
                   </div>
                 </div>
-                <div className='capitalize text-[1vw] nav-link cursor-pointer'  menu={dataHome?.nav6}>
+                <div
+                  className='capitalize text-[1vw] nav-link cursor-pointer'
+                  menu={dataHome?.nav6}
+                >
                   <span>{dataHome?.nav6}</span>
                   <div className='menu-item'>
                     <MenuRcmService
@@ -408,7 +420,10 @@ export default function Navbar({
             </div>
           </ModalCustom>
         )}
-        <div className="overlay" ref={refOverlay}></div>
+        <div
+          className='overlay'
+          ref={refOverlay}
+        ></div>
       </div>
     </DataProvider>
   )

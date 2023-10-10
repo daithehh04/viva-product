@@ -185,7 +185,8 @@ export default function Home({
           <div>
             <BookingProcessSteps data={nextStepBookTour} />
           </div>
-          <div className='pt-[7.31vw]'>
+          <div 
+          className='pt-[7.31vw]'>
             <OurBlogHomePage
               data={blog}
               button={button}

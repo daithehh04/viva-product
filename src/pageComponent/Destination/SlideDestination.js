@@ -27,6 +27,7 @@ function SlideDestination({ data, dataOtherType, dataTitle, lang }) {
           />
         </div>
         <div className='flex justify-center md:mt-[3.5vw] mt-[10.1vw]'>
+
           <Link href={`/${lang}/search`}>
             <Button className='btn-secondary' content={dataTitle?.ourTour?.btn}><span>{dataTitle?.ourTour?.btn}</span></Button>
           </Link>
@@ -42,37 +43,47 @@ function SlideDestination({ data, dataOtherType, dataTitle, lang }) {
                     data={tour}
                     lang={lang}
                   />
-                ) : (
+                ) : index < 7 ? (
                   <TourItem
                     data={tour}
                     lang={lang}
                   />
+                ) : index === 7 && data?.length >= 8 ? (
+                  <div className='h-[24.5vw] rounded-[1vw] relative hidden md:flex  justify-center items-center lastItem'>
+                    <div className='absolute flex flex-col items-center justify-center'>
+                      <div className='inline-flex gap-[0.3125vw] justify-center items-center'>
+                        <span className='text-justify font-optima text-[2vw] font-normal leading-[130%] text-white'>
+                          +
+                        </span>
+                        <span className='text-white heading-1'>{data?.length - 7}</span>
+                      </div>
+                      <span className='text-white text-justify font-optima text-[1.5vw] block font-medium leading-[150%]'>
+                        {dataTitle?.ourTour?.subtitle}
+                      </span>
+                      <div className='flex justify-center mt-[1.25vw]'>
+                        <Link
+                          href={`/${lang}/search`}
+                          className='btn-secondary'
+                        >
+                          {dataTitle?.ourTour?.btn}
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  ''
                 )}
               </div>
             ))}
-            {data?.length >= 7 ? (
-              <div className='h-[24.5vw] rounded-[1vw] relative hidden md:flex  justify-center items-center lastItem'>
-                <div className='absolute flex flex-col items-center justify-center'>
-                  <div className='inline-flex gap-[0.3125vw] justify-center items-center'>
-                    <span className='text-justify font-optima text-[2vw] font-normal leading-[130%] text-white'>+</span>
-                    <span className='text-white heading-1'>{data?.length - 7}</span>
-                  </div>
-                  <span className='text-white text-justify font-optima text-[1.5vw] block font-medium leading-[150%]'>
-                    {dataTitle?.ourTour?.subtitle}
-                  </span>
-                  <div className='flex justify-center mt-[1.25vw]'>
-                    <Link href={`/${lang}/search`} className='btn-secondary'>
-                      {dataTitle?.ourTour?.btn}
-                    </Link>
-                  </div>
-                </div>
-              </div>
+            {/* {data?.length >= 7 ? (
+              
             ) : (
               ''
-            )}
+            )} */}
           </div>
         </div>
         <div className='flex justify-center md:mt-[3.5vw] mt-[10.1vw]'>
+
           <Link href={`/${lang}/search`}>
             <Button className='btn-secondary' content={dataTitle?.ourTour?.btn}><span>{dataTitle?.ourTour?.btn}</span></Button>
           </Link>

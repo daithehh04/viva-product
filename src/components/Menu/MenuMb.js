@@ -67,7 +67,7 @@ function MenuMb({
           </div>
         </div>
       </div>
-      <div className='mt-[8.53vw] content'>
+      <div className='mt-[8.53vw] content' style={{paddingTop: '4.27vw'}}>
         {/* Item 1 */}
         <div className='border-b border-solid row-menu border-textColor border-opacity-20'>
           <div
@@ -206,15 +206,13 @@ function MenuMb({
             <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down max-lg:w-[3vw]' />
           </div>
           <div
-            className={`flex overflow-x-auto gap-[3.2vw] mt-[3.73vw] menu-mb_item rcmService_mb ${
-              selected === 4 ? 'h-[42vw]' : ''
-            }`}
+            className={`hidden-scroll flex overflow-x-auto gap-[3.2vw] mt-[3.73vw] menu-mb_item rcmService_mb`}
             ref={contentEle4}
             style={
               selected === 4
                 ? {
-                    overflow: 'auto',
-                    height:'42vw'
+                    height: contentEle4.current.scrollHeight,
+                    overflow: 'visible'
                   }
                 : { height: '0px', overflow: 'hidden' }
             }
