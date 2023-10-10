@@ -7,7 +7,6 @@ import Responsible from '@/pageComponent/AboutUs/responsible-travel/Responsible'
 
 export async function generateMetadata({ params: { lang } }) {
   const res = await getMetaDataPages(GET_META_DATA, lang)
-
   const { responsibleTravel } = res?.data?.page?.translation
   const featuredImage = res?.data?.page?.translation?.featuredImage
   const title = responsibleTravel?.meta?.title
