@@ -20,8 +20,8 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
       onClick={onCloseMenu}
       href={`/${lang}/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
       className={`${
-        menu ? 'md:h-[14.5vw] w-[52.5vw]' : 'md:h-[24.5vw] w-full'
-      } flex h-[67.23vw] md:rounded-[1vw] rounded-[2.75vw] relative max-md:flex-shrink-0 tour-item cursor-pointer`}
+        menu ? 'lg:h-[14.5vw] w-[52.5vw]' : 'lg:h-[24.5vw]'
+      } flex h-[67.23vw] md:rounded-[1vw] rounded-[2.75vw] relative max-lg:flex-shrink-0 tour-item cursor-pointer`}
     >
       {!loading ? (
         <Image
@@ -44,9 +44,9 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
               width={100}
               height={100}
               alt='location'
-              className='md:w-[1.4vw] xl:w-[1vw] md:h-[1.4vw] xl:h-[1vw] w-[2.66vw] h-[2.66vw] object-cover'
+              className='md:w-[3vw] lg:w-[1vw] md:h-[3vw] lg:h-[1vw] w-[2.66vw] h-[2.66vw] object-cover'
             />
-            <span className='text-[2.66vw] xl:text-[0.875vw] md:text-[1.2vw] leading-normal text-primaryColor'>
+            <span className='leading-normal text-primaryColor max-lg:text-[2vw] text-[0.875vw] max-md:text-[2.66vw]'>
               {tourData?.location}
             </span>
           </div>
@@ -61,7 +61,7 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
             )}`}
             className={`text-white line-clamp-1 ${
               !loading ? 'title-tour' : ''
-            } xl:text-[1.125vw] md:text-[1.4vw] text-[2.93vw] font-bold tracking-tight leading-[1.2] mt-[0.25vw] ${className}`}
+            } max-lg:text-[2vw] text-[1.4vw] max-md:text-[2.93vw] font-bold tracking-tight leading-[1.2] mt-[0.25vw] ${className}`}
           >
             {!loading ? tourData?.title : <Skeleton variant='text' sx={{ fontSize: '2rem' }} />}
           </Link>
@@ -81,19 +81,21 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
         </div>
         <div className='flex items-center justify-between md:mt-[0.81vw] mt-[2.13vw]'>
           {!loading ? (
-            <span className='text-primaryColor text-[2.67vw] md:text-[1.4vw] xl:text-[1vw]'>${price}</span>
+            <span className='text-primaryColor max-lg:text-[2vw] text-[1.4vw] max-md:text-[2.67vw]'>${price}</span>
           ) : (
             <Skeleton variant='rectangular' width={'80%'} height={50} />
           )}
           {!loading ? (
-            <div className='text-[#434447] md:gap-x-[0.2vw] gap-x-[0.8vw] flex items-center md:text-[1.2vw] xl:text-[0.75vw] text-[2.67vw] bg-white md:py-[0.19vw] md:px-[0.5vw] px-[1.28vw] py-[0.5vw] rounded-full w-fit'>
+            <div className='text-[#434447] md:gap-x-[0.2vw] gap-x-[0.8vw] flex items-center
+             md:text-[2vw] lg:text-[0.75vw] text-[2.67vw] bg-white md:py-[0.19vw] md:px-[2vw] lg:px-[0.5vw] px-[1.28vw] 
+             py-[0.5vw] rounded-full w-fit'>
               {tourData?.rate}
               <Image
                 src={imgStar}
                 width={100}
                 height={100}
                 alt='star'
-                className='md:w-[1.2vw] xl:w-[0.6875vw] md:h-[1.2vw] xl:h-[0.6875vw] w-[2.56vw] h-[2.56vw] object-cover'
+                className='md:w-[1.2vw] lg:w-[0.6875vw] md:h-[2vw] lg:h-[0.6875vw] w-[2.56vw] h-[2.56vw] object-cover'
               />
             </div>
           ) : (

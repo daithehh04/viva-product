@@ -26,9 +26,8 @@ export default function HotDeal({ hotDeals, menu, lang, onCloseMenu }) {
           style={menu && { fontSize: '2.5vw' }}
         >
           {hotDeals?.promotionHeader || ''}
-        </h2>
-        <ListPromotionTour
-          quantity={3}
+        </h2> 
+        <ListPromotionTour quantity={3}
           promotionList={hotDeals?.promotionList}
           menu={menu}
           lang={lang}

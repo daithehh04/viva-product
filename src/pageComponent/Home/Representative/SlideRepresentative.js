@@ -119,7 +119,7 @@ function SlideRepresent({ data, dataInfo }) {
                       />
                       <span className='text-white md:text-[1.19vw] text-[2.66vw] leading-normal'>{item?.role}</span>
                     </div>
-                    <h3 className='text-white md:text-[1.59vw] text-[3.2vw] font-[800] leading-normal md:mt-[0.33vw]'>
+                    <h3 className='text-white md:text-[1.59vw] text-[3.2vw] font-manrope font-[800] leading-normal md:mt-[0.33vw]'>
                       {item?.name}
                     </h3>
                   </div>

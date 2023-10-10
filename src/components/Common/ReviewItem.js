@@ -19,13 +19,13 @@ function ReviewItem({ className, data, lang }) {
         className || ''
       } review-item-wrapper md:p-[1vw] px-[4.8vw] py-[6.4vw] rounded-[8px] md:border border-solid border-[#ccc] flex md:flex-row flex-col md:gap-[1vw] gap-[4.8vw] bg-[#fff]`}
     >
-      <div className='overflow-hidden md:rounded-lg'>
+      <div className='overflow-hidden rounded-lg max-md:rounded-[2.33vw]'>
         <Image
           src={(tourData?.banner?.gallery && tourData?.banner?.gallery[0]?.sourceUrl) || imgReview}
           alt={(tourData?.banner?.gallery && tourData?.banner?.gallery[0]?.altText) || 'img'}
           width={1000}
           height={1000}
-          className={`review-item-img md:w-[18.0625vw] w-full md:h-[19.125vw] h-[60vw] rounded-[8px] object-cover`}
+          className={`review-item-img md:w-[18.0625vw] w-full md:h-[19.125vw] h-[60vw] rounded-[8px] max-md:rounded-[2.33vw] object-cover`}
         />
       </div>
 

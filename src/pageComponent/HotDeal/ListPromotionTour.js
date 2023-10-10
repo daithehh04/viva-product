@@ -6,13 +6,13 @@ const ListPromotionTour = ({ promotionList, menu, lang, quantity,onCloseMenu }) 
   return (
     <div className='relative best-tours md:overflow-hidden'>
       <div
-        className={`md:w-[83.5%] md:m-auto md:grid flex flex-col ${
+        className={`md:w-[83.5%] md:m-auto lg:grid flex flex-col ${
           menu ? 'grid-cols-4' : 'grid-cols-4'
         } md:gap-[2.5vw] gap-[3.2vw]`}
       >
         {list?.map((item, index) => (
           <div key={index}>
-            <div className='hidden md:flex'>
+            <div className='hidden lg:flex'>
               <TourItem
                 onCloseMenu={onCloseMenu}
                 data={item}
@@ -22,7 +22,7 @@ const ListPromotionTour = ({ promotionList, menu, lang, quantity,onCloseMenu }) 
               />
             </div>
 
-            <div className='flex md:hidden'>
+            <div className='flex lg:hidden'>
               <TourItemMobile
                 data={item}
                 lang={lang}

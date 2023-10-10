@@ -28,8 +28,8 @@ const Placeholder = ({ item, icon }) => (
   </div>
 )
 
-export default function OptionBudget({ icon, list, defaultValue, onSelect, isOpenModal, budget}) {
-  const [personName, setPersonName] = useState(budget)
+export default function OptionBudget({ icon, list, defaultValue, onSelect}) {
+  const [personName, setPersonName] = useState('Budget')
   useEffect(() => {
     if(defaultValue) {
       setPersonName(defaultValue)
@@ -43,11 +43,6 @@ export default function OptionBudget({ icon, list, defaultValue, onSelect, isOpe
     onSelect(value)
   }
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
-  useEffect(() => {
-    if(isOpenModal) {
-      setPersonName(budget)
-    }
-  }, [isOpenModal]);
   return (
     <div>
       <FormControl className='mb-[0.94vw] max-md:rounded-[1.06vw] bg-[#F0F0F0] 

@@ -73,6 +73,14 @@
   visibility: visible;
 }
 
+@media screen and (max-width: 1280px) {
+  .menu-table {
+    font-size: 3.2vw;
+    padding: 3vw 6vw !important ;
+    border-radius: 2.13vw !important;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .btn-secondary,
   .btn-primary {
@@ -81,3 +89,4 @@
     border-radius: 2.13vw !important;
   }
 }
+
