@@ -55,6 +55,7 @@ export default function Navbar({
   const refMb = useRef()
   const refMenu = useRef()
   const refNav = useRef()
+  const refOverlay = useRef()
   const refBtnBookTour = useRef()
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
   const titleAboutUs = {
@@ -121,6 +122,7 @@ export default function Navbar({
         if(menuItems) {
           menuItems.forEach((item) => {
             item.style.display = 'block'
+            refOverlay.current.style.display = 'block'
           })
         }
       } else {
@@ -128,6 +130,7 @@ export default function Navbar({
         if(menuItems) {
           menuItems.forEach((item) => {
             item.style.display = 'none'
+            refOverlay.current.style.display = 'none'
           })
         }
       }
@@ -142,10 +145,12 @@ export default function Navbar({
       item.addEventListener('mouseover', function () {
         nav.classList.remove('nav-mb-special')
         item.classList.add('show')
+        refOverlay.current.classList.add('active')
         menuItems[index].style.transition = 'all 0.5s'
       })
       item.addEventListener('mouseout', function () {
         item.classList.remove('show')
+        refOverlay.current.classList.remove('active')
         if (pathName.includes('tours') && !pathName.includes('our-tours') && window.pageYOffset === 0) {
           nav.classList.add('nav-mb-special')
         } else {
@@ -220,8 +225,8 @@ export default function Navbar({
                 ref={refMenu}
               >
                 <div className='relative flex-shrink-0'>
-                  <div className='capitalize text-[1vw] nav-link cursor-pointer'>
-                    {dataHome?.nav1}
+                  <div className='capitalize text-[1vw] nav-link cursor-pointer' menu={dataHome?.nav1}>
+                    <span>{dataHome?.nav1}</span>
                     <div className='menu-item'>
                       <MenuDestinations
                         data={dataMenuCountry}
@@ -234,8 +239,8 @@ export default function Navbar({
                     Hot
                   </span>
                 </div>
-                <div className='capitalize text-[1vw] nav-link cursor-pointer'>
-                  {dataHome?.nav2}
+                <div className='capitalize text-[1vw] nav-link cursor-pointer' menu={dataHome?.nav2}>
+                  <span>{dataHome?.nav2}</span>
                   <div className='menu-item '>
                     <MenuStyle
                       travelStylesList={travelStylesList}
@@ -247,8 +252,9 @@ export default function Navbar({
                 <Link
                   href={`/${lang}/hot-deals`}
                   className='capitalize text-[1vw] nav-link cursor-pointer'
+                  menu={dataHome?.nav3}
                 >
-                  {dataHome?.nav3}
+                  <span>{dataHome?.nav3}</span>
 
                   <div className='hidden menu-item menu-item3'>
                     <HotDeal
@@ -262,12 +268,13 @@ export default function Navbar({
                 </Link>
                 <Link
                   href={`/${lang}/check-visa`}
-                  className='capitalize text-[1vw] nav-link'
+                  className='capitalize text-[1vw] nav-link '
+                  menu={dataHome?.nav4}
                 >
-                  {dataHome?.nav4}
+                  <span>{dataHome?.nav4}</span>
                 </Link>
-                <div className='capitalize text-[1vw] nav-link cursor-pointer'>
-                  {dataHome?.nav5}
+                <div className='capitalize text-[1vw] nav-link cursor-pointer'  menu={dataHome?.nav5}>
+                  <span>{dataHome?.nav5}</span>
                   <div className='menu-item'>
                     <MenuAbout
                       dataAboutUs={dataAboutUs}
@@ -276,8 +283,8 @@ export default function Navbar({
                     />
                   </div>
                 </div>
-                <div className='capitalize text-[1vw] nav-link cursor-pointer'>
-                  {dataHome?.nav6}
+                <div className='capitalize text-[1vw] nav-link cursor-pointer'  menu={dataHome?.nav6}>
+                  <span>{dataHome?.nav6}</span>
                   <div className='menu-item'>
                     <MenuRcmService
                       rcmServicesList={rcmServicesList}
@@ -289,8 +296,9 @@ export default function Navbar({
                 <Link
                   href={`/${lang}/blog`}
                   className='capitalize text-[1vw] nav-link cursor-pointer'
+                  menu={dataHome?.nav7}
                 >
-                  {dataHome?.nav7}
+                  <span>{dataHome?.nav7}</span>
                 </Link>
               </div>
             </div>
@@ -397,6 +405,7 @@ export default function Navbar({
             </div>
           </ModalCustom>
         )}
+        <div className="overlay" ref={refOverlay}></div>
       </div>
     </DataProvider>
   )
