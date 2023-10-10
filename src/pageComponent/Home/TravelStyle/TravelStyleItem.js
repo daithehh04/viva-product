@@ -6,7 +6,12 @@ import Link from 'next/link'
 
 function TravelStyleItem({ data, lang }) {
   return (
-    <div className='relative w-[26.25vw] travel-style z-10'>
+    <div 
+        data-aos-once='true'
+        data-aos-disabled='true'
+        data-aos='fade-up'
+        data-aos-duration='1000'
+        className='relative w-[26.25vw] travel-style z-10'>
       <Image
         src={data?.banner?.travelStyleInfo?.imageHomePage?.sourceUrl}
         width={500}

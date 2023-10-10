@@ -100,10 +100,18 @@ function Surveys({ data, button, lang, dataBookTour }) {
           </ul>
           <div className='flex gap-x-[1vw] mt-[3.25vw] max-md:gap-x-[2.67vw] max-md:mt-[8.53vw]'>
             <div className='flex' ref={refBtnBookTour} onClick={() => setOpenModal(true)}>
-              <Button className='btn-primary' content={button?.buttonbooktour}><span>{button?.buttonbooktour}</span></Button>
+              <Button data-aos-disabled='true'
+                data-aos-once='true'
+                data-aos='fade-up'
+                data-aos-duration='1000' className='btn-primary' content={button?.buttonbooktour}><span>{button?.buttonbooktour}</span>
+              </Button>
             </div>
             <Link href={`/${lang}/about-us/who-we-are`}>
-              <Button className='btn-secondary' content={button?.buttonseemore}><span>{button?.buttonseemore}</span></Button>
+              <Button data-aos-disabled='true'
+                data-aos-once='true'
+                data-aos='fade-up'
+                data-aos-duration='1000' className='btn-secondary' content={button?.buttonseemore}><span>{button?.buttonseemore}</span>
+              </Button>
             </Link>
           </div>
         </div>

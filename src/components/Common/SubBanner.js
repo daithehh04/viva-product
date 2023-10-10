@@ -44,10 +44,11 @@ export default function SubBanner({ data = {}, className, lang }) {
           {data?.paragraph}
         </p>
         <Button
+          content={data?.button}
           onClick={() => router.push(`/${lang}/check-visa`)}
           className='btn-primary md:min-w-[14.3125vw] min-w-[29.6vw] md:h-[3.875vw] h-[10.4vw] flex justify-center items-center'
         >
-          {data?.button}
+        <span>{data?.button}</span>
         </Button>
       </div>
 
