@@ -67,7 +67,7 @@ function Banner({ data, dataFilter, lang }) {
         width={1000}
         height={1000}
         quality={100}
-        className='h-full absolute w-full z-[1] object-cover '
+        className='h-full absolute w-full z-[1] object-cover'
       />
       <Image
         alt='banner'
@@ -127,13 +127,13 @@ function Banner({ data, dataFilter, lang }) {
         >
           <Select onChange={handleChangeCountry} value={country} className='text-white' displayEmpty>
             <MenuItem value=''>
-              <span className='xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5]  leading-[1.5] '>
+              <span className='xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw]   leading-[1.5] '>
                 Country
               </span>
             </MenuItem>
             {dataFilter?.countryTo?.map((item, index) => (
               <MenuItem value={item?.slug} key={index}>
-                <span className='xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw] leading-[1.5]  leading-[1.5] '>
+                <span className='xl:text-[1vw] md:text-[1.5vw] text-[3.73333vw]  leading-[1.5] '>
                   {item?.name}
                 </span>
               </MenuItem>
@@ -142,10 +142,10 @@ function Banner({ data, dataFilter, lang }) {
         </FormControl>
 
         <Button
-          className='bg-primaryColor md:rounded-[0.75vw] rounded-[2.13333vw] w-fit md:mt-[3.13vw] mt-[8.53vw] px-[7.73vw] py-[3.2vw] md:px-[2.88vw] md:py-[1.25vw]'
-          onClick={handleCheck}
+          className='bg-primaryColor btn-primary md:rounded-[0.75vw] rounded-[2.13333vw] w-fit md:mt-[3.13vw] mt-[8.53vw] px-[7.73vw] py-[3.2vw] md:px-[2.88vw] md:py-[1.25vw]'
+          onClick={handleCheck} content={dataBanner?.button}
         >
-          <span className='md:text-[1.4vw] xl:text-[1vw]  text-[3.2vw] font-medium text-textColor '>
+          <span className=' font-medium text-textColor '>
             {dataBanner?.button}
           </span>
         </Button>
