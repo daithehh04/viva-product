@@ -83,7 +83,7 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
         />
       </div>
 
-      <div className='relative'>
+      <div className='relative md:pb-[2vw]'>
         <Image alt='banner' src={background} fill quality={100} className='z-[-1] object-cover' />
         {!loading ? (
           <div>
@@ -128,9 +128,8 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
               <SlideTour data={data1?.data?.bestSeller?.tours?.nodes} lang={lang} />
             </div>
             <Link href={`/${lang}/search`}>
-              <Button className='btn-secondary m-auto md:mb-[6.25vw] mb-[6.25vw] md:mt-[3.5vw] relative mt-[10.01vw] '>
-                {' '}
-                {data1?.data?.page?.translation?.ourblog?.button}
+              <Button content={data1?.data?.page?.translation?.ourblog?.button} className='btn-secondary m-auto md:mb-[6.25vw] mb-[6.25vw] md:mt-[3.5vw] relative mt-[10.01vw] '>
+                <span>{data1?.data?.page?.translation?.ourblog?.button}</span>
               </Button>
             </Link>
           </div>

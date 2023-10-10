@@ -15,7 +15,7 @@ export default function IndexAboutUs({ res, lang }) {
       <Banner data={bannerData} />
       <div className='md:pb-[8.125vw] mt-[-7.2vw] md:mt-0 md:bg-white bg-[#F3F6FB] z-10  relative rounded-2xl md:rounded-none'>
         <Reviews lang={lang} data={reviewData} />
-        <div className='relative md:pb-[6.875vw] pb-[16.458vw] pt-[10.66vw] md:pt-0  bg-white'>
+        <div className='relative md:pb-[6.875vw] pb-[16.458vw] pt-[10.66vw] xl:pt-0 md:pt-[3vw] bg-white '>
           <BookingProcessSteps data={bookingStep} />
           <Image
             src={stepBg}

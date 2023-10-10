@@ -35,7 +35,14 @@ function TouristRepresentative({ data }) {
           {data?.desc}
         </p>
       </div>
-      <SlideRepresent data={data?.members} dataInfo={data} />
+      <div 
+          data-aos-once='true'
+          data-aos-disabled='true'
+          data-aos='fade-up'
+          data-aos-duration='1000'
+      >
+        <SlideRepresent data={data?.members} dataInfo={data} />
+      </div>
     </div>
   )
 }
