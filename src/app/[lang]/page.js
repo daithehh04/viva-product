@@ -12,11 +12,17 @@ import {
 import { GET_HOME_PAGE, GET_META_DATA, GET_NEXT_STEP } from '@/graphql/home/queries'
 import { GET_DATA_FORM_BOOKTOUR } from '@/graphql/formBookTour/queries'
 import getDataFormBookTour from '@/data/formBookTour/getDataFormBookTour'
-import { GET_ALL_REVIEWS } from '@/graphql/customersReview/queries'
+import dynamic from 'next/dynamic'
+import Loader from '@/components/Common/Loader'
 
 const idEnBook = 'cG9zdDoxNDIy'
 const idFrBook = 'cG9zdDoxNDIy'
 const idItBook = 'cG9zdDoxNDIy'
+
+const HomeDynamic = dynamic(() => import('../../pageComponent/Home'), {
+  loading: () => <Loader />,
+  ssr: false
+})
 export async function generateMetadata({ params: { lang } }) {
   const res = await getMetaDataPages(GET_META_DATA, lang)
 
@@ -50,7 +56,7 @@ export default async function page({ params: { lang } }) {
 
   return (
     <main>
-      <Home
+      <HomeDynamic
         nextStep={nextStep}
         lang={lang}
         data={data}

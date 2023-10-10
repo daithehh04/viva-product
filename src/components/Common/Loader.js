@@ -1,5 +1,4 @@
 'use client'
-
 import React, { useEffect } from 'react'
 import gsap from 'gsap'
 
@@ -20,7 +19,7 @@ export default function Loader() {
       ease: 'power4.inOut'
     })
     gsap.to('.bar', 1, {
-      delay: 1,
+      delay: 0,
       height: 0,
       stagger: {
         amount: 0.5
