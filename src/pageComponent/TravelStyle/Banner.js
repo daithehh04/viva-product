@@ -37,7 +37,7 @@ function Banner({ data }) {
           <span className='md:w-[43vw] w-[66.27vw] text-center font-sans md:text-[1.5vw] text-[2.67vw] font-medium leading-[151%] text-[#fff] pb-[2.5vw]'>
             <span
               dangerouslySetInnerHTML={{ __html: data?.desc }}
-              className='whitespace-pre-wrap travel-style-desc'
+              className='whitespace-pre-wrap travel-style-desc max-lg:text-[2vw]'
             ></span>
           </span>
 
@@ -62,7 +62,7 @@ function Banner({ data }) {
                 strokeWidth='2'
               />
             </svg>
-            <span className='md:block hidden text-center font-manrope text-[0.875vw] not-italic font-semibold tracking-[0.04375vw] uppercase text-[#fff] '>
+            <span className='block max-md:hidden text-center font-manrope text-[0.875vw] not-italic font-semibold tracking-[0.04375vw] uppercase text-[#fff] max-lg:text-[1.6vw]'>
               {data?.subdesc}
             </span>
           </div>

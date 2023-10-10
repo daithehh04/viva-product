@@ -50,7 +50,7 @@ function VideoReview({ data, videoInfo, className, lang }) {
       <div className={`top absolute top-0 pt-[1.5vw] pl-[1.5vw] pr-[2.38vw] z-30 ${isPlay ? 'hidden' : ''}`}>
         <Link
           href={`/${lang}/tours/${videoInfo?.tours?.slug}`}
-          className='text-white text-[1.25vw] font-bold leading-[1.3] tracking-tight'
+          className='text-white text-[1.25vw] font-bold leading-[1.3] tracking-tight max-lg:text-[1.4vw]'
         >
           {videoInfo?.tours?.tourDetail?.banner?.title}
         </Link>
@@ -63,7 +63,7 @@ function VideoReview({ data, videoInfo, className, lang }) {
               alt='img'
               className='w-[1vw] h-[1vw] object-cover'
             />
-            <span className='text-white text-[0.875vw] leading-normal'>
+            <span className='text-white text-[0.875vw] leading-normal max-lg:text-[1.4vw]'>
               {videoInfo?.tours?.tourDetail?.banner?.location}
             </span>
           </div>
@@ -75,7 +75,7 @@ function VideoReview({ data, videoInfo, className, lang }) {
               alt='img'
               className='w-[1vw] h-[1vw] object-cover'
             />
-            <span className='text-white text-[0.875vw] leading-normal'>
+            <span className='text-white text-[0.875vw] leading-normal max-lg:text-[1.4vw]'>
               {videoInfo?.tours?.tourDetail?.numberDay} Day
             </span>
           </div>
@@ -83,7 +83,7 @@ function VideoReview({ data, videoInfo, className, lang }) {
       </div>
       <div className={`bottom absolute bottom-0 px-[1.5vw] pb-[1.88vw] z-30 ${isPlay ? 'hidden' : ''}`}>
         <div className='flex items-center gap-[0.75vw]'>
-          <div className='border-[2px] border-white border-solid w-[3.5vw] h-[3.5vw] rounded-full'>
+          <div className='border-[2px] border-white border-solid w-[3.5vw] h-[3.5vw] rounded-full max-lg:w-[5vw] max-lg:h-[5vw]'>
             <Image
               src={videoInfo?.authorInformation?.thumbnail?.sourceUrl}
               width={100}
@@ -94,10 +94,10 @@ function VideoReview({ data, videoInfo, className, lang }) {
           </div>
 
           <div className='flex flex-col'>
-            <span className='text-[1.125vw] font-bold capitalize text-white leading-normal'>
+            <span className='text-[1.125vw] font-bold capitalize text-white leading-normal max-lg:text-[1.6vw]'>
               {videoInfo?.authorInformation?.country}
             </span>
-            <span className='text-white text-[0.875vw] leading-normal'>{videoInfo?.authorInformation?.name} </span>
+            <span className='text-white text-[0.875vw] leading-normal max-lg:text-[1.4vw]'>{videoInfo?.authorInformation?.name} </span>
           </div>
         </div>
         <div className='flex mt-[1.25vw] ml-[-1vw]'>
@@ -108,7 +108,7 @@ function VideoReview({ data, videoInfo, className, lang }) {
             alt='quote'
             className='w-[2.75vw] h-[2.75vw] object-cover mt-[-0.95vw]'
           />
-          <p className='text-white text-[1vw] font-[500] leading-normal ml-[-1.25vw]'>{videoInfo?.content}</p>
+          <p className='text-white text-[1vw] font-[500] leading-normal ml-[-1.25vw] max-lg:text-[1.2vw]'>{videoInfo?.content}</p>
         </div>
       </div>
       <div className={`${isPlay ? 'hidden' : ''}`}>
