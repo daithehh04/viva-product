@@ -253,7 +253,7 @@ export default function Navbar({
                   href={`/${lang}/hot-deals`}
                   className='capitalize text-[1vw] nav-link cursor-pointer'
                   menu={dataHome?.nav3}
-                  onClick={handleClickClose}
+                  onClick={handleCloseMenu}
                 >
                   <span>{dataHome?.nav3}</span>
 
