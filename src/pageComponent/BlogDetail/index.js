@@ -4,6 +4,7 @@ import TextBlogDetail from './TextBlogDetail'
 import { DATA_BLOG_DETAIL, GET_ARTICLE_NEWS } from '@/graphql/detail/queries'
 import getDataDetail from '@/data/getDataDetail'
 import getDataPost from '@/data/getDataPost'
+import { notFound } from 'next/navigation'
 
 async function index({ lang, slug }) {
   const idFr = 'FR'
@@ -29,11 +30,20 @@ async function index({ lang, slug }) {
   }
   const dataBlog = data?.data?.postBy
 
+  if (!dataBlog || !data || !dataNews) {
+    notFound()
+  }
+
   return (
     <div>
       <HeaderBlog data={data} />
       <TextBlogDetail data={data} />
-      <OtherArticle data={dataBlog} dataNews={dataNews} lang={lang} dataTitle={data} />
+      <OtherArticle
+        data={dataBlog}
+        dataNews={dataNews}
+        lang={lang}
+        dataTitle={data}
+      />
     </div>
   )
 }

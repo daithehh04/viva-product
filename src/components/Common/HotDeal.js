@@ -14,7 +14,8 @@ export default function HotDeal({ hotDeals, menu, lang, onCloseMenu }) {
         >
           {hotDeals?.voucherHeader?.listHeader}
         </h2>
-        <ListVoucher isSubNav={true}
+        <ListVoucher
+          isSubNav={true}
           headerData={hotDeals?.voucherHeader?.detailHeader}
           listVoucher={listVoucher}
         />
@@ -26,7 +27,8 @@ export default function HotDeal({ hotDeals, menu, lang, onCloseMenu }) {
         >
           {hotDeals?.promotionHeader || ''}
         </h2>
-        <ListPromotionTour quantity={3}
+        <ListPromotionTour
+          quantity={3}
           promotionList={hotDeals?.promotionList}
           menu={menu}
           lang={lang}
