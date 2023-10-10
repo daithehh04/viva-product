@@ -20,7 +20,12 @@ async function page({ params: { lang } }) {
   const result = await getHotDealHeader(lang)
   const hotDeals = result?.data?.page?.translation?.hotDeals
 
-  return <HotDeal hotDeals={hotDeals} />
+  return (
+    <HotDeal
+      hotDeals={hotDeals}
+      lang={lang}
+    />
+  )
 }
 
 export default page

@@ -9,9 +9,16 @@
   border-radius: 0.75vw !important;
   padding: 1.09vw 2vw !important;
   background: $colorPrimary !important;
+  overflow: hidden;
   transition: all 0.3s ease;
+  span {
+    transition: all .4s;
+  }
   &:hover {
     scale: 1.03;
+    span {
+      transform: translateY(-200%);
+    }
   }
   @media screen and (min-width: 769px) and (max-width: 1280px) {
     font-size: 1.5vw;
@@ -33,35 +40,37 @@
   background: #fff;
   transition: all 0.3s ease;
   overflow: hidden;
+  span {
+    transition: all .4s;
+  }
   &:hover {
     scale: 1.03;
+    span {
+      transform: translateY(-200%);
+    }
   }
   @media screen and (min-width: 769px) and (max-width: 1280px) {
     font-size: 1.5vw;
   }
 }
 
-.btn-secondary::before {
-  content: '';
-  z-index: -1;
-  position: absolute;
-  bottom: 100%;
-  left: 100%;
-  width: 2vw;
-  height: 2vw;
-  border-radius: 50%;
-  background-color: $colorPrimary;
-  transform-origin: center;
-  transform: translate3d(-50%, 50%, 0) scale3d(0, 0, 0);
-  transition: transform 0.45s ease-in-out;
+.btn-secondary::before,
+.btn-primary::before {
+    text-align: center;
+    content: ''attr(content)'';
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform: translateY(200%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .4s;
 }
 
-.btn-secondary:hover {
-  border-color: $colorPrimary;
-}
-
-.btn-secondary:hover::before {
-  transform: translate3d(-50%, 50%, 0) scale3d(15, 15, 15);
+.btn-secondary:hover::before,.btn-primary:hover::before {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
 }
 
 @media screen and (max-width: 1280px) {

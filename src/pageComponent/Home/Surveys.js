@@ -54,7 +54,7 @@ function Surveys({ data, button, lang, dataBookTour }) {
     AOS.refresh()
   }, [])
   return (
-    <div className='surveys h-[62.1875vw] max-md:h-[auto]'>
+    <div className='surveys h-[62.1875vw] max-md:h-[auto] max-lg:h-[65vw]'>
       <div className='flex content pt-[6.38vw] max-md:flex-col max-md:pt-[14.93vw]'>
         <div className='w-[43vw] max-md:w-full'>
           <h2
@@ -100,10 +100,10 @@ function Surveys({ data, button, lang, dataBookTour }) {
           </ul>
           <div className='flex gap-x-[1vw] mt-[3.25vw] max-md:gap-x-[2.67vw] max-md:mt-[8.53vw]'>
             <div className='flex' ref={refBtnBookTour} onClick={() => setOpenModal(true)}>
-              <Button className='btn-primary'>{button?.buttonbooktour}</Button>
+              <Button className='btn-primary' content={button?.buttonbooktour}><span>{button?.buttonbooktour}</span></Button>
             </div>
             <Link href={`/${lang}/about-us/who-we-are`}>
-              <Button className='btn-secondary'>{button?.buttonseemore}</Button>
+              <Button className='btn-secondary' content={button?.buttonseemore}><span>{button?.buttonseemore}</span></Button>
             </Link>
           </div>
         </div>

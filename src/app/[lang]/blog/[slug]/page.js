@@ -113,6 +113,7 @@ async function Page({ params: { lang, slug } }) {
     },
     GET_SLUG_RCM
   )
+
   return (
     <div>
       <Blog

@@ -39,7 +39,7 @@ export default function SubBanner({ data = {}, className, lang }) {
           data-aos='fade-up'
           data-aos-disabled='true'
           data-aos-duration='1200'
-          className='text-justify md:text-[1.125vw] text-[3.733vw] md:mt-[1vw] mt-[2.13vw] md:mb-[2vw] mb-[8.8vw] md:font-manrope font-medium leading-[150%] text-textColor opacity-80'
+          className='text-justify md:text-[1.6vw] lg:text-[1.125vw] text-[3.733vw] md:mt-[1vw] mt-[2.13vw] md:mb-[2vw] mb-[8.8vw] md:font-manrope font-medium leading-[150%] text-textColor opacity-80'
         >
           {data?.paragraph}
         </p>

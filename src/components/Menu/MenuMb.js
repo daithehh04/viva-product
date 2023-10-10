@@ -15,7 +15,19 @@ import instarIcon from '@/assets/images/instar.svg'
 import ytbIcon from '@/assets/images/youtube.svg'
 import InputSearchMb from '../Common/InputSearchMb'
 
-function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList, rcmServicesList, menu, dataHome,titleAboutUs, contactInfo, socialMobile }) {
+function MenuMb({
+  onCloseMenu,
+  hotDeals,
+  lang,
+  dataMenuCountry,
+  travelStylesList,
+  rcmServicesList,
+  menu,
+  dataHome,
+  titleAboutUs,
+  contactInfo,
+  socialMobile
+}) {
   const [selected, setSelected] = useState(null)
   const contentEle = useRef()
   const contentEle2 = useRef()
@@ -63,13 +75,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             onClick={() => handleSelect(1)}
           >
             <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>{dataHome?.nav1}</h3>
-            <Image
-              src={iconDropdown}
-              width={11}
-              height={8}
-              alt='img'
-              className='drop-down max-lg:w-[3vw]'
-            />
+            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down max-lg:w-[3vw]' />
           </div>
           <div
             className='list menu-mb_item flex items-center gap-[7.47vw] !overflow-x-auto mt-[3.73vw] '
@@ -111,13 +117,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             onClick={() => handleSelect(2)}
           >
             <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>{dataHome?.nav2}</h3>
-            <Image
-              src={iconDropdown}
-              width={11}
-              height={8}
-              alt='img'
-              className='drop-down max-lg:w-[3vw]'
-            />
+            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down max-lg:w-[3vw]' />
           </div>
           <div
             className='grid menu-mb_item grid-cols-3 gap-x-[15.2vw] gap-y-[7.47vw] mt-[4.27vw] px-[2.67vw] '
@@ -160,13 +160,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             onClick={() => handleSelect(3)}
           >
             <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>{dataHome?.nav3}</h3>
-            <Image
-              src={iconDropdown}
-              width={11}
-              height={8}
-              alt='img'
-              className='drop-down max-lg:w-[3vw]'
-            />
+            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down max-lg:w-[3vw]' />
           </div>
           <div
             className='mt-[3.73vw] menu-mb_item '
@@ -209,21 +203,17 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             onClick={() => handleSelect(4)}
           >
             <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>{dataHome?.nav6}</h3>
-            <Image
-              src={iconDropdown}
-              width={11}
-              height={8}
-              alt='img'
-              className='drop-down max-lg:w-[3vw]'
-            />
+            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down max-lg:w-[3vw]' />
           </div>
           <div
-            className={`flex overflow-x-auto gap-[3.2vw] mt-[3.73vw] menu-mb_item ${selected === 4 ? 'h-[42vw]' : ''}`}
+            className={`flex overflow-x-auto gap-[3.2vw] mt-[3.73vw] menu-mb_item rcmService_mb ${
+              selected === 4 ? 'h-[42vw]' : ''
+            }`}
             ref={contentEle4}
             style={
               selected === 4
                 ? {
-                    height: '22vw',
+                    height: '42vw',
                     overflow: 'auto'
                   }
                 : { height: '0px', overflow: 'hidden' }
@@ -252,13 +242,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             onClick={() => handleSelect(5)}
           >
             <h3 className='text-[4.26vw] leading-[1.2] capitalize opacity-60 mr-[3.2vw]'>{dataHome?.nav5}</h3>
-            <Image
-              src={iconDropdown}
-              width={11}
-              height={8}
-              alt='img'
-              className='drop-down max-lg:w-[3vw]'
-            />
+            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down max-lg:w-[3vw]' />
           </div>
           <div
             className='flex flex-col gap-[3.2vw] mt-[5.07vw] menu-mb_item'
@@ -274,21 +258,21 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
           >
             <Link
               href='/about-us/who-we-are'
-              className='text-[3.2vw] capitalize'
+              className='text-[2.2vw] text-textColor opacity-70 uppercase'
               onClick={onCloseMenu}
             >
               {titleAboutUs?.whoWeAre}
             </Link>
             <Link
               href='/about-us/responsible-travel'
-              className='text-[3.2vw] capitalize'
+              className='text-[2.2vw] text-textColor opacity-70 uppercase'
               onClick={onCloseMenu}
             >
               {titleAboutUs?.ResTravel}
             </Link>
             <Link
               href='/about-us/reviews'
-              className='text-[3.2vw] capitalize'
+              className='text-[2.2vw] text-textColor opacity-70 uppercase'
               onClick={onCloseMenu}
             >
               {titleAboutUs?.AboutUs}
@@ -305,59 +289,63 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             {dataHome?.nav7}
           </Link>
         </div>
-        <span className='text-[3.2vw] opacity-80 mt-[20.8vw] block text-center'>{contactInfo && `${contactInfo[1]?.title}: ${contactInfo[1]?.content}`}</span>
+        <span className='text-[3.2vw] opacity-80 mt-[20.8vw] block text-center'>
+          {contactInfo && `${contactInfo[1]?.title}: ${contactInfo[1]?.content}`}
+        </span>
         <Button className='btn-primary mt-[1.6vw] w-full items-center justify-center'>
-          <span className='max-lg:py-[2vw] max-lg:text-[2vw]'>{contactInfo && `${contactInfo[0]?.title}: ${contactInfo[0]?.content}`}</span>
+          <span className='max-lg:py-[2vw] max-lg:text-[3.2vw]'>
+            {contactInfo && `${contactInfo[0]?.title}: ${contactInfo[0]?.content}`}
+          </span>
         </Button>
         {/* Socials */}
         <div className='flex items-center gap-[4.27vw] mt-[3.2vw] justify-center'>
           <Link
             href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkFb}
-            className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] fb'
+            className='max-md:w-[9.6vw] md:w-[6vw] md:h-[6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] fb'
           >
             <Image
               src={fbIcon}
               width={100}
               height={100}
               alt='img'
-              className='object-cover max-md:w-[1.875vw] max-md:h-[3.5vw]'
+              className='object-cover max-md:w-[1.875vw] md:w-fit max-md:h-[3.5vw]'
             />
           </Link>
 
           <Link
             href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkLinked}
-            className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] linked'
+            className='max-md:w-[9.6vw] max-md:h-[9.6vw] md:w-[6vw] md:h-[6vw] rounded-full flex items-center justify-center border border-solid border-[#000] linked'
           >
             <Image
               src={linkedIcon}
               width={100}
               height={100}
               alt='img'
-              className='max-md:w-[3.36vw] max-md:h-[3.36vw] object-cover'
+              className='max-md:w-[3.36vw]  md:w-fit max-md:h-[3.36vw] object-cover'
             />
           </Link>
           <Link
             href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkInstargram}
-            className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] instar'
+            className='max-md:w-[9.6vw] max-md:h-[9.6vw] md:w-[6vw] md:h-[6vw] rounded-full flex items-center justify-center border border-solid border-[#000] instar'
           >
             <Image
               src={instarIcon}
               width={100}
               height={100}
               alt='img'
-              className='max-md:w-[3.84vw] max-md:h-[3.84vw] object-cover'
+              className='max-md:w-[3.84vw] md:w-fit max-md:h-[3.84vw] object-cover'
             />
           </Link>
           <Link
             href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkYoutube}
-            className='max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] ytb'
+            className='max-md:w-[9.6vw]  md:w-[6vw] md:h-[6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] ytb'
           >
             <Image
               src={ytbIcon}
               width={100}
               height={100}
               alt='img'
-              className='object-contain max-md:w-[4.28vw] max-md:h-[3.5vw]'
+              className='object-contain md:w-fit max-md:w-[4.28vw] max-md:h-[3.5vw]'
             />
           </Link>
         </div>

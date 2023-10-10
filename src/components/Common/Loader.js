@@ -1,26 +1,18 @@
 'use client'
-
 import React, { useEffect } from 'react'
 import gsap from 'gsap'
 
 export default function Loader() {
+  // console.log(type)
   const list = new Array(10).fill(0)
-
   useEffect(() => {
-    // gsap.to('.loading-title', 1, {
-    //   delay: 0,
-    //   x: 0,
-    //   opacity: 1,
-    //   ease: 'power4.inOut'
-    // })
-
-    gsap.to('.logo', 1, {
+    gsap?.to('.logo', 1, {
       delay: 0,
       y: -window.innerHeight,
       ease: 'power4.inOut'
     })
-    gsap.to('.bar', 1, {
-      delay: 1,
+    gsap?.to('.bar', 1, {
+      delay: 0,
       height: 0,
       stagger: {
         amount: 0.5
@@ -28,6 +20,7 @@ export default function Loader() {
       ease: 'power4.inOut'
     })
   }, [])
+
   return (
     <div className='overlay fixed flex w-[100vw] h-[100vh] z-[100000]'>
       {list.map((item, index) => {

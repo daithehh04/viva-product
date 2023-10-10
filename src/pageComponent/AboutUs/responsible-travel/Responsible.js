@@ -35,7 +35,7 @@ export default function Responsible({ data = {} }) {
             data-aos-disabled='true'
             data-aos='fade-up'
             data-aos-duration='1200'
-            className='md:w-[80%] md:font-manrope leading-[150%] md:text-[1.125vw] text-[3.733vw] opacity-80 text-center m-auto'
+            className='md:w-[80%] md:font-manrope leading-[150%] md:text-[1.6vw] xl:text-[1.125vw] text-[3.733vw] opacity-80 text-center m-auto'
           >
             {data?.desc}
           </div>
@@ -62,10 +62,10 @@ export default function Responsible({ data = {} }) {
                   <div className='text-primaryColor md:text-[6vw] text-[17.07vw] leading-[110%] font-optima font-semibold opacity-60'>
                     {index < 10 ? `0${index + 1}` : index}
                   </div>
-                  <h3 className='text-textColor md:text-[2.5vw] text-[4.27vw] font-optima font-semibold md:leading-[110%] leading-[120%] md:mb-[2vw] mb-[4.27vw]'>
+                  <h3 className='text-textColor md:text-[2.8vw] xl:text-[2.5vw] text-[4.27vw] font-optima font-semibold md:leading-[110%] leading-[120%] md:mb-[2vw] mb-[4.27vw]'>
                     {post.title}
                   </h3>
-                  <p className='text-textColor md:text-[1.125vw] text-[3.733vw] md:font-medium leading-[150%] md:font-manrope opacity-80'>
+                  <p className='text-textColor md:text-[1.6vw] xl:text-[1.125vw] text-[3.733vw] md:font-medium leading-[150%] md:font-manrope opacity-80'>
                     {post.content}
                   </p>
                 </main>

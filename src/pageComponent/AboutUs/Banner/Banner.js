@@ -20,13 +20,13 @@ export default function Banner({ data = {} }) {
       <div className='about-banner-mask w-full md:h-[12.4375vw] h-[7.2vw] absolute bottom-0 right-0'></div>
 
       <div className='absolute top-0 left-0 flex flex-col items-center w-full h-full justify-center text-white'>
-        <h4 className='md:text-[1.9375vw] text-[3.2vw] font-medium '>{data?.heading}</h4>
+        <h4 className='md:text-[3vw] xl:text-[1.9375vw] text-[3.2vw] font-medium '>{data?.heading}</h4>
         {/* use slug to change data of h2 el */}
-        <h2 className='md:text-[4.5vw] text-[6.4vw] font-semibold text-justify uppercase leading-[120%] font-optima'>
+        <h2 className='md:text-[5.5vw] xl:text-[4.5vw] text-[6.4vw] font-semibold text-justify uppercase leading-[120%] font-optima'>
           {data?.title}
         </h2>
         <span
-          className='banner-sub-title md:w-[43.25vw] w-[68.267vw] text-center md:text-[1.5vw] text-[2.66vw] font-medium leading-normal md:flex md:flex-col'
+          className='banner-sub-title md:w-[43.25vw] w-[68.267vw] text-center xl:text-[1.5vw] md:text-[2vw] text-[2.66vw] font-medium leading-normal md:flex md:flex-col'
           dangerouslySetInnerHTML={{ __html: `${data?.subTitle}` }}
         ></span>
         <div className='md:hidden flex text-[2.67vw] opacity-80 font-medium leading-[151%]'></div>
@@ -39,9 +39,9 @@ export default function Banner({ data = {} }) {
             width={22}
             height={22}
             alt=''
-            className='arrow-down md:w-[1.375vw] md:h-[1.375vw] w-[4.26vw] h-[4.26vw]'
+            className='arrow-down xl:w-[1.375vw] md:w-[1.8vw] md:h-[1.8vw] xl:h-[1.375vw] w-[4.26vw] h-[4.26vw]'
           />
-          <div className='hidden md:flex text-center text-[0.875vw] font-semibold leading-[1.125vw] uppercase tracking-[0.75px]'>
+          <div className='hidden md:flex text-center xl:text-[1.4vw] text-[0.875vw] font-semibold leading-[1.125vw] uppercase tracking-[0.75px]'>
             {data?.button}
           </div>
         </div>

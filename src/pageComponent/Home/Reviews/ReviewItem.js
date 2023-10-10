@@ -21,7 +21,7 @@ function ReviewItem({ data, lang }) {
         className='rounded-[1vw] w-full h-full object-cover max-md:rounded-[3.2vw] customer-review__img'
       />
       <div className='top absolute top-0 pt-[1.5vw] pl-[1.5vw] pr-[2.38vw] z-10 max-md:pt-[4.8vw] max-md:pl-[4.92vw] max-md:pr-[7.88vw]'>
-        <h3 className='text-white text-[1.25vw] font-bold leading-[1.3] tracking-tight max-md:text-[4vw] desc'>
+        <h3 className='text-white text-[1.25vw] font-bold leading-[1.3] tracking-tight max-md:text-[4vw] desc max-lg:text-[1.2vw]'>
           {tourData?.banner?.title}
         </h3>
         <div className='flex items-center gap-x-[1.63vw] mt-[1vw] max-md:mt-[3.47vw] max-md:gap-x-[3.47vw]'>
@@ -33,11 +33,11 @@ function ReviewItem({ data, lang }) {
               alt='img'
               className='w-[1vw] h-[1vw] max-md:w-[3.2vw] max-md:h-[3.2vw] object-cover'
             />
-            <span className='text-white text-[0.875vw] leading-normal max-md:text-[3.2vw]'>
+            <span className='text-white text-[0.875vw] leading-normal max-md:text-[3.2vw] max-lg:text-[1.2vw]'>
               {tourData?.banner?.location}
             </span>
           </div>
-          <div className='flex items-center gap-x-[0.25vw] max-md:gap-x-[0.82vw]'>
+          <div className='flex items-center gap-x-[0.25vw] max-md:gap-x-[0.82vw] max-lg:text-[1.2vw]'>
             <Image
               src={calendarIcon}
               width={50}
@@ -45,7 +45,7 @@ function ReviewItem({ data, lang }) {
               alt='img'
               className='w-[1vw] h-[1vw] max-md:w-[3.2vw] max-md:h-[3.2vw] object-cover'
             />
-            <span className='text-white text-[0.875vw] leading-normal max-md:text-[3.2vw]'>
+            <span className='text-white text-[0.875vw] leading-normal max-md:text-[3.2vw] max-lg:text-[1.4vw]'>
               {tourData?.numberDay} Day
             </span>
           </div>
@@ -63,10 +63,10 @@ function ReviewItem({ data, lang }) {
             />
           </div>
           <div className='flex flex-col'>
-            <span className='text-[1.125vw] font-bold capitalize text-white leading-normal max-md:text-[3.73vw]'>
+            <span className='text-[1.125vw] font-bold capitalize text-white leading-normal max-md:text-[3.73vw] max-lg:text-[1.4vw]'>
               {authorInfo?.name}
             </span>
-            <span className='text-white text-[0.875vw] leading-normal max-md:text-[2.93vw]'>{authorInfo?.country}</span>
+            <span className='text-white text-[0.875vw] leading-normal max-md:text-[2.93vw] max-lg:text-[1.2vw] '>{authorInfo?.country}</span>
           </div>
         </div>
         <div className='flex mt-[1.25vw] ml-[-1vw] max-md:mt-[3.3vw]'>
@@ -79,7 +79,7 @@ function ReviewItem({ data, lang }) {
           />
           <Link
             href={'/'}
-            className='text-white inline text-[1vw] font-[500] leading-normal ml-[-1.25vw] max-md:text-[3.2vw]'
+            className='text-white inline text-[1vw] font-[500] leading-normal ml-[-1.25vw] max-md:text-[3.2vw] max-lg:text-[1.2vw]'
           >
             {data?.customerReview?.content.length >= 68
               ? `${data?.customerReview?.content?.slice(0, 68)}...`

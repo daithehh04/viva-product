@@ -14,7 +14,8 @@ export default function HotDeal({ hotDeals, menu, lang, onCloseMenu }) {
         >
           {hotDeals?.voucherHeader?.listHeader}
         </h2>
-        <ListVoucher isSubNav={true}
+        <ListVoucher
+          isSubNav={true}
           headerData={hotDeals?.voucherHeader?.detailHeader}
           listVoucher={listVoucher}
         />
