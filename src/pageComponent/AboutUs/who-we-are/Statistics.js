@@ -79,7 +79,7 @@ export default function Statistics({ data }) {
           data-aos-duration='1000'
           src={comma}
           alt='comma'
-          className='md:flex hidden md:w-[11.8125vw] md:h-[12.1875vw] w-[18.13vw] h-[13.33vw] absolute top-[-4.625vw]  left-[-2.1875vw]'
+          className='md:flex hidden md:w-[11.8125vw] md:h-[12.1875vw] w-[18.13vw] h-[13.33vw] absolute lg:top-[-4.625vw] md:top-[-3vw] lg:left-[-3.1875vw] md:left-[1vw]'
         />
 
         <Image
@@ -102,7 +102,13 @@ export default function Statistics({ data }) {
 
       <div className='flex justify-between md:gap-[8.3125vw] gap-[4vw] overflow-hidden flex-wrap md:flex-nowrap px-[4.26vw]'>
         {data?.statistics?.map((item, index) => {
-          return <CountDown key={index} data={item} time={2000} />
+          return (
+            <CountDown
+              key={index}
+              data={item}
+              time={2000}
+            />
+          )
         })}
       </div>
 
