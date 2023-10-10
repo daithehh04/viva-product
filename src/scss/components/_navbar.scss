@@ -219,7 +219,7 @@
   }
   .menu-mb_item.rcmService_mb {
     @media screen and (min-width: 768px) {
-      height: 22vw !important;
+      height: 22vw;
     }
   }
   .row-menu:first-child:has(.active) {

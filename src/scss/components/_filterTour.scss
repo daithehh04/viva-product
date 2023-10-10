@@ -16,7 +16,7 @@
   }
 }
 .bgFilterMobile {
-  @media screen and (max-width: 768px) {
+  @include mobile {
     position: absolute;
     inset: 0;
     background: #171717;
@@ -25,7 +25,7 @@
   }
 }
 .select-mobile {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     padding: 0 4.27vw;
   }
   .MuiFormControl-root {
@@ -43,11 +43,10 @@
   }
 }
 
-
-.travelStyle-Mb{
-  .select{
-    .bg-mobile{
-      @media screen and (max-width : 768px) {
+.travelStyle-Mb {
+  .select {
+    .bg-mobile {
+      @media screen and (max-width: 768px) {
         background: #171717;
         opacity: 0.04;
         position: absolute;

@@ -69,7 +69,7 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
   return (
     <div>
       <div className='content'>
-        <h2 className='heading-1 md:pt-[9.755vw] pt-[23.53vw] md:mb-0 mb-[4.27vw]'>
+        <h2 className='heading-1 mdpt-[14.755vw] lg:pt-[9.755vw] pt-[23.53vw] md:mb-0 mb-[4.27vw]'>
           {data1?.data?.page?.translation?.ourblog?.heading1}
         </h2>
         <FilterBlog

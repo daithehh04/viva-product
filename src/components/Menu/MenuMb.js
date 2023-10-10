@@ -213,7 +213,6 @@ function MenuMb({
             style={
               selected === 4
                 ? {
-                    height: '42vw',
                     overflow: 'auto'
                   }
                 : { height: '0px', overflow: 'hidden' }

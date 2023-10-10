@@ -28,7 +28,7 @@ function FilterBlog({ handleDes, handleTopic, handleCate, metaTopic, metaDestina
 
   return (
     <div className='flex gap-[3.2vw] md:pt-[1.2vw] md:justify-normal justify-between md:mt-[3.5vw] ourBlog relative'>
-      <div className='background max-md:hidden'></div>
+      <div className='background max-md:hidden md:block'></div>
       <div className='flex flex-col select md:rounded-0 justify-center rounded-[1.06667vw] flex-shrink-0 md:w-auto max-md:h-[10.67vw] w-[43.53333vw]'>
         <div className='bgFilterMobile'></div>
         <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>
