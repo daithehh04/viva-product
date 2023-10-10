@@ -22,8 +22,8 @@ function BestSellerTour({ data, lang, dataCheckVisa }) {
         ))}
       </div>
       <Link href={`/${lang}/search`}>
-        <Button className='btn-secondary mb-[8.77vw] md:mb-[6.25vw] m-auto md:mt-[3.5vw] mt-[8.77vw]'>
-          {dataCheckVisa?.checkvisa?.button}
+        <Button className='flex mb-[8.77vw] md:mb-[6.25vw] m-auto md:mt-[3.5vw] mt-[8.77vw]'>
+          <Button className='btn-secondary' content={dataCheckVisa?.checkvisa?.button}><span>{dataCheckVisa?.checkvisa?.button}</span></Button>
         </Button>
       </Link>
     </div>
