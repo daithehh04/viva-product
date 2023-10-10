@@ -26,7 +26,7 @@ export async function generateMetadata({ params: { slug, lang } }) {
 
 const TourDetailDynamic = dynamic(() => import('@/pageComponent/TourDetail'), {
   ssr: false,
-  loading: () => <Loader />
+  loading: () => <Loader type='next' />
 })
 export default async function page({ params: { lang, slug } }) {
   const idEnBook = 'cG9zdDoxNDIy'
