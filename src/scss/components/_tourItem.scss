@@ -5,6 +5,8 @@
     transition: all 0.3s ease;
   }
   .title-tour {
+    display: table-row;
+    line-height: 1.5;
     cursor: pointer;
     position: relative;
     transition: background-size 350ms;
@@ -17,7 +19,7 @@
     }
     .title-tour {
       color: $colorPrimary;
-      background-size: 100% 1px;
+      background-size: 100% 1.5px;
       background-position-x: left;
     }
     

@@ -54,12 +54,12 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
           <Skeleton variant='text' sx={{ fontSize: '1rem' }} />
         )}
 
-        <h3 className='line-clamp-2 '>
+        <h3 className='line-clamp-1' title={tourData?.title}>
           <Link
             href={`/${lang}/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(
               data?.translation?.slug
             )}`}
-            className={`text-white ${
+            className={`text-white line-clamp-1 ${
               !loading ? 'title-tour' : ''
             } xl:text-[1.125vw] md:text-[1.4vw] text-[2.93vw] font-bold tracking-tight leading-[1.2] mt-[0.25vw] ${className}`}
           >

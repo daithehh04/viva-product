@@ -64,6 +64,19 @@
       height: 0px;
     }
   }
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 }
 
 .navbar {
@@ -73,6 +86,7 @@
   width: 100vw;
   z-index: 99;
   transition: transform 0.4s, background-color 0.2s;
+  overflow: hidden;
   .nav-link {
     flex-shrink: 0;
     position: relative;
