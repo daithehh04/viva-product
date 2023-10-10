@@ -93,7 +93,7 @@ export default function Statistics({ data }) {
           data-aos-disabled='true'
           data-aos='fade-up'
           data-aos-duration='1000'
-          className='statistic-desc md:w-[56.4375vw] w-full text-[#414141] font-optima font-semibold md:text-[2.5625vw] text-[6.4vw] leading-[150%] md:tracking-[-2.05px] tracking-[-1.2px]'
+          className='statistic-desc md:w-[56.4375vw] w-full text-[#414141] font-optima font-semibold xl:text-[2.5625vw] md:text-[3.5625vw] text-[6.4vw] leading-[150%] md:tracking-[-2.05px] tracking-[-1.2px]'
           dangerouslySetInnerHTML={{ __html: `${data?.description}` }}
         ></div>
       </div>

@@ -43,17 +43,14 @@ const Reviews = ({ lang, data }) => {
   const paginations = new Array(totalPage.current).fill(0)
   const reviewData = reviewList?.allCustomerReview?.nodes?.filter((item) => item.translation !== null)
   return (
-    <section
-      className='content py-[10vw] relative z-10'
-      id='about-us__review'
-    >
-      <div className='md:w-[33.4375vw] w-full text-textColor md:mb-[2vw] mb-[13.07vw]'>
+    <section className='content py-[10vw] relative z-10' id='about-us__review'>
+      <div className='md:w-[50vw] xl:w-[33.4375vw] w-full text-textColor md:mb-[2vw] mb-[13.07vw]'>
         <h2
           data-aos-once='true'
           data-aos-disabled='true'
           data-aos='fade-up'
           data-aos-duration='1000'
-          className='md:text-[4vw] text-[4.8vw] font-semibold capitalize md:leading-[110%] leading-[120%] font-optima md:mb-[1vw] mb-[2.13vw]'
+          className='md:text-[5vw] xl:text-[4vw] text-[4.8vw] font-semibold capitalize md:leading-[110%] leading-[120%] font-optima md:mb-[1vw] mb-[2.13vw]'
         >
           {data?.heading}
         </h2>
@@ -62,7 +59,7 @@ const Reviews = ({ lang, data }) => {
           data-aos-disabled='true'
           data-aos='fade-up'
           data-aos-duration='1200'
-          className='md:text-[1.125vw] text-[3.73vw] leading-[150%] md:opacity-80 opacity-70'
+          className='md:text-[1.6vw] lg:text-[1.125vw] text-[3.73vw] leading-[150%] md:opacity-80 opacity-70'
         >
           {data?.desc}
         </p>
@@ -77,10 +74,7 @@ const Reviews = ({ lang, data }) => {
                 key={index}
                 className={`${index === 0 && !onlySmallScreen && 'md:col-span-2 big-item md:gap-[2.5vw]'}`}
               >
-                <ReviewItem
-                  data={item}
-                  lang={lang}
-                />
+                <ReviewItem data={item} lang={lang} />
               </div>
             )
           })}
@@ -94,10 +88,7 @@ const Reviews = ({ lang, data }) => {
       <div className='w-fit m-auto flex md:gap-[0.75vw] gap-[3.2vw] md:mt-[6.538vw] mt-[6.4vw]'>
         {paginations?.map((pagination, index) => {
           return (
-            <Link
-              key={index}
-              href={'#about-us__review'}
-            >
+            <Link key={index} href={'#about-us__review'}>
               <span
                 className={`${
                   index + 1 === activePage ? 'bg-textColor text-white' : 'bg-primaryColor text-textColor opacity-10 '
