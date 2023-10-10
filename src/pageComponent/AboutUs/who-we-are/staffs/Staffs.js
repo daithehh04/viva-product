@@ -28,7 +28,7 @@ export default function Staffs({ data }) {
           data-aos-disabled='true'
           data-aos='fade-up'
           data-aos-duration='1200'
-          className='md:w-[47.875vw] md:text-[1.125vw] text-[3.73vw] leading-[150%] opacity-80'
+          className='md:w-[47.875vw] md:text-[1.8vw] xl:text-[1.125vw] text-[3.73vw] leading-[150%] opacity-80'
         >
           {data?.description}
         </p>
