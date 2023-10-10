@@ -74,7 +74,7 @@ function InspectionTrip({ data, lang }) {
                         className='rounded-[1vw] max-md:rounded-[2.13vw] h-full w-full object-cover'
                       />
                       <div className='info absolute bottom-0 px-[2vw] pb-[2vw] max-md:pb-[4.13vw] max-md:px-[4vw] z-10'>
-                        <a className='text-[1.5vw] title-tour text-[#fff] font-bold leading-[1.3] tracking-[-0.03rem] w-[20.3125vw] max-md:text-[2.93vw] max-md:w-[61.33vw]'>
+                        <a className='text-[1.5vw] title-tour text-[#fff] font-bold leading-[1.3] tracking-[-0.03rem] w-[20.3125vw] max-md:text-[2.93vw] max-md:w-[61.33vw] max-lg:text-[1.6vw]'>
                           {item?.tourDetail?.banner?.title}
                         </a>
                         <div className='flex items-center gap-x-[1.19vw] mt-[1.03vw] max-md:gap-x-[4.27vw] max-md:mt-[1.6vw]'>
@@ -87,7 +87,7 @@ function InspectionTrip({ data, lang }) {
                               alt='location'
                               className='w-[1.5vw] h-[1.5vw] max-md:w-[3.2vw] max-md:h-[3.2vw] object-cover'
                             />
-                            <span className='text-white text-[1.125vw] max-md:text-[2.267vw] leading-[1.3]'>
+                            <span className='text-white text-[1.125vw] max-md:text-[2.267vw] leading-[1.3] max-lg:text-[1.4vw]'>
                               {item?.tourDetail?.banner?.location}
                             </span>
                           </div>
@@ -100,7 +100,7 @@ function InspectionTrip({ data, lang }) {
                               alt='location'
                               className='w-[1.5vw] h-[1.5vw] max-md:w-[3.2vw] max-md:h-[3.2vw] object-cover'
                             />
-                            <span className='text-white text-[1.125vw] max-md:text-[2.267vw] leading-[1.3]'>
+                            <span className='text-white text-[1.125vw] max-md:text-[2.267vw] leading-[1.3] max-lg:text-[1.4vw]'>
                               {item?.tourDetail?.banner?.time}
                             </span>
                           </div>
@@ -113,7 +113,7 @@ function InspectionTrip({ data, lang }) {
                               alt='location'
                               className='w-[1.5vw] h-[1.5vw] max-md:w-[3.2vw] max-md:h-[3.2vw] object-cover'
                             />
-                            <span className='text-white text-[1.125vw] max-md:text-[2.267vw] leading-[1.3]'>
+                            <span className='text-white text-[1.125vw] max-md:text-[2.267vw] leading-[1.3] max-lg:text-[1.4vw]'>
                               {item?.tourDetail?.banner?.restaurant}
                             </span>
                           </div>
