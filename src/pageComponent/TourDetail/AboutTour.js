@@ -354,7 +354,7 @@ export default function AboutTour(props) {
 
                 {/*step when scroll down */}
                 <div
-                  className='max-md:hidden hidden py-[3.3vw] w-[4.125vw] h-[31vw] fixed left-0 top-1/2 -translate-y-1/2 rounded-lg'
+                  className='max-md:hidden hidden py-[3.3vw] lg:w-[4.125vw] md:w-[5.125vw] lg:h-[31vw] md:h-[50vw] fixed left-0 top-1/2 -translate-y-1/2 rounded-lg'
                   style={{ boxShadow: '0px 0px 2vw 0px rgba(0, 0, 0, 0.08)' }}
                   ref={stepIconRef}
                 >
@@ -373,7 +373,7 @@ export default function AboutTour(props) {
                               height={64}
                               viewBox='0 0 64 64'
                               fill='#000'
-                              className={`justify-self-end w-[3vw] h-[3vw]`}
+                              className={`justify-self-end lg:w-[3vw] md:w-[4vw] lg:h-[3vw] md:h-[4vw]`}
                               style={{ color: `${index === activeIcon ? '#138140' : '#000'}` }}
                             >
                               {step.img}
@@ -537,7 +537,7 @@ export default function AboutTour(props) {
 
           {/* price & map*/}
           <div
-            className='md:w-[26.25vw] md:h-[81.2vw] md:flex md:flex-col gap-[1.6875vw] hidden text-textColor md:absolute right-[1.6vw]'
+            className='md:w-[26.25vw] md:h-[81.2vw] md:flex md:flex-col gap-[1.6875vw] hidden text-textColor md:absolute md:right-[9.725vw] lg:right-[1.6vw]'
             ref={mapRef}
           >
             {/* price */}

@@ -30,11 +30,36 @@ function ColorlibStepIcon(props) {
   const { className } = props
 
   const icons = {
-    1: <Image src={stepIcon} alt='stepIcon' />,
-    2: <Image src={stepIcon} alt='stepIcon' />,
-    3: <Image src={stepIcon} alt='stepIcon' />,
-    4: <Image src={stepIcon} alt='stepIcon' />,
-    5: <Image src={stepIcon} alt='stepIcon' />
+    1: (
+      <Image
+        src={stepIcon}
+        alt='stepIcon'
+      />
+    ),
+    2: (
+      <Image
+        src={stepIcon}
+        alt='stepIcon'
+      />
+    ),
+    3: (
+      <Image
+        src={stepIcon}
+        alt='stepIcon'
+      />
+    ),
+    4: (
+      <Image
+        src={stepIcon}
+        alt='stepIcon'
+      />
+    ),
+    5: (
+      <Image
+        src={stepIcon}
+        alt='stepIcon'
+      />
+    )
   }
 
   return <ColorlibStepIconRoot className={className}>{icons[String(props.icon)]}</ColorlibStepIconRoot>
@@ -77,18 +102,40 @@ export default function BookingProcessSteps({ data = {} }) {
       </h3>
       <div className='overflow-x-auto overflow-y-hidden hidden-scroll md:overflow-hidden'>
         <div className='w-[185vw] md:w-full h-full'>
-          <Stack sx={{ width: '100%' }} spacing={4}>
-            <Stepper alternativeLabel activeStep={5}>
+          <Stack
+            sx={{ width: '100%' }}
+            spacing={4}
+          >
+            <Stepper
+              alternativeLabel
+              activeStep={5}
+            >
               {stepsAbove?.map((label, index) => (
-                <Step onMouseOut={() => handleHover(-1)} onMouseOver={() => handleHover(index)} key={index}>
-                  <StepLabel StepIconProps={{ className: 'about-step-icon' }} className='about-step-above cursor-pointer'>
-                    <Image src={label.icon} alt='stepIcon'/>
-                    <div className='max-lg:text-[1.2vw]'>{data?.step ? data?.step[index]?.title : ''}</div>
+                <Step
+                  onMouseOut={() => handleHover(-1)}
+                  onMouseOver={() => handleHover(index)}
+                  key={index}
+                >
+                  <StepLabel
+                    StepIconProps={{ className: 'about-step-icon' }}
+                    className='about-step-above cursor-pointer'
+                  >
+                    <Image
+                      src={label.icon}
+                      alt='stepIcon'
+                    />
+                    <div className='md:text-[1.2vw] lg:text-[1.125vw] text-[2.67vw]'>
+                      {data?.step ? data?.step[index]?.title : ''}
+                    </div>
                   </StepLabel>
                 </Step>
               ))}
             </Stepper>
-            <Stepper alternativeLabel activeStep={5} connector={<ColorlibConnector />}>
+            <Stepper
+              alternativeLabel
+              activeStep={5}
+              connector={<ColorlibConnector />}
+            >
               {stepsBelow?.map((label, index) => (
                 <Step
                   onMouseOut={() => handleHover(-1)}
@@ -97,7 +144,10 @@ export default function BookingProcessSteps({ data = {} }) {
                   sx={{ WebkitTextFillColor: index === activeIndex ? 'unset' : '' }}
                   id={index === activeIndex ? 'active-step' : ''}
                 >
-                  <StepLabel StepIconComponent={ColorlibStepIcon} className='about-step-below'>
+                  <StepLabel
+                    StepIconComponent={ColorlibStepIcon}
+                    className='about-step-below'
+                  >
                     {label}
                   </StepLabel>
                 </Step>
