@@ -31,7 +31,7 @@
   }
 }
 .bgFilterMobile {
-  @media screen and (max-width: 768px) {
+  @include mobile {
     position: absolute;
     inset: 0;
     background: #171717;
@@ -40,7 +40,7 @@
   }
 }
 .select-mobile {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     padding: 0 4.27vw;
   }
   .MuiFormControl-root {
@@ -49,7 +49,7 @@
 }
 
 .ourBlog {
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 768px) {
     width: 49.125vw;
     display: flex;
     justify-content: center;

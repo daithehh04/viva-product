@@ -18,7 +18,7 @@ function BlogItem({ className, data, lang, heightImage }) {
             alt='img'
             className={`md:!h-[16.3125vw] h-[52.26667vw] object-cover md:rounded-[0.5vw] rounded-[2.13333vw] ${className} ${heightImage}`}
           />
-          <span className='absolute md:top-[1.62vw] top-[3.69vw] md:left-[-0.375vw] left-[-1.67vw] md:px-[1vw] md:py-[0.25vw] px-[4.27vw] py-[1.07vw] bg-primaryColor md:text-[0.75vw] text-[2.66667vw] font-[500] rounded-r-[0.25vw] tip-review'>
+          <span className='absolute md:top-[1.62vw] top-[3.69vw] md:left-[-0.375vw] left-[-1.67vw] md:px-[1vw] md:py-[0.25vw] px-[4.27vw] py-[1.07vw] bg-primaryColor md:text-[1vw] lg:text-[0.75vw] text-[2.66667vw] font-[500] rounded-r-[0.25vw] tip-review'>
             {data?.blogdetail?.subtitle1}
           </span>
         </div>
@@ -28,9 +28,9 @@ function BlogItem({ className, data, lang, heightImage }) {
             width={100}
             height={100}
             alt='calendar'
-            className='md:w-[0.84375vw] opacity-60 w-[2.4vw] h-[2.66667vw] md:h-[0.9375vw] object-cover'
+            className='md:w-[1.2vw] lg:w-[0.84375vw] opacity-60 w-[2.4vw] h-[2.66667vw] md:h-[1.4vw] lg:h-[0.9375vw] object-cover'
           />
-          <span className='md:text-[0.875vw] opacity-60 text-[2.66667vw] leading-none'>
+          <span className='md:text-[1.2vw] lg:text-[0.875vw] opacity-60 text-[2.66667vw] leading-none'>
             {data?.blogdetail?.time || moment(data?.dateGmt)?.format('DD MMMM YYYY')}
           </span>
         </div>
@@ -38,7 +38,7 @@ function BlogItem({ className, data, lang, heightImage }) {
           <a className='title__ourBlog '>{data?.title}</a>
         </h4>
         <p
-          className='md:text-[0.875vw] text-ellipsis line-clamp-2 opacity-60 text-[2.66667vw] font-[500] desc leading-normal md:mt-[0.5vw] mt-[1.07vw]'
+          className='md:text-[1.1vw] lg:text-[0.875vw] text-ellipsis line-clamp-2 opacity-60 text-[2.66667vw] font-[500] desc leading-normal md:mt-[0.5vw] mt-[1.07vw]'
           dangerouslySetInnerHTML={{ __html: `${data?.excerpt}` }}
         ></p>
       </div>
