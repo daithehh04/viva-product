@@ -13,12 +13,12 @@ import { useClickOutside } from '@/helpers/customHooks'
 
 // css for label + placeholder + error msg
 const labelStyle =
-  'text-[0.9375vw] font-medium leading-[1.5vw] mb-[0.5vw] max-md:mb-[2.13vw] max-md:text-[14px] leading-[21px] '
+  'text-[0.9375vw] font-medium leading-[1.5vw] mb-[0.5vw] max-md:mb-[2.13vw] max-md:text-[14px] leading-[21px] max-lg:text-[1.4vw] '
 const labelInputStyle =
-  'w-[35vw] pl-[1.5vw] h-[3.125vw] bg-[#d9d9d966] outline-none border-[1px] border-white rounded-[0.5vw] text-[1vw] max-md:pl-[5.3vw] max-md:text-[3.73vw] max-md:w-full max-md:h-[12.8vw] '
+  'w-[35vw] pl-[1.5vw] h-[3.125vw] bg-[#d9d9d966] outline-none border-[1px] border-white rounded-[0.5vw] text-[1vw] max-md:pl-[5.3vw] max-md:text-[3.73vw] max-md:w-full max-md:h-[12.8vw] max-lg:text-[1.4vw] max-lg:py-[2vw]'
 const placeholderStyle =
-  'absolute pointer-events-none pl-[1.5vw] top-[50%] translate-y-[-50%] left-0 opacity-0.5 font-normal text-[1vw] text-[#838383] max-md:text-[3.73vw] max-md:pl-[5.3vw] max-md:leading-normal'
-const errorStyle = 'text-red-300 text-[1vw] max-md:text-[3.73vw] mb-[0.62vw] max-md:mb-[3.2vw]'
+  'absolute pointer-events-none pl-[1.5vw] top-[50%] translate-y-[-50%] left-0 opacity-0.5 font-normal text-[1vw] text-[#838383] max-md:text-[3.73vw] max-md:pl-[5.3vw] max-md:leading-normal max-lg:text-[1.4vw] '
+const errorStyle = 'text-red-300 text-[1vw] max-md:text-[3.73vw] mb-[0.62vw] max-md:mb-[3.2vw] max-lg:text-[1.4vw]'
 //validate
 const schema = Yup.object().shape({
   fullname: Yup.string().required('Tên là trường bắt buộc'),
@@ -147,18 +147,18 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
             {data?.content?.extraDiscount}
           </p>
           <div className='text-[1vw]'>
-            <h4 className='font-bold leading-normal mb-[0.5vw] mt-[1.5vw] max-md:mb-[4.27vw] max-md:text-[4.267vw] max-md:mt-[5.3vw] opacity-70 uppercase'>
+            <h4 className='font-bold leading-normal mb-[0.5vw] mt-[1.5vw] max-md:mb-[4.27vw] max-md:text-[4.267vw] max-md:mt-[5.3vw] opacity-70 uppercase max-lg:text-[1.6vw]'>
               {headerData?.expiryDateHeader}:
             </h4>
-            <ul className='ml-[1.2vw] max-md:text-[3.73vw] max-md:ml-[5vw]'>
+            <ul className='ml-[1.2vw] max-md:text-[3.73vw] max-md:ml-[5vw] max-lg:text-[1.6vw]'>
               <li className='list-disc leading-normal'>{expireDate}</li>
             </ul>
           </div>
           <div className='text-[1vw]'>
-            <h4 className='font-bold leading-normal mb-[0.5vw] mt-[1.5vw] max-md:mb-[4.27vw] max-md:text-[4.267vw] max-md:mt-[5.3vw] opacity-70 uppercase'>
+            <h4 className='font-bold leading-normal mb-[0.5vw] mt-[1.5vw] max-md:mb-[4.27vw] max-md:text-[4.267vw] max-md:mt-[5.3vw] opacity-70 uppercase max-lg:text-[1.6vw]'>
               {headerData?.conditionsHeader}:
             </h4>
-            <ul className='flex gap-[1vw] flex-col max-md:gap-[2.13vw] ml-[1.2vw] max-md:ml-[5vw] max-md:text-[3.73vw]'>
+            <ul className='flex gap-[1vw] flex-col max-md:gap-[2.13vw] ml-[1.2vw] max-md:ml-[5vw] max-md:text-[3.73vw] max-lg:text-[1.6vw]'>
               {data?.rules?.conditions?.map((rule, index) => {
                 return (
                   <li
@@ -184,7 +184,7 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
           onSubmit={handleSubmit(onSubmit)}
           className='flex flex-col'
         >
-          <h2 className='text-[2rem] font-bold leading-[2.6vw] mb-[2.2vw] max-md:mb-[5.33vw] max-md:text-[5.3vw] max-md:leading-normal'>
+          <h2 className='text-[2rem] font-bold leading-[2.6vw] mb-[2.2vw] max-md:mb-[5.33vw] max-md:text-[5.3vw] max-md:leading-normal max-lg:leading-[4vw]'>
             {headerData?.form?.heading}
           </h2>
 
@@ -266,7 +266,8 @@ const DetailVocher = ({ headerData = {}, data, setOpenModal }) => {
           <button
             type='submit'
             className='mt-[1.26vw] w-[14vw] h-[3.125vw] text-[#171717] flex items-center justify-center rounded-[0.75vw] 
-                text-[1vw] font-manrope font-semibold bg-primaryColor max-md:mt-[8px] max-md:w-full max-md:h-[48px] max-md:text-[14px] max-md:leading-[15.19px]'
+                text-[1vw] font-manrope font-semibold bg-primaryColor max-md:mt-[8px] max-md:w-full max-md:h-[48px] max-md:text-[14px] max-md:leading-[15.19px] 
+                max-lg:py-[1.4vw] max-lg:px-[3vw] max-lg:text-[1.4vw] max-lg:w-auto max-lg:h-fit'
             disabled={loading}
           >
             {headerData?.form?.button} {loading && '...'}
