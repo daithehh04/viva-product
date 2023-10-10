@@ -12,7 +12,8 @@ import stepIcon2 from '@/assets/images/about/stepIcon2.svg'
 import stepIcon3 from '@/assets/images/about/stepIcon3.svg'
 import stepIcon4 from '@/assets/images/about/stepIcon4.svg'
 import stepIcon5 from '@/assets/images/about/stepIcon5.svg'
-import { useState } from 'react'
+import AOS from 'aos'
+import { useEffect, useState } from 'react'
 
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`& .${stepConnectorClasses.line}`]: {
@@ -89,18 +90,19 @@ export default function BookingProcessSteps({ data = {} }) {
   const handleHover = (index) => {
     setActiveIndex(index)
   }
+  useEffect(() => {
+    AOS.init({ disable: 'mobile' })
+    AOS.refresh()
+  }, [])
   return (
     <section className='relative z-10 about-step-container'>
       <h3
         className='content md:text-[4vw] text-[4.8vw] font-semibold capitalize font-optima md:leading-[110%] leading-[120%] md:text-center w-fit md:mb-[3.375vw]'
-        data-aos-once='true'
-        data-aos='fade-up'
-        data-aos-duration='1000'
-        data-aos-disabled='true'
       >
         {data?.heading}
       </h3>
-      <div className='overflow-x-auto overflow-y-hidden hidden-scroll md:overflow-hidden'>
+      <div className='overflow-x-auto overflow-y-hidden hidden-scroll md:overflow-hidden'
+      >
         <div className='w-[185vw] md:w-full h-full'>
           <Stack
             sx={{ width: '100%' }}
@@ -118,7 +120,7 @@ export default function BookingProcessSteps({ data = {} }) {
                 >
                   <StepLabel
                     StepIconProps={{ className: 'about-step-icon' }}
-                    className='about-step-above cursor-pointer'
+                    className='cursor-pointer about-step-above'
                   >
                     <Image
                       src={label.icon}

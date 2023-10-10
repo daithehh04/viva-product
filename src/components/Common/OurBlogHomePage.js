@@ -27,15 +27,11 @@ function OurBlogHomePage({ data, button, lang }) {
   return (
     <div className={`flex flex-col ${onlySmallScreen ? 'w-full' : 'content'}`}>
       <span
-        data-aos-once='true'
-        data-aos='fade-up'
-        data-aos-duration='1000'
-        data-aos-disabled='true'
         className='heading-1 md:mb-[3vw] mb-[6.4vw] md:pl-0 pl-[4.27vw]'
       >
         {data?.title}
       </span>
-      <div className='grid md:grid-cols-4 max-md:px-[4.27vw] max-md:gap-x-[4.27vw] max-md:gap-y-[8.53vw] grid-rows-2 md:gap-[2.5vw] grid-cols-2 md:overflow-x-visible overflow-x-auto gap-0 listBlog '>
+      <div className='grid md:grid-cols-4 max-md:px-[4.27vw] max-md:gap-x-[4.27vw] max-md:gap-y-[8.53vw] grid-rows-2 md:gap-[2.5vw] grid-cols-2 md:overflow-x-visible overflow-x-auto gap-0 listBlog'>
         <div className='hidden md:flex flex-shrink-0 md:col-span-2 md:row-span-2 h-full md:pl-0 pl-[4.27vw]'>
           <BlogItem2 isHomePage={true}
             data={data?.listBlog ? data?.listBlog[4] : null}
