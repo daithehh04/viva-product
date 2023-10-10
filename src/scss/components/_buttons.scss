@@ -23,6 +23,16 @@
   @media screen and (min-width: 769px) and (max-width: 1280px) {
     font-size: 1.5vw;
   }
+  @media screen and (max-width: 767px) {
+      span {
+        transition: none;
+      }
+      &:hover {
+      span {
+        transform: translateY(0%);
+      }
+  }
+  }
 }
 
 .btn-secondary {
