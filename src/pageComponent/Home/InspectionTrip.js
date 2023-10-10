@@ -33,7 +33,13 @@ function InspectionTrip({ data, lang }) {
       >
         {data?.title}
       </h2>
-      <div className='relative mt-[3.5vw]'>
+      <div
+        data-aos-once='true'
+        data-aos='fade-up'
+        data-aos-duration='1000'
+        data-aos-disabled='true'
+        className='relative mt-[3.5vw]'
+      >
         <Swiper
           breakpoints={{
             768: {

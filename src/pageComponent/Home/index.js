@@ -182,10 +182,20 @@ export default function Home({
           />
         </div>
         <div className='relative bg-home67'>
-          <div className='pt-[8.62vw]'>
+          <div 
+          data-aos-once='true'
+          data-aos-disabled='true'
+          data-aos='fade-up'
+          data-aos-duration='1000' 
+          className='pt-[8.62vw]'>
             <BookingProcessSteps data={nextStepBookTour} />
           </div>
-          <div className='pt-[7.31vw]'>
+          <div 
+          data-aos-once='true'
+          data-aos-disabled='true'
+          data-aos='fade-up'
+          data-aos-duration='1000'
+          className='pt-[7.31vw]'>
             <OurBlogHomePage
               data={blog}
               button={button}
