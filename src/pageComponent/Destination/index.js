@@ -19,6 +19,7 @@ import {
   DATA_TAXONOMIES_TOUR_STYLE
 } from '@/graphql/filter/queries'
 import { GET_ALL_REVIEWS } from '@/graphql/customersReview/queries'
+import { notFound } from 'next/navigation'
 async function index({ lang, slug }) {
   const dataCountry = await getDataWithTaxonomy(
     {
@@ -78,6 +79,10 @@ async function index({ lang, slug }) {
     budget: newArrDataTaxonomiesBudget,
     duration: newArrDataTaxonomiesDuration,
     country: newArrDataTaxonomiesCountry
+  }
+
+  if (!dataCountry?.data?.countries?.translation) {
+    notFound()
   }
   return (
     <div>

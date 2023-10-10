@@ -14,6 +14,7 @@ import { GET_DATA_FORM_BOOKTOUR } from '@/graphql/formBookTour/queries'
 import { Suspense } from 'react'
 import Loader from '@/components/Common/Loader'
 import dynamic from 'next/dynamic'
+import { notFound } from 'next/navigation'
 
 export async function generateMetadata({ params: { slug, lang } }) {
   const res = await getMetaDataTour(GET_TOUR_META_DATA, lang, slug)
@@ -61,6 +62,9 @@ export default async function page({ params: { lang, slug } }) {
   const result2 = await getRelatedTour(country, 'COUNTRIES', lang)
   const relatedTours = result2?.data?.allTours?.nodes?.filter((item) => item.translation.id !== tourId)
 
+  if (!tourId) {
+    notFound()
+  }
   return (
     <TourDetail
       data={tourDetailData}

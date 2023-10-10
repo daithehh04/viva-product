@@ -10,13 +10,15 @@ import getDataPost from '@/data/getDataPost'
 import { GET_ALL_REVIEWS } from '@/graphql/customersReview/queries'
 import { GET_DATA_FORM_BOOKTOUR } from '@/graphql/formBookTour/queries'
 import getDataFormBookTour from '@/data/formBookTour/getDataFormBookTour'
+import { notFound } from 'next/navigation'
 
 export async function generateMetadata({ params: { slug, lang } }) {
   const res = await getMetaDataTour(GET_TOUR_META_DATA, lang, slug)
 
-  const { excerpt, tourDetail } = res?.data?.tours?.translation
+  const tourDetail = res?.data?.tours?.translation?.tourDetail
   const featuredImage = res?.data?.page?.translation?.featuredImage
   const title = tourDetail?.meta?.title
+  const excerpt = tourDetail?.meta?.description
   return getMeta(title, excerpt, featuredImage)
 }
 
@@ -48,6 +50,10 @@ export default async function page({ params: { lang, slug } }) {
   }
   if (lang === 'fr') {
     dataBookTour = await getDataFormBookTour(GET_DATA_FORM_BOOKTOUR, idFrBook, lang)
+  }
+
+  if (!result?.data?.tours?.translation?.tourDetail) {
+    notFound()
   }
   return (
     <Promotion
