@@ -112,6 +112,9 @@ function TourSlide({
   useEffect(() => {
     eleRef?.current?.scrollIntoView({ behavior: 'smooth' })
   }, [activePage])
+  useEffect(() => {
+    window.scrollTo(0,0)
+  },[])
   const size = onlySmallScreen ? 12 : 8
 
   totalPage.current = onlySmallScreen ? Math.ceil(allTours?.length / size) : Math.ceil(allTours?.length / size)
