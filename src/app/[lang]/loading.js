@@ -12,7 +12,7 @@ export default function Loader() {
       ease: 'power4.inOut'
     })
     gsap?.to('.bar', 1, {
-      delay: 0,
+      delay: 1,
       height: 0,
       stagger: {
         amount: 0.5

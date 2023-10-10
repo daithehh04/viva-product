@@ -24,10 +24,10 @@ export async function generateMetadata({ params: { slug, lang } }) {
   return getMeta(title, excerpt, featuredImage)
 }
 
-const TourDetailDynamic = dynamic(() => import('@/pageComponent/TourDetail'), {
-  ssr: false,
-  loading: () => <Loader type='next' />
-})
+// const TourDetailDynamic = dynamic(() => import('@/pageComponent/TourDetail'), {
+//   ssr: false,
+//   loading: () => <Loader />
+// })
 export default async function page({ params: { lang, slug } }) {
   const idEnBook = 'cG9zdDoxNDIy'
   const idFrBook = 'cG9zdDoxNDIy'
@@ -62,7 +62,7 @@ export default async function page({ params: { lang, slug } }) {
   const relatedTours = result2?.data?.allTours?.nodes?.filter((item) => item.translation.id !== tourId)
 
   return (
-    <TourDetailDynamic
+    <TourDetail
       data={tourDetailData}
       headerData={headerData?.data?.page?.translation?.tourDetailHeading}
       relatedTours={!relatedTours || relatedTours?.length === 0 ? relatedTours : randomTour}
