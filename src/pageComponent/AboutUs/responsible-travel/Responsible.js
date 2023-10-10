@@ -8,15 +8,18 @@ export default function Responsible({ data = {} }) {
   useEffect(() => {
     AOS.init({
       disable: function () {
-        var maxWidth = 769
-        return window.innerWidth < maxWidth
+        return window.innerWidth < 767
       }
     })
     AOS.refresh()
   }, [])
   return (
     <section className='relative pb-[7.5vw] rounded-2xl md:rounded-none mt-[-7.2vw] bg-white z-10 md:mt-0'>
-      <Image src={responsibleBg} alt='Responsible Travel' className='absolute top-0 left-0 w-full h-full z-[-1]' />
+      <Image
+        src={responsibleBg}
+        alt='Responsible Travel'
+        className='absolute top-0 left-0 w-full h-full z-[-1]'
+      />
 
       <div className='content'>
         {/* title */}
