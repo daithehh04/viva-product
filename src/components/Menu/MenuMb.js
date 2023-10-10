@@ -181,7 +181,7 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             }
           >
             <span className='text-[3.73vw] opacity-40  font-[500] block'>{hotDeals?.voucherHeader?.listHeader}</span>
-            <div className='hidden-scroll flex overflow-x-auto gap-[3.73vw] mt-[3.2vw] max-lg:flex-col max-lg:w-full'>
+            <div className='hidden-scroll flex overflow-x-auto gap-[3.73vw] mt-[3.2vw] max-lg:w-full'>
               {hotDeals?.voucherHeader?.listVoucher?.map((item, index) => (
                 <VoucherItem key={index} data={item} headerData={hotDeals?.voucherHeader?.detailHeader} />
               ))}
@@ -189,14 +189,14 @@ function MenuMb({ onCloseMenu, hotDeals, lang, dataMenuCountry, travelStylesList
             <span className='text-[3.73vw] opacity-40 font-[500] block mt-[6.4vw]'>
               {hotDeals?.promotionHeader || ''}
             </span>
-            <div className='hidden-scroll flex overflow-x-auto gap-[4.27vw] mt-[3.2vw]'>
+            <div className='hidden-scroll flex overflow-x-auto gap-[4.27vw] mt-[3.2vw] max-lg:w-screen'>
               {hotDeals?.promotionList?.map((item, index) => (
                 <TourItem key={index} data={item} lang={lang} menu={menu} />
               ))}
             </div>
 
-            <div className='flex items-center justify-center mt-[6.4vw]'>
-              <Link href={`${lang}/hot-deals`} onClick={onCloseMenu} className='btn-secondary'>
+            <div className='flex items-center justify-center mt-[6.4vw] '>
+              <Link href={`${lang}/hot-deals`} onClick={onCloseMenu} className='btn-secondary menu-table'>
                 See all
               </Link>
             </div>

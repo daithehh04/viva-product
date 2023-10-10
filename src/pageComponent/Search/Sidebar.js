@@ -34,11 +34,6 @@ export default function Sidebar({
     }
   }
 
-  useEffect(() => {
-    if(isOpenModal) {
-      setTravelStyle([])
-    }
-  }, [isOpenModal]);
 
   useEffect(() => {
     const list = refStyle?.current?.children
@@ -116,7 +111,7 @@ export default function Sidebar({
         <h3 className='font-medium leading-[1.375vw] mb-[1.05vw] text-[1.25vw] 
         max-md:text-[5.33vw] max-md:leading-normal max-md:mb-[4.53vw]'>{searchInfo?.navbar?.selectYourInformation}</h3>
         <div className='mb-[0.94vw] max-md:mb-[4vw]'>
-          <OptionCustomer isOpenModal={isOpenModal} destination={searchInfo?.navbar?.destination}
+          <OptionCustomer
             onSelect={(data) => onDestination(data)}
             icon={locationIcon}
             list={dataMenuCountry?.data?.allCountries?.nodes}
@@ -124,7 +119,7 @@ export default function Sidebar({
           />
         </div>
         <div className='mb-[0.94vw] max-md:mb-[7.29vw]'>
-          <OptionBudget isOpenModal={isOpenModal} budget={searchInfo?.navbar?.budget}
+          <OptionBudget 
             onSelect={(data) => onBudget(data)}
             icon={moneyIcon}
             defaultValue={params?.budget}

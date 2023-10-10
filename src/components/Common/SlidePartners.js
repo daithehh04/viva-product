@@ -40,8 +40,8 @@ function SlidePartners({ data, reverse }) {
                   width={500}
                   height={500}
                   alt='partners'
-                  className={`object-contain w-[13vw] max-md:w-[26.33vw] max-md:h-[8.69vw] ${
-                    reverse ? '-scale-90' : ''
+                  className={`object-contain w-[13vw] max-md:w-[26.33vw]  max-md:h-[8.69vw] ${
+                    reverse ? 'max-md:-scale-125 -scale-90' : 'max-md:scale-125 scale-90'
                   }`}
                 />
               </SwiperSlide>

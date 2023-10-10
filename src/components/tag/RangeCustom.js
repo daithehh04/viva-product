@@ -20,11 +20,6 @@ export default function RangeCustom({ onDay,day, isOpenModal }) {
     }
   },[day])
   
-  useEffect(() => {
-    if(isOpenModal) {
-      setValue([0, 50])
-    }
-  }, [isOpenModal]);
   const handleChange = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
       return

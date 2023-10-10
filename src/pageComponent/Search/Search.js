@@ -108,10 +108,6 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
 
   const handleCloseFilter = () => {
     setIsOpenModal(false)
-    setTravelStyle(null)
-    setBudget(null)
-    setDestination(null)
-    setDay(null)
   }
 
   return (
@@ -140,7 +136,7 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
             onClick={() => {
               setIsOpenModal(true)
             }}
-          >
+          > 
             Filter
           </p>
         </div>
