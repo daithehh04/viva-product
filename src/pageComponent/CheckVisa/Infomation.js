@@ -149,10 +149,10 @@ function Infomation({ data, lang, dataBookTour }) {
 
             <div className='md:mt-[3.75vw] mt-[6.4vw] flex md:gap-[1.88vw] gap-[2.67vw]'>
               <div className='flex' ref={refBtnBookTour} onClick={() => setOpenModal(true)}>
-                <Button className='btn-primary w-fit'>{dataInfo?.buttonapply}</Button>
+                <Button className='btn-primary' content={dataInfo?.buttonapply}><span>{dataInfo?.buttonapply}</span></Button>
               </div>
               <Link href={`/${lang}/search`}>
-                <Button className='btn-secondary w-fit'>{dataInfo?.button}</Button>
+                <Button className='btn-secondary' content={dataInfo?.button}><span>{dataInfo?.button}</span></Button>
               </Link>
             </div>
           </div>

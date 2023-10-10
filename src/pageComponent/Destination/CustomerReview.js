@@ -5,6 +5,7 @@ import Image from 'next/image'
 import bannerReview from '@/assets/images/ourtour_CustomerReview_Banner.png'
 import { createTheme, useMediaQuery } from '@mui/material'
 import Link from 'next/link'
+import Button from '@/components/Common/Button'
 
 function CustomerReview({ data, dataInfo, lang }) {
   const theme = createTheme({
@@ -48,10 +49,8 @@ function CustomerReview({ data, dataInfo, lang }) {
         </div>
         <div className='flex justify-center md:mt-[4vw] mt-[7.61vw]'>
           <Link
-            href={`/${lang}/about-us/reviews`}
-            className='btn-secondary'
-          >
-            {dataInfo?.btn}
+            href={`/${lang}/about-us/reviews`}>
+            <Button className='btn-secondary' content={dataInfo?.btn}><span>{dataInfo?.btn}</span></Button>
           </Link>
         </div>
       </div>
