@@ -168,6 +168,7 @@ export default function Navbar({
     if (menuItem && menuLink) {
       menuLink.classList.remove('show')
       menuItem.style.transition = 'none'
+      refOverlay.current.classList.remove('active')
     }
   }
   const handleClickBars = () => {
