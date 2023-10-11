@@ -9,8 +9,9 @@ export default async function getListPromotionTour(lang) {
     body: JSON.stringify({
       query: GET_LIST_PROMOTION_TOUR,
       variables: { language: lang?.toUpperCase() }
-    })
-    //next: { revalidate: 10 }
+
+    }),
+    next: { revalidate: process.env.NEXT_PUBLIC_REVALIDATE }
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
