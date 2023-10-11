@@ -88,7 +88,7 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
    } else if (budget) {
     allTours = allTours?.filter((tour) => {
       let priceTour = tour?.translation?.tourDetail?.priceTour
-      if (!priceTour) priceTour = 1000
+      if (!priceTour) return
       const arrBudget = budget?.split('-')
       const minBudget = arrBudget[0]
       const maxBudget = arrBudget[1]
@@ -99,7 +99,7 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
   if (day) {
     allTours = allTours?.filter((tour) => {
       let numTour = tour?.translation?.tourDetail?.numberDay
-      if (!numTour) numTour = 3
+      if (!numTour) return
       const minDay = day[0]
       const maxDay = day[1]
       return numTour >= +minDay && numTour <= +maxDay
