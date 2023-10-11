@@ -20,7 +20,9 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
       onClick={onCloseMenu}
       href={`/${lang}/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
       className={`${
-        menu ? 'lg:h-[14.5vw] md:w-[30vw] md:h-[35vw] w-[52.5vw] h-[67.23vw]' : 'lg:h-[24.5vw] md:h-[28vw] h-[62.7vw]'
+        menu
+          ? 'lg:h-[14.5vw] md:w-[30vw] md:h-[35vw] w-[52.5vw] h-[67.23vw]'
+          : 'lg:h-[24.5vw] md:h-[28vw] h-[62.7vw] w-full'
       } flex md:rounded-[1vw] rounded-[2.75vw] relative max-lg:flex-shrink-0 tour-item cursor-pointer`}
     >
       {!loading ? (
@@ -39,7 +41,14 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
           height={'100%'}
         />
       )}
-      {!loading ? <div className='absolute overlay'></div> : ''}
+      {!loading ? (
+        <div
+          className='overlayItem'
+          style={{ position: 'absolute' }}
+        ></div>
+      ) : (
+        ''
+      )}
       <div className='absolute bottom-0 info md:pl-[1.5vw] md:pr-[0.94vw] px-[3.2vw] md:pb-[1.19vw] pb-[3.2vw] w-full'>
         {!loading ? (
           <div className='flex items-center gap-x-[0.25vw]'>
@@ -68,7 +77,9 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
             )}`}
             className={`text-white ${
               !loading ? 'title-tour' : ''
-            } max-lg:text-[1.6vw] text-[1.125vw] max-md:text-[2.93vw] font-bold tracking-tight leading-[1.2] mt-[0.25vw] ${className}`}
+            } max-lg:text-[1.6vw] line-clamp-2 text-[1.125vw] max-md:text-[2.93vw] font-bold tracking-tight leading-[1.2] mt-[0.25vw] ${
+              className || ''
+            }`}
           >
             {!loading ? (
               tourData?.title

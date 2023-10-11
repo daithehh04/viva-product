@@ -17,7 +17,7 @@ function ReviewItem({ className, data, lang }) {
     <div
       className={`${
         className || ''
-      } review-item-wrapper md:p-[1vw] px-[4.8vw] py-[6.4vw] rounded-[8px] md:border border-solid border-[#ccc] flex md:flex-row flex-col md:gap-[1vw] gap-[4.8vw] bg-[#fff]`}
+      } review-item-wrapper md:p-[1vw] px-[4.8vw] py-[6.4vw] rounded-[8px] md:border border-solid border-[#2e2e2e1a] flex md:flex-row flex-col md:gap-[1vw] gap-[4.8vw] bg-[#fff]`}
     >
       <div className='overflow-hidden rounded-lg max-md:rounded-[2.33vw]'>
         <Image
@@ -37,7 +37,7 @@ function ReviewItem({ className, data, lang }) {
         <div className='md:mb-[0.5vw] lg:mb-0'>
           <Link
             href={`/${lang}/tours/${tourSlug}`}
-            className='lg:text-[1.25vw] md:text-[1.4vw] text-[3.733vw] md:leading-[1.35] leading-normal font-bold text-textColor tracking-[-0.4px] md:mb-[0.62vw]'
+            className='cursor-pointer lg:text-[1.25vw] md:text-[1.4vw] text-[3.733vw] md:leading-[1.35] leading-normal font-bold text-textColor tracking-[-0.4px] md:mb-[0.62vw]'
           >
             {tourData?.banner?.title}
           </Link>

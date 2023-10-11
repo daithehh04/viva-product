@@ -26,7 +26,7 @@ function TouristRepresentative({ data }) {
           {data?.title}
         </h2>
         <p
-          className='text-[1.125vw] max-md:text-[3.73vw] leading-normal text-justify md:w-[36vw] w-full ml-auto max-md:opacity-70 opacity-80 text-textColor max-lg:text-[1.6vw]'
+          className='text-[1.125vw] max-md:text-[3.73vw] leading-normal text-justify md:w-[36vw] w-full ml-auto max-md:opacity-70 opacity-80 text-textColor max-lg:text-[1.6vw] max-md:mb-[6.4vw]'
           data-aos-once='true'
           data-aos-disabled='true'
           data-aos='fade-up'
@@ -35,13 +35,16 @@ function TouristRepresentative({ data }) {
           {data?.desc}
         </p>
       </div>
-      <div 
-          data-aos-once='true'
-          data-aos-disabled='true'
-          data-aos='fade-up'
-          data-aos-duration='1000'
+      <div
+        data-aos-once='true'
+        data-aos-disabled='true'
+        data-aos='fade-up'
+        data-aos-duration='1000'
       >
-        <SlideRepresent data={data?.members} dataInfo={data} />
+        <SlideRepresent
+          data={data?.members}
+          dataInfo={data}
+        />
       </div>
     </div>
   )

@@ -12,7 +12,7 @@
     transition: background-size 350ms;
     background: linear-gradient(0deg, $colorPrimary, $colorPrimary) no-repeat right bottom/0 1px;
   }
-  
+
   &:hover {
     .img-tour {
       scale: 1.1;
@@ -22,10 +22,9 @@
       background-size: 100% 1.5px;
       background-position-x: left;
     }
-    
   }
 
-  .overlay {
+  .overlayItem {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -46,13 +45,21 @@
   transition: background-size 350ms;
   background: linear-gradient(0deg, green, green) no-repeat right bottom/0 1px;
 }
-.blog-item{
+.blog-item {
   transition: all 0.5s ease;
-  &:hover{
+  &:hover {
     .title__ourBlog {
       color: green;
       background-size: 100% 1px;
       background-position-x: left;
+    }
+  }
+}
+
+@include mobile {
+  .tour-item {
+    .title-tour {
+      display: block;
     }
   }
 }

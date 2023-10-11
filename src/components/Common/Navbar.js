@@ -6,6 +6,8 @@ import { useEffect, useRef, useState } from 'react'
 import logo from '@/assets/images/logo.svg'
 // import Button from '@mui/material/Button'
 import star from '@/assets/images/star.svg'
+import bookTourIcon from '@/assets/images/bookTourIcon.svg'
+
 import SelectLang from '../Language/SelectLang'
 import MenuDestinations from '@/components/Menu/Destinations'
 import MenuStyle from '@/components/Menu/TravelStyle'
@@ -324,7 +326,7 @@ export default function Navbar({
             >
               <Button className='flex-shrink-0 btn-primary mr-[3.25vw]'>
                 <Image
-                  src={star}
+                  src={bookTourIcon}
                   width={50}
                   height={50}
                   alt='img'
@@ -396,7 +398,7 @@ export default function Navbar({
             className='flex items-center gap-[1.6vw] w-[50%] bg-[#FFD220] justify-center'
           >
             <Image
-              src={starF}
+              src={bookTourIcon}
               width={50}
               height={50}
               alt='img'
