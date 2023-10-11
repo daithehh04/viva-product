@@ -69,7 +69,12 @@ export default function Home({
     })
   }
   useEffect(() => {
-    AOS.init({ disable: 'mobile' })
+    AOS.init({
+      disable: function () {
+        var maxWidth = 769
+        return window.innerWidth < maxWidth
+      }
+    })
     AOS.refresh()
   }, [])
   if (!data) {
@@ -185,7 +190,14 @@ export default function Home({
           <div className='max-md:mt-[15.12vw] mt-[8.62vw]'>
             <BookingProcessSteps data={nextStepBookTour} />
           </div>
-          <div className='pt-[7.31vw]'>
+          <div
+            className='pt-[7.31vw]'
+            data-aos-once='true'
+            data-aos-disabled='true'
+            data-aos='fade-up'
+            data-aos-duration='1000'
+            data-aos-offset='-500'
+          >
             <OurBlogHomePage
               data={blog}
               button={button}

@@ -26,7 +26,7 @@ function BlogItem2({ className, data, lang, isHomePage }) {
           </span>
         </div>
         <div className='absolute bottom-0 md:pb-[1vw] pb-[5.3vw] md:pl-[1.13vw] pl-[4.8vw] md:pr-[2vw] pr-[2.4vw] info'>
-          <div className='flex items-center gap-x-[0.64vw]'>
+          <div className='flex items-center gap-x-[0.64vw] md:mb-0 mb-[1vw]'>
             <Image
               src={calendarY}
               width={300}
@@ -39,8 +39,10 @@ function BlogItem2({ className, data, lang, isHomePage }) {
             </span>
           </div>
           <h4 className='line-clamp-2'>
-            <a className='text-[1vw] max-md:text-[3.73333vw] font-[700] leading-[1.4] mt-[0.47vw] max-md:mt-[2.4vw] text-[#fff] title 
-            max-lg:leading-[0.2px]'>
+            <a
+              className='text-[1vw] max-md:text-[3.73333vw] font-[700] leading-[1.4] mt-[0.47vw] max-md:mt-[2.4vw] text-[#fff] title 
+            max-lg:leading-[0.2px]'
+            >
               {data?.title}
             </a>
           </h4>

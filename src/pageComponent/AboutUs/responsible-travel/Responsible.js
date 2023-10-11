@@ -8,7 +8,8 @@ export default function Responsible({ data = {} }) {
   useEffect(() => {
     AOS.init({
       disable: function () {
-        return window.innerWidth < 767
+        var maxWidth = 768
+        return window.innerWidth < maxWidth
       }
     })
     AOS.refresh()
