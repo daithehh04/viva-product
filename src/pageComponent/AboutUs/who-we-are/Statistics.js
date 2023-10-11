@@ -14,6 +14,7 @@ import subIcon from '@/assets/images/about/subIcon.svg'
 import { useEffect, useRef, useState } from 'react'
 import CountDown from '@/components/Common/CountDown'
 
+var timeoutId = null
 export default function Statistics({ data }) {
   useEffect(() => {
     AOS.init({
@@ -25,37 +26,29 @@ export default function Statistics({ data }) {
     AOS.refresh()
   }, [])
   const imgRef = useRef([])
-  const [scrollPositions, setScrollPositions] = useState([
-    {
-      id: 1,
-      location: 0
-    }
-  ])
+  const [scrollPositions, setScrollPositions] = useState([-1300, 1300, -1300, 1300, -1300, 1300, -1300])
 
   const handleScroll = () => {
-    const newScrollPositions = imgRef.current.map((item, index) => {
-      const { top, bottom } = item.getBoundingClientRect()
+    setScrollPositions([0, 0, 0, 0, 0, 0, 0, 0, 0])
+  }
 
-      if (index < 5)
-        return {
-          id: index,
-          location: top - (window?.innerHeight * 80) / 100 >= 0 ? (window?.innerHeight * 80) / 100 - top : 0
-        }
-      else {
-        return {
-          id: index,
-          location: top - (window?.innerHeight * 80) / 100 >= 0 ? top - (window?.innerHeight * 80) / 100 : 0
+  const numberRef = useRef()
+  useEffect(() => {
+    const onScroll = () => {
+      if (numberRef.current) {
+        const rect = numberRef.current?.getBoundingClientRect()
+        const viewHeight = Math.max(numberRef.current.clientHeight || 0, window.innerHeight || 0)
+        if (rect.top <= viewHeight && rect.bottom >= 0) {
+          timeoutId = setTimeout(() => {
+            handleScroll()
+          }, 500);
         }
       }
-    })
-
-    setScrollPositions(newScrollPositions)
-  }
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    handleScroll()
+    }
+    window.addEventListener('scroll', onScroll)
     return () => {
-      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('scroll', onScroll)
+      timeoutId && clearTimeout(timeoutId)
     }
   }, [])
 
@@ -113,12 +106,12 @@ export default function Statistics({ data }) {
       </div>
 
       {/* slogan*/}
-      <div className='slogan-container'>
+      <div className='slogan-container' >
         <div className='slogan relative mt-[9.3125vw]'>
           <div className='slogan-des down text-[2.7vw] absolute bottom-0 left-0 font-manrope font-extrabold tracking-[-0.96px] leading-[140%] max-md:hidden'>
             <div
               style={{
-                transform: `translateX(${scrollPositions[0]?.location}px)`,
+                transform: `translateX(${scrollPositions[0]}px)`,
                 transition: 'transform 0.6s ease-in-out'
               }}
               ref={(e) => (imgRef.current[0] = e)}
@@ -128,7 +121,7 @@ export default function Statistics({ data }) {
             </div>
             <div
               style={{
-                transform: `translateX(${scrollPositions[6]?.location}px)`,
+                transform: `translateX(${scrollPositions[1]}px)`,
                 transition: 'transform 0.6s ease-in-out'
               }}
               ref={(e) => (imgRef.current[6] = e)}
@@ -137,7 +130,7 @@ export default function Statistics({ data }) {
             </div>
             <div
               style={{
-                transform: `translateX(${scrollPositions[2]?.location}px)`,
+                transform: `translateX(${scrollPositions[2]}px)`,
                 transition: 'transform 0.6s ease-in-out'
               }}
               ref={(e) => (imgRef.current[2] = e)}
@@ -146,7 +139,7 @@ export default function Statistics({ data }) {
             </div>
             <div
               style={{
-                transform: `translateX(${scrollPositions[7]?.location}px)`,
+                transform: `translateX(${scrollPositions[3]}px)`,
                 transition: 'transform 0.6s ease-in-out'
               }}
               ref={(e) => (imgRef.current[7] = e)}
@@ -156,7 +149,7 @@ export default function Statistics({ data }) {
           </div>
           <Image
             style={{
-              transform: `translateX(${scrollPositions[0]?.location}px)`,
+              transform: `translateX(${scrollPositions[4]}px)`,
               transition: 'transform 0.6s ease-in-out'
             }}
             ref={(e) => (imgRef.current[0] = e)}
@@ -166,7 +159,7 @@ export default function Statistics({ data }) {
           />
           <Image
             style={{
-              transform: `translateX(${scrollPositions[0]?.location}px)`,
+              transform: `translateX(${scrollPositions[5]}px)`,
               transition: 'transform 0.6s ease-in-out'
             }}
             ref={(e) => (imgRef.current[0] = e)}
@@ -188,7 +181,7 @@ export default function Statistics({ data }) {
             >
               <div
                 style={{
-                  transform: `translateX(${scrollPositions[0]?.location}px)`,
+                  transform: `translateX(${scrollPositions[0]}px)`,
                   transition: 'transform 0.6s ease-in-out'
                 }}
                 ref={(e) => (imgRef.current[0] = e)}
@@ -198,7 +191,7 @@ export default function Statistics({ data }) {
               </div>
               <div
                 style={{
-                  transform: `translateX(${scrollPositions[6]?.location}px)`,
+                  transform: `translateX(${scrollPositions[1]}px)`,
                   transition: 'transform 0.6s ease-in-out'
                 }}
                 ref={(e) => (imgRef.current[6] = e)}
@@ -207,7 +200,7 @@ export default function Statistics({ data }) {
               </div>
               <div
                 style={{
-                  transform: `translateX(${scrollPositions[2]?.location}px)`,
+                  transform: `translateX(${scrollPositions[2]}px)`,
                   transition: 'transform 0.6s ease-in-out'
                 }}
                 ref={(e) => (imgRef.current[2] = e)}
@@ -216,7 +209,7 @@ export default function Statistics({ data }) {
               </div>
               <div
                 style={{
-                  transform: `translateX(${scrollPositions[7]?.location}px)`,
+                  transform: `translateX(${scrollPositions[3]}px)`,
                   transition: 'transform 0.6s ease-in-out'
                 }}
                 ref={(e) => (imgRef.current[7] = e)}
@@ -226,7 +219,7 @@ export default function Statistics({ data }) {
             </div>
             <Image
               style={{
-                transform: `translateX(${scrollPositions[0]?.location}px)`,
+                transform: `translateX(${scrollPositions[4]}px)`,
                 transition: 'transform 0.6s ease-in-out'
               }}
               ref={(e) => (imgRef.current[0] = e)}
@@ -236,7 +229,7 @@ export default function Statistics({ data }) {
             />
             <Image
               style={{
-                transform: `translateX(${scrollPositions[0]?.location}px)`,
+                transform: `translateX(${scrollPositions[5]}px)`,
                 transition: 'transform 0.6s ease-in-out'
               }}
               ref={(e) => (imgRef.current[0] = e)}
@@ -244,12 +237,11 @@ export default function Statistics({ data }) {
               alt='Wave'
               className='wave absolute top-[9.69vw] right-[40%] max-md:w-[32.658vw] max-md:h-[2.23vw] max-md:right-0'
             />
-            <Image
+            <Image ref={numberRef}
               style={{
-                transform: `translateX(${scrollPositions[0]?.location}px)`,
+                transform: `translateX(${scrollPositions[6]}px)`,
                 transition: 'transform 0.6s ease-in-out'
               }}
-              ref={(e) => (imgRef.current[0] = e)}
               src={waveShort}
               alt='Wave'
               className='wave absolute top-[50%] -translate-y-1/2 left-[30%] max-md:w-[14.64vw] max-md:h-[2.22vw]'

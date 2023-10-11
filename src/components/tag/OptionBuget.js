@@ -73,7 +73,7 @@ export default function OptionBudget({ icon, list, defaultValue, onSelect}) {
             )
           }}
         >
-          {/* <MenuItem value=''>
+          <MenuItem value='Budget'>
             <div className='flex gap-[1vw] items-center'>
               <Image
                 src={icon}
@@ -81,7 +81,7 @@ export default function OptionBudget({ icon, list, defaultValue, onSelect}) {
               />
               <span className='px-2 py-[0.25vw] text-[0.875vw] font-normal'>Budget</span>
             </div>
-          </MenuItem> */}
+          </MenuItem>
           {list?.map((item) => (
             <MenuItem
               key={item?.name}

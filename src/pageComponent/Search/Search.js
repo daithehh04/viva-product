@@ -52,7 +52,9 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
   const [budget, setBudget] = useState(null)
 
   useEffect(() => {
-    const nameV = dataMenuCountry?.data?.allCountries?.nodes.filter((item) => item.slug === destinationParams)
+    let nameV = []
+    nameV = dataMenuCountry?.data?.allCountries?.nodes.filter((item) => item.slug === destinationParams)
+
     if (nameV) {
       var nameDef = nameV[0]?.name
       setDestination(nameDef)
@@ -74,13 +76,16 @@ const Search = ({ lang, travelStylesList, dataMenuCountry, dataTaxonomiesBudget,
   const dataAllTours = useQuery(DATA_BEST_TOUR, {
     variables: {
       language: lang?.toUpperCase(),
-      countrySlug: !destination ? newArrDataTaxonomiesCountry : destination,
+      countrySlug: (destination && destination[0] == null) || !destination  ? newArrDataTaxonomiesCountry : destination,
       styleTourSlug: !travelStyle || travelStyle.length === 0 ? newArrDataTaxonomiesStyleTravel : travelStyle
     }
   })
   var allTours = dataAllTours?.data?.allTours?.nodes
   const loading = dataAllTours?.loading
-  if (budget) {
+  console.log(budget)
+  if(budget === "Budget") { 
+    allTours = dataAllTours?.data?.allTours?.nodes
+   } else if (budget) {
     allTours = allTours?.filter((tour) => {
       let priceTour = tour?.translation?.tourDetail?.priceTour
       if (!priceTour) priceTour = 1000

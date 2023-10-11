@@ -105,7 +105,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
     }
   })
   return (
-    <div className=''>
+    <div>
       <div className='fixed bottom-[6.44vw] z-[10] right-0 md:flex items-center h-12vw hidden'>
         <div
           onClick={handleShow}
@@ -141,7 +141,7 @@ function FilterPopup({ lang, dataFilter, slug }) {
       </div>
       <div
         ref={popUp}
-        className='md:grid hidden z-10 grid-cols-2 filterPopUp gap-y-[2.12vw] gap-x-[2.25vw] justify-items-end rounded-[1vw] shadow-lg bg-white fixed bottom-[8.94vw] right-[6.13vw] items-center w-[28.6vw] pt-[2.5vw] pr-[2.125vw] pb-[2.18vw] pl-[2.1875vw]'
+        className='md:grid hidden z-20 grid-cols-2 filterPopUp gap-y-[2.12vw] gap-x-[2.25vw] justify-items-end rounded-[1vw] shadow-lg bg-white fixed bottom-[8.94vw] right-[6.13vw] items-center w-[28.6vw] pt-[2.5vw] pr-[2.125vw] pb-[2.18vw] pl-[2.1875vw]'
       >
         <div className='flex flex-col select md:rounded-0 rounded-[1.06667vw] flex-shrink-0 md:w-auto w-[48vw] max-md:bg-white max-md:w-full pl-0 md:pl-[1.87vw]'>
           <span className='text-[#9B9B9B] uppercase text-[0.875vw] md:block hidden'>Travel Style</span>

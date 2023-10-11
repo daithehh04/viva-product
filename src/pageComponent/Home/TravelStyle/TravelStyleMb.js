@@ -19,11 +19,11 @@ function TravelStyleMb({ data, title, lang }) {
                   width={50}
                   height={50}
                   alt={item?.image?.altText}
-                  className='w-[10.8vw] h-[10.8vw] rounded-full object-cover'
+                  className='w-[10.8vw] h-[10.8vw] object-center object-contain'
                 />
               </div>
               <span className='uppercase text-[2.93333vw] text-textColor font-[500] leading-[120%] mt-[1.6vw] block'>
-                {item?.banner?.travelStyleInfo?.travelStyleName?.split(',')[0]}
+                {item?.banner?.travelStyleInfo?.travelStyleName?.split(',')[0]?.length > 8 ? `${item?.banner?.travelStyleInfo?.travelStyleName?.split(',')[0].slice(0,10)}...` : item?.banner?.travelStyleInfo?.travelStyleName?.split(',')[0] }
               </span>
             </Link>
           </div>

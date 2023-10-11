@@ -12,8 +12,6 @@ const CountDown = ({ data, time }) => {
         const viewHeight = Math.max(numberRef.current.clientHeight || 0, window.innerHeight || 0)
         if (rect.top <= viewHeight && rect.bottom >= 0) {
           setIsVisible(true)
-        } else {
-          setIsVisible(false)
         }
       }
     }

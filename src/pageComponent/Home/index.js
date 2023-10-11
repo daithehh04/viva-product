@@ -182,7 +182,7 @@ export default function Home({
           />
         </div>
         <div className='relative bg-home67'>
-          <div>
+          <div className='max-md:mt-[15.12vw] mt-[8.62vw]'>
             <BookingProcessSteps data={nextStepBookTour} />
           </div>
           <div 
