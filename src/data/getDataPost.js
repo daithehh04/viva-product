@@ -7,8 +7,8 @@ export default async function getDataPost(lang, query) {
     body: JSON.stringify({
       query: query,
       variables: { language: lang?.toUpperCase() }
-    }),
-    next: { revalidate: 10 }
+    })
+    //next: { revalidate: 10 }
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data')

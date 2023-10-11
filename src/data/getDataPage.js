@@ -11,8 +11,8 @@ export default async function getDataPage(slug, query) {
     body: JSON.stringify({
       query: query,
       variables: { id: slug }
-    }),
-    next: { revalidate: 10 }
+    })
+    //next: { revalidate: 10 }
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data')

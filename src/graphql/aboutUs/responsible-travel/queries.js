@@ -35,9 +35,9 @@ export const GET_DATA_MENU_RT = `query($language: LanguageCodeEnum!) {
         responsibleTravel {
           banner {
             title
-            backgroundImage {
-              altText
+            backgroundMenu{
               sourceUrl
+              altText
             }
           }
           

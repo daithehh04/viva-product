@@ -6,6 +6,7 @@ import Button from '@/components/Common/Button'
 import Link from 'next/link'
 import Image from 'next/image'
 import tree from '@/assets/images/cayduaHome.png'
+import coconut from '@/assets/images/coconut.png'
 import AOS from 'aos'
 import { useEffect } from 'react'
 
@@ -19,9 +20,9 @@ function Review({ data, button, lang }) {
       <div className='flex gap-x-[2vw] items-end overflow-hidden relative custom-review pt-[9.37vw]'>
         <Image
           alt='tree'
-          src={tree}
+          src={coconut}
           quality={100}
-          className='max-md:hidden absolute md:w-[18.18vw] md:h-[26.54vw] top-[4%] right-0'
+          className='max-md:hidden absolute md:w-[18.18vw] md:h-[26.54vw] top-0 right-0'
         />
         <div className='w-[35.1875vw] max-md:hidden'>
           <VideoReview

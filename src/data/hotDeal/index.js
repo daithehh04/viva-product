@@ -9,8 +9,8 @@ export default async function getHotDealHeader(lang) {
     body: JSON.stringify({
       query: GET_HOT_DEAL_DATA,
       variables: { language: lang?.toUpperCase() }
-    }),
-    next: { revalidate: 10 }
+    })
+    //next: { revalidate: 10 }
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data')

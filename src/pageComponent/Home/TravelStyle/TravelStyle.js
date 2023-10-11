@@ -2,7 +2,8 @@
 import { useEffect, useState } from 'react'
 import TravelStyleItem from './TravelStyleItem'
 import coconut from '@/assets/images/coconut.svg'
-import coconut2 from '@/assets/images/coconut2.svg'
+// import coconut2 from '@/assets/images/coconut2.svg'
+import coconut2 from '@/assets/images/coconut2.png'
 import Image from 'next/image'
 import { LanguageSharp } from '@mui/icons-material'
 
@@ -63,17 +64,29 @@ function TravelStyle({ data, title, desc, lang }) {
         <div className='flex gap-[2.5vw]'>
           <div className='col-1 flex flex-col gap-[2.5vw] mt-[4.56vw]'>
             {row1?.map((item, index) => (
-              <TravelStyleItem lang={lang} data={item} key={index} />
+              <TravelStyleItem
+                lang={lang}
+                data={item}
+                key={index}
+              />
             ))}
           </div>
           <div className='col-2 flex flex-col gap-[2.5vw] mt-[13.31vw]'>
             {row2?.map((item, index) => (
-              <TravelStyleItem lang={lang} data={item} key={index} />
+              <TravelStyleItem
+                lang={lang}
+                data={item}
+                key={index}
+              />
             ))}
           </div>
           <div className='col-3 flex flex-col gap-[2.5vw] mt-[-5vw]'>
             {row3?.map((item, index) => (
-              <TravelStyleItem lang={lang} data={item} key={index} />
+              <TravelStyleItem
+                lang={lang}
+                data={item}
+                key={index}
+              />
             ))}
           </div>
         </div>
@@ -83,6 +96,7 @@ function TravelStyle({ data, title, desc, lang }) {
         width={200}
         height={200}
         alt='coconut'
+        quality={100}
         className='w-[34.57vw] h-[31.44vw] object-cover absolute left-[43.25vw] top-[8.5vw]'
       />
       <Image
