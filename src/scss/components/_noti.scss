@@ -65,10 +65,6 @@ $font: 'Lato', sans-serif;
   }
 }
 
-.confirm-box {
-  background: linear-gradient(to bottom left, $confirm 20%, $orange 100%);
-}
-
 @keyframes success {
   50% {
     transform: translateY(-10px);

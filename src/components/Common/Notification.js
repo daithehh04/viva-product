@@ -1,19 +1,23 @@
 'use client'
+import Image from 'next/image'
 import ModalCustom from './ModalCustom'
-const boxClass = 'absolute w-full h-full left-0 rounded-[20px]'
-const faceClass =
-  'absolute top-[21%] left-[40%] h-[22%] bg-[#fcfcfc] rounded-[50%] border border-solid border-[#777777] z-[2]'
-const titleClass = 'md:text-[1vw] text-[4.27vw] tracking-[3px] text-[#fcfcfc] uppercase pt-[0.4vw] font-bold'
-const eyeClass = 'absolute top-[40%] left-[20%] md:w-[0.4vw] w-[0.7vw] md:h-[0.4vw] h-[0.7vw] bg-[#777777] rounded-full'
-const mouthClass =
-  'absolute left-[41%] md:w-[0.5vw] w-[0.9vw] md:h-[0.5vw] h-[0.9vw] rotate-45 border-solid border-[2px] rounded-[50%]'
-const shadowClass = 'absolute w-[21%] h-[3%] opacity-50 bg-[#777777] top-[43%] left-[40%] rounded-[50%] z-[1]'
-const msgClass = 'absolute top-[47%] w-full h-[40%] text-center'
-const pClass = 'md:text-[.9vw] text-[2.5vw] text-[#0f41cc] tracking-[1px] capitalize'
-const btnClass = 'absolute bg-[#fcfcfc] w-1/2 h-[15%] md:text-[0.8vw] text-[2vw] rounded-[20px] top-[73%] left-[25%]'
+import notiIcon from '@/assets/images/notiIcon.svg'
+import successIcon from '@/assets/images/successIcon.svg'
+import errorIcon from '@/assets/images/errorIcon.svg'
 
 export default function Notification(props) {
-  const { openNoti, setOpenNoti, msg, isSuccess, isError, isConfirm, handleConfirm, handleSuccess, handleError } = props
+  const {
+    openNoti = true,
+    setOpenNoti,
+    msg,
+    isSuccess,
+    isError = true,
+    isConfirm,
+    handleConfirm,
+    handleSuccess,
+    handleError
+  } = props
+
   const handleClose = (e) => {
     e.preventDefault()
     handleSuccess && isSuccess && handleSuccess()
@@ -24,31 +28,27 @@ export default function Notification(props) {
 
   const Success = () => {
     return (
-      <div className={`${boxClass} success-box`}>
-        {/* face */}
-        <div className={`${faceClass} w-[22%] success-face`}>
-          {/* eyes */}
-          <div className={`${eyeClass}`}></div>
-          <div className={`${eyeClass} left-[68%]`}></div>
+      <div className='bg-white w-full h-full md:py-[3vw] py-[5vw] md:px-[3.12vw] px-[5.5vw] flex flex-col items-center rounded-[1vw]'>
+        <Image
+          src={successIcon}
+          alt=''
+          width={200}
+          height={200}
+          className='md:w-[8.25vw] w-[16vw] md:h-[8.25vw] h-[16vw]'
+        />
 
-          {/* mouth */}
-          <div
-            className={`${mouthClass} top-[43%] `}
-            style={{ borderColor: 'transparent #777777 #777777 transparent' }}
-          ></div>
+        <div className='md:text-[2.25vw] text-[4.5vw] font-bold md:mt-[2.5vw] mt-[3.5vw] md:mb-[0.62vw] mb-[1.5vw]'>
+          Successful
         </div>
 
-        {/* shadow */}
-        <div className={`${shadowClass} scale`}></div>
-        <div className={msgClass}>
-          <div className={`${titleClass} title`}>Success!</div>
-          <p className={pClass}>{msg}</p>
+        <div className='md:text-[1vw] text-[3vw] opacity-70 text-center md:mb-[1.69vw] mb-[2.5vw]'>
+          We have received your information and will be in touch soon !!
         </div>
         <button
-          className={`${btnClass} button-box`}
+          className='md:py-[1vw] py-[2.5vw] md:px-[2.5vw] px-[5vw] bg-primaryColor font-medium md:text-[1vw] text-[3vw] justify-center items-center flex md:rounded-[0.75vw] rounded-[8px]'
           onClick={handleClose}
         >
-          <div className='success-btn'>OK</div>
+          OK
         </button>
       </div>
     )
@@ -56,30 +56,27 @@ export default function Notification(props) {
 
   const Error = () => {
     return (
-      <div className={`${boxClass} error-box`}>
-        {/* face */}
-        <div className={`${faceClass} w-[18%] error-face`}>
-          {/* eyes */}
-          <div className={`${eyeClass}`}></div>
-          <div className={`${eyeClass} left-[68%]`}></div>
-          {/* mouth */}
-          <div
-            className={`${mouthClass} top-[49%]`}
-            style={{ borderColor: '#777777 transparent transparent #777777' }}
-          ></div>
+      <div className='bg-white w-full h-full md:py-[3vw] py-[5vw] md:px-[3.12vw] px-[5.5vw] flex flex-col items-center rounded-[1vw]'>
+        <Image
+          src={errorIcon}
+          alt=''
+          width={200}
+          height={200}
+          className='md:w-[8.25vw] w-[16vw] md:h-[8.25vw] h-[16vw]'
+        />
+
+        <div className='md:text-[2.25vw] text-[4.5vw] font-bold md:mt-[2.5vw] mt-[3.5vw] md:mb-[0.62vw] mb-[1.5vw]'>
+          Error
         </div>
 
-        {/* shadow */}
-        <div className={`${shadowClass} move`}></div>
-        <div className={msgClass}>
-          <div className={`${titleClass} title`}>Error!</div>
-          <p className={pClass}>{msg}</p>
+        <div className='md:text-[1vw] text-[3vw] opacity-70 text-center md:mb-[1.69vw] mb-[2.5vw]'>
+          Please check your infomation again !!!
         </div>
         <button
-          className={`${btnClass} button-box`}
+          className='md:py-[1vw] py-[2.5vw] md:px-[2.5vw] px-[5vw] bg-primaryColor font-medium md:text-[1vw] text-[3vw] justify-center items-center flex md:rounded-[0.75vw] rounded-[8px]'
           onClick={handleClose}
         >
-          <div className='error-btn'>Close</div>
+          OK
         </button>
       </div>
     )
@@ -87,23 +84,42 @@ export default function Notification(props) {
 
   const Confirm = () => {
     return (
-      <div className='confirm-box absolute left-0 top-0 z-10 w-full h-full bg-primaryColor rounded-[20px] flex flex-col justify-center items-center'>
-        <div className={`${titleClass} title text-textColor`}>Confirm !</div>
-        <div className='md:text-[0.9vw] text-[2.5vw]'> You really want to close this?</div>
+      <div className='w-full h-full md:rounded-[1vw] rounded-[8px] bg-white box-border'>
+        <div className='md:text-[2vw] text-[4.27vw] font-medium uppercase w-full md:px-[2.94vw] px-[3.5vw] md:py-[1.44vw] py-[2.5vw] bg-primaryColor md:rounded-t-[1vw] rounded-t-[8px]'>
+          Confirm !!!
+        </div>
 
-        <div className='absolute md:bottom-[2vw] bottom-[4vw] right-[2vw] flex md:gap-[1vw] gap-[2.23vw] md:text-[0.8vw] text-[2.5vw] font-semibold '>
+        <div className='relative'>
+          <Image
+            src={notiIcon}
+            alt=''
+            width={100}
+            height={1000}
+            className='md:w-[9.1875vw] w-[14vw] md:h-[4.9375vw] h-[8vw] absolute md:bottom-[0.94vw] bottom-[2vw] md:right-[1.31vw] right-[2.2vw]'
+          />
+          <div className='md:text-[1.5vw] text-[4.27vw] md:px-[2.94vw] px-[3.5vw] md:py-[3.5vw] py-[6vw]'>
+            You really want to close this ?
+          </div>
+        </div>
+
+        {/* button */}
+        <div
+          className='md:px-[1.62vw] px-[2.5vw] md:py-[1.25vw] py-[3vw] flex md:gap-[0.75vw] gap-[2vw] justify-end'
+          style={{ background: 'rgb(169, 169, 169, 0.1)' }}
+        >
           <button
             onClick={(e) => {
               e.preventDefault()
               setOpenNoti(false)
             }}
-            className='md:w-[4vw] w-[14vw] md:h-[2vw] h-[6vw] border-[2px] flex items-center justify-center border-solid border-[#ef8d9c] md:rounded-lg rounded-[8px]'
+            className='md:py-[1vw] py-[2.5vw] md:px-[2.5vw] px-[5vw] md:text-[1vw] text-[3vw] font-medium justify-center items-center flex md:rounded-[0.75vw] rounded-[8px]'
+            style={{ border: '1px solid rgba(46, 46, 46, 0.60)' }}
           >
             Cancel
           </button>
           <button
             onClick={handleClose}
-            className='md:w-[4vw] w-[14vw] md:h-[2vw] h-[6vw] border-[2px] flex items-center justify-center border-solid border-[#b0db7d] md:rounded-lg rounded-[8px]'
+            className='md:py-[1vw] py-[2.5vw] md:px-[2.5vw] px-[5vw] bg-primaryColor font-medium md:text-[1vw] text-[3vw] justify-center items-center flex md:rounded-[0.75vw] rounded-[8px]'
           >
             OK
           </button>
@@ -116,7 +132,7 @@ export default function Notification(props) {
     <ModalCustom
       openModal={openNoti}
       setOpenModal={setOpenNoti}
-      className='md:w-[20vw] w-[70vw] md:h-[15vw] h-[40vw]'
+      className={`${isConfirm ? 'md:w-[40vw] w-[80vw] h-fit' : 'md:w-[24.125vw] w-[70vw] h-fit'}`}
     >
       {isSuccess && <Success />}
       {isError && <Error />}
