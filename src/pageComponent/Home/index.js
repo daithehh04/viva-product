@@ -181,8 +181,8 @@ export default function Home({
             lang={lang}
           />
         </div>
-        <div className='relative bg-home67 md:mt-[8.62vw] mt-[15.13vw]'>
-          <div>
+        <div className='relative bg-home67'>
+          <div className='max-md:mt-[15.12vw] mt-[8.62vw]'>
             <BookingProcessSteps data={nextStepBookTour} />
           </div>
           <div className='pt-[7.31vw]'>

@@ -31,25 +31,31 @@ function Banner({ data, dataFilter, lang }) {
         <div className='filter-tour flex  ml-auto mr-auto mt-[3.06vw] bg-white w-max py-[1.5vw] pl-[2.87vw] pr-[2vw] rounded-[1.125vw] max-lg:hidden'>
           <FilterBanner dataFilter={dataFilter} lang={lang} />
         </div>
-        <div
-          onClick={() => scrollDown(scrollRef, 'start')}
-          className='explore flex flex-col gap-[0.54vw] items-center mt-[2.88vw] cursor-pointer w-max ml-auto mr-auto max-md:mt-[4.27vw]'
-        >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            width='13'
-            height='14'
-            viewBox='0 0 13 14'
-            fill='none'
-            className='w-[1.375vw] h-[1.375vw] arrow-down max-md:w-[3.2vw] max-md:h-[3.2vw]'
+        <div 
+            onClick={() => scrollDown(scrollRef, 'start')}
+            className='flex flex-col gap-[0.94vw] text-center items-center cursor-pointer justify-center md:mt-[2.19vw] mt-[4.8vw]'
           >
-            <g opacity='0.8'>
-              <path d='M0.5 0.530273L6.5 6.53027L12.5 0.530273' stroke='#000' />
-              <path d='M0.5 6.53027L6.5 12.5303L12.5 6.53027' stroke='#000' />
-            </g>
-          </svg>
-          <span className='uppercase text-[0.875vw] max-md:hidden'>Explore now</span>
-        </div>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              className='arrow-down md:w-[1.375vw] md:h-[1.35vw] w-[3.2vw] h-[3.2vw]'
+              viewBox='0 0 24 25'
+              fill='none'
+            >
+              <path
+                d='M1 1L12 12L23 1'
+                stroke='white'
+                strokeWidth='2'
+              />
+              <path
+                d='M1 12L12 23L23 12'
+                stroke='white'
+                strokeWidth='2'
+              />
+            </svg>
+            <span className='md:block hidden text-center font-manrope text-[0.875vw] not-italic font-semibold tracking-[0.04375vw] uppercase text-[#fff] '>
+              Explore now
+            </span>
+          </div>
       </div>
       <Image
         src={banner}
@@ -57,7 +63,7 @@ function Banner({ data, dataFilter, lang }) {
         height={1000}
         alt='banner'
         priority
-        className='absolute inset-0 object-cover w-full h-full'
+        className='absolute inset-0 object-cover bg-blend-multiply w-full h-full'
       />
       <div className='overlay-banner max-md:hidden'></div>
       <div

@@ -24,11 +24,11 @@ const Placeholder = ({ item, icon }) => (
     <span className='text-[0.875vw] font-normal max-md:text-[3.73vw]'>{item}</span>
   </div>
 )
-
+const placeholderDefault = "Destination"
 export default function OptionCustomer({ icon, list, defaultValue, onSelect }) {
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
-  const [personName, setPersonName] = useState('Destination')
+  const [personName, setPersonName] = useState(placeholderDefault)
   useEffect(() => {
     if(defaultValue) {
       var nameV = list?.filter(item => item.slug === defaultValue)
@@ -41,8 +41,15 @@ export default function OptionCustomer({ icon, list, defaultValue, onSelect }) {
     const {
       target: { value }
     } = event
-    setPersonName(value)
-    onSelect(value)
+    if(value === placeholderDefault) {
+      console.log(value, placeholderDefault)
+      setPersonName(value)
+      onSelect(null)
+    } else {
+      setPersonName(value)
+      onSelect(value)
+    }
+
   }
   return (
     <div>
@@ -77,15 +84,15 @@ export default function OptionCustomer({ icon, list, defaultValue, onSelect }) {
             )
           }}
         >
-          {/* <MenuItem value=''>
+          <MenuItem value={placeholderDefault}>
             <div className='flex gap-[1vw] items-center'>
               <Image
                 src={icon}
                 alt='Money Image'
               />
-              <span className='px-2 py-[0.25vw] text-[0.875vw] font-normal'>Destination</span>
+              <span className='px-2 py-[0.25vw] text-[0.875vw] font-normal'>{placeholderDefault}</span>
             </div>
-          </MenuItem> */}
+          </MenuItem>
           {list?.map((item) => (
             <MenuItem
               key={item?.name}

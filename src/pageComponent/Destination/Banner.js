@@ -38,7 +38,7 @@ function Banner({ data, dataFilter, slug, lang }) {
           </div>
           <div
             onClick={() => scrollDown(scrollRef, 'start')}
-            className='flex flex-col gap-[0.94vw] text-center items-center justify-center md:mt-[2.19vw] mt-[4.8vw]'
+            className='flex flex-col gap-[0.94vw] text-center cursor-pointer items-center justify-center md:mt-[2.19vw] mt-[4.8vw]'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'

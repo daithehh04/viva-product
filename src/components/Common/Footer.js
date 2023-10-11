@@ -20,7 +20,7 @@ async function Footer({ lang }) {
         <SlidePartners data={logoPartner} />
         <SlidePartners data={logoPartner} reverse={true} />
       </div>
-      <div className='flex max-md:flex-col max-md:items-center content gap-x-[2vw] items-start pt-[4.62vw] max-md:pt-[10.67vw]'>
+      <div className='flex max-md:flex-col max-md:items-center w-[83.75%] mx-auto gap-x-[2vw] items-start pt-[4.62vw] max-md:pt-[10.67vw]'>
         {/* column 1 */}
         <div className='pr-[2.37vw] max-md:flex max-md:flex-col max-md:items-center'>
           <Image
