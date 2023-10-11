@@ -185,8 +185,7 @@ export default function Home({
           <div className='max-md:mt-[15.12vw] mt-[8.62vw]'>
             <BookingProcessSteps data={nextStepBookTour} />
           </div>
-          <div 
-          className='pt-[7.31vw]'>
+          <div className='pt-[7.31vw]'>
             <OurBlogHomePage
               data={blog}
               button={button}
