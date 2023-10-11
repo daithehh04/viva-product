@@ -21,7 +21,7 @@ function Review({ data, button, lang }) {
           alt='tree'
           src={tree}
           quality={100}
-          className='max-md:hidden absolute md:w-[22.18vw] md:h-[26.54vw] top-[4%] right-0'
+          className='max-md:hidden absolute md:w-[18.18vw] md:h-[26.54vw] top-[4%] right-0'
         />
         <div className='w-[35.1875vw] max-md:hidden'>
           <VideoReview
