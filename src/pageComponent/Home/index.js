@@ -181,12 +181,11 @@ export default function Home({
             lang={lang}
           />
         </div>
-        <div className='relative bg-home67'>
+        <div className='relative bg-home67 md:mt-[8.62vw] mt-[15.13vw]'>
           <div>
             <BookingProcessSteps data={nextStepBookTour} />
           </div>
-          <div 
-          className='pt-[7.31vw]'>
+          <div className='pt-[7.31vw]'>
             <OurBlogHomePage
               data={blog}
               button={button}

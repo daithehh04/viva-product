@@ -41,7 +41,10 @@ function SlideReview({ data, lang }) {
       >
         {data?.map((item, index) => {
           return (
-            <SwiperSlide key={index}>
+            <SwiperSlide
+              key={index}
+              className='block'
+            >
               {({ isActive }) => (
                 <div>
                   <ReviewItem

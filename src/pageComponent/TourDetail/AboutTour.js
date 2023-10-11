@@ -230,24 +230,24 @@ export default function AboutTour(props) {
   useEffect(() => {
     const handleScroll = () => {
       let innerHeight = window.innerHeight
-      let overviewTop = overviewRef.current.getBoundingClientRect().top
-      let briefTop = briefRef.current.getBoundingClientRect().top
-      let tourDetailTop = tourDetailRef.current.getBoundingClientRect().top
-      let roleTop = roleRef.current.getBoundingClientRect().top
-      let accomTop = accomRef.current.getBoundingClientRect().top
+      let overviewTop = overviewRef.current?.getBoundingClientRect()?.top
+      let briefTop = briefRef.current?.getBoundingClientRect()?.top
+      let tourDetailTop = tourDetailRef.current?.getBoundingClientRect()?.top
+      let roleTop = roleRef.current?.getBoundingClientRect()?.top
+      let accomTop = accomRef.current?.getBoundingClientRect()?.top
 
-      let reviewRec = reviewRef.current.getBoundingClientRect()
-      let aboutTourRec = aboutTourRef.current.getBoundingClientRect()
+      let reviewRec = reviewRef.current?.getBoundingClientRect()
+      let aboutTourRec = aboutTourRef.current?.getBoundingClientRect()
 
       // set position for map
       if (mapRef.current && !onlySmallScreen) {
-        if (aboutTourRec.top < 0 && reviewRec.top > innerHeight) {
+        if (aboutTourRec?.top < 0 && reviewRec?.top > innerHeight) {
           mapRef.current.classList.add('sticky')
-        } else if (aboutTourRec.top < 0 && reviewRec.top < innerHeight) {
+        } else if (aboutTourRec?.top < 0 && reviewRec?.top < innerHeight) {
           mapRef.current.classList.remove('sticky')
           mapRef.current.style.position = 'absolute'
           mapRef.current.style.bottom = innerHeight - mapRef.current.clientHeight + 'px'
-        } else if (aboutTourRec.top >= 0 && reviewRec.top > innerHeight) {
+        } else if (aboutTourRec?.top >= 0 && reviewRec?.top > innerHeight) {
           mapRef.current.classList.remove('sticky')
           mapRef.current.style.bottom = 'unset'
         }
@@ -255,7 +255,7 @@ export default function AboutTour(props) {
 
       //show icons when scroll over "Overview" section's position
       if (stepIconRef.current) {
-        if (aboutTourRef.current.getBoundingClientRect().top < 0) {
+        if (aboutTourRef.current?.getBoundingClientRect()?.top < 0) {
           stepIconRef.current.style.display = 'flex'
         } else {
           stepIconRef.current.style.display = 'none'
@@ -267,7 +267,7 @@ export default function AboutTour(props) {
       }
 
       if (stepIconMbRef.current) {
-        if (aboutTourRef.current.getBoundingClientRect().top < 0) {
+        if (aboutTourRef.current?.getBoundingClientRect()?.top < 0) {
           stepIconMbRef.current.style.display = 'flex'
         } else {
           stepIconMbRef.current.style.display = 'none'
@@ -561,7 +561,7 @@ export default function AboutTour(props) {
           </div>
         </div>
         {/* review */}
-        {reviews && (
+        {reviews?.length > 0 && (
           <div
             className=' hidden-scroll overflow-auto md:overflow-hidden overflow-y-hidden mb-[13vw]'
             ref={reviewRef}

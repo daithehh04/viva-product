@@ -15,15 +15,23 @@ function BestSellerTour({ data, lang, dataCheckVisa }) {
             key={index}
             className={`max-md:w-[52.50533vw] max-md:h-[67.23253vw] max-md:flex max-md:flex-shrink-0 ${
               index === 0 && 'max-md:ml-[4.27vw]'
-            } ${index === dataTour?.length - 1 && 'max-md:mr-[4.27vw]'}`}
+            } ${index === 3 && 'max-md:mr-[4.27vw]'}`}
           >
-            <TourItem data={tour} lang={lang} />
+            <TourItem
+              data={tour}
+              lang={lang}
+            />
           </div>
         ))}
       </div>
       <Link href={`/${lang}/search`}>
         <Button className='flex mb-[8.77vw] md:mb-[6.25vw] m-auto md:mt-[3.5vw] mt-[8.77vw]'>
-          <Button className='btn-secondary' content={dataCheckVisa?.checkvisa?.button}><span>{dataCheckVisa?.checkvisa?.button}</span></Button>
+          <Button
+            className='btn-secondary'
+            content={dataCheckVisa?.checkvisa?.button}
+          >
+            <span>{dataCheckVisa?.checkvisa?.button}</span>
+          </Button>
         </Button>
       </Link>
     </div>

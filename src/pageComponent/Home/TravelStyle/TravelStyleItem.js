@@ -6,12 +6,13 @@ import Link from 'next/link'
 
 function TravelStyleItem({ data, lang }) {
   return (
-    <div 
-        data-aos-once='true'
-        data-aos-disabled='true'
-        data-aos='fade-up'
-        data-aos-duration='1000'
-        className='relative w-[26.25vw] travel-style z-10'>
+    <div
+      data-aos-once='true'
+      data-aos-disabled='true'
+      data-aos='fade-up'
+      data-aos-duration='1000'
+      className='relative w-[26.25vw] travel-style z-10'
+    >
       <Image
         src={data?.banner?.travelStyleInfo?.imageHomePage?.sourceUrl}
         width={500}
@@ -38,7 +39,7 @@ function TravelStyleItem({ data, lang }) {
         />
         <Link
           href={`/${lang}/travel-style/${data?.slug}`}
-          className='w-[5.9375vw] h-[5.9375vw] rounded-full bg-primaryColor text-textColor text-[0.875vw] font-[500] flex items-center justify-center max-lg:max-lg:text-[1.1vw]'
+          className='w-[5.9375vw] h-[5.9375vw] rounded-full bg-primaryColor text-textColor text-[0.875vw] font-[500] flex items-center justify-center max-lg:max-lg:text-[1.1vw] cursor-pointer'
         >
           View more
         </Link>
