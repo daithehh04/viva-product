@@ -78,9 +78,9 @@ export const GET_DATA_MENU_WWR = `query($language: LanguageCodeEnum!) {
       who_we_are {
         banner {
           title
-          backgroundImage {
-            altText
+          backgroundMenu{
             sourceUrl
+            altText
           }
         }
         

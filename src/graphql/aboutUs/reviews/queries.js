@@ -38,9 +38,9 @@ export const GET_DATA_MENU_RV = `query($language: LanguageCodeEnum!) {
         aboutUsReviews {
           banner {
             title
-            backgroundImage {
-              altText
+            backgroundMenu{
               sourceUrl
+              altText
             }
           }
           

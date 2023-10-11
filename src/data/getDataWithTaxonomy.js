@@ -11,6 +11,7 @@ export default async function getDataWithTaxonomy(data, query) {
         taxonomyValue: data?.taxonomyValue,
         taxonomyName: data?.taxonomyName
       }
+
     }),
     next: { revalidate: process.env.NEXT_PUBLIC_REVALIDATE }
   })
