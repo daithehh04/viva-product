@@ -6,17 +6,7 @@ import successIcon from '@/assets/images/successIcon.svg'
 import errorIcon from '@/assets/images/errorIcon.svg'
 
 export default function Notification(props) {
-  const {
-    openNoti = true,
-    setOpenNoti,
-    msg,
-    isSuccess,
-    isError = true,
-    isConfirm,
-    handleConfirm,
-    handleSuccess,
-    handleError
-  } = props
+  const { openNoti, setOpenNoti, msg, isSuccess, isError, isConfirm, handleConfirm, handleSuccess, handleError } = props
 
   const handleClose = (e) => {
     e.preventDefault()
