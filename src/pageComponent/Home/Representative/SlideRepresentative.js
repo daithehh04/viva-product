@@ -119,7 +119,7 @@ function SlideRepresent({ data, dataInfo }) {
                       />
                       <span className='text-white md:text-[1.19vw] text-[2.66vw] leading-normal'>{item?.role}</span>
                     </div>
-                    <h3 className='text-white md:text-[1.59vw] text-[3.2vw] font-manrope font-[800] leading-normal md:mt-[0.33vw]'>
+                    <h3 className='text-white md:text-[1.59vw] text-[3.2vw] font-bold leading-normal md:mt-[0.33vw]'>
                       {item?.name}
                     </h3>
                   </div>
@@ -142,7 +142,10 @@ function SlideRepresent({ data, dataInfo }) {
             xmlns='http://www.w3.org/2000/svg'
             className='w-[1.5vw] h-[1.5vw]'
           >
-            <path d='M3.15303 12.0969L19.457 0.960938L12.873 12.0969L19.457 23.2409L3.15303 12.0969Z' fill='#001258' />
+            <path
+              d='M3.15303 12.0969L19.457 0.960938L12.873 12.0969L19.457 23.2409L3.15303 12.0969Z'
+              fill='#001258'
+            />
           </svg>
         </button>
         <button
@@ -157,7 +160,10 @@ function SlideRepresent({ data, dataInfo }) {
             xmlns='http://www.w3.org/2000/svg'
             className='w-[1.5vw] h-[1.5vw]'
           >
-            <path d='M20.847 12.0969L4.54297 0.960938L11.127 12.0969L4.54297 23.2409L20.847 12.0969Z' fill='#001258' />
+            <path
+              d='M20.847 12.0969L4.54297 0.960938L11.127 12.0969L4.54297 23.2409L20.847 12.0969Z'
+              fill='#001258'
+            />
           </svg>
         </button>
       </div>
