@@ -335,9 +335,9 @@ export default function Navbar({
                 Book tour
               </Button>
             </div>
-            <div className='flex-shrink-0 max-lg:hidden'>
+            {/* <div className='flex-shrink-0 max-lg:hidden'>
               <SelectLang lang={lang} />
-            </div>
+            </div> */}
             <div className='flex-1 hidden max-lg:block'>
               <InputSearchMb
                 lang={lang}

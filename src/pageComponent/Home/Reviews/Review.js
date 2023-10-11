@@ -37,6 +37,7 @@ function Review({ data, button, lang }) {
             data-aos-disabled='true'
             data-aos='fade-up'
             data-aos-duration='1000'
+            data-aos-offset='-500'
             className='heading-1 max-md:pl-[4.27vw]'
           >
             {data?.title}
@@ -45,7 +46,8 @@ function Review({ data, button, lang }) {
             data-aos-once='true'
             data-aos-disabled='true'
             data-aos='fade-up'
-            data-aos-duration='1000' 
+            data-aos-duration='1000'
+            data-aos-offset='-500'
             className='text-[1.125vw] leading-normal mb-[5.31vw] w-[30.875vw] max-md:text-[3.73vw] max-md:w-full max-md:pl-[4.27vw] max-md:mt-[2.13vw] max-lg:w-[40vw] max-lg:text-[1.6vw]'
           >
             {data?.text}
@@ -58,7 +60,12 @@ function Review({ data, button, lang }) {
       </div>
       <div className='mt-[3.5vw] flex justify-center max-md:hidden'>
         <Link href={`/${lang}/about-us/reviews`}>
-          <Button className='btn-secondary' content={button?.buttonseemore}><span>{button?.buttonseemore}</span></Button>
+          <Button
+            className='btn-secondary'
+            content={button?.buttonseemore}
+          >
+            <span>{button?.buttonseemore}</span>
+          </Button>
         </Link>
       </div>
     </>
