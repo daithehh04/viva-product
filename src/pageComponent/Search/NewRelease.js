@@ -14,7 +14,7 @@ const NewRelease = ({ data, lang, title, button }) => {
         />
       </div>
       <div className='flex md:mt-[4vw] mt-[9.87vw] md:mb-[5.75vw] mb-[14.93vw] justify-center'>
-        <Button className='btn-secondary'>{button}</Button>
+        <Button className='btn-secondary' content={button}><span>{button}</span></Button>
       </div>
     </div>
   )

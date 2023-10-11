@@ -10,7 +10,7 @@ export default async function getListPromotionTour(lang) {
       query: GET_LIST_PROMOTION_TOUR,
       variables: { language: lang?.toUpperCase() }
     }),
-    next: { revalidate: process.env.NEXT_PUBLIC_REVALIDATE }
+    next: { revalidate: 10 }
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
