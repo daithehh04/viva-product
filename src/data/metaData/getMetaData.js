@@ -8,7 +8,7 @@ export default async function getMetaDataTour(query, lang, slug) {
       query: query,
       variables: { language: lang?.toUpperCase(), slug: slug }
     }),
-    next: { revalidate: 10 }
+    next: { revalidate: process.env.NEXT_PUBLIC_REVALIDATE }
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
