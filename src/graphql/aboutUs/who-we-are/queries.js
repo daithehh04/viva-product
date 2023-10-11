@@ -33,6 +33,9 @@ export const GET_WHO_WE_ARE_DATA = `query($language: LanguageCodeEnum!) {
               }
               name
               position
+              link{
+                url
+              }
             }
             title
           }

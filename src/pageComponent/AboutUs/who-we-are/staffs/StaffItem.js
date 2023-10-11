@@ -16,7 +16,16 @@ export default function StaffItem({ staff = {} }) {
           <span className='md:text-[2vw] xl:text-[1.5vw] text-[4vw] font-medium leading-[150%] text-[#171717]'>
             {staff?.name}
           </span>
-          <Image src={inImg} alt='image' className='md:w-[1.875vw] w-[4.8vw] md:h-[1.875vw] h-[4.8vw]' />
+          <a
+            href={staff?.link?.url}
+            className='cursor-pointer'
+          >
+            <Image
+              src={inImg}
+              alt='image'
+              className='md:w-[1.875vw] w-[4.8vw] md:h-[1.875vw] h-[4.8vw]'
+            />
+          </a>
         </div>
         <div className='md:text-[1.2vw] xl:text-[0.875vw] text-[2.67vw] leading-[170%] opacity-80 color-[#171717]'>
           {staff?.position}

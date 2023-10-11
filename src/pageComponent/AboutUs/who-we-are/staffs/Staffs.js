@@ -6,6 +6,7 @@ import StaffSlide from './StaffSlide'
 import StaffSlideMobile from './StaffSlideMobile'
 
 export default function Staffs({ data }) {
+  console.log(data)
   useEffect(() => {
     AOS.init({ disable: 'mobile' })
     AOS.refresh()
