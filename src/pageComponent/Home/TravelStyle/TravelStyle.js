@@ -97,7 +97,7 @@ function TravelStyle({ data, title, desc, lang }) {
         height={200}
         alt='coconut'
         quality={100}
-        className='w-[34.57vw] h-[31.44vw] object-cover absolute left-[43.25vw] top-[8.5vw]'
+        className='w-[34.57vw] h-[31.44vw] object-cover absolute left-[43.25vw] top-[5vw]'
       />
       <Image
         src={coconut}

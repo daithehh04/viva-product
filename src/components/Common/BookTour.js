@@ -115,6 +115,7 @@ function BookTour({ data, setOpenModal }) {
       } else {
         // Successful
         setIsSuccess(true)
+        setIsConfirm(false)
         setOpenNoti(true)
         setMsg('Successfull')
         setIsDone(true)
