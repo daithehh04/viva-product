@@ -51,7 +51,7 @@ export default function Home({
   if (budget) {
     allTours = allTours?.filter((tour) => {
       let priceTour = tour?.translation?.tourDetail?.priceTour
-      if (!priceTour) priceTour = 1000
+      if (!priceTour) return
       const arrBudget = budget.split('-')
       const minBudget = arrBudget[0]
       const maxBudget = arrBudget[1]
@@ -61,7 +61,7 @@ export default function Home({
   if (duration) {
     allTours = allTours?.filter((tour) => {
       let numTour = tour?.translation?.tourDetail?.numberDay
-      if (!numTour) numTour = 3
+      if (!numTour) return
       const arrDuration = duration.split('-')
       const minDay = arrDuration[0]
       const maxDay = arrDuration[1]
