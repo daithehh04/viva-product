@@ -4,7 +4,7 @@ export default function TableData({ data, header = [] }) {
   const headerData = Object.values(header)
 
   return (
-    <div className='mb-10 overflow-auto w-full hidden-scroll'>
+    <div className='overflow-auto w-full hidden-scroll max-lg:px-[4.27vw]'>
       <table className='tour-detail-table table-auto md:w-full w-[150vw] border-separate border border-[#EBEBEB] rounded-2xl border-solid bg-white'>
         <thead className='lg:h-[3vw] md:h-[4vw] h-[12.8vw] bg-[#FFECA2] text-center '>
           <tr>

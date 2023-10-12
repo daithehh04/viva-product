@@ -19,6 +19,7 @@ import { useRouter } from 'next/navigation'
 import PriceMb from './PriceMb'
 import ModalCustom from '@/components/Common/ModalCustom'
 import BookTour from '@/components/Common/BookTour'
+import vw from '@/helpers/convertToVw'
 
 export default function AboutTour(props) {
   const { type, data, headerData = {}, relatedTours = [], lang, dataBookTour, price } = props
@@ -217,6 +218,7 @@ export default function AboutTour(props) {
   const stepIconRef = useRef()
   const reviewRef = useRef()
   const relatedTourRef = useRef()
+  const imageMapRef = useRef()
   const sectionRefs = {
     [OVERVIEW_REF]: useRef(),
     [BRIEF_REF]: useRef(),
@@ -236,35 +238,24 @@ export default function AboutTour(props) {
       let tourDetailTop = tourDetailRef.current?.getBoundingClientRect()?.top
       let roleTop = roleRef.current?.getBoundingClientRect()?.top
       let accomTop = accomRef.current?.getBoundingClientRect()?.top
-
-      let reviewRec = reviewRef.current?.getBoundingClientRect()
-      let relatedTourRec = relatedTourRef.current?.getBoundingClientRect()
       let aboutTourRec = aboutTourRef.current?.getBoundingClientRect()
+      const mapRec = mapRef.current?.getBoundingClientRect()
       // set position for map
 
       if (mapRef.current && !onlySmallScreen) {
-        if (reviewRec?.top) {
-          if (aboutTourRec?.top < 0 && reviewRec?.top > innerHeight) {
+        if (aboutTourRec.top <= vw(5.375)) {
+          if (aboutTourRec.bottom > innerHeight) {
             mapRef.current.classList.add('sticky')
-          } else if (aboutTourRec?.top < 0 && reviewRec?.top < innerHeight) {
+            mapRef.current.style.bottom = 'unset'
+          } else if (aboutTourRec.bottom <= innerHeight) {
             mapRef.current.classList.remove('sticky')
             mapRef.current.style.position = 'absolute'
-            mapRef.current.style.bottom = innerHeight - mapRef.current.clientHeight + 'px'
-          } else if (aboutTourRec?.top >= 0 && reviewRec?.top > innerHeight) {
-            mapRef.current.classList.remove('sticky')
-            mapRef.current.style.bottom = 'unset'
+            mapRef.current.style.bottom = innerHeight - mapRec.height - vw(5.375) + 'px'
+            mapRef.current.style.top = 'unset'
           }
-        } else {
-          if (aboutTourRec?.top < 0 && relatedTourRec?.top > innerHeight) {
-            mapRef.current.classList.add('sticky')
-          } else if (aboutTourRec?.top < 0 && relatedTourRec?.top < innerHeight) {
-            mapRef.current.classList.remove('sticky')
-            mapRef.current.style.position = 'absolute'
-            mapRef.current.style.bottom = innerHeight - mapRef.current.clientHeight + 'px'
-          } else if (aboutTourRec?.top >= 0 && relatedTourRec?.top > innerHeight) {
-            mapRef.current.classList.remove('sticky')
-            mapRef.current.style.bottom = 'unset'
-          }
+        } else if (aboutTourRec.top > 0) {
+          mapRef.current.classList.remove('sticky')
+          mapRef.current.style.bottom = 'unset'
         }
       }
 
@@ -451,10 +442,12 @@ export default function AboutTour(props) {
 
             {/* Brief */}
             <div
-              className='mb-[4vw] mt-[3vw]'
+              className='mb-[4vw] mt-[3vw] max-lg:mx-[-4.27vw]'
               ref={briefRef}
             >
-              <h4 className='tour-detail-header'>02 - {contentHeader?.sectionHeader?.briefHeader}</h4>
+              <h4 className='tour-detail-header max-lg:ml-[4.27vw]'>
+                02 - {contentHeader?.sectionHeader?.briefHeader}
+              </h4>
               <TableData
                 data={brief?.row}
                 header={contentHeader?.briefTableHeader}
@@ -541,7 +534,7 @@ export default function AboutTour(props) {
             </div>
             <div
               ref={accomRef}
-              className='mb-[4.5vw]'
+              className='max-lg:mx-[-4.27vw]'
             >
               <TableData
                 data={accommodation?.row}
@@ -552,7 +545,7 @@ export default function AboutTour(props) {
 
           {/* price & map*/}
           <div
-            className='md:w-[26.25vw] md:h-[81.2vw] md:flex md:flex-col gap-[1.6875vw] hidden text-textColor md:absolute md:right-[9.725vw] lg:right-[1.6vw]'
+            className='md:w-[26.25vw] md:h-fit md:flex md:flex-col gap-[1.6875vw] hidden text-textColor md:absolute md:right-[9.725vw] lg:right-[1.6vw]'
             ref={mapRef}
           >
             {/* price */}
@@ -572,13 +565,14 @@ export default function AboutTour(props) {
               width={1000}
               height={1000}
               className='md:block hidden w-full md:h-[30vw] h-[130vw] object-cover rounded shadow-[0_2px_50px_0_rgba(0,0,0,0.04)'
+              ref={imageMapRef}
             />
           </div>
         </div>
         {/* review */}
         {reviews?.length > 0 && (
           <div
-            className=' hidden-scroll overflow-auto md:overflow-hidden overflow-y-hidden mb-[13vw]'
+            className=' hidden-scroll overflow-auto md:overflow-hidden overflow-y-hidden mb-[13vw] md:mt-[4.5vw] mt-[11.5vw]'
             ref={reviewRef}
           >
             <div className='md:w-[62.1875vw] lg:h-[35.75vw] md:h-[40vw] md:ml-[8.125vw] md:grid flex w-fit h-[121.33vw] grid-cols-2 md:gap-[2vw] gap-[4.44vw]'>
