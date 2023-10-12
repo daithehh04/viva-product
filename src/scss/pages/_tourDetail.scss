@@ -126,48 +126,6 @@
     }
   }
 }
-@include mobile {
-  .tour-detail-header {
-    font-size: 4.27vw;
-    margin-bottom: 3vw;
-  }
-
-  .our-tours-item-mobile {
-    padding: 0;
-    .review-item-img {
-      width: 74.667vw !important;
-      height: 74.667vw !important;
-    }
-
-    .review-item-content {
-      p {
-        opacity: 0.6;
-        font-size: 2.933vw;
-      }
-
-      .review-item-user {
-        h4 {
-          font-size: 3.2vw;
-        }
-
-        .user-avatar {
-          width: 9.1648vw;
-          height: 9.1648vw;
-        }
-      }
-    }
-
-    .review-icon-comma {
-      top: 0;
-    }
-  }
-
-  .tour-detail-main {
-    .sticky {
-      position: unset;
-    }
-  }
-}
 
 @include tablet {
   .tour-detail-header {
@@ -213,6 +171,49 @@
           font-size: 1.2vw;
         }
       }
+    }
+  }
+}
+
+@include mobile {
+  .tour-detail-header {
+    font-size: 4.27vw;
+    margin-bottom: 3vw;
+  }
+
+  .our-tours-item-mobile {
+    padding: 0;
+    .review-item-img {
+      width: 74.667vw !important;
+      height: 74.667vw !important;
+    }
+
+    .review-item-content {
+      p {
+        opacity: 0.6;
+        font-size: 2.933vw;
+      }
+
+      .review-item-user {
+        h4 {
+          font-size: 3.2vw;
+        }
+
+        .user-avatar {
+          width: 9.1648vw;
+          height: 9.1648vw;
+        }
+      }
+    }
+
+    .review-icon-comma {
+      top: 0;
+    }
+  }
+
+  .tour-detail-main {
+    .sticky {
+      position: unset;
     }
   }
 }
