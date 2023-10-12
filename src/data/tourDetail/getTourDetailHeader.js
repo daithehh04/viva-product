@@ -9,9 +9,8 @@ export default async function getTourDetailHeader(lang) {
     body: JSON.stringify({
       query: GET_TOUR_DETAIL_HEADER,
       variables: { language: lang?.toUpperCase() }
-
     }),
-    next: { revalidate: process.env.NEXT_PUBLIC_REVALIDATE }
+    next: { revalidate: 120 }
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
