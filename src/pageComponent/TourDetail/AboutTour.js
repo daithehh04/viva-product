@@ -216,6 +216,7 @@ export default function AboutTour(props) {
   const aboutTourRef = useRef()
   const stepIconRef = useRef()
   const reviewRef = useRef()
+  const relatedTourRef = useRef()
   const sectionRefs = {
     [OVERVIEW_REF]: useRef(),
     [BRIEF_REF]: useRef(),
@@ -237,19 +238,34 @@ export default function AboutTour(props) {
       let accomTop = accomRef.current?.getBoundingClientRect()?.top
 
       let reviewRec = reviewRef.current?.getBoundingClientRect()
+      let relatedTourRec = relatedTourRef.current?.getBoundingClientRect()
       let aboutTourRec = aboutTourRef.current?.getBoundingClientRect()
-
+      console.log(reviewRec?.top)
       // set position for map
+
       if (mapRef.current && !onlySmallScreen) {
-        if (aboutTourRec?.top < 0 && reviewRec?.top > innerHeight) {
-          mapRef.current.classList.add('sticky')
-        } else if (aboutTourRec?.top < 0 && reviewRec?.top < innerHeight) {
-          mapRef.current.classList.remove('sticky')
-          mapRef.current.style.position = 'absolute'
-          mapRef.current.style.bottom = innerHeight - mapRef.current.clientHeight + 'px'
-        } else if (aboutTourRec?.top >= 0 && reviewRec?.top > innerHeight) {
-          mapRef.current.classList.remove('sticky')
-          mapRef.current.style.bottom = 'unset'
+        if (reviewRec?.top) {
+          if (aboutTourRec?.top < 0 && reviewRec?.top > innerHeight) {
+            mapRef.current.classList.add('sticky')
+          } else if (aboutTourRec?.top < 0 && reviewRec?.top < innerHeight) {
+            mapRef.current.classList.remove('sticky')
+            mapRef.current.style.position = 'absolute'
+            mapRef.current.style.bottom = innerHeight - mapRef.current.clientHeight + 'px'
+          } else if (aboutTourRec?.top >= 0 && reviewRec?.top > innerHeight) {
+            mapRef.current.classList.remove('sticky')
+            mapRef.current.style.bottom = 'unset'
+          }
+        } else {
+          if (aboutTourRec?.top < 0 && relatedTourRec?.top > innerHeight) {
+            mapRef.current.classList.add('sticky')
+          } else if (aboutTourRec?.top < 0 && relatedTourRec?.top < innerHeight) {
+            mapRef.current.classList.remove('sticky')
+            mapRef.current.style.position = 'absolute'
+            mapRef.current.style.bottom = innerHeight - mapRef.current.clientHeight + 'px'
+          } else if (aboutTourRec?.top >= 0 && relatedTourRec?.top > innerHeight) {
+            mapRef.current.classList.remove('sticky')
+            mapRef.current.style.bottom = 'unset'
+          }
         }
       }
 
@@ -594,7 +610,10 @@ export default function AboutTour(props) {
       </div>
 
       {/* Tour Slide */}
-      <div className='mb-[14.93vw] md:mb-[8.69vw] md:px-[6.38vw]'>
+      <div
+        className='mb-[14.93vw] md:mb-[8.69vw] md:px-[6.38vw]'
+        ref={relatedTourRef}
+      >
         <h4 className='heading-1 md:mb-[3.5vw] mb-[6.4vw] max-md:mx-[4.27vw]'>{relatedTourHeader?.heading}</h4>
         <SlideTour
           data={relatedTours}
