@@ -47,21 +47,12 @@ function MenuMb({
       <div className='flex items-center justify-center h-[14.93vw] border-b border-solid border-textColor border-opacity-20'>
         <div className='flex items-center content'>
           <Link href={`/${lang}`}>
-            <Image
-              src={logo}
-              width={100}
-              height={100}
-              alt='viva-travel'
-              className='w-[10.4vw] object-cover'
-            />
+            <Image src={logo} width={100} height={100} alt='viva-travel' className='w-[10.4vw] object-cover' />
           </Link>
           <div className='flex-1 hidden max-lg:block'>
             <InputSearchMb lang={lang} />
           </div>
-          <div
-            className='cursor-pointer close'
-            onClick={onCloseMenu}
-          >
+          <div className='cursor-pointer close' onClick={onCloseMenu}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='26'
@@ -70,30 +61,13 @@ function MenuMb({
               fill='none'
               className='w-[6.93vw] h-[6.93vw] object-cover'
             >
-              <line
-                x1='20.0581'
-                y1='7.17899'
-                x2='7.04918'
-                y2='20.188'
-                stroke='#000'
-                strokeWidth='1.2265'
-              />
-              <line
-                x1='19.1909'
-                y1='20.0576'
-                x2='6.18192'
-                y2='7.04863'
-                stroke='#000'
-                strokeWidth='1.2265'
-              />
+              <line x1='20.0581' y1='7.17899' x2='7.04918' y2='20.188' stroke='#000' strokeWidth='1.2265' />
+              <line x1='19.1909' y1='20.0576' x2='6.18192' y2='7.04863' stroke='#000' strokeWidth='1.2265' />
             </svg>
           </div>
         </div>
       </div>
-      <div
-        className='mt-[8.53vw] content'
-        style={{ paddingTop: '4.27vw' }}
-      >
+      <div className='mt-[8.53vw] content' style={{ paddingTop: '4.27vw' }}>
         {/* Item 1 */}
         <div className='border-b border-solid row-menu border-textColor border-opacity-20'>
           <div
@@ -101,13 +75,7 @@ function MenuMb({
             onClick={() => handleSelect(1)}
           >
             <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>{dataHome?.nav1}</h3>
-            <Image
-              src={iconDropdown}
-              width={11}
-              height={8}
-              alt='img'
-              className='drop-down max-lg:w-[3vw]'
-            />
+            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down max-lg:w-[3vw]' />
           </div>
           <div
             className='list menu-mb_item flex items-center gap-[7.47vw] !overflow-x-auto mt-[3.73vw] '
@@ -149,13 +117,7 @@ function MenuMb({
             onClick={() => handleSelect(2)}
           >
             <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>{dataHome?.nav2}</h3>
-            <Image
-              src={iconDropdown}
-              width={11}
-              height={8}
-              alt='img'
-              className='drop-down max-lg:w-[3vw]'
-            />
+            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down max-lg:w-[3vw]' />
           </div>
           <div
             className='grid menu-mb_item grid-cols-3 gap-x-[15.2vw] gap-y-[7.47vw] mt-[4.27vw] px-[2.67vw] '
@@ -198,13 +160,7 @@ function MenuMb({
             onClick={() => handleSelect(3)}
           >
             <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>{dataHome?.nav3}</h3>
-            <Image
-              src={iconDropdown}
-              width={11}
-              height={8}
-              alt='img'
-              className='drop-down max-lg:w-[3vw]'
-            />
+            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down max-lg:w-[3vw]' />
           </div>
           <div
             className='mt-[3.73vw] menu-mb_item '
@@ -221,11 +177,7 @@ function MenuMb({
             <span className='text-[3.73vw] opacity-40  font-[500] block'>{hotDeals?.voucherHeader?.listHeader}</span>
             <div className='hidden-scroll flex overflow-x-auto gap-[3.73vw] mt-[3.2vw] max-lg:w-full'>
               {hotDeals?.voucherHeader?.listVoucher?.map((item, index) => (
-                <VoucherItem
-                  key={index}
-                  data={item}
-                  headerData={hotDeals?.voucherHeader?.detailHeader}
-                />
+                <VoucherItem key={index} data={item} headerData={hotDeals?.voucherHeader?.detailHeader} />
               ))}
             </div>
             <span className='text-[3.73vw] opacity-40 font-[500] block mt-[6.4vw]'>
@@ -239,21 +191,13 @@ function MenuMb({
                     index === hotDeals?.promotionList?.length - 1 && 'max-md:mr-[4.27vw]'
                   }`}
                 >
-                  <TourItem
-                    data={item}
-                    lang={lang}
-                    menu={menu}
-                  />
+                  <TourItem data={item} lang={lang} menu={menu} />
                 </div>
               ))}
             </div>
 
             <div className='flex items-center justify-center mt-[6.4vw] '>
-              <Link
-                href={`/${lang}/hot-deals`}
-                onClick={onCloseMenu}
-                className='btn-secondary menu-table'
-              >
+              <Link href={`/${lang}/hot-deals`} onClick={onCloseMenu} className='btn-secondary menu-table'>
                 See all
               </Link>
             </div>
@@ -266,13 +210,7 @@ function MenuMb({
             onClick={() => handleSelect(4)}
           >
             <h3 className='text-[5.33vw] leading-[1.2] capitalize opacity-60'>{dataHome?.nav6}</h3>
-            <Image
-              src={iconDropdown}
-              width={11}
-              height={8}
-              alt='img'
-              className='drop-down max-lg:w-[3vw]'
-            />
+            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down max-lg:w-[3vw]' />
           </div>
           <div
             className={`hidden-scroll flex overflow-x-auto gap-[3.2vw] mt-[3.73vw] menu-mb_item rcmService_mb`}
@@ -287,12 +225,7 @@ function MenuMb({
             }
           >
             {rcmServicesList?.data?.categories?.nodes?.map((item, index) => (
-              <ServiceItem
-                key={index}
-                data={item}
-                lang={lang}
-                onCloseMenu={onCloseMenu}
-              />
+              <ServiceItem key={index} data={item} lang={lang} onCloseMenu={onCloseMenu} />
             ))}
           </div>
         </div>
@@ -314,13 +247,7 @@ function MenuMb({
             onClick={() => handleSelect(5)}
           >
             <h3 className='text-[4.26vw] leading-[1.2] capitalize opacity-60 mr-[3.2vw]'>{dataHome?.nav5}</h3>
-            <Image
-              src={iconDropdown}
-              width={11}
-              height={8}
-              alt='img'
-              className='drop-down max-lg:w-[3vw]'
-            />
+            <Image src={iconDropdown} width={11} height={8} alt='img' className='drop-down max-lg:w-[3vw]' />
           </div>
           <div
             className='flex flex-col gap-[3.2vw] mt-[5.07vw] menu-mb_item'
@@ -378,7 +305,7 @@ function MenuMb({
         {/* Socials */}
         <div className='flex items-center gap-[4.27vw] mt-[3.2vw] justify-center'>
           <Link
-            href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkFb}
+            href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkFb ?? ''}
             className='max-md:w-[9.6vw] md:w-[6vw] md:h-[6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] fb'
           >
             <Image
@@ -391,7 +318,7 @@ function MenuMb({
           </Link>
 
           <Link
-            href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkLinked}
+            href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkLinked ?? ''}
             className='max-md:w-[9.6vw] max-md:h-[9.6vw] md:w-[6vw] md:h-[6vw] rounded-full flex items-center justify-center border border-solid border-[#000] linked'
           >
             <Image
@@ -403,7 +330,7 @@ function MenuMb({
             />
           </Link>
           <Link
-            href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkInstargram}
+            href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkInstargram ?? ''}
             className='max-md:w-[9.6vw] max-md:h-[9.6vw] md:w-[6vw] md:h-[6vw] rounded-full flex items-center justify-center border border-solid border-[#000] instar'
           >
             <Image
@@ -415,7 +342,7 @@ function MenuMb({
             />
           </Link>
           <Link
-            href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkYoutube}
+            href={socialMobile?.data?.page?.translation?.home?.footer?.column1?.linkYoutube ?? ''}
             className='max-md:w-[9.6vw]  md:w-[6vw] md:h-[6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] ytb'
           >
             <Image

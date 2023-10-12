@@ -13,14 +13,16 @@ function OtherArticle({ data, dataNews, lang, dataTitle }) {
       </h2>
       <div className='flex md:gap-[2.5vw] article-webkit  max-md:overflow-x-auto md:mb-[3.5vw] mb-[9.87vw]'>
         {otherArticle
-          ? otherArticle?.slice(0, 4)?.map((data, index) => (
-              <BlogItem
-                key={index}
-                lang={lang}
-                data={data}
-                className={`${otherArticle.length - 1 === index ? 'mr-[4.27vw]' : ''}`}
-              />
-            ))
+          ? otherArticle
+              ?.slice(0, 4)
+              ?.map((data, index) => (
+                <BlogItem
+                  key={index}
+                  lang={lang}
+                  data={data}
+                  className={`${otherArticle.length - 1 === index ? 'mr-[4.27vw]' : ''}`}
+                />
+              ))
           : otherArticleNew?.map((item, index) => (
               <BlogItem
                 key={index}
@@ -32,7 +34,7 @@ function OtherArticle({ data, dataNews, lang, dataTitle }) {
       </div>
 
       <div className='flex justify-center md:mb-[1vw]'>
-        <Link href='/blog'>
+        <Link href={`/${lang}/blog`}>
           <Button className='btn-secondary'>
             {' '}
             {dataTitle?.data?.postBy?.translation?.blogdetail?.transtitle?.button}

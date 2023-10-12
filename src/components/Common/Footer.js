@@ -32,14 +32,17 @@ async function Footer({ lang }) {
           />
           <div className='mt-[1.25vw] max-md:mt-[6.63vw]'></div>
           {col1?.contact?.map((item, index) => (
-            <div key={index} className='text-[1vw] max-lg:whitespace-nowrap max-lg:text-[1.4vw] max-md:text-[3.73vw] mt-[0.5vw] max-md:mt-[1.07vw]'>
+            <div
+              key={index}
+              className='text-[1vw] max-lg:whitespace-nowrap max-lg:text-[1.4vw] max-md:text-[3.73vw] mt-[0.5vw] max-md:mt-[1.07vw]'
+            >
               <strong>{item?.title}: </strong>
               {item?.content}
             </div>
           ))}
           <div className='flex items-center gap-[0.89vw] mt-[1.25vw] max-md:gap-[4.27vw] max-md:mt-[3.2vw]'>
             <Link
-              href={col1?.linkFb}
+              href={col1?.linkLinked ?? ''}
               className='w-[2.67vw] h-[2.67vw] max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border  fb'
             >
               <svg
@@ -58,7 +61,7 @@ async function Footer({ lang }) {
               </svg>
             </Link>
             <Link
-              href={col1?.linkLinked}
+              href={col1?.linkLinked ?? ''}
               className='w-[2.67vw] h-[2.67vw] max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] linked'
             >
               <svg
@@ -83,7 +86,7 @@ async function Footer({ lang }) {
               </svg>
             </Link>
             <Link
-              href={col1?.linkInstargram}
+              href={col1?.linkInstargram ?? ''}
               className='w-[2.67vw] h-[2.67vw] max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] instar'
             >
               <svg
@@ -101,7 +104,7 @@ async function Footer({ lang }) {
               </svg>
             </Link>
             <Link
-              href={col1?.linkYoutube}
+              href={col1?.linkYoutube ?? ''}
               className='w-[2.67vw] h-[2.67vw] max-md:w-[9.6vw] max-md:h-[9.6vw] rounded-full flex items-center justify-center border border-solid border-[#000] ytb'
             >
               <svg
