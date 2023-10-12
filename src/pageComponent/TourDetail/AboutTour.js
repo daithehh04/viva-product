@@ -20,6 +20,7 @@ import PriceMb from './PriceMb'
 import ModalCustom from '@/components/Common/ModalCustom'
 import BookTour from '@/components/Common/BookTour'
 import vw from '@/helpers/convertToVw'
+import Link from 'next/link'
 
 export default function AboutTour(props) {
   const { type, data, headerData = {}, relatedTours = [], lang, dataBookTour, price } = props
@@ -613,12 +614,13 @@ export default function AboutTour(props) {
           slug={type === 'promo' && 'hot-deals'}
           lang={lang}
         />
-        <Button
-          className='btn-secondary mx-auto mt-[9.83vw] md:mt-[3.5vw]'
-          onClick={() => router.push(`/${lang}/search`)}
+        <Link
+          href={`/${lang}/search`}
+          className='btn-secondary mx-auto mt-[9.83vw] md:mt-[3.5vw] md:w-[10vw] w-[35.6vw] flex justify-center'
+          content={relatedTourHeader?.buttonContent}
         >
-          {relatedTourHeader?.buttonContent}
-        </Button>
+          <span>{relatedTourHeader?.buttonContent}</span>
+        </Link>
       </div>
 
       {/* footer in mb */}

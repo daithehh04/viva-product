@@ -305,7 +305,7 @@ function MenuMb({
           >
             {dataHome?.nav4}
           </Link>
-          <SelectLang />
+          {/* <SelectLang /> */}
         </div>
         {/* Item 6 */}
         <div className='row-menu'>
@@ -371,7 +371,7 @@ function MenuMb({
           {contactInfo && `${contactInfo[1]?.title}: ${contactInfo[1]?.content}`}
         </span>
         <Button className='btn-primary mt-[1.6vw] w-full items-center justify-center'>
-          <span className='max-lg:py-[2vw] max-lg:text-[3.2vw]'>
+          <span className='max-lg:text-[3.2vw]'>
             {contactInfo && `${contactInfo[0]?.title}: ${contactInfo[0]?.content}`}
           </span>
         </Button>
