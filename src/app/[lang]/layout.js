@@ -40,6 +40,7 @@ import {
 } from '@/graphql/filter/queries'
 import { Suspense } from 'react'
 import Loader from '@/components/Common/Loader'
+import SearchButton from '@/pageComponent/Home/SearchButton'
 
 const idEnBook = 'cG9zdDoxNDIy'
 const idFrBook = 'cG9zdDoxNDIy'
@@ -119,6 +120,7 @@ export default async function RootLayout({ children, params }) {
                   rvRes: rvRes?.data?.page?.translation
                 }}
               />
+              <SearchButton />
               {children}
               <Footer lang={params.lang} />
             </Suspense>
