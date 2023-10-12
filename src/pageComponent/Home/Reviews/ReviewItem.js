@@ -66,7 +66,9 @@ function ReviewItem({ data, lang }) {
             <span className='text-[1.125vw] font-bold capitalize text-white leading-normal max-md:text-[3.73vw] max-lg:text-[1.4vw]'>
               {authorInfo?.name}
             </span>
-            <span className='text-white text-[0.875vw] leading-normal max-md:text-[2.93vw] max-lg:text-[1.2vw] '>{authorInfo?.country}</span>
+            <span className='text-white text-[0.875vw] leading-normal max-md:text-[2.93vw] max-lg:text-[1.2vw] '>
+              {authorInfo?.country}
+            </span>
           </div>
         </div>
         <div className='flex mt-[1.25vw] ml-[-1vw] max-md:mt-[3.3vw]'>
@@ -78,7 +80,7 @@ function ReviewItem({ data, lang }) {
             className='w-[2.75vw] h-[2.75vw] object-cover mt-[-0.95vw]'
           />
           <Link
-            href={'/'}
+            href={`${lang}/tours/${tourSlug}`}
             className='text-white inline text-[1vw] font-[500] leading-normal ml-[-1.25vw] max-md:text-[3.2vw] max-lg:text-[1.2vw]'
           >
             {data?.customerReview?.content.length >= 68
