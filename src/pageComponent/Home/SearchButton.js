@@ -7,7 +7,7 @@ import PopupSearch from './PopupSearch'
 import searchIcon from '@/assets/images/search-normal.svg'
 import { usePathname } from 'next/navigation'
 
-export default function SearchButton() {
+export default function SearchButton({ lang }) {
   const pathName = usePathname()
   const [popup, setPopup] = useState(false)
   const searchRef = useRef()

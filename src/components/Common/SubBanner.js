@@ -10,7 +10,12 @@ import AOS from 'aos'
 
 export default function SubBanner({ data = {}, className, lang }) {
   useEffect(() => {
-    AOS.init({ disable: 'mobile' })
+    AOS.init({
+      disable: function () {
+        var maxWidth = 768
+        return window.innerWidth < maxWidth
+      }
+    })
     AOS.refresh()
   }, [])
   const router = useRouter()
@@ -48,7 +53,7 @@ export default function SubBanner({ data = {}, className, lang }) {
           onClick={() => router.push(`/${lang}/check-visa`)}
           className='btn-primary md:min-w-[14.3125vw] min-w-[29.6vw] md:h-[3.875vw] h-[10.4vw] flex justify-center items-center'
         >
-        <span>{data?.button}</span>
+          <span>{data?.button}</span>
         </Button>
       </div>
 
