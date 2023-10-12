@@ -61,7 +61,6 @@ export default async function page({ params: { lang, slug } }) {
 
   const result2 = await getRelatedTour(country, 'COUNTRIES', lang)
   const relatedTours = result2?.data?.allTours?.nodes?.filter((item) => item.translation.id !== tourId)
-
   if (!tourId) {
     notFound()
   }
@@ -69,7 +68,7 @@ export default async function page({ params: { lang, slug } }) {
     <TourDetail
       data={tourDetailData}
       headerData={headerData?.data?.page?.translation?.tourDetailHeading}
-      relatedTours={!relatedTours || relatedTours?.length === 0 ? relatedTours : randomTour}
+      relatedTours={!relatedTours || relatedTours?.length === 0 ? randomTour : relatedTours}
       tourId={tourId}
       reviewsList={reviewsList}
       lang={lang}

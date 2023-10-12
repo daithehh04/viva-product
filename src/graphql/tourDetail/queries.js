@@ -171,7 +171,7 @@ export const GET_RELATED_TOUR = `query($language: LanguageCodeEnum!, $taxonomyVa
 }`
 
 export const GET_RANDOM_TOUR = `query ($language: LanguageCodeEnum!) {
-  allTours(first: 4) {
+  allTours(first: 6) {
     nodes {
       translation(language: $language) {
         slug

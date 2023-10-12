@@ -240,7 +240,6 @@ export default function AboutTour(props) {
       let reviewRec = reviewRef.current?.getBoundingClientRect()
       let relatedTourRec = relatedTourRef.current?.getBoundingClientRect()
       let aboutTourRec = aboutTourRef.current?.getBoundingClientRect()
-      console.log(reviewRec?.top)
       // set position for map
 
       if (mapRef.current && !onlySmallScreen) {
