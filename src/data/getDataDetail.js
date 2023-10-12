@@ -7,9 +7,8 @@ export default async function getDataDetail(lang, id, query) {
     body: JSON.stringify({
       query: query,
       variables: { language: lang, slug: id }
-
     }),
-    next: { revalidate: process.env.NEXT_PUBLIC_REVALIDATE }
+    next: { revalidate: 120 }
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
