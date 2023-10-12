@@ -91,18 +91,20 @@ export default function BookingProcessSteps({ data = {} }) {
     setActiveIndex(index)
   }
   useEffect(() => {
-    AOS.init({ disable: 'mobile' })
+    AOS.init({
+      disable: function () {
+        var maxWidth = 768
+        return window.innerWidth < maxWidth
+      }
+    })
     AOS.refresh()
   }, [])
   return (
     <section className='relative z-10 about-step-container'>
-      <h3
-        className='content md:text-[4vw] text-[4.8vw] font-semibold capitalize font-optima md:leading-[110%] leading-[120%] md:text-center w-fit md:mb-[3.375vw]'
-      >
+      <h3 className='content md:text-[4vw] text-[4.8vw] font-semibold capitalize font-optima md:leading-[110%] leading-[120%] md:text-center w-fit md:mb-[3.375vw]'>
         {data?.heading}
       </h3>
-      <div className='overflow-x-auto overflow-y-hidden hidden-scroll md:overflow-hidden'
-      >
+      <div className='overflow-x-auto overflow-y-hidden hidden-scroll md:overflow-hidden'>
         <div className='w-[185vw] md:w-full h-full'>
           <Stack
             sx={{ width: '100%' }}

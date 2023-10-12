@@ -120,7 +120,7 @@ export default async function RootLayout({ children, params }) {
                   rvRes: rvRes?.data?.page?.translation
                 }}
               />
-              <SearchButton />
+              <SearchButton lang={params.lang} />
               {children}
               <Footer lang={params.lang} />
             </Suspense>

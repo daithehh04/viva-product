@@ -12,7 +12,12 @@ import { useEffect } from 'react'
 
 function Review({ data, button, lang }) {
   useEffect(() => {
-    AOS.init({ disable: 'mobile' })
+    AOS.init({
+      disable: function () {
+        var maxWidth = 768
+        return window.innerWidth < maxWidth
+      }
+    })
     AOS.refresh()
   }, [])
   return (

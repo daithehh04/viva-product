@@ -17,7 +17,12 @@ const theme = createTheme({
 })
 const Reviews = ({ lang, data }) => {
   useEffect(() => {
-    AOS.init()
+    AOS.init({
+      disable: function () {
+        var maxWidth = 768
+        return window.innerWidth < maxWidth
+      }
+    })
     AOS.refetch
   }, [])
 

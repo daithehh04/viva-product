@@ -68,8 +68,6 @@ export default function Navbar({
   //check pathName
   const pathName = usePathname()
   const [openModal, setOpenModal] = useState(false)
-
-  const [isTransparent, setIsTransparent] = useState(false)
   const pathNameMb = [
     'our-tours',
     'travel-style',

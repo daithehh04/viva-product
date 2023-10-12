@@ -572,7 +572,7 @@ export default function AboutTour(props) {
         {/* review */}
         {reviews?.length > 0 && (
           <div
-            className=' hidden-scroll overflow-auto md:overflow-hidden overflow-y-hidden mb-[13vw] md:mt-[4.5vw] mt-[11.5vw]'
+            className=' hidden-scroll overflow-auto md:overflow-hidden overflow-y-hidden md:mt-[4.5vw] mt-[11.5vw]'
             ref={reviewRef}
           >
             <div className='md:w-[62.1875vw] lg:h-[35.75vw] md:h-[40vw] md:ml-[8.125vw] md:grid flex w-fit h-[121.33vw] grid-cols-2 md:gap-[2vw] gap-[4.44vw]'>
@@ -604,7 +604,7 @@ export default function AboutTour(props) {
 
       {/* Tour Slide */}
       <div
-        className='mb-[14.93vw] md:mb-[8.69vw] md:px-[6.38vw]'
+        className='mb-[14.93vw] md:mb-[8.69vw] md:px-[6.38vw] md:mt-[6.31vw] mt-[15vw]'
         ref={relatedTourRef}
       >
         <h4 className='heading-1 md:mb-[3.5vw] mb-[6.4vw] max-md:mx-[4.27vw]'>{relatedTourHeader?.heading}</h4>
