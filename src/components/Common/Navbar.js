@@ -50,6 +50,8 @@ export default function Navbar({
   dataTaxonomiesDuration,
   contactInfo
 }) {
+  console.log('🚀 ~ file: Navbar.js:53 ~ listVoucher:', listVoucher)
+  console.log('🚀 ~ file: Navbar.js:53 ~ hotDeals:', hotDeals)
   const arrDataTaxonomiesBudget = dataTaxonomiesBudget?.data?.allBudget?.nodes
   const arrDataTaxonomiesDuration = dataTaxonomiesDuration?.data?.allDuration?.nodes
   const arrDataTaxonomiesCountry = dataTaxonomiesCountry?.data?.allCountries?.nodes
