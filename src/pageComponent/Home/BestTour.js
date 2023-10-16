@@ -120,7 +120,7 @@ function BestTour({
               </span>
               <div className='flex justify-center max-md:hidden max-md:mt-[8.53vw]'>
                 <Link
-                  href={`/${lang}/search`}
+                  href={`/search`}
                   className='btn-secondary'
                 >
                   {button?.buttonseemore}
@@ -138,7 +138,7 @@ function BestTour({
         </div>
       )} */}
       <div className='flex justify-center md:hidden mt-[8.53vw] mb-[14.93vw]'>
-        <Link href={`/${lang}/search`}>
+        <Link href={`/search`}>
           <Button className='btn-secondary'>{button?.buttonseemore}</Button>
         </Link>
       </div>

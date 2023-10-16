@@ -6,7 +6,7 @@ import Link from 'next/link'
 function TourSearch({data,lang}) {
   const tourData = data?.translation?.tourDetail?.banner
   return (
-    <Link href={`${lang}/tours/${encodeURIComponent(data?.translation?.slug)}`} className='flex gap-[1vw] bg-slate-50 hover:bg-slate-100 transition-all'>
+    <Link href={`/tours/${encodeURIComponent(data?.translation?.slug)}`} className='flex gap-[1vw] bg-slate-50 hover:bg-slate-100 transition-all'>
       <Image  
         src={tourData?.gallery ? tourData?.gallery[0]?.sourceUrl : imgTour} 
         width={50} height={50} 

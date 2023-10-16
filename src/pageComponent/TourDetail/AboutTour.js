@@ -615,7 +615,7 @@ export default function AboutTour(props) {
           lang={lang}
         />
         <Link
-          href={`/${lang}/search`}
+          href={`/search`}
           className='btn-secondary mx-auto mt-[9.83vw] md:mt-[3.5vw] md:w-[10vw] w-[35.6vw] flex justify-center'
           content={relatedTourHeader?.buttonContent}
         >

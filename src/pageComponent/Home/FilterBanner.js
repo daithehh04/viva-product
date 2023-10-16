@@ -58,11 +58,11 @@ function FilterBanner({ lang, dataFilter,onClose }) {
       const queryString = new URLSearchParams(resultObject).toString();
       var link = `/search?&${queryString}`
       if(lang !== 'en') {
-        link = `/${lang}/search?&${queryString}`
+        link = `/search?&${queryString}`
       }
       router.push(link)
     } else {
-      router.push(`/${lang}/search`)
+      router.push(`/search`)
     }
     if(onClose) {
       onClose()

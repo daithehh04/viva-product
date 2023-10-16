@@ -10,7 +10,7 @@ function ReviewItem({ data, lang }) {
   const tourSlug = data?.customerReview?.tours?.slug
   return (
     <Link
-      href={`${lang}/tours/${tourSlug}`}
+      href={`/tours/${tourSlug}`}
       className='block relative h-[31.9375vw] rounded-[1vw] max-md:rounded-[3.2vw] max-md:h-[104.8vw] max-md:ml-[4vw] customer-review__item cursor-pointer'
     >
       <Image
@@ -80,7 +80,7 @@ function ReviewItem({ data, lang }) {
             className='w-[2.75vw] h-[2.75vw] object-cover mt-[-0.95vw]'
           />
           <Link
-            href={`${lang}/tours/${tourSlug}`}
+            href={`/tours/${tourSlug}`}
             className='text-white inline text-[1vw] font-[500] leading-normal ml-[-1.25vw] max-md:text-[3.2vw] max-lg:text-[1.2vw]'
           >
             {data?.customerReview?.content.length >= 68

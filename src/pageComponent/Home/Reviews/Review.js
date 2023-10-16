@@ -65,7 +65,7 @@ function Review({ data, button, lang }) {
         </div>
       </div>
       <div className='mt-[3.5vw] flex justify-center max-md:hidden'>
-        <Link href={`/${lang}/about-us/reviews`}>
+        <Link href={`/about-us/reviews`}>
           <Button
             className='btn-secondary'
             content={button?.buttonseemore}

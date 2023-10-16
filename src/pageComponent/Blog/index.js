@@ -127,7 +127,7 @@ function Index({ data1, lang, initTopic, initDestination, initCategories, allCou
             <div className='md:px-[8.06vw]'>
               <SlideTour data={data1?.data?.bestSeller?.tours?.nodes} lang={lang} />
             </div>
-            <Link href={`/${lang}/search`}>
+            <Link href={`/search`}>
               <Button content={data1?.data?.page?.translation?.ourblog?.button} className='btn-secondary m-auto md:mb-[6.25vw] mb-[6.25vw] md:mt-[3.5vw] relative mt-[10.01vw] '>
                 <span>{data1?.data?.page?.translation?.ourblog?.button}</span>
               </Button>

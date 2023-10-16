@@ -17,7 +17,7 @@ function TourItemMobile({ data, lang, loading }) {
   const isPromotion = pathName.includes('hot-deals')
   return (
     <Link
-      href={`/${lang}/${isPromotion ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
+      href={`/${isPromotion ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
       className={` p-[4.27vw] h-[46.4vw] flex gap-[4.27vw] bg-white`}
     >
       <div className='h-full w-[45%] rounded-[1.067vw]'>

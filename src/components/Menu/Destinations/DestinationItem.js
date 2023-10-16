@@ -4,7 +4,7 @@ import Link from 'next/link'
 function DestinationItem({ tour, lang, onCloseMenu }) {
   return (
     <Link
-      href={`/${lang}/our-tours/${encodeURIComponent(tour?.slug)}`}
+      href={`/our-tours/${encodeURIComponent(tour?.slug)}`}
       className='h-[16vw] relative'
       onClick={onCloseMenu}
     >

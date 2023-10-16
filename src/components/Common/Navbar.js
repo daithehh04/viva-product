@@ -214,7 +214,7 @@ export default function Navbar({
         >
           <div className='bg-trans flex items-center h-full w-full px-[8.125%] bg-white'>
             <div className='flex items-center gap-x-[2vw]'>
-              <Link href={`/${lang}`}>
+              <Link href={`/`}>
                 <Image
                   src={logo}
                   width={100}
@@ -259,7 +259,7 @@ export default function Navbar({
                   </div>
                 </div>
                 <Link
-                  href={`/${lang}/hot-deals`}
+                  href={`/hot-deals`}
                   className='capitalize text-[1vw] nav-link cursor-pointer'
                   menu={dataHome?.nav3}
                   onClick={handleCloseMenu}
@@ -277,7 +277,7 @@ export default function Navbar({
                   </div>
                 </Link>
                 <Link
-                  href={`/${lang}/check-visa`}
+                  href={`/check-visa`}
                   className='capitalize text-[1vw] nav-link '
                   menu={dataHome?.nav4}
                 >
@@ -310,7 +310,7 @@ export default function Navbar({
                   </div>
                 </div>
                 <Link
-                  href={`/${lang}/blog`}
+                  href={`/blog`}
                   className='capitalize text-[1vw] nav-link cursor-pointer'
                   menu={dataHome?.nav7}
                 >
@@ -381,7 +381,7 @@ export default function Navbar({
           } books-footer h-[15.2vw] fixed bottom-0 left-0 right-0 z-[99] hidden max-md:flex`}
         >
           <Link
-            href={`/${lang}/search`}
+            href={`/search`}
             className='flex items-center gap-[1.6vw] w-[50%] bg-[#fff] justify-center'
           >
             <Image

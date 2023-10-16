@@ -36,7 +36,7 @@ function ReviewItem({ className, data, lang }) {
       >
         <div className='md:mb-[0.5vw] lg:mb-0'>
           <Link
-            href={`/${lang}/tours/${tourSlug}`}
+            href={`/tours/${tourSlug}`}
             className='cursor-pointer lg:text-[1.25vw] md:text-[1.4vw] text-[3.733vw] md:leading-[1.35] leading-normal font-bold text-textColor tracking-[-0.4px] md:mb-[0.62vw]'
           >
             {tourData?.banner?.title}

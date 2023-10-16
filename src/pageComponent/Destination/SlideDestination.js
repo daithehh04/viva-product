@@ -28,7 +28,7 @@ function SlideDestination({ data, dataOtherType, dataTitle, lang }) {
         </div>
         <div className='flex justify-center md:mt-[3.5vw] mt-[10.1vw]'>
 
-          <Link href={`/${lang}/search`}>
+          <Link href={`/search`}>
             <Button className='btn-secondary' content={dataTitle?.ourTour?.btn}><span>{dataTitle?.ourTour?.btn}</span></Button>
           </Link>
         </div>
@@ -62,7 +62,7 @@ function SlideDestination({ data, dataOtherType, dataTitle, lang }) {
                       </span>
                       <div className='flex justify-center mt-[1.25vw]'>
                         <Link
-                          href={`/${lang}/search`}
+                          href={`/search`}
                           className='btn-secondary'
                         >
                           {dataTitle?.ourTour?.btn}
@@ -84,7 +84,7 @@ function SlideDestination({ data, dataOtherType, dataTitle, lang }) {
         </div>
         <div className='flex justify-center md:mt-[3.5vw] mt-[10.1vw]'>
 
-          <Link href={`/${lang}/search`}>
+          <Link href={`/search`}>
             <Button className='btn-secondary' content={dataTitle?.ourTour?.btn}><span>{dataTitle?.ourTour?.btn}</span></Button>
           </Link>
         </div>

@@ -60,7 +60,7 @@ function OurBlogHomePage({ data, button, lang }) {
       </div>
       <div className='flex justify-center md:mb-[7.37vw] md:mt-[3.5vw] mt-[7.47vw]'>
         <Link
-          href={`/${lang}/blog`}
+          href={`/blog`}
           className='btn-secondary'
           content={button?.buttonseemore}
         >

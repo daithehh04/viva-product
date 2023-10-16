@@ -24,7 +24,7 @@ function BestSellerTour({ data, lang, dataCheckVisa }) {
           </div>
         ))}
       </div>
-      <Link href={`/${lang}/search`}>
+      <Link href={`/search`}>
         <Button className='flex mb-[8.77vw] md:mb-[6.25vw] m-auto md:mt-[3.5vw] mt-[8.77vw]'>
           <Button
             className='btn-secondary'
