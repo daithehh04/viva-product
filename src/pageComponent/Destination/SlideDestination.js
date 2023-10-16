@@ -64,8 +64,9 @@ function SlideDestination({ data, dataOtherType, dataTitle, lang }) {
                         <Link
                           href={`/search`}
                           className='btn-secondary'
+                          content={dataTitle?.ourTour?.btn}
                         >
-                          {dataTitle?.ourTour?.btn}
+                          <span>{dataTitle?.ourTour?.btn}</span>
                         </Link>
                       </div>
                     </div>

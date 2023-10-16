@@ -122,8 +122,9 @@ function BestTour({
                 <Link
                   href={`/search`}
                   className='btn-secondary'
+                  content={button?.buttonseemore}
                 >
-                  {button?.buttonseemore}
+                  <span>{button?.buttonseemore}</span>
                 </Link>
               </div>
             </div>
