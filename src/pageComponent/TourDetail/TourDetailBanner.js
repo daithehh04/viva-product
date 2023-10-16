@@ -49,7 +49,7 @@ export default function TourDetailBanner({ data = {}, headerData, price }) {
         infinite={true}
       >
         {video?.uploadVideo?.mediaItemUrl && (
-          <div className='w-full h-full relative'>
+          <div className='relative w-full h-full'>
             {!isPlay && (
               <div className='w-full h-full'>
                 <Image
@@ -59,7 +59,7 @@ export default function TourDetailBanner({ data = {}, headerData, price }) {
                   height={1000}
                   priority
                   quality={100}
-                  className='w-full h-full z-0 object-cover select-none cursor-pointer'
+                  className='z-0 object-cover w-full h-full cursor-pointer select-none'
                 />
                 <Image
                   src={playBtn}
@@ -72,7 +72,7 @@ export default function TourDetailBanner({ data = {}, headerData, price }) {
                 />
                 <div className='bg-[#00000033] w-full h-full absolute top-0 left-0 z-[20]'></div>
                 <div
-                  className='w-full h-full absolute top-0 left-0 cursor-pointer'
+                  className='absolute top-0 left-0 w-full h-full cursor-pointer'
                   style={{
                     background:
                       'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 58.36%, rgba(0, 0, 0, 0.23) 71.19%, rgba(0, 0, 0, 0.34) 78.89%, rgba(0, 0, 0, 0.60) 96.15%), linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)'
@@ -86,7 +86,7 @@ export default function TourDetailBanner({ data = {}, headerData, price }) {
           return (
             <div
               key={index}
-              className='w-full h-full relative'
+              className='relative w-full h-full'
             >
               <Image
                 src={img?.sourceUrl}
@@ -94,11 +94,11 @@ export default function TourDetailBanner({ data = {}, headerData, price }) {
                 width={1000}
                 height={1000}
                 priority
-                className='w-full h-full object-cover select-none cursor-pointer'
+                className='object-cover w-full h-full cursor-pointer select-none'
               />
               <div className='bg-[#00000033] w-full h-full absolute top-0 left-0 cursor-pointer'></div>
               <div
-                className='w-full h-full absolute top-0 left-0 cursor-pointer'
+                className='absolute top-0 left-0 w-full h-full cursor-pointer'
                 style={{
                   background:
                     'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 58.36%, rgba(0, 0, 0, 0.23) 71.19%, rgba(0, 0, 0, 0.34) 78.89%, rgba(0, 0, 0, 0.60) 96.15%), linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%)'
@@ -146,7 +146,7 @@ export default function TourDetailBanner({ data = {}, headerData, price }) {
         </div>
       </div>
 
-      <div className='tour-banner select-none'>
+      <div className='select-none tour-banner'>
         <div>
           <div className='w-[32vw] flex items-center justify-between pr-[2.87vw] text-white'>
             <div>
@@ -156,7 +156,7 @@ export default function TourDetailBanner({ data = {}, headerData, price }) {
                   ${price}
                 </span>
               </div>
-              <div className='flex gap-2 items-center'>
+              <div className='flex items-center gap-2'>
                 <span className='text-[1.25vw] max-lg:text-[1.75vw] font-medium leading-normal'>{rate || 5}</span>
                 <span className='flex gap-x-1'>
                   {icons?.map((icon, index) => {
@@ -175,7 +175,7 @@ export default function TourDetailBanner({ data = {}, headerData, price }) {
               </div>
             </div>
             <div
-              className='tour-detail-scroll flex flex-col justify-center items-center gap-1 cursor-pointer'
+              className='flex flex-col items-center justify-center gap-1 cursor-pointer tour-detail-scroll'
               onClick={handleScrollDown}
             >
               <div className='rounded-full w-[2.8125vw] max-lg:w-[4vw] h-[2.8125vw] max-lg:h-[4vw] bg-primaryColor flex items-center justify-center'>
@@ -219,8 +219,8 @@ export default function TourDetailBanner({ data = {}, headerData, price }) {
           {video?.uploadVideo?.mediaItemUrl && (
             <div className='relative'>
               <Image
-                src={video?.overlayImage.sourceUrl || videoBG}
-                alt={video?.overlayImage.altText || ''}
+                src={video?.overlayImage?.sourceUrl || videoBG}
+                alt={video?.overlayImage?.altText || ''}
                 width={200}
                 height={200}
                 priority

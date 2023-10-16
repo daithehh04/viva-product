@@ -565,7 +565,7 @@ export default function AboutTour(props) {
               alt={data?.map?.image?.altText}
               width={1000}
               height={1000}
-              className='md:block hidden w-full md:h-[30vw] h-[130vw] object-cover rounded shadow-[0_2px_50px_0_rgba(0,0,0,0.04)'
+              className='md:block hidden w-full md:h-[30vw] h-[130vw] object-contain rounded shadow-[0_2px_50px_0_rgba(0,0,0,0.04)'
               ref={imageMapRef}
             />
           </div>
@@ -576,7 +576,7 @@ export default function AboutTour(props) {
             className=' hidden-scroll overflow-auto md:overflow-hidden overflow-y-hidden md:mt-[4.5vw] mt-[11.5vw]'
             ref={reviewRef}
           >
-            <div className='md:w-[62.1875vw] lg:h-[35.75vw] md:h-[40vw] md:ml-[8.125vw] md:grid flex w-fit h-[121.33vw] grid-cols-2 md:gap-[2vw] gap-[4.44vw]'>
+            <div className='md:w-[62.1875vw] h-[auto] md:ml-[8.125vw] md:grid flex w-fit grid-cols-2 md:gap-[2vw] gap-[4.44vw]'>
               {reviews?.map((item, index) => {
                 return (
                   <div
@@ -586,7 +586,7 @@ export default function AboutTour(props) {
                     }`}
                   >
                     <ReviewItem
-                      className='our-tours-item md:flex hidden'
+                      className='hidden our-tours-item md:flex'
                       data={item}
                       lang={lang}
                     />
