@@ -60,7 +60,7 @@ function SlideReview({ data, lang }) {
       <div className='flex absolute top-[50%] -translate-y-2/4 z-10 w-full justify-between max-md:hidden btn-review'>
         <button
           onClick={handlePrevSlide}
-          className='w-[3.625vw] h-[3.625vw] rounded-full flex justify-center items-center bg-primaryColor absolute left-[-2.66%] top-[50%] -translate-y-2/4'
+          className='w-[3.625vw] h-[3.625vw] rounded-full flex justify-center items-center bg-primaryColor button-slide__tour absolute left-[-2.66%] top-[50%] -translate-y-2/4'
         >
           <svg
             width='24'
@@ -78,7 +78,7 @@ function SlideReview({ data, lang }) {
         </button>
         <button
           onClick={handleNextSlide}
-          className='w-[3.625vw] h-[3.625vw] rounded-full flex justify-center items-center bg-primaryColor absolute right-[4.75vw] top-[50%] -translate-y-2/4'
+          className='w-[3.625vw] h-[3.625vw] rounded-full flex justify-center items-center bg-primaryColor button-slide__tour absolute right-[4.75vw] top-[50%] -translate-y-2/4'
         >
           <svg
             width='24'

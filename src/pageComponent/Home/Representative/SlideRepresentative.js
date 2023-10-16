@@ -132,7 +132,7 @@ function SlideRepresent({ data, dataInfo }) {
       <div className='md:flex hidden absolute top-[50%] -translate-y-2/4 z-10 w-full justify-between'>
         <button
           onClick={handlePrevSlide}
-          className='w-[3.625vw] h-[3.625vw] rounded-full flex justify-center items-center bg-primaryColor absolute left-[6.5vw] top-[50%] -translate-y-2/4'
+          className='w-[3.625vw] h-[3.625vw] rounded-full flex justify-center items-center bg-primaryColor button-slide__tour absolute left-[6.5vw] top-[50%] -translate-y-2/4'
         >
           <svg
             width='24'
@@ -150,7 +150,7 @@ function SlideRepresent({ data, dataInfo }) {
         </button>
         <button
           onClick={handleNextSlide}
-          className='w-[3.625vw] h-[3.625vw] rounded-full flex justify-center items-center bg-primaryColor absolute right-[6.5vw] top-[50%] -translate-y-2/4'
+          className='w-[3.625vw] h-[3.625vw] rounded-full flex justify-center items-center bg-primaryColor button-slide__tour absolute right-[6.5vw] top-[50%] -translate-y-2/4'
         >
           <svg
             width='24'

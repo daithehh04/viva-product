@@ -136,7 +136,7 @@ function InspectionTrip({ data, lang }) {
         <div className='flex absolute top-[50%] -translate-y-2/4 z-10 w-full justify-between max-md:hidden'>
           <button
             onClick={handlePrevSlide}
-            className='w-[3.625vw] h-[3.625vw] rounded-full flex justify-center items-center bg-primaryColor absolute left-[5.6vw] top-[50%] -translate-y-2/4'
+            className='w-[3.625vw] h-[3.625vw] rounded-full flex justify-center items-center bg-primaryColor button-slide__tour absolute left-[5.6vw] top-[50%] -translate-y-2/4'
           >
             <svg
               width='24'
@@ -154,7 +154,7 @@ function InspectionTrip({ data, lang }) {
           </button>
           <button
             onClick={handleNextSlide}
-            className='w-[3.625vw] h-[3.625vw] rounded-full flex justify-center items-center bg-primaryColor absolute right-[5.6vw] top-[50%] -translate-y-2/4'
+            className='w-[3.625vw] h-[3.625vw] rounded-full flex justify-center items-center bg-primaryColor button-slide__tour absolute right-[5.6vw] top-[50%] -translate-y-2/4'
           >
             <svg
               width='24'
