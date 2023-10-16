@@ -26,7 +26,7 @@ export default function Price({ type, className, data, onClick }) {
         </button>
 
         {type === 'promo' && (
-          <div className='absolute top-0 left-[-0.375vw] '>
+          <div className='absolute top-[1.12vw] left-[-0.375vw] '>
             <div className='px-[1vw] py-[0.25vw] bg-[#F22] rounded-br-[4px] rounded-tr-[4px] text-white font-manrope font-semibold leading-normal text-[0.75vw]'>
               Hot Sale
             </div>
