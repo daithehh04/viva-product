@@ -54,7 +54,7 @@ function Surveys({ data, button, lang, dataBookTour }) {
     AOS.refresh()
   }, [])
   return (
-    <div className='surveys h-[auto] max-lg:h-[65vw] relative'>
+    <div className='surveys h-[auto] relative'>
       <div className='flex content pt-[6.38vw] max-md:flex-col max-md:pt-[14.93vw] relative z-10'>
         <div className='w-[43vw] max-md:w-full'>
           <h2
