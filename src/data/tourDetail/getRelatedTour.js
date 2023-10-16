@@ -9,9 +9,8 @@ export default async function getRelatedTour(taxonomyValue, taxonomyName, lang) 
     body: JSON.stringify({
       query: GET_RELATED_TOUR,
       variables: { taxonomyValue: taxonomyValue, taxonomyName: taxonomyName, language: lang?.toUpperCase() }
-
     }),
-    next: { revalidate: process.env.NEXT_PUBLIC_REVALIDATE }
+    next: { revalidate: 120 }
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
