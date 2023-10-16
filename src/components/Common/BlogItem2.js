@@ -7,7 +7,7 @@ import moment from 'moment'
 function BlogItem2({ className, data, lang, isHomePage }) {
   return (
     <Link
-      href={`/${lang}/${data?.slug}`}
+      href={`/${data?.slug}`}
       className={`${className} relative item-blog_2 md:rounded-[0.5vw] rounded-[2.13333vw]`}
     >
       <div className='relative w-full'>

@@ -49,7 +49,7 @@ function VideoReview({ data, videoInfo, className, lang }) {
       />
       <div className={`top absolute top-0 pt-[1.5vw] pl-[1.5vw] pr-[2.38vw] z-30 ${isPlay ? 'hidden' : ''}`}>
         <Link
-          href={`/${lang}/tours/${videoInfo?.tours?.slug}`}
+          href={`/tours/${videoInfo?.tours?.slug}`}
           className='text-white text-[1.25vw] font-bold leading-[1.3] tracking-tight max-lg:text-[1.4vw]'
         >
           {videoInfo?.tours?.tourDetail?.banner?.title}

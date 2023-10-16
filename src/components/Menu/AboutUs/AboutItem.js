@@ -4,7 +4,7 @@ import Link from 'next/link'
 function AboutItem({ data, slug, onCloseMenu, lang }) {
   return (
     <Link
-      href={`/${lang}/${slug}`}
+      href={`/${slug}`}
       className='relative w-[26.25vw] h-fit'
       onClick={onCloseMenu}
     >

@@ -18,7 +18,7 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
   return (
     <Link
       onClick={onCloseMenu}
-      href={`/${lang}/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
+      href={`/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(data?.translation?.slug)}`}
       className={`${
         menu
           ? 'lg:h-[14.5vw] md:w-[30vw] md:h-[35vw] w-[52.5vw] h-[67.23vw]'
@@ -72,7 +72,7 @@ function TourItem({ data, menu, lang, loading, className, onCloseMenu }) {
 
         <h3 className='line-clamp-2'>
           <Link
-            href={`/${lang}/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(
+            href={`/${isPromotion || menu ? 'hot-deals' : 'tours'}/${encodeURIComponent(
               data?.translation?.slug
             )}`}
             className={`text-white ${

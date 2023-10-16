@@ -107,7 +107,7 @@ function Surveys({ data, button, lang, dataBookTour }) {
               <Button className='btn-primary' content={button?.buttonbooktour}><span>{button?.buttonbooktour}</span>
               </Button>
             </div>
-            <Link href={`/${lang}/about-us/who-we-are`}>
+            <Link href={`/about-us/who-we-are`}>
               <Button className='btn-secondary' content={button?.buttonseemore}><span>{button?.buttonseemore}</span>
               </Button>
             </Link>

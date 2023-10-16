@@ -49,7 +49,7 @@ function CustomerReview({ data, dataInfo, lang }) {
         </div>
         <div className='flex justify-center md:mt-[4vw] mt-[7.61vw]'>
           <Link
-            href={`/${lang}/about-us/reviews`}>
+            href={`/about-us/reviews`}>
             <Button className='btn-secondary' content={dataInfo?.btn}><span>{dataInfo?.btn}</span></Button>
           </Link>
         </div>

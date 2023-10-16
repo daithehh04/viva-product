@@ -34,7 +34,7 @@ function OtherArticle({ data, dataNews, lang, dataTitle }) {
       </div>
 
       <div className='flex justify-center md:mb-[1vw]'>
-        <Link href={`/${lang}/blog`}>
+        <Link href={`/blog`}>
           <Button className='btn-secondary'>
             {' '}
             {dataTitle?.data?.postBy?.translation?.blogdetail?.transtitle?.button}

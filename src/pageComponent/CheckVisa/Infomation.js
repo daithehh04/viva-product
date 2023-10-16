@@ -151,7 +151,7 @@ function Infomation({ data, lang, dataBookTour }) {
               <div className='flex' ref={refBtnBookTour} onClick={() => setOpenModal(true)}>
                 <Button className='btn-primary' content={dataInfo?.buttonapply}><span>{dataInfo?.buttonapply}</span></Button>
               </div>
-              <Link href={`/${lang}/search`}>
+              <Link href={`/search`}>
                 <Button className='btn-secondary' content={dataInfo?.button}><span>{dataInfo?.button}</span></Button>
               </Link>
             </div>

@@ -10,7 +10,7 @@ function TravelStyleMb({ data, title, lang }) {
         {data?.travelStyleList?.map((item, index) => (
           <div key={index}>
             <Link
-              href={`/${lang}/travel-style/${item?.slug}`}
+              href={`/travel-style/${item?.slug}`}
               className='flex flex-col items-center'
             >
               <div className='w-[17.3vw] h-[17.3vw] rounded-full border border-solid border-primaryColor flex items-center justify-center bg-[#FFFBE9]'>

@@ -66,7 +66,7 @@ function InspectionTrip({ data, lang }) {
             return (
               <SwiperSlide key={index}>
                 {({ isActive }) => (
-                  <Link href={`${lang}/tours/${item?.slug}`}>
+                  <Link href={`/tours/${item?.slug}`}>
                     <div className='h-[28.75vw] rounded-[1vw] itemSlideTrip tour-item max-md:rounded-[2.13vw] relative max-md:h-[53.33vw] max-md:ml-[3.2vw]'>
                       <Image
                         src={
