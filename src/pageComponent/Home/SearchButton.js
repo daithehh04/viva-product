@@ -45,7 +45,7 @@ export default function SearchButton({ lang }) {
       </div>
       {popup && (
         <div className='fixed left-0 top-0 flex items-center justify-center z-[99] w-full h-full transition-all'>
-          <PopupSearch lang={lang} />
+          <PopupSearch lang={lang} onClose= {handleClosePopup}/>
           <div
             onClick={handleClosePopup}
             className='absolute inset-0 max-md:block'

@@ -14,7 +14,7 @@ import OurBlogHomePage from '@/components/Common/OurBlogHomePage'
 import AOS from 'aos'
 
 import { useQuery } from '@apollo/client'
-import { DATA_BEST_TOUR, DATA_BEST_TOUR_HOME_PAGE } from '@/graphql/filter/queries'
+import { DATA_BEST_TOUR_HOME_PAGE } from '@/graphql/filter/queries'
 export default function Home({
   data,
   lang,

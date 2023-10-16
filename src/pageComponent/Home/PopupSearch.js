@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client'
 import { useState } from 'react'
 import TourSearch from './TourSearch'
 
-function PopupSearch({ lang }) {
+function PopupSearch({ lang, onClose }) {
   const [text, setText] = useState('')
   function handleInput(e) {
     setText(e.target.value)
@@ -40,6 +40,7 @@ function PopupSearch({ lang }) {
             ) : (
               allTours?.map((tour, index) => (
                 <TourSearch
+                  onClose={onClose}
                   data={tour}
                   key={index}
                   lang={lang}
