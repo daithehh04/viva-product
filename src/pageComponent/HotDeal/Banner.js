@@ -40,7 +40,7 @@ const Banner = ({ data = {} }) => {
         if (index === 4 && listGallery?.length > 5) {
           return (
             <div
-              className='w-full h-full relative cursor-pointer'
+              className='relative w-full h-full cursor-pointer'
               key={index}
             >
               <Image
@@ -80,7 +80,7 @@ const Banner = ({ data = {} }) => {
               key={index}
               width={1000}
               height={1000}
-              className={`min-w-[19.02625vw] min-h-[16.5vw] object-cover cursor-pointer rounded-lg`}
+              className={`min-w-[19.02625vw] min-h-[16.5vw] h-full w-full object-cover cursor-pointer rounded-lg`}
             />
           )
         }
