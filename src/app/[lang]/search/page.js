@@ -12,8 +12,8 @@ import Search from '@/pageComponent/Search/Search'
 export async function generateMetadata({ params: { lang } }) {
   const res = await getMetaDataPages(GET_META_DATA, lang)
 
-  const title = res?.data?.page?.translation?.meta?.title
-  const excerpt = res?.data?.page?.translation?.meta?.description
+  const title = res?.data?.page?.translation?.search?.meta?.title
+  const excerpt = res?.data?.page?.translation?.search?.meta?.description
   return getMeta(title, excerpt, res?.data?.page?.translation?.featuredImage)
 }
 async function page({ params: { lang } }) {
