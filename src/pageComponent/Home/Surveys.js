@@ -54,8 +54,8 @@ function Surveys({ data, button, lang, dataBookTour }) {
     AOS.refresh()
   }, [])
   return (
-    <div className='surveys h-[auto] max-lg:h-[65vw]'>
-      <div className='flex content pt-[6.38vw] max-md:flex-col max-md:pt-[14.93vw]'>
+    <div className='surveys h-[auto] max-lg:h-[65vw] relative'>
+      <div className='flex content pt-[6.38vw] max-md:flex-col max-md:pt-[14.93vw] relative z-10'>
         <div className='w-[43vw] max-md:w-full'>
           <h2
             className='heading-1'
@@ -140,6 +140,7 @@ function Surveys({ data, button, lang, dataBookTour }) {
           </div>
         </ModalCustom>
       )}
+       <div className='absolute bottom-0 w-full h-[10vw]' style={{background: 'linear-gradient(0deg, #FFF 0%, rgba(255, 255, 255, 0.49) 63.88%, rgba(255, 255, 255, 0.00) 100%)'}}></div>
     </div>
   )
 }
