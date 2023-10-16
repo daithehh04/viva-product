@@ -17,6 +17,7 @@ function CustomerReview({ data, dataInfo, lang }) {
   })
 
   const onlySmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
+  if(data.length === 0) return
   return (
     <div className='relative'>
       <Image
