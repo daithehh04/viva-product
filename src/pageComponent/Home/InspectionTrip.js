@@ -23,7 +23,7 @@ function InspectionTrip({ data, lang }) {
     setIndexSlider(swiper.activeIndex)
   }
   return (
-    <div className='inspection-trip mt-[-8.38vw] max-md:mt-[11.68vw]'>
+    <div className='inspection-trip mt-[8.38vw] max-md:mt-[11.68vw]'>
       <h2
         className='text-center heading-1 max-md:text-start max-md:pl-[4.27vw]'
         data-aos-once='true'
