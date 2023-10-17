@@ -99,7 +99,7 @@ function BestTour({
           ))
         ) : (
           <div className='text-center text-[3.5vw] w-full text-[#c23a3a] font-optima max-md:text-[5.67vw]'>
-            Not Found Tour !
+            Not Found Tour !!
           </div>
         )}
         {allTours?.length > 7 && !loading ? (
