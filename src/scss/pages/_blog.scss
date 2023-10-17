@@ -50,7 +50,8 @@
 
 .ourBlog {
   @media screen and (min-width: 768px) {
-    width: 49.125vw;
+    width: max-content;
+    padding: 0 3vw;
     display: flex;
     justify-content: center;
     align-items: center;
