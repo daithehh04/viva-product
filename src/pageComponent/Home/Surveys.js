@@ -1,12 +1,6 @@
 'use client'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
-import img1 from '@/assets/images/restau.png'
-import img2 from '@/assets/images/accom.png'
-import img3 from '@/assets/images/activi.png'
-import img4 from '@/assets/images/ltiner.png'
-import img5 from '@/assets/images/trans.png'
-import img6 from '@/assets/images/staff.png'
 import imgPerson from '@/assets/images/people-survey.png'
 import Button from '@/components/Common/Button'
 import AOS from 'aos'
@@ -14,32 +8,6 @@ import Link from 'next/link'
 import ModalCustom from '@/components/Common/ModalCustom'
 import BookTour from '@/components/Common/BookTour'
 
-const arrImg = [
-  {
-    img: img1,
-    title: 'Restaurants'
-  },
-  {
-    img: img2,
-    title: 'Accomodations'
-  },
-  {
-    img: img3,
-    title: 'Activities'
-  },
-  {
-    img: img4,
-    title: 'Itineraries'
-  },
-  {
-    img: img5,
-    title: 'Transport'
-  },
-  {
-    img: img6,
-    title: 'Staff'
-  }
-]
 function Surveys({ data, button, lang, dataBookTour }) {
   const [openModal, setOpenModal] = useState(false)
   const refBtnBookTour = useRef()
@@ -76,7 +44,7 @@ function Surveys({ data, button, lang, dataBookTour }) {
             {data?.text}
           </p>
           <ul className='grid grid-cols-3 md:pr-[11.69vw] gap-x-[3.75vw] justify-items-start gap-y-[2vw] mt-[2vw] max-md:mt-[6.93vw] max-md:gap-x-[15.75vw] max-md:gap-y-[3.2vw]'>
-            {arrImg?.map((item, index) => (
+            {data?.type?.map((item, index) => (
               <li
                 data-aos-once='true'
                 data-aos-disabled='true'
@@ -86,14 +54,14 @@ function Surveys({ data, button, lang, dataBookTour }) {
                 className='flex flex-col items-center'
               >
                 <Image
-                  src={item?.img}
+                  src={item?.icon?.sourceUrl}
                   width={100}
                   height={100}
                   alt='img'
                   className='w-[4.375vw] h-[4.375vw] object-contain max-md:w-[14.99vw] max-md:h-[14.99vw]'
                 />
                 <span className='text-[1vw] capitalize mt-[0.62vw] font-[500] text-textColor leading-normal max-md:text-[3.2vw] max-lg:text-[1.4vw]'>
-                  {item?.title}
+                  {item?.text}
                 </span>
               </li>
             ))}

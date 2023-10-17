@@ -31,6 +31,12 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
           fieldGroupName
           text
           title
+          type {
+            icon {
+              sourceUrl
+            }
+            text
+          }
         }
         inspectionTrip {
           fieldGroupName
