@@ -92,19 +92,19 @@ const GET_HOME_PAGE = `query getHomePageData($id:ID!) {
           title
         }
         representative {
-          desc
-          title
-          members {
-            name
-            role
-            img {
-              altText
-              sourceUrl
-            }
+        title
+        desc
+        members {
+          img {
+            altText
+            sourceUrl
           }
-          telephone
+          name
+          role
           email
+          telephone
         }
+      }
         video {
           thumbnail {
             altText
