@@ -11,7 +11,7 @@ import Link from 'next/link'
 import { GET_ALL_POST_FILTER } from '@/graphql/post/queries'
 import { useQuery } from '@apollo/client'
 
-function Index({ data1, lang, initTopic, initDestination, initCategories, allCountries, slug }) {
+function Index({ data1, lang, initTopic, initDestination, initCategories, slug }) {
   const metaTopic = initTopic?.nodes
   const metaDestination = initDestination?.nodes
   const metaCategories = initCategories?.nodes
