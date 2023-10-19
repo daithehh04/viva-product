@@ -82,7 +82,7 @@ export default async function sitemap() {
     return {
       url: `${process.env.DOMAIN}/tours/${e?.slug}`,
       lastModified: e?.date,
-      priority: 0.8
+      priority: 0.7
     }
   })
   const arrCountries = countries?.data?.allCountries?.nodes?.map((e) => {
@@ -96,7 +96,7 @@ export default async function sitemap() {
     return {
       url: `${process.env.DOMAIN}/travel-style/${e?.slug}`,
       lastModified: new Date(),
-      priority: 0.8
+      priority: 0.7
     }
   })
   const arrCategories = categories?.data?.categories?.nodes?.map((e) => {
@@ -110,7 +110,7 @@ export default async function sitemap() {
     return {
       url: `${process.env.DOMAIN}/hot-deals/${e?.slug}`,
       lastModified: e?.date,
-      priority: 0.8
+      priority: 0.7
     }
   })
   return [
@@ -119,36 +119,37 @@ export default async function sitemap() {
       lastModified: new Date(),
       priority: 1
     },
+
     {
       url: `${process.env.DOMAIN}/hot-deals`,
       lastModified: new Date(),
-      priority: 0.9
+      priority: 0.8
     },
     {
       url: `${process.env.DOMAIN}/check-visa`,
       lastModified: new Date(),
-      priority: 0.9
+      priority: 0.8
     },
     {
       url: `${process.env.DOMAIN}/blog`,
       changeFrequency: 'weekly',
       lastModified: new Date(),
-      priority: 0.9
+      priority: 1
     },
     {
       url: `${process.env.DOMAIN}/about-us/who-we-are`,
       lastModified: new Date(),
-      priority: 0.9
+      priority: 0.8
     },
     {
       url: `${process.env.DOMAIN}/about-us/responsible-travel`,
       lastModified: new Date(),
-      priority: 0.9
+      priority: 0.8
     },
     {
       url: `${process.env.DOMAIN}/about-us/reviews`,
       lastModified: new Date(),
-      priority: 0.9
+      priority: 0.8
     },
     ...arrPosts,
     ...arrTours,
